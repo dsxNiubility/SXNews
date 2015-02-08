@@ -70,6 +70,10 @@
 		1D882E561A811E1D004C9C9A /* SXPhotoSetController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D882E551A811E1D004C9C9A /* SXPhotoSetController.m */; };
 		1D8B9DD31A812D530085D265 /* SXPhotoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D8B9DD21A812D530085D265 /* SXPhotoView.m */; };
 		1D8B9DD51A812D700085D265 /* SXPhotoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D8B9DD41A812D700085D265 /* SXPhotoView.xib */; };
+		1D925CB11A87B50B0063921A /* SXReplyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D925CB01A87B50B0063921A /* SXReplyViewController.m */; };
+		1D925CB41A87B7030063921A /* SXReplyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D925CB31A87B7030063921A /* SXReplyCell.m */; };
+		1D925CB71A87B8CA0063921A /* SXReplyHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D925CB61A87B8CA0063921A /* SXReplyHeader.m */; };
+		1D925CB91A87B8DF0063921A /* SXReplyHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D925CB81A87B8DF0063921A /* SXReplyHeader.xib */; };
 		1DC4731C1A81377B00DA905D /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DC4731B1A81377B00DA905D /* UIView+Frame.m */; };
 /* End PBXBuildFile section */
 
@@ -206,6 +210,13 @@
 		1D8B9DD11A812D530085D265 /* SXPhotoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SXPhotoView.h; sourceTree = "<group>"; };
 		1D8B9DD21A812D530085D265 /* SXPhotoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SXPhotoView.m; sourceTree = "<group>"; };
 		1D8B9DD41A812D700085D265 /* SXPhotoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SXPhotoView.xib; sourceTree = "<group>"; };
+		1D925CAF1A87B50B0063921A /* SXReplyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SXReplyViewController.h; sourceTree = "<group>"; };
+		1D925CB01A87B50B0063921A /* SXReplyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SXReplyViewController.m; sourceTree = "<group>"; };
+		1D925CB21A87B7030063921A /* SXReplyCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SXReplyCell.h; sourceTree = "<group>"; };
+		1D925CB31A87B7030063921A /* SXReplyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SXReplyCell.m; sourceTree = "<group>"; };
+		1D925CB51A87B8CA0063921A /* SXReplyHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SXReplyHeader.h; sourceTree = "<group>"; };
+		1D925CB61A87B8CA0063921A /* SXReplyHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SXReplyHeader.m; sourceTree = "<group>"; };
+		1D925CB81A87B8DF0063921A /* SXReplyHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SXReplyHeader.xib; sourceTree = "<group>"; };
 		1DC4731A1A81377B00DA905D /* UIView+Frame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Frame.h"; sourceTree = "<group>"; };
 		1DC4731B1A81377B00DA905D /* UIView+Frame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Frame.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -237,6 +248,13 @@
 				1D0AC82B1A73B8AE00EEF963 /* SXDetailImgModel.m */,
 				1D0AC8301A73C66200EEF963 /* SXDetailController.h */,
 				1D0AC8311A73C66200EEF963 /* SXDetailController.m */,
+				1D925CAF1A87B50B0063921A /* SXReplyViewController.h */,
+				1D925CB01A87B50B0063921A /* SXReplyViewController.m */,
+				1D925CB21A87B7030063921A /* SXReplyCell.h */,
+				1D925CB31A87B7030063921A /* SXReplyCell.m */,
+				1D925CB51A87B8CA0063921A /* SXReplyHeader.h */,
+				1D925CB61A87B8CA0063921A /* SXReplyHeader.m */,
+				1D925CB81A87B8DF0063921A /* SXReplyHeader.xib */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -575,6 +593,7 @@
 				1D2357761A80A4B2000C7AAC /* Main.storyboard in Resources */,
 				1D58EED31A70BD1300411E39 /* NewsCollection.storyboard in Resources */,
 				1D8B9DD51A812D700085D265 /* SXPhotoView.xib in Resources */,
+				1D925CB91A87B8DF0063921A /* SXReplyHeader.xib in Resources */,
 				1D58EECA1A709AE600411E39 /* News.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -608,6 +627,7 @@
 				1D58EEDB1A70C28300411E39 /* SXCollectionCell.m in Sources */,
 				1D2A59741A700840001F9B8E /* SDWebImageDownloaderOperation.m in Sources */,
 				1D0AC8321A73C66200EEF963 /* SXDetailController.m in Sources */,
+				1D925CB41A87B7030063921A /* SXReplyCell.m in Sources */,
 				1D2A59681A700840001F9B8E /* AFNetworkReachabilityManager.m in Sources */,
 				1D58EEC81A70924A00411E39 /* SXNewsModel.m in Sources */,
 				1D2A59701A700840001F9B8E /* SDImageCache.m in Sources */,
@@ -617,6 +637,7 @@
 				1D882E4D1A8117D1004C9C9A /* MJConst.m in Sources */,
 				1D2A596C1A700840001F9B8E /* AFURLResponseSerialization.m in Sources */,
 				1D2A59721A700840001F9B8E /* SDWebImageDecoder.m in Sources */,
+				1D925CB11A87B50B0063921A /* SXReplyViewController.m in Sources */,
 				1D2A596A1A700840001F9B8E /* AFURLConnectionOperation.m in Sources */,
 				1D2A597B1A700840001F9B8E /* UIImageView+HighlightedWebCache.m in Sources */,
 				1D2A59691A700840001F9B8E /* AFSecurityPolicy.m in Sources */,
@@ -635,6 +656,7 @@
 				1D2A59761A700840001F9B8E /* SDWebImagePrefetcher.m in Sources */,
 				1D2357741A80A4A2000C7AAC /* SXTitleLable.m in Sources */,
 				1D2A596D1A700840001F9B8E /* AFURLSessionManager.m in Sources */,
+				1D925CB71A87B8CA0063921A /* SXReplyHeader.m in Sources */,
 				1D882E531A8117D1004C9C9A /* NSObject+MJKeyValue.m in Sources */,
 				1D882E521A8117D1004C9C9A /* NSObject+MJIvar.m in Sources */,
 				1D2A596E1A700840001F9B8E /* MKAnnotationView+WebCache.m in Sources */,

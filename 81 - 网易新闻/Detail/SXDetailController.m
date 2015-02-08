@@ -14,8 +14,7 @@
 @interface SXDetailController ()<UIWebViewDelegate>
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
 @property(nonatomic,strong) SXDetailModel *detailModel;
-- (IBAction)btnPop;
-//- (IBAction)btnDismiss:(id)sender;
+
 // http://c.m.163.com/nc/article/AHHQIG5B00014JB6/full.html
 @end
 
