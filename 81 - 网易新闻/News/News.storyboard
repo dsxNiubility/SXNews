@@ -82,7 +82,7 @@
                                     <outlet property="lblReply" destination="K8d-vD-CgX" id="DEK-Ke-tut"/>
                                     <outlet property="lblSubtitle" destination="GwA-bM-jax" id="U3Z-pF-DNq"/>
                                     <outlet property="lblTitle" destination="V3U-Va-OTb" id="0gC-cU-ywJ"/>
-                                    <segue destination="AGK-Ys-EEq" kind="push" id="jDs-Zg-wBS"/>
+                                    <segue destination="AGK-Ys-EEq" kind="push" id="2uJ-wj-MSP"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ImagesCell" rowHeight="130" id="y9L-c3-hpy" customClass="SXNewsCell">
@@ -180,7 +180,7 @@
                                     <outlet property="imgIcon" destination="GRH-9r-HRd" id="7Ne-NE-bNk"/>
                                     <outlet property="lblSubtitle" destination="3wN-1g-jc3" id="O9p-Sp-e9W"/>
                                     <outlet property="lblTitle" destination="rAF-Nf-yoj" id="euz-oo-r8n"/>
-                                    <segue destination="AGK-Ys-EEq" kind="push" id="bsh-YZ-5be"/>
+                                    <segue destination="AGK-Ys-EEq" kind="push" id="azu-K6-x3y"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TopImageCell" rowHeight="245" id="nDs-Tx-EfH" customClass="SXNewsCell">
@@ -292,7 +292,7 @@
                                 <connections>
                                     <outlet property="imgIcon" destination="VUZ-Ze-3f9" id="IcX-yi-lvG"/>
                                     <outlet property="lblTitle" destination="w5X-9P-eHt" id="nfQ-8H-mxR"/>
-                                    <segue destination="AGK-Ys-EEq" kind="push" id="0W9-B2-8Vd"/>
+                                    <segue destination="AGK-Ys-EEq" kind="push" id="uaS-US-B7U"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -438,7 +438,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="4aM-sd-RR8" kind="push" id="NWH-Th-5ZC"/>
+                                    <segue destination="4aM-sd-RR8" kind="push" id="KzH-9A-Ids"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -603,7 +603,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ve4-lh-bDu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="887.5" y="-697.5"/>
+            <point key="canvasLocation" x="952.5" y="-483.5"/>
         </scene>
         <!--新闻详情-->
         <scene sceneID="RC0-Cc-OkJ">
@@ -618,28 +618,87 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dlk-Pz-rJr">
-                                <rect key="frame" x="0.0" y="64" width="375" height="1136"/>
+                                <rect key="frame" x="0.0" y="55" width="375" height="1145"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </webView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7b7-5X-G74">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="55"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nQn-TM-cYT">
+                                        <rect key="frame" x="0.0" y="12" width="42" height="35"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="35" id="8os-ma-mNi"/>
+                                            <constraint firstAttribute="width" constant="42" id="mOJ-eQ-4kY"/>
+                                        </constraints>
+                                        <state key="normal" backgroundImage="night_icon_back">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="back:" destination="4aM-sd-RR8" eventType="touchUpInside" id="Rn7-48-CWr"/>
+                                            <action selector="backBtn:" destination="AGK-Ys-EEq" eventType="touchUpInside" id="Yka-oE-dWH"/>
+                                        </connections>
+                                    </button>
+                                    <view alpha="0.69999998807907104" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MaR-if-e2b">
+                                        <rect key="frame" x="0.0" y="53" width="375" height="1"/>
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1" id="bzM-FX-qw5"/>
+                                        </constraints>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZPp-e4-Lgf">
+                                        <rect key="frame" x="295" y="19" width="80" height="35"/>
+                                        <rect key="contentStretch" x="0.5" y="0.5" width="0.0" height="0.0"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="35" id="IKm-i3-ew7"/>
+                                            <constraint firstAttribute="width" constant="80" id="c9T-oK-tYm"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="5" maxY="0.0"/>
+                                        <state key="normal" title="1.2万跟帖" backgroundImage="contentview_commentbacky">
+                                            <color key="titleColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="4aM-sd-RR8" kind="push" id="Kax-d4-jez"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="nQn-TM-cYT" firstAttribute="leading" secondItem="7b7-5X-G74" secondAttribute="leading" id="9En-i9-5uv"/>
+                                    <constraint firstAttribute="trailing" secondItem="ZPp-e4-Lgf" secondAttribute="trailing" id="AMg-f2-2gb"/>
+                                    <constraint firstAttribute="height" constant="55" id="G2z-7R-EQS"/>
+                                    <constraint firstItem="MaR-if-e2b" firstAttribute="leading" secondItem="7b7-5X-G74" secondAttribute="leading" id="LSf-hS-kZM"/>
+                                    <constraint firstItem="ZPp-e4-Lgf" firstAttribute="top" secondItem="7b7-5X-G74" secondAttribute="top" constant="19" id="P0K-Rb-AQy"/>
+                                    <constraint firstAttribute="bottom" secondItem="MaR-if-e2b" secondAttribute="bottom" constant="1" id="b91-Yt-qZ8"/>
+                                    <constraint firstAttribute="trailing" secondItem="MaR-if-e2b" secondAttribute="trailing" id="m9Q-42-Y8D"/>
+                                    <constraint firstItem="nQn-TM-cYT" firstAttribute="top" secondItem="7b7-5X-G74" secondAttribute="top" constant="12" id="xVj-MD-GeY"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="X81-OH-VM3" firstAttribute="top" secondItem="dlk-Pz-rJr" secondAttribute="bottom" id="8aC-pk-XJ0"/>
+                            <constraint firstItem="7b7-5X-G74" firstAttribute="top" secondItem="XPx-sf-5Zy" secondAttribute="top" id="EUn-dL-uPp"/>
+                            <constraint firstItem="7b7-5X-G74" firstAttribute="leading" secondItem="XPx-sf-5Zy" secondAttribute="leading" id="GAr-eV-Wyi"/>
+                            <constraint firstAttribute="trailing" secondItem="7b7-5X-G74" secondAttribute="trailing" id="KKM-2l-OJD"/>
                             <constraint firstAttribute="trailing" secondItem="dlk-Pz-rJr" secondAttribute="trailing" id="Rcu-Tg-BYb"/>
                             <constraint firstItem="dlk-Pz-rJr" firstAttribute="leading" secondItem="XPx-sf-5Zy" secondAttribute="leading" id="cqW-yi-rTU"/>
-                            <constraint firstItem="dlk-Pz-rJr" firstAttribute="top" secondItem="XPx-sf-5Zy" secondAttribute="top" constant="64" id="tSQ-bh-SLO"/>
+                            <constraint firstItem="dlk-Pz-rJr" firstAttribute="top" secondItem="XPx-sf-5Zy" secondAttribute="top" constant="55" id="tSQ-bh-SLO"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="新闻详情" id="TYY-CD-yZi">
                         <barButtonItem key="rightBarButtonItem" image="002" id="C33-g8-HfC"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="backBtn" destination="nQn-TM-cYT" id="UwP-AI-3vk"/>
+                        <outlet property="replyCountBtn" destination="ZPp-e4-Lgf" id="rWQ-XA-CqN"/>
                         <outlet property="webView" destination="dlk-Pz-rJr" id="N2d-hm-AV7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fee-Cb-3Pb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="713.5" y="367"/>
+            <point key="canvasLocation" x="568" y="215"/>
         </scene>
     </scenes>
     <resources>
@@ -657,7 +716,8 @@
         <image name="weather_share" width="45" height="44"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="jDs-Zg-wBS"/>
+        <segue reference="uaS-US-B7U"/>
         <segue reference="taV-i8-kFc"/>
+        <segue reference="Kax-d4-jez"/>
     </inferredMetricsTieBreakers>
 </document>

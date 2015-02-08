@@ -14,11 +14,17 @@
 @interface SXDetailController ()<UIWebViewDelegate>
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
 @property(nonatomic,strong) SXDetailModel *detailModel;
+@property (weak, nonatomic) IBOutlet UIButton *replyCountBtn;
+@property (weak, nonatomic) IBOutlet UIButton *backBtn;
 
 // http://c.m.163.com/nc/article/AHHQIG5B00014JB6/full.html
 @end
 
 @implementation SXDetailController
+- (IBAction)backBtn:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -35,7 +41,10 @@
     self.automaticallyAdjustsScrollViewInsets = NO;
 }
 
-
+- (void)viewWillAppear:(BOOL)animated
+{
+    [self.navigationController setNavigationBarHidden:YES animated:YES];
+}
 
 - (void)showInWebView
 {
