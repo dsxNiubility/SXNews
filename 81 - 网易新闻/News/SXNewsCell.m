@@ -1,0 +1,103 @@
+//
+//  SXNewsCell.m
+//  81 - 网易新闻
+//
+//  Created by 董 尚先 on 15-1-22.
+//  Copyright (c) 2015年 ShangxianDante. All rights reserved.
+//
+
+#import "SXNewsCell.h"
+#import "UIImageView+WebCache.h"
+
+@interface SXNewsCell ()
+
+/**
+ *  图片
+ */
+@property (weak, nonatomic) IBOutlet UIImageView *imgIcon;
+/**
+ *  标题
+ */
+@property (weak, nonatomic) IBOutlet UILabel *lblTitle;
+/**
+ *  回复数
+ */
+@property (weak, nonatomic) IBOutlet UILabel *lblReply;
+/**
+ *  描述
+ */
+@property (weak, nonatomic) IBOutlet UILabel *lblSubtitle;
+/**
+ *  第二张图片（如果有的话）
+ */
+@property (weak, nonatomic) IBOutlet UIImageView *imgOther1;
+/**
+ *  第三张图片（如果有的话）
+ */
+@property (weak, nonatomic) IBOutlet UIImageView *imgOther2;
+
+
+@end
+
+@implementation SXNewsCell
+
+- (void)awakeFromNib {
+    // Initialization code
+}
+
+- (void)setNewsModel:(SXNewsModel *)NewsModel
+{
+    _NewsModel = NewsModel;
+    
+    [self.imgIcon sd_setImageWithURL:[NSURL URLWithString:self.NewsModel.imgsrc]];
+    self.lblTitle.text = self.NewsModel.title;
+    self.lblSubtitle.text = self.NewsModel.digest;
+    
+    // 如果回复太多就改成几点几万
+    if ([self.NewsModel.replyCount intValue]/1000 > 0) {
+        self.lblReply.text = [NSString stringWithFormat:@"%.1f万跟帖",([self.NewsModel.replyCount intValue] / 1000.0)];
+    }else{
+    self.lblReply.text = [NSString stringWithFormat:@"%@跟帖",self.NewsModel.replyCount];
+    }
+    
+    // 多图cell
+    if (self.NewsModel.imgextra.count == 2) {
+        [self.imgOther1 sd_setImageWithURL:[NSURL URLWithString:self.NewsModel.imgextra[0][@"imgsrc"]]];
+        [self.imgOther2 sd_setImageWithURL:[NSURL URLWithString:self.NewsModel.imgextra[1][@"imgsrc"]]];
+    }
+    
+}
+
+#pragma mark - /************************* 类方法返回可重用ID ***************************/
++ (NSString *)idForRow:(SXNewsModel *)NewsModel
+{
+    if (NewsModel.hasHead && NewsModel.photosetID) {
+        return @"TopImageCell";
+    }else if (NewsModel.hasHead){
+        return @"TopTxtCell";
+    }else if (NewsModel.imgType){
+        return @"BigImageCell";
+    }else if (NewsModel.imgextra){
+        return @"ImagesCell";
+    }else{
+        return @"NewsCell";
+    }
+}
+
+#pragma mark - /************************* 类方法返回行高 ***************************/
++ (CGFloat)heightForRow:(SXNewsModel *)NewsModel
+{
+    if (NewsModel.hasHead && NewsModel.photosetID){
+        return 245;
+    }else if(NewsModel.hasHead) {
+        return 245;
+    }else if(NewsModel.imgType) {
+        return 170;
+    }else if (NewsModel.imgextra){
+        return 130;
+    }else{
+        return 80;
+    }
+}
+
+@end

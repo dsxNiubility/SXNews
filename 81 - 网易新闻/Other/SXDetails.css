@@ -1,0 +1,24 @@
+.title {
+    text-align:left;
+    font-size:25px;
+    font-weight:bold;
+    color:black;
+    margin-left:10px;
+
+}
+
+.time {
+    text-align:left;
+    font-size:15px;
+    color:gray;
+    margin-top:7px;
+    margin-bottom:7px;
+    margin-left:10px;
+    
+}
+
+.img-parent {
+    text-align:center;
+    margin-bottom:10px;
+
+}

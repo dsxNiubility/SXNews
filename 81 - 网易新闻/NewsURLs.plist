@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>title</key>
+		<string>头条</string>
+		<key>urlString</key>
+		<string>/nc/article/headline/T1348647853363/0-30.html</string>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>nba</string>
+		<key>urlString</key>
+		<string>/nc/article/list/T1348649145984/0-20.html</string>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>手机</string>
+		<key>urlString</key>
+		<string>/nc/article/list/T1348649654285/0-20.html</string>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>移动互联</string>
+		<key>urlString</key>
+		<string>/nc/article/list/T1351233117091/0-20.html</string>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>时尚</string>
+		<key>urlString</key>
+		<string>/nc/article/list/T1348650593803/0-20.html</string>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>电影</string>
+		<key>urlString</key>
+		<string>/nc/article/list/T1348648650048/0-20.html</string>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>科技</string>
+		<key>urlString</key>
+		<string>/nc/article/list/T1348649580692/0-20.html</string>
+	</dict>
+</array>
+</plist>
