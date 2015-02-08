@@ -11,6 +11,7 @@
 #import "SXPhotoSetController.h"
 #import "SXNewsCell.h"
 #import "SXNetworkTools.h"
+#import "MJRefresh.h"
 
 @interface SXTableViewController ()
 
@@ -25,7 +26,9 @@
     
     
 //    [self loadData];
+    [self.tableView addHeaderWithTarget:self action:@selector(loadData)];
     
+//    self.tableView.headerHidden = NO;
 }
 
 - (void)setArrayList:(NSArray *)arrayList
@@ -50,6 +53,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
 //    NSLog(@"bbbb");
+    [self.tableView headerBeginRefreshing];
     [[NSNotificationCenter defaultCenter]postNotification:[NSNotification notificationWithName:@"contentStart" object:nil]];
 }
 
@@ -69,6 +73,7 @@
             [arrayM addObject:news];
         }];
         self.arrayList = arrayM;
+        [self.tableView headerEndRefreshing];
         
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         NSLog(@"%@",error);
