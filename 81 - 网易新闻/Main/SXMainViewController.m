@@ -81,17 +81,21 @@
     vc4.title = @"移动互联";
     vc4.urlString = self.arrayLists[3][@"urlString"];
     [self addChildViewController:vc4];
+    SXTableViewController *vc8 = [[UIStoryboard storyboardWithName:@"News" bundle:[NSBundle mainBundle]] instantiateInitialViewController];
+    vc8.title = @"娱乐";
+    vc8.urlString = self.arrayLists[4][@"urlString"];
+    [self addChildViewController:vc8];
     SXTableViewController *vc5 = [[UIStoryboard storyboardWithName:@"News" bundle:[NSBundle mainBundle]] instantiateInitialViewController];
     vc5.title = @"时尚";
-    vc5.urlString = self.arrayLists[4][@"urlString"];
+    vc5.urlString = self.arrayLists[5][@"urlString"];
     [self addChildViewController:vc5];
     SXTableViewController *vc6 = [[UIStoryboard storyboardWithName:@"News" bundle:[NSBundle mainBundle]] instantiateInitialViewController];
     vc6.title = @"电影";
-    vc6.urlString = self.arrayLists[5][@"urlString"];
+    vc6.urlString = self.arrayLists[6][@"urlString"];
     [self addChildViewController:vc6];
     SXTableViewController *vc7 = [[UIStoryboard storyboardWithName:@"News" bundle:[NSBundle mainBundle]] instantiateInitialViewController];
     vc7.title = @"科技";
-    vc7.urlString = self.arrayLists[6][@"urlString"];
+    vc7.urlString = self.arrayLists[7][@"urlString"];
     [self addChildViewController:vc7];
 }
 

@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SXReplyModel.h"
 
 @interface SXReplyCell : UITableViewCell
 
+@property(nonatomic,strong) SXReplyModel *replyModel;
+@property (weak, nonatomic) IBOutlet UILabel *sayLabel;
 @end

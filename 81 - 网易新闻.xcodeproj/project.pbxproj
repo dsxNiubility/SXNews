@@ -58,6 +58,7 @@
 		1D58EED81A70C18000411E39 /* NewsURLs.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1D58EED71A70C18000411E39 /* NewsURLs.plist */; };
 		1D58EEDB1A70C28300411E39 /* SXCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D58EEDA1A70C28300411E39 /* SXCollectionCell.m */; };
 		1D6BE37B1A84B04600BF1AB7 /* SXNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D6BE37A1A84B04600BF1AB7 /* SXNavController.m */; };
+		1D7B6F961A8903B4000DB2CE /* SXReplyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D7B6F951A8903B4000DB2CE /* SXReplyModel.m */; };
 		1D882E391A811392004C9C9A /* SXPhotoSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D882E381A811392004C9C9A /* SXPhotoSet.m */; };
 		1D882E3C1A81151C004C9C9A /* SXPhotosDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D882E3B1A81151C004C9C9A /* SXPhotosDetail.m */; };
 		1D882E4D1A8117D1004C9C9A /* MJConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D882E3F1A8117D1004C9C9A /* MJConst.m */; };
@@ -194,6 +195,8 @@
 		1D58EEDA1A70C28300411E39 /* SXCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SXCollectionCell.m; sourceTree = "<group>"; };
 		1D6BE3791A84B04600BF1AB7 /* SXNavController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SXNavController.h; sourceTree = "<group>"; };
 		1D6BE37A1A84B04600BF1AB7 /* SXNavController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SXNavController.m; sourceTree = "<group>"; };
+		1D7B6F941A8903B4000DB2CE /* SXReplyModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SXReplyModel.h; sourceTree = "<group>"; };
+		1D7B6F951A8903B4000DB2CE /* SXReplyModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SXReplyModel.m; sourceTree = "<group>"; };
 		1D882E371A811392004C9C9A /* SXPhotoSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SXPhotoSet.h; sourceTree = "<group>"; };
 		1D882E381A811392004C9C9A /* SXPhotoSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SXPhotoSet.m; sourceTree = "<group>"; };
 		1D882E3A1A81151C004C9C9A /* SXPhotosDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SXPhotosDetail.h; sourceTree = "<group>"; };
@@ -279,6 +282,8 @@
 				1D925CB51A87B8CA0063921A /* SXReplyHeader.h */,
 				1D925CB61A87B8CA0063921A /* SXReplyHeader.m */,
 				1D925CB81A87B8DF0063921A /* SXReplyHeader.xib */,
+				1D7B6F941A8903B4000DB2CE /* SXReplyModel.h */,
+				1D7B6F951A8903B4000DB2CE /* SXReplyModel.m */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -690,6 +695,7 @@
 				1D882E4D1A8117D1004C9C9A /* MJConst.m in Sources */,
 				1D2A596C1A700840001F9B8E /* AFURLResponseSerialization.m in Sources */,
 				1D2A59721A700840001F9B8E /* SDWebImageDecoder.m in Sources */,
+				1D7B6F961A8903B4000DB2CE /* SXReplyModel.m in Sources */,
 				1D925CCF1A87CA030063921A /* MJRefreshHeaderView.m in Sources */,
 				1D925CB11A87B50B0063921A /* SXReplyViewController.m in Sources */,
 				1D2A596A1A700840001F9B8E /* AFURLConnectionOperation.m in Sources */,
@@ -842,6 +848,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = "81 - 网易新闻/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -853,6 +860,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = "81 - 网易新闻/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

@@ -15,6 +15,9 @@
 #import "SXPhotosDetail.h"
 #import "UIView+Frame.h"
 
+#import "SXReplyModel.h"
+#import "SXReplyViewController.h"
+
 @interface SXPhotoSetController ()<UIScrollViewDelegate>
 @property (weak, nonatomic) IBOutlet UIScrollView *photoScrollView;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
@@ -24,6 +27,11 @@
 
 @property(nonatomic,strong) SXPhotoSet *photoSet;
 
+@property(nonatomic,strong) SXReplyModel *replyModel;
+@property(nonatomic,strong) NSMutableArray *replyModels;
+
+@property(nonatomic,strong) NSArray *news;
+
 
 @end
 
@@ -31,6 +39,23 @@
 - (IBAction)backBtnClick:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
     [self.navigationController setNavigationBarHidden:NO animated:YES];
+}
+
+- (NSMutableArray *)replyModels
+{
+    if (_replyModels == nil) {
+        _replyModels = [NSMutableArray array];
+    }
+    return _replyModels;
+}
+
+- (NSArray *)news
+{
+    if (_news == nil) {
+        _news = [NSArray array];
+        _news = [NSArray arrayWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"NewsURLs.plist" ofType:nil]];
+    }
+    return _replyModels;
 }
 
 #pragma mark - ******************** 首次加载
@@ -49,6 +74,9 @@
     // 发请求
     [self sendRequestWithUrl:url];
     
+     //  http://comment.api.163.com/api/json/post/list/new/hot/tech_bbs/AI180I93000915BF/
+    NSString *url2 = @"http://comment.api.163.com/api/json/post/list/new/hot/photoview_bbs/PHOT1ODB009654GK/0/10/10/2/2";
+    [self sendRequestWithUrl2:url2];
     }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -70,6 +98,30 @@
         NSLog(@"failure %@",error);
     }];
 
+}
+
+- (void)sendRequestWithUrl2:(NSString *)url
+{
+    [[SXHTTPManager manager]GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, NSDictionary *responseObject) {
+        NSArray *dictarray = responseObject[@"hotPosts"];
+//        NSLog(@"%ld",dictarray.count);
+        for (int i = 0; i < dictarray.count; i++) {
+            NSDictionary *dict = dictarray[i][@"1"];
+            SXReplyModel *replyModel = [[SXReplyModel alloc]init];
+            replyModel.name = dict[@"n"];
+            if (replyModel.name == nil) {
+                replyModel.name = @"火星网友";
+            }
+            replyModel.address = dict[@"f"];
+            replyModel.say = dict[@"b"];
+            replyModel.suppose = dict[@"v"];
+            [self.replyModels addObject:replyModel];
+        }
+        
+#warning TODO
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"failure %@",error);
+    }];
 }
 
 #pragma mark - ******************** 设置页面的文字和图片
@@ -162,6 +214,12 @@
         [photoImgView sd_setImageWithURL:purl placeholderImage:[UIImage imageNamed:@"photoview_image_default_white"]];
     }
     
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    SXReplyViewController *replyvc = segue.destinationViewController;
+    replyvc.replys = self.replyModels;
 }
 
 

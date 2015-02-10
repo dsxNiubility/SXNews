@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SXReplyModel.h"
 
 @interface SXReplyViewController : UIViewController
+
+@property(nonatomic,strong) NSMutableArray *replys;
 
 @end

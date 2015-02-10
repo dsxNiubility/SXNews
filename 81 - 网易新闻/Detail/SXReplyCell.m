@@ -8,20 +8,34 @@
 
 #import "SXReplyCell.h"
 
+@interface SXReplyCell ()
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *addressLabel;
+
+@property (weak, nonatomic) IBOutlet UILabel *supposeLabel;
+@property (nonatomic,assign) CGFloat maxY;
+
+
+@end
+
 @implementation SXReplyCell
+
+
+- (void)setReplyModel:(SXReplyModel *)replyModel
+{
+    _replyModel = replyModel;
+    self.nameLabel.text = _replyModel.name;
+    self.addressLabel.text = _replyModel.address;
+    self.sayLabel.text = _replyModel.say;
+    self.supposeLabel.text = _replyModel.suppose;
+}
+
 
 - (void)awakeFromNib {
     
 }
 
-- (instancetype)initWithFrame:(CGRect)frame
-{
-    return self;
-}
-- (instancetype)initWithCoder:(NSCoder *)aDecoder
-{
-    return self;
-}
+
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];

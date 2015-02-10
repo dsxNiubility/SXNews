@@ -7,42 +7,64 @@
 		<string>头条</string>
 		<key>urlString</key>
 		<string>/nc/article/headline/T1348647853363/0-30.html</string>
+		<key>replyUrl</key>
+		<string>3g_bbs</string>
 	</dict>
 	<dict>
 		<key>title</key>
 		<string>nba</string>
 		<key>urlString</key>
 		<string>/nc/article/list/T1348649145984/0-20.html</string>
+		<key>replyUrl</key>
+		<string>sports_nba_bbs</string>
 	</dict>
 	<dict>
 		<key>title</key>
 		<string>手机</string>
 		<key>urlString</key>
 		<string>/nc/article/list/T1348649654285/0-20.html</string>
+		<key>replyUrl</key>
+		<string>mobile_bbs</string>
 	</dict>
 	<dict>
 		<key>title</key>
 		<string>移动互联</string>
 		<key>urlString</key>
 		<string>/nc/article/list/T1351233117091/0-20.html</string>
+		<key>replyUrl</key>
+		<string>mobile_bbs</string>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>娱乐</string>
+		<key>urlString</key>
+		<string>/nc/article/list/T1348648517839/0-40.html</string>
+		<key>replyUrl</key>
+		<string>auto_bbs</string>
 	</dict>
 	<dict>
 		<key>title</key>
 		<string>时尚</string>
 		<key>urlString</key>
 		<string>/nc/article/list/T1348650593803/0-20.html</string>
+		<key>replyUrl</key>
+		<string>lady_bbs</string>
 	</dict>
 	<dict>
 		<key>title</key>
 		<string>电影</string>
 		<key>urlString</key>
 		<string>/nc/article/list/T1348648650048/0-20.html</string>
+		<key>replyUrl</key>
+		<string>ent2_bbs</string>
 	</dict>
 	<dict>
 		<key>title</key>
 		<string>科技</string>
 		<key>urlString</key>
 		<string>/nc/article/list/T1348649580692/0-20.html</string>
+		<key>replyUrl</key>
+		<string>tech_bbs</string>
 	</dict>
 </array>
 </plist>
