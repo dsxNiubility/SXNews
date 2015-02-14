@@ -126,14 +126,17 @@
         NSInteger x = self.tableView.indexPathForSelectedRow.row;
         SXDetailController *dc = segue.destinationViewController;
         dc.newsModel = self.arrayList[x];
+        if ([self.navigationController respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
+            self.navigationController.interactivePopGestureRecognizer.delegate = nil;
+        }
 //        [self.navigationController setNavigationBarHidden:YES animated:YES];
-//        [[NSNotificationCenter defaultCenter]postNotification:[NSNotification notificationWithName:@"contentStop" object:nil]];
     }else{
         NSInteger x = self.tableView.indexPathForSelectedRow.row;
         SXPhotoSetController *pc = segue.destinationViewController;
         pc.newsModel = self.arrayList[x];
         
-//        [[NSNotificationCenter defaultCenter]postNotificationName:@"ChangeBlack" object:nil];
+        
+//        [self.navigationController setNavigationBarHidden:YES animated:YES];
     }
     
 }
