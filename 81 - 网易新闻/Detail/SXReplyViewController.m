@@ -13,21 +13,13 @@
 @interface SXReplyViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
-@property(nonatomic,strong) NSArray *replyArray;
 
 @end
 
 
 @implementation SXReplyViewController
 static NSString *ID = @"replyCell";
-- (NSArray *)replyArray
-{
-    if (_replyArray == nil) {
-        _replyArray = [NSArray array];
-        _replyArray = @[@"你这个懦弱的狗杂碎",@"殚精竭虑的詹秃",@"关你皮仕",@"如果这都找不到",@"我要杀了你",@"自备簪子铁锹手枪钻冲击钻等",@"茎关其便",@"大黄讨厌西部",@"表哥来啦！有煞笔阉狗要砍我",@"今天你对我爱理不理",@"明天我让你高攀不起",@"关你皮仕"];
-    }
-    return _replyArray;
-}
+
 
 - (IBAction)back:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
@@ -54,7 +46,7 @@ static NSString *ID = @"replyCell";
     if (section == 0) {
         return self.replys.count;
     }else{
-        return self.replyArray.count;
+        return self.replys.count;
     }
 }
 
