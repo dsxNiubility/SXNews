@@ -22,6 +22,7 @@
     return self;
 }
 
+/** 通过scale的改变改变多种参数 */
 - (void)setScale:(CGFloat)scale
 {
     _scale = scale;

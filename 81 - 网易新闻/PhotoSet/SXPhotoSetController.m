@@ -100,6 +100,7 @@
 
 }
 
+/** 提前把评论的请求也发出去 得到评论的信息 */
 - (void)sendRequestWithUrl2:(NSString *)url
 {
     [[SXHTTPManager manager]GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, NSDictionary *responseObject) {

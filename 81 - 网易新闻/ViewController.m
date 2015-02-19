@@ -54,6 +54,7 @@
     
 }
 
+#pragma mark - ******************** 通过此方法打印出成员变量
 - (void)writeInfoWithDict:(NSDictionary *)dict
 {
     NSMutableString *strM = [NSMutableString string];

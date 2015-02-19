@@ -60,6 +60,12 @@
     lable.scale = 1.0;
 }
 
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
+}
+
 #pragma mark - ******************** 添加方法
 
 /** 添加子控制器 */
@@ -209,9 +215,5 @@
     
 }
 
-- (void)viewWillAppear:(BOOL)animated
-{
-    [self.navigationController setNavigationBarHidden:NO animated:YES];
-}
 
 @end
