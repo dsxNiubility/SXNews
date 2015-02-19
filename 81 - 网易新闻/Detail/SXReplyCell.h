@@ -12,5 +12,6 @@
 @interface SXReplyCell : UITableViewCell
 
 @property(nonatomic,strong) SXReplyModel *replyModel;
+/** 用户的发言 */
 @property (weak, nonatomic) IBOutlet UILabel *sayLabel;
 @end

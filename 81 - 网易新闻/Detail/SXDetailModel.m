@@ -10,6 +10,7 @@
 #import "SXDetailImgModel.h"
 @implementation SXDetailModel
 
+/** 便利构造器 */
 + (instancetype)detailWithDict:(NSDictionary *)dict
 {
     SXDetailModel *detail = [[self alloc]init];

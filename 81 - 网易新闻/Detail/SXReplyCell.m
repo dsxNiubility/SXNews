@@ -9,18 +9,20 @@
 #import "SXReplyCell.h"
 
 @interface SXReplyCell ()
-@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
-@property (weak, nonatomic) IBOutlet UILabel *addressLabel;
 
+/** 用户名称 */
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+/** 用户ip信息 */
+@property (weak, nonatomic) IBOutlet UILabel *addressLabel;
+/** 用户的点赞数 */
 @property (weak, nonatomic) IBOutlet UILabel *supposeLabel;
-@property (nonatomic,assign) CGFloat maxY;
 
 
 @end
 
 @implementation SXReplyCell
 
-
+/** set方法数据分发 */
 - (void)setReplyModel:(SXReplyModel *)replyModel
 {
     _replyModel = replyModel;
@@ -30,9 +32,5 @@
     self.supposeLabel.text = _replyModel.suppose;
 }
 
-
-- (void)awakeFromNib {
-    
-}
 
 @end

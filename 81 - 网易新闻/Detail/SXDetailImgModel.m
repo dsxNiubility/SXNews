@@ -10,6 +10,7 @@
 
 @implementation SXDetailImgModel
 
+/** 便利构造器方法 */
 + (instancetype)detailImgWithDict:(NSDictionary *)dict
 {
     SXDetailImgModel *imgModel = [[self alloc]init];

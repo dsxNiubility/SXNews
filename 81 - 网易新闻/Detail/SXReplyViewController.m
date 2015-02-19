@@ -20,23 +20,12 @@
 @implementation SXReplyViewController
 static NSString *ID = @"replyCell";
 
-
+#pragma mark - ******************** 返回按钮
 - (IBAction)back:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    
-//    self.tableView.contentOffset = CGPointMake(0, 50);
-    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
+#pragma mark - ******************** tbv数据源方法
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 2;
@@ -61,6 +50,7 @@ static NSString *ID = @"replyCell";
     cell.replyModel = model;
     return cell;
 }
+/** 返回一个view来当tbv的header */
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
     if (section == 0) {
@@ -70,6 +60,7 @@ static NSString *ID = @"replyCell";
     }
 }
 
+/** 通过提前计算来返回行高 */
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     SXReplyCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
@@ -83,6 +74,8 @@ static NSString *ID = @"replyCell";
     
     return cell.sayLabel.frame.origin.y + size.height + 10;
 }
+
+/** 预估行高，这个方法可以减少上面方法的调用次数，提高性能 */
 - (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     return 130;

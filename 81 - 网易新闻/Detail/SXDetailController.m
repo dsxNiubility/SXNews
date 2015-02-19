@@ -21,11 +21,13 @@
 @end
 
 @implementation SXDetailController
+#pragma mark - ******************** 返回按钮
 - (IBAction)backBtn:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
     [self.navigationController setNavigationBarHidden:NO animated:YES];
 }
 
+#pragma mark - ******************** 首次加载
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.webView.delegate = self;
@@ -40,12 +42,12 @@
     
     self.automaticallyAdjustsScrollViewInsets = NO;
 }
-
 - (void)viewWillAppear:(BOOL)animated
 {
     [self.navigationController setNavigationBarHidden:YES animated:YES];
 }
 
+#pragma mark - ******************** 拼接html语言
 - (void)showInWebView
 {
     NSMutableString *html = [NSMutableString string];
@@ -99,6 +101,7 @@
     return body;
 }
 
+#pragma mark - ******************** 将发出通知时调用
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
 {
     NSString *url = request.URL.absoluteString;
@@ -112,6 +115,7 @@
     return YES;
 }
 
+#pragma mark - ******************** 保存到相册方法
 - (void)savePictureToAlbum:(NSString *)src
 {
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示" message:@"确定要保存到相册吗？" preferredStyle:UIAlertControllerStyleActionSheet];
@@ -131,6 +135,7 @@
     [self presentViewController:alert animated:YES completion:nil];
 }
 
+#pragma mark - ******************** 即将跳转时
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     [[NSNotificationCenter defaultCenter]postNotification:[NSNotification notificationWithName:@"contentStart" object:nil]];
