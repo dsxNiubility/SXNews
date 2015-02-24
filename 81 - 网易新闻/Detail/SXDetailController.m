@@ -11,16 +11,43 @@
 #import "SXDetailImgModel.h"
 #import "SXHTTPManager.h"
 
+#import "SXReplyModel.h"
+#import "SXReplyViewController.h"
+
 @interface SXDetailController ()<UIWebViewDelegate>
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
 @property(nonatomic,strong) SXDetailModel *detailModel;
 @property (weak, nonatomic) IBOutlet UIButton *replyCountBtn;
 @property (weak, nonatomic) IBOutlet UIButton *backBtn;
 
+
+@property(nonatomic,strong) NSMutableArray *replyModels;
+@property(nonatomic,strong) NSArray *news;
+
 // http://c.m.163.com/nc/article/AHHQIG5B00014JB6/full.html
 @end
 
 @implementation SXDetailController
+
+
+- (NSMutableArray *)replyModels
+{
+    if (_replyModels == nil) {
+        _replyModels = [NSMutableArray array];
+    }
+    return _replyModels;
+}
+
+
+- (NSArray *)news
+{
+    if (_news == nil) {
+        _news = [NSArray array];
+        _news = [NSArray arrayWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"NewsURLs.plist" ofType:nil]];
+    }
+    return _news;
+}
+
 #pragma mark - ******************** 返回按钮
 - (IBAction)backBtn:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
@@ -40,11 +67,60 @@
         NSLog(@"failure %@",error);
     }];
     
+    //  http://comment.api.163.com/api/json/post/list/new/hot/ent2_bbs/AI1O4EEK00032DGD/0/10/10/2/2
+    
+    NSString *replyURL = self.news[self.index][@"replyUrl"];
+    NSString *docID = self.newsModel.docid;
+    
+    CGFloat count =  [self.newsModel.replyCount intValue]/1000.0;
+    NSString *displayCount = [NSString stringWithFormat:@"%.1f万跟帖",count];
+    
+    [self.replyCountBtn setTitle:displayCount forState:UIControlStateNormal];
+    
+    NSLog(@"%@",self.news[1]);
+    NSLog(@"%@----%@",replyURL,docID);
+    
+    // 假数据
+//    NSString *url2 = @"http://comment.api.163.com/api/json/post/list/new/hot/photoview_bbs/PHOT1ODB009654GK/0/10/10/2/2";
+    
+    // 真数据
+    NSString *url2 = [NSString stringWithFormat:@"http://comment.api.163.com/api/json/post/list/new/hot/%@/%@/0/10/10/2/2",replyURL,docID];
+    [self sendRequestWithUrl2:url2];
+    
     self.automaticallyAdjustsScrollViewInsets = NO;
 }
 - (void)viewWillAppear:(BOOL)animated
 {
     [self.navigationController setNavigationBarHidden:YES animated:YES];
+}
+
+/** 提前把评论的请求也发出去 得到评论的信息 */
+- (void)sendRequestWithUrl2:(NSString *)url
+{
+    [[SXHTTPManager manager]GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, NSDictionary *responseObject) {
+        
+        if (responseObject[@"hotPosts"] != [NSNull null]) {
+            NSArray *dictarray = responseObject[@"hotPosts"];
+            //        NSLog(@"%ld",dictarray.count);
+            
+            for (int i = 0; i < dictarray.count; i++) {
+                NSDictionary *dict = dictarray[i][@"1"];
+                SXReplyModel *replyModel = [[SXReplyModel alloc]init];
+                replyModel.name = dict[@"n"];
+                if (replyModel.name == nil) {
+                    replyModel.name = @"火星网友";
+                }
+                replyModel.address = dict[@"f"];
+                replyModel.say = dict[@"b"];
+                replyModel.suppose = dict[@"v"];
+                [self.replyModels addObject:replyModel];
+            }
+        }
+        
+#warning TODO
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"failure %@",error);
+    }];
 }
 
 #pragma mark - ******************** 拼接html语言
@@ -138,8 +214,13 @@
 #pragma mark - ******************** 即将跳转时
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
+    SXReplyViewController *replyvc = segue.destinationViewController;
+    replyvc.replys = self.replyModels;
+    
     [[NSNotificationCenter defaultCenter]postNotification:[NSNotification notificationWithName:@"contentStart" object:nil]];
 }
+
+
 
 
 

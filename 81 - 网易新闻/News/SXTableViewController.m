@@ -126,6 +126,7 @@
         NSInteger x = self.tableView.indexPathForSelectedRow.row;
         SXDetailController *dc = segue.destinationViewController;
         dc.newsModel = self.arrayList[x];
+        dc.index = self.index;
         if ([self.navigationController respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
             self.navigationController.interactivePopGestureRecognizer.delegate = nil;
         }

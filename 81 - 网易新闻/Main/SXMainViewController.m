@@ -176,6 +176,7 @@
     [self.smallScrollView setContentOffset:offset animated:YES];
     // 添加控制器
     SXTableViewController *newsVc = self.childViewControllers[index];
+    newsVc.index = index;
     
     [self.smallScrollView.subviews enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         if (idx != index) {

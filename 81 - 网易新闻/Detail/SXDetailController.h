@@ -13,4 +13,7 @@
 
 @property(nonatomic,strong) SXNewsModel *newsModel;
 
+@property (nonatomic,assign) NSInteger index;
+
+
 @end
