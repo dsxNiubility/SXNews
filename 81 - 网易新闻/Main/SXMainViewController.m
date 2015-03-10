@@ -48,7 +48,7 @@
     [self addController];
     [self addLable];
     
-    CGFloat contentX = self.childViewControllers.count * [UIScreen mainScreen].bounds.size.width;
+    CGFloat contentX = (self.childViewControllers.count - 1) * [UIScreen mainScreen].bounds.size.width;
     self.bigScrollView.contentSize = CGSizeMake(contentX, 0);
     self.bigScrollView.pagingEnabled = YES;
     
