@@ -33,6 +33,9 @@
  *  跟帖人数
  */
 @property (nonatomic,copy)NSNumber *replyCount;
+@property (nonatomic,copy)NSNumber *votecount;
+@property (nonatomic,copy)NSNumber *voteCount;
+
 @property (nonatomic,copy) NSString *alias;
 /**
  *  新闻ID
@@ -76,6 +79,10 @@
 @property (nonatomic,strong)NSArray *specialextra;
 
 
+@property (nonatomic,copy) NSString *boardid;
+@property (nonatomic,copy) NSString *commentid;
+
+@property (nonatomic,copy) NSString *pixel;
 
 
 + (instancetype)newsModelWithDict:(NSDictionary *)dict;
