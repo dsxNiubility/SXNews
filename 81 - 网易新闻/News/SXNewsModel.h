@@ -81,6 +81,7 @@
 
 @property (nonatomic,copy) NSString *boardid;
 @property (nonatomic,copy) NSString *commentid;
+@property (nonatomic,copy)NSNumber *speciallogo;
 
 @property (nonatomic,copy) NSString *pixel;
 

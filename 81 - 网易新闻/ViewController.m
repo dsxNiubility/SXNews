@@ -37,7 +37,7 @@
         NSArray *temArray = responseObject[key];
         
         // 取出小的一组 遍历打印出声明
-//        [self writeInfoWithDict:temArray[2]];
+        [self writeInfoWithDict:temArray[2]];
         
         NSMutableArray *arrayM = [NSMutableArray arrayWithCapacity:temArray.count];
         [temArray enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
