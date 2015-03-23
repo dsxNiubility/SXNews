@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="dLE-KE-4lH">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7519.1" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="dLE-KE-4lH">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7513.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -311,7 +311,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dgM-pD-AFU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-24.5" y="43"/>
+            <point key="canvasLocation" x="-12.5" y="45"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="fuv-IJ-FeD">
@@ -346,7 +346,7 @@
                                     <outlet property="delegate" destination="lfx-tz-RHK" id="MuR-8c-0Ax"/>
                                 </connections>
                             </scrollView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="18/31" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FsF-v2-rX2">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FsF-v2-rX2">
                                 <rect key="frame" x="310" y="537" width="60" height="28"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="60" id="AK6-xu-TJp"/>
@@ -356,7 +356,7 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="除了比赛的中场表演，超级碗还准备了一系列的庆祝活动除了比赛的比赛的中场表中场表演，超级碗还准备了一系列的庆祝活动除了比赛的中场表演，超级碗还准备了一系列的庆祝活动除了比赛的中场表演，超级碗还准备了一系列的庆祝活动" translatesAutoresizingMaskIntoConstraints="NO" id="oHd-NP-TVD">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oHd-NP-TVD">
                                 <rect key="frame" x="5" y="565" width="365" height="43"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="43" id="UZh-Bq-J0b"/>
@@ -401,7 +401,7 @@
                                     <constraint firstAttribute="bottom" secondItem="JxS-s8-6cA" secondAttribute="bottom" id="vCi-Vh-gID"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="《看客》：“美国春晚”" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aSS-jM-mLl">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aSS-jM-mLl">
                                 <rect key="frame" x="5" y="537" width="280" height="28"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="28" id="fzj-26-Wpa"/>
@@ -541,8 +541,8 @@
                                                         <constraint firstAttribute="height" constant="35" id="Z96-JP-BaV"/>
                                                     </constraints>
                                                 </imageView>
-                                                <view alpha="0.20000000000000001" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1cY-uD-wuQ">
-                                                    <rect key="frame" x="0.0" y="78" width="375" height="1"/>
+                                                <view alpha="0.20000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1cY-uD-wuQ">
+                                                    <rect key="frame" x="0.0" y="79" width="375" height="1"/>
                                                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="1" id="U7j-fJ-Xep"/>
@@ -724,8 +724,8 @@
         <image name="weather_share" width="45" height="44"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="uaS-US-B7U"/>
         <segue reference="taV-i8-kFc"/>
-        <segue reference="Kax-d4-jez"/>
+        <segue reference="uaS-US-B7U"/>
+        <segue reference="KzH-9A-Ids"/>
     </inferredMetricsTieBreakers>
 </document>
