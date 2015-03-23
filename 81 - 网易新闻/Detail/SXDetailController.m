@@ -146,7 +146,9 @@
     NSMutableString *body = [NSMutableString string];
     [body appendFormat:@"<div class=\"title\">%@</div>",self.detailModel.title];
     [body appendFormat:@"<div class=\"time\">%@</div>",self.detailModel.ptime];
-    [body appendString:self.detailModel.body];
+    if (self.detailModel.body != nil) {
+        [body appendString:self.detailModel.body];
+    }
     // 遍历img
     for (SXDetailImgModel *detailImgModel in self.detailModel.img) {
         NSMutableString *imgHtml = [NSMutableString string];

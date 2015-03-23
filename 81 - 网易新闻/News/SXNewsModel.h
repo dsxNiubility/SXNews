@@ -61,6 +61,7 @@
 
 @property (nonatomic,strong)NSArray *editor;
 
+
 @property (nonatomic,copy) NSString *url_3w;
 @property (nonatomic,copy) NSString *specialID;
 @property (nonatomic,copy) NSString *timeConsuming;
@@ -84,6 +85,7 @@
 @property (nonatomic,copy)NSNumber *speciallogo;
 
 @property (nonatomic,copy) NSString *pixel;
+@property (nonatomic,strong)NSArray *applist;
 
 
 + (instancetype)newsModelWithDict:(NSDictionary *)dict;

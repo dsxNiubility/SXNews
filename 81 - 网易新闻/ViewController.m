@@ -26,7 +26,8 @@
 #pragma mark - /************************* 在这里做完实验就不用了 ***************************/
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     
-    // url
+    // url  http://c.m.163.com/nc/article/headline/T1348647853363/full.html
+    // http://c.m.163.com/nc/article/headline/T1348647853363/0-30.html
     
     // netconnect
     [[[SXNetworkTools sharedNetworkTools]GET:@"nc/article/headline/T1348647853363/0-20.html" parameters:nil success:^(NSURLSessionDataTask *task, NSDictionary* responseObject) {
@@ -37,7 +38,7 @@
         NSArray *temArray = responseObject[key];
         
         // 取出小的一组 遍历打印出声明
-        [self writeInfoWithDict:temArray[2]];
+        [self writeInfoWithDict:temArray[1]];
         
         NSMutableArray *arrayM = [NSMutableArray arrayWithCapacity:temArray.count];
         [temArray enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
