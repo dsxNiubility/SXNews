@@ -89,6 +89,8 @@
 @property (nonatomic,copy) NSString *pixel;
 @property (nonatomic,strong)NSArray *applist;
 
+@property (nonatomic,copy) NSString *wap_portal;
+
 
 + (instancetype)newsModelWithDict:(NSDictionary *)dict;
 
