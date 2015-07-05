@@ -90,6 +90,7 @@
 @property (nonatomic,strong)NSArray *applist;
 
 @property (nonatomic,copy) NSString *wap_portal;
+@property (nonatomic,copy) NSString *live_info;
 
 
 + (instancetype)newsModelWithDict:(NSDictionary *)dict;
