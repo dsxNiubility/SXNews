@@ -46,7 +46,7 @@
 - (void)setUrlString:(NSString *)urlString
 {
     _urlString = urlString;
-    [self loadData];
+//    [self loadData];
 //    [self.tableView reloadData];
 }
 
@@ -63,7 +63,7 @@
     // http://c.m.163.com//nc/article/headline/T1348647853363/0-30.html
 //    NSLog(@"%@",self.urlString);
     [[[SXNetworkTools sharedNetworkTools]GET:self.urlString parameters:nil success:^(NSURLSessionDataTask *task, NSDictionary* responseObject) {
-        
+        NSLog(@"%@",self.urlString);
         NSString *key = [responseObject.keyEnumerator nextObject];
         
         NSArray *temArray = responseObject[key];
