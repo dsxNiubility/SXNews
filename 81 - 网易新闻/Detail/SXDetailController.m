@@ -219,6 +219,10 @@
     SXReplyViewController *replyvc = segue.destinationViewController;
     replyvc.replys = self.replyModels;
     
+    if ([self.navigationController respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
+        self.navigationController.interactivePopGestureRecognizer.delegate = nil;
+    }
+    
     [[NSNotificationCenter defaultCenter]postNotification:[NSNotification notificationWithName:@"contentStart" object:nil]];
 }
 

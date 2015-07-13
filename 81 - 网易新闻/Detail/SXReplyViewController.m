@@ -25,6 +25,11 @@ static NSString *ID = @"replyCell";
     [self.navigationController popViewControllerAnimated:YES];
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [self.navigationController setNavigationBarHidden:YES animated:YES];
+}
+
 #pragma mark - ******************** tbv数据源方法
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
