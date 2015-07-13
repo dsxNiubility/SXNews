@@ -84,6 +84,7 @@
 		1D925CD11A87CA030063921A /* UIScrollView+MJRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D925CC81A87CA030063921A /* UIScrollView+MJRefresh.m */; };
 		1D925CD21A87CA030063921A /* UIView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D925CCA1A87CA030063921A /* UIView+MJExtension.m */; };
 		1DC4731C1A81377B00DA905D /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DC4731B1A81377B00DA905D /* UIView+Frame.m */; };
+		2D42989A1B4D918A004B7C6E /* UINavigationController+FDFullscreenPopGesture.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D4298991B4D918A004B7C6E /* UINavigationController+FDFullscreenPopGesture.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -246,6 +247,8 @@
 		1D925CCA1A87CA030063921A /* UIView+MJExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MJExtension.m"; sourceTree = "<group>"; };
 		1DC4731A1A81377B00DA905D /* UIView+Frame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Frame.h"; sourceTree = "<group>"; };
 		1DC4731B1A81377B00DA905D /* UIView+Frame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Frame.m"; sourceTree = "<group>"; };
+		2D4298981B4D918A004B7C6E /* UINavigationController+FDFullscreenPopGesture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+FDFullscreenPopGesture.h"; sourceTree = "<group>"; };
+		2D4298991B4D918A004B7C6E /* UINavigationController+FDFullscreenPopGesture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+FDFullscreenPopGesture.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -387,6 +390,7 @@
 		1D2A592E1A700840001F9B8E /* Vender */ = {
 			isa = PBXGroup;
 			children = (
+				2D4298971B4D918A004B7C6E /* FDFullscreenPopGesture */,
 				1D882E3D1A8117D1004C9C9A /* MJExtension */,
 				1D925CBA1A87CA030063921A /* MJRefresh */,
 				1D2A592F1A700840001F9B8E /* AFNetworking */,
@@ -558,6 +562,15 @@
 			path = MJRefresh;
 			sourceTree = "<group>";
 		};
+		2D4298971B4D918A004B7C6E /* FDFullscreenPopGesture */ = {
+			isa = PBXGroup;
+			children = (
+				2D4298981B4D918A004B7C6E /* UINavigationController+FDFullscreenPopGesture.h */,
+				2D4298991B4D918A004B7C6E /* UINavigationController+FDFullscreenPopGesture.m */,
+			);
+			path = FDFullscreenPopGesture;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -703,6 +716,7 @@
 				1D925CD11A87CA030063921A /* UIScrollView+MJRefresh.m in Sources */,
 				1D2A59691A700840001F9B8E /* AFSecurityPolicy.m in Sources */,
 				1D2A59731A700840001F9B8E /* SDWebImageDownloader.m in Sources */,
+				2D42989A1B4D918A004B7C6E /* UINavigationController+FDFullscreenPopGesture.m in Sources */,
 				1DC4731C1A81377B00DA905D /* UIView+Frame.m in Sources */,
 				1D2A59711A700840001F9B8E /* SDWebImageCompat.m in Sources */,
 				1D2A59671A700840001F9B8E /* AFHTTPSessionManager.m in Sources */,
