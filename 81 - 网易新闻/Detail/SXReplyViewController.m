@@ -30,6 +30,10 @@ static NSString *ID = @"replyCell";
     [self.navigationController setNavigationBarHidden:YES animated:YES];
 }
 
+- (void)viewDidLoad{
+    self.automaticallyAdjustsScrollViewInsets = NO;
+}
+
 #pragma mark - ******************** tbv数据源方法
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
