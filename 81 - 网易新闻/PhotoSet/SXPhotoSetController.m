@@ -68,8 +68,16 @@
     NSString *one  = self.newsModel.photosetID;
     NSString *two = [one substringFromIndex:4];
     NSArray *three = [two componentsSeparatedByString:@"|"];
-    NSString *replayCountStr = [NSString stringWithFormat:@"%.1f万跟帖",[self.newsModel.replyCount intValue]/1000.0];
-    [self.replayBtn setTitle:replayCountStr forState:UIControlStateNormal];
+    
+    CGFloat count =  [self.newsModel.replyCount intValue];
+    NSString *displayCount;
+    if (count > 10000) {
+        displayCount = [NSString stringWithFormat:@"%.1f万跟帖",count/10000];
+    }else{
+        displayCount = [NSString stringWithFormat:@"%.0f跟帖",count];
+    }
+    
+    [self.replayBtn setTitle:displayCount forState:UIControlStateNormal];
     NSString *url = [NSString stringWithFormat:@"http://c.m.163.com/photo/api/set/%@/%@.json",[three firstObject],[three lastObject]];
     // 发请求
     [self sendRequestWithUrl:url];

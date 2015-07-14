@@ -72,8 +72,15 @@
     NSString *replyURL = self.news[self.index][@"replyUrl"];
     NSString *docID = self.newsModel.docid;
     
-    CGFloat count =  [self.newsModel.replyCount intValue]/1000.0;
-    NSString *displayCount = [NSString stringWithFormat:@"%.1f万跟帖",count];
+    
+    CGFloat count =  [self.newsModel.replyCount intValue];
+    NSString *displayCount;
+    if (count > 10000) {
+        displayCount = [NSString stringWithFormat:@"%.1f万跟帖",count/10000];
+    }else{
+        displayCount = [NSString stringWithFormat:@"%.0f跟帖",count];
+    }
+    
     
     [self.replyCountBtn setTitle:displayCount forState:UIControlStateNormal];
     
