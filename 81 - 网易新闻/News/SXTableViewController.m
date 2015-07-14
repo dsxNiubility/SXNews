@@ -16,6 +16,7 @@
 @interface SXTableViewController ()
 
 @property(nonatomic,strong) NSArray *arrayList;
+@property(nonatomic,assign)BOOL update;
 
 @end
 
@@ -27,7 +28,7 @@
     
 //    [self loadData];
     [self.tableView addHeaderWithTarget:self action:@selector(loadData)];
-    
+    self.update = YES;
 //    self.tableView.headerHidden = NO;
 }
 
@@ -53,7 +54,10 @@
 - (void)viewWillAppear:(BOOL)animated
 {
 //    NSLog(@"bbbb");
-    [self.tableView headerBeginRefreshing];
+    if (self.update == YES) {
+        [self.tableView headerBeginRefreshing];
+        self.update = NO;
+    }
     [[NSNotificationCenter defaultCenter]postNotification:[NSNotification notificationWithName:@"contentStart" object:nil]];
 }
 
