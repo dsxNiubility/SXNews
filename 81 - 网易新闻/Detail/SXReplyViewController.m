@@ -41,6 +41,11 @@ static NSString *ID = @"replyCell";
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+
+    if (self.replys.count == 0) {
+        return 1;
+    }
+    
     if (section == 0) {
         return self.replys.count;
     }else{
@@ -55,8 +60,16 @@ static NSString *ID = @"replyCell";
     if (cell == nil) {
        cell = [[SXReplyCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
     }
-    SXReplyModel *model = self.replys[indexPath.row];
-    cell.replyModel = model;
+    
+    if (self.replys.count == 0) {
+        UITableViewCell *cell2 = [[UITableViewCell alloc]init];
+        cell2.textLabel.text = @"     暂无跟帖数据";
+        return cell2;
+    }else{
+        SXReplyModel *model = self.replys[indexPath.row];
+        cell.replyModel = model;
+    }
+    
     return cell;
 }
 /** 返回一个view来当tbv的header */
@@ -72,16 +85,20 @@ static NSString *ID = @"replyCell";
 /** 通过提前计算来返回行高 */
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    SXReplyCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
-    
-    SXReplyModel *model = self.replys[indexPath.row];
-    
-    cell.replyModel = model;
-    
-    [cell layoutIfNeeded];
-    CGSize size = [cell.sayLabel systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
-    
-    return cell.sayLabel.frame.origin.y + size.height + 10;
+    if(self.replys.count == 0){
+        return 40;
+    }else{
+        SXReplyCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
+        
+        SXReplyModel *model = self.replys[indexPath.row];
+        
+        cell.replyModel = model;
+        
+        [cell layoutIfNeeded];
+        CGSize size = [cell.sayLabel systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
+        
+        return cell.sayLabel.frame.origin.y + size.height + 10;
+    }
 }
 
 /** 预估行高，这个方法可以减少上面方法的调用次数，提高性能 */
