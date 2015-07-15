@@ -28,6 +28,7 @@
     
 //    [self loadData];
     [self.tableView addHeaderWithTarget:self action:@selector(loadData)];
+    [self.tableView addFooterWithTarget:self action:@selector(loadMoreData)];
     self.update = YES;
 //    self.tableView.headerHidden = NO;
 }
@@ -86,6 +87,38 @@
         NSLog(@"%@",error);
     }] resume];
 
+}
+
+// ------下拉刷新就先这么写了，以前写的不规范现在也搞不规范了。
+- (void)loadMoreData
+{
+    NSString *allUrlstring = [NSString stringWithFormat:@"/nc/article/%@/%ld-20.html",self.urlString,(self.arrayList.count - self.arrayList.count%10)];
+    [[[SXNetworkTools sharedNetworkTools]GET:allUrlstring parameters:nil success:^(NSURLSessionDataTask *task, NSDictionary* responseObject) {
+        NSLog(@"%@",allUrlstring);
+        NSString *key = [responseObject.keyEnumerator nextObject];
+        
+        NSArray *temArray = responseObject[key];
+        
+        NSMutableArray *arrayM = [NSMutableArray arrayWithCapacity:temArray.count];
+        [temArray enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+            
+            SXNewsModel *news = [SXNewsModel newsModelWithDict:obj];
+            [arrayM addObject:news];
+        }];
+//        self.arrayList = arrayM;
+        NSMutableArray *allList = [NSMutableArray array];
+        [allList addObjectsFromArray:self.arrayList];
+        [allList addObjectsFromArray:arrayM];
+//        NSLog(@"%ld",self.arrayList.count);
+        self.arrayList = allList;
+//        NSLog(@"%ld",self.arrayList.count);
+        
+        [self.tableView footerEndRefreshing];
+        [self.tableView reloadData];
+        
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        NSLog(@"%@",error);
+    }] resume];
 }
 
 #pragma mark - /************************* tbv数据源方法 ***************************/
