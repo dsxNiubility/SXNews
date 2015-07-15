@@ -15,7 +15,7 @@
 
 @interface SXTableViewController ()
 
-@property(nonatomic,strong) NSArray *arrayList;
+@property(nonatomic,strong) NSMutableArray *arrayList;
 @property(nonatomic,assign)BOOL update;
 
 @end
@@ -24,20 +24,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    
-//    [self loadData];
+
     [self.tableView addHeaderWithTarget:self action:@selector(loadData)];
     [self.tableView addFooterWithTarget:self action:@selector(loadMoreData)];
     self.update = YES;
 //    self.tableView.headerHidden = NO;
-}
-
-- (void)setArrayList:(NSArray *)arrayList
-{
-    _arrayList = arrayList;
-    
-    [self.tableView reloadData];
 }
 
 - (BOOL)prefersStatusBarHidden
@@ -48,8 +39,6 @@
 - (void)setUrlString:(NSString *)urlString
 {
     _urlString = urlString;
-//    [self loadData];
-//    [self.tableView reloadData];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -63,36 +52,24 @@
 }
 
 #pragma mark - /************************* 刷新数据 ***************************/
+// ------下拉刷新
 - (void)loadData
 {
     // http://c.m.163.com//nc/article/headline/T1348647853363/0-30.html
-//    NSLog(@"%@",self.urlString);
     NSString *allUrlstring = [NSString stringWithFormat:@"/nc/article/%@/0-20.html",self.urlString];
-    [[[SXNetworkTools sharedNetworkTools]GET:allUrlstring parameters:nil success:^(NSURLSessionDataTask *task, NSDictionary* responseObject) {
-        NSLog(@"%@",allUrlstring);
-        NSString *key = [responseObject.keyEnumerator nextObject];
-        
-        NSArray *temArray = responseObject[key];
-        
-        NSMutableArray *arrayM = [NSMutableArray arrayWithCapacity:temArray.count];
-        [temArray enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-            
-            SXNewsModel *news = [SXNewsModel newsModelWithDict:obj];
-            [arrayM addObject:news];
-        }];
-        self.arrayList = arrayM;
-        [self.tableView headerEndRefreshing];
-        
-    } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        NSLog(@"%@",error);
-    }] resume];
-
+    [self loadDataForType:1 withURL:allUrlstring];
 }
 
-// ------下拉刷新就先这么写了，以前写的不规范现在也搞不规范了。
+// ------上拉加载
 - (void)loadMoreData
 {
     NSString *allUrlstring = [NSString stringWithFormat:@"/nc/article/%@/%ld-20.html",self.urlString,(self.arrayList.count - self.arrayList.count%10)];
+    [self loadDataForType:2 withURL:allUrlstring];
+}
+
+// ------公共方法
+- (void)loadDataForType:(int)type withURL:(NSString *)allUrlstring
+{
     [[[SXNetworkTools sharedNetworkTools]GET:allUrlstring parameters:nil success:^(NSURLSessionDataTask *task, NSDictionary* responseObject) {
         NSLog(@"%@",allUrlstring);
         NSString *key = [responseObject.keyEnumerator nextObject];
@@ -105,21 +82,21 @@
             SXNewsModel *news = [SXNewsModel newsModelWithDict:obj];
             [arrayM addObject:news];
         }];
-//        self.arrayList = arrayM;
-        NSMutableArray *allList = [NSMutableArray array];
-        [allList addObjectsFromArray:self.arrayList];
-        [allList addObjectsFromArray:arrayM];
-//        NSLog(@"%ld",self.arrayList.count);
-        self.arrayList = allList;
-//        NSLog(@"%ld",self.arrayList.count);
-        
-        [self.tableView footerEndRefreshing];
-        [self.tableView reloadData];
+        if (type == 1) {
+            self.arrayList = arrayM;
+            [self.tableView headerEndRefreshing];
+            [self.tableView reloadData];
+        }else if(type == 2){
+            [self.arrayList addObjectsFromArray:arrayM];
+            //        NSLog(@"%ld",self.arrayList.count);
+            [self.tableView footerEndRefreshing];
+            [self.tableView reloadData];
+        }
         
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         NSLog(@"%@",error);
     }] resume];
-}
+}// ------想把这里改成block来着
 
 #pragma mark - /************************* tbv数据源方法 ***************************/
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -155,8 +132,6 @@
     
     UIViewController *vc = [[UIViewController alloc]init];
     vc.view.backgroundColor = [UIColor yellowColor];
-    
-    
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -170,14 +145,10 @@
         if ([self.navigationController respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
             self.navigationController.interactivePopGestureRecognizer.delegate = nil;
         }
-//        [self.navigationController setNavigationBarHidden:YES animated:YES];
     }else{
         NSInteger x = self.tableView.indexPathForSelectedRow.row;
         SXPhotoSetController *pc = segue.destinationViewController;
         pc.newsModel = self.arrayList[x];
-        
-        
-//        [self.navigationController setNavigationBarHidden:YES animated:YES];
     }
     
 }
