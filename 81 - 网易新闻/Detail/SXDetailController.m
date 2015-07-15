@@ -85,13 +85,13 @@
     [self.replyCountBtn setTitle:displayCount forState:UIControlStateNormal];
     
     NSLog(@"%@",self.news[1]);
-    NSLog(@"%@----%@",replyURL,docID);
+    NSLog(@"%@----%@",self.newsModel.boardid,docID);
     
     // 假数据
 //    NSString *url2 = @"http://comment.api.163.com/api/json/post/list/new/hot/photoview_bbs/PHOT1ODB009654GK/0/10/10/2/2";
     
     // 真数据
-    NSString *url2 = [NSString stringWithFormat:@"http://comment.api.163.com/api/json/post/list/new/hot/%@/%@/0/10/10/2/2",replyURL,docID];
+    NSString *url2 = [NSString stringWithFormat:@"http://comment.api.163.com/api/json/post/list/new/hot/%@/%@/0/10/10/2/2",self.newsModel.boardid,docID];
     [self sendRequestWithUrl2:url2];
     
     self.automaticallyAdjustsScrollViewInsets = NO;
