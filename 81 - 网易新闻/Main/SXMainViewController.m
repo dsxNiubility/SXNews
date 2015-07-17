@@ -48,7 +48,7 @@
     [self addController];
     [self addLable];
     
-    CGFloat contentX = (self.childViewControllers.count - 1) * [UIScreen mainScreen].bounds.size.width;
+    CGFloat contentX = self.childViewControllers.count * [UIScreen mainScreen].bounds.size.width;
     self.bigScrollView.contentSize = CGSizeMake(contentX, 0);
     self.bigScrollView.pagingEnabled = YES;
     
@@ -108,7 +108,7 @@
 /** 添加标题栏 */
 - (void)addLable
 {
-    for (int i = 0; i < 7; i++) {
+    for (int i = 0; i < 8; i++) {
         CGFloat lblW = 70;
         CGFloat lblH = 30;
         CGFloat lblY = 0;
@@ -123,7 +123,7 @@
         
         [lbl1 addGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(lblClick:)]];
     }
-    self.smallScrollView.contentSize = CGSizeMake(70 * 7, 0);
+    self.smallScrollView.contentSize = CGSizeMake(70 * 8, 0);
     
 }
 
