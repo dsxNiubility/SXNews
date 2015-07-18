@@ -10,6 +10,9 @@
 		1D0AC8291A73B6EF00EEF963 /* SXDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D0AC8281A73B6EF00EEF963 /* SXDetailModel.m */; };
 		1D0AC82C1A73B8AE00EEF963 /* SXDetailImgModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D0AC82B1A73B8AE00EEF963 /* SXDetailImgModel.m */; };
 		1D0AC8321A73C66200EEF963 /* SXDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D0AC8311A73C66200EEF963 /* SXDetailController.m */; };
+		1D20211E1B5A572700F38C4C /* SXBarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D2021191B5A572700F38C4C /* SXBarButton.m */; };
+		1D20211F1B5A572700F38C4C /* SXMainTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D20211B1B5A572700F38C4C /* SXMainTabBarController.m */; };
+		1D2021201B5A572700F38C4C /* SXTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D20211D1B5A572700F38C4C /* SXTabBar.m */; };
 		1D2357721A80A4A2000C7AAC /* SXMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D23576D1A80A4A2000C7AAC /* SXMainViewController.m */; };
 		1D2357731A80A4A2000C7AAC /* SXNewsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D23576F1A80A4A2000C7AAC /* SXNewsController.m */; };
 		1D2357741A80A4A2000C7AAC /* SXTitleLable.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D2357711A80A4A2000C7AAC /* SXTitleLable.m */; };
@@ -104,6 +107,12 @@
 		1D0AC82B1A73B8AE00EEF963 /* SXDetailImgModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SXDetailImgModel.m; sourceTree = "<group>"; };
 		1D0AC8301A73C66200EEF963 /* SXDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SXDetailController.h; sourceTree = "<group>"; };
 		1D0AC8311A73C66200EEF963 /* SXDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SXDetailController.m; sourceTree = "<group>"; };
+		1D2021181B5A572700F38C4C /* SXBarButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SXBarButton.h; sourceTree = "<group>"; };
+		1D2021191B5A572700F38C4C /* SXBarButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SXBarButton.m; sourceTree = "<group>"; };
+		1D20211A1B5A572700F38C4C /* SXMainTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SXMainTabBarController.h; sourceTree = "<group>"; };
+		1D20211B1B5A572700F38C4C /* SXMainTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SXMainTabBarController.m; sourceTree = "<group>"; };
+		1D20211C1B5A572700F38C4C /* SXTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SXTabBar.h; sourceTree = "<group>"; };
+		1D20211D1B5A572700F38C4C /* SXTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SXTabBar.m; sourceTree = "<group>"; };
 		1D23576C1A80A4A2000C7AAC /* SXMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SXMainViewController.h; sourceTree = "<group>"; };
 		1D23576D1A80A4A2000C7AAC /* SXMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SXMainViewController.m; sourceTree = "<group>"; };
 		1D23576E1A80A4A2000C7AAC /* SXNewsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SXNewsController.h; sourceTree = "<group>"; };
@@ -307,6 +316,12 @@
 		1D23576B1A80A4A2000C7AAC /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				1D2021181B5A572700F38C4C /* SXBarButton.h */,
+				1D2021191B5A572700F38C4C /* SXBarButton.m */,
+				1D20211A1B5A572700F38C4C /* SXMainTabBarController.h */,
+				1D20211B1B5A572700F38C4C /* SXMainTabBarController.m */,
+				1D20211C1B5A572700F38C4C /* SXTabBar.h */,
+				1D20211D1B5A572700F38C4C /* SXTabBar.m */,
 				1D2357751A80A4B2000C7AAC /* Main.storyboard */,
 				1D23576C1A80A4A2000C7AAC /* SXMainViewController.h */,
 				1D23576D1A80A4A2000C7AAC /* SXMainViewController.m */,
@@ -707,6 +722,7 @@
 				1D925CCD1A87CA030063921A /* MJRefreshConst.m in Sources */,
 				1D882E4D1A8117D1004C9C9A /* MJConst.m in Sources */,
 				1D2A596C1A700840001F9B8E /* AFURLResponseSerialization.m in Sources */,
+				1D20211F1B5A572700F38C4C /* SXMainTabBarController.m in Sources */,
 				1D2A59721A700840001F9B8E /* SDWebImageDecoder.m in Sources */,
 				1D7B6F961A8903B4000DB2CE /* SXReplyModel.m in Sources */,
 				1D925CCF1A87CA030063921A /* MJRefreshHeaderView.m in Sources */,
@@ -718,6 +734,7 @@
 				1D2A59731A700840001F9B8E /* SDWebImageDownloader.m in Sources */,
 				2D42989A1B4D918A004B7C6E /* UINavigationController+FDFullscreenPopGesture.m in Sources */,
 				1DC4731C1A81377B00DA905D /* UIView+Frame.m in Sources */,
+				1D2021201B5A572700F38C4C /* SXTabBar.m in Sources */,
 				1D2A59711A700840001F9B8E /* SDWebImageCompat.m in Sources */,
 				1D2A59671A700840001F9B8E /* AFHTTPSessionManager.m in Sources */,
 				1D2A59781A700840001F9B8E /* UIImage+GIF.m in Sources */,
@@ -727,6 +744,7 @@
 				1D2357721A80A4A2000C7AAC /* SXMainViewController.m in Sources */,
 				1D882E561A811E1D004C9C9A /* SXPhotoSetController.m in Sources */,
 				1D0AC82C1A73B8AE00EEF963 /* SXDetailImgModel.m in Sources */,
+				1D20211E1B5A572700F38C4C /* SXBarButton.m in Sources */,
 				1D2A596B1A700840001F9B8E /* AFURLRequestSerialization.m in Sources */,
 				1D8B9DD31A812D530085D265 /* SXPhotoView.m in Sources */,
 				1D2A59761A700840001F9B8E /* SDWebImagePrefetcher.m in Sources */,
