@@ -4,11 +4,11 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
     </dependencies>
     <scenes>
-        <!--Item-->
+        <!--Nav Controller-->
         <scene sceneID="VW3-7A-UaT">
             <objects>
                 <navigationController id="Fb3-j1-el5" customClass="SXNavController" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="zIR-RP-tBz"/>
+                    <tabBarItem key="tabBarItem" title="" id="zIR-RP-tBz"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="3DF-eT-EV2">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -77,7 +77,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="photoview_image_default_white" translatesAutoresizingMaskIntoConstraints="NO" id="TqL-rs-oEW">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photoview_image_default_white" translatesAutoresizingMaskIntoConstraints="NO" id="TqL-rs-oEW">
                                 <rect key="frame" x="28" y="299" width="320" height="70"/>
                             </imageView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Wy-Sw-c0j">
@@ -87,7 +87,7 @@
                                     <constraint firstAttribute="height" constant="30" id="s2g-rh-Suo"/>
                                 </constraints>
                             </scrollView>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0lu-Rp-afC">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0lu-Rp-afC">
                                 <rect key="frame" x="0.0" y="94" width="375" height="573"/>
                             </scrollView>
                         </subviews>
