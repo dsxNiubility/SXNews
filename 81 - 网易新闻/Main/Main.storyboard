@@ -107,7 +107,7 @@
                     <navigationItem key="navigationItem" id="7HA-Qb-Akk">
                         <nil key="title"/>
                         <barButtonItem key="backBarButtonItem" title="主页" id="P4N-DD-m30"/>
-                        <barButtonItem key="leftBarButtonItem" image="top_navigation_menuicon" id="cm4-NW-Hz7"/>
+                        <barButtonItem key="leftBarButtonItem" image="top_navi_bell_normal" id="cm4-NW-Hz7"/>
                         <view key="titleView" contentMode="scaleToFill" id="kYI-wd-bEY">
                             <rect key="frame" x="163" y="11" width="50" height="23"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -123,7 +123,7 @@
                                 <constraint firstItem="F5C-Lj-Tfl" firstAttribute="top" secondItem="kYI-wd-bEY" secondAttribute="top" id="iI5-kU-e03"/>
                             </constraints>
                         </view>
-                        <barButtonItem key="rightBarButtonItem" image="top_navigation_infoicon" id="cLT-0p-4Gg">
+                        <barButtonItem key="rightBarButtonItem" image="top_navigation_square" id="cLT-0p-4Gg">
                             <connections>
                                 <segue destination="VD5-GR-y2z" kind="push" id="Lp7-P0-X2x"/>
                             </connections>
@@ -199,8 +199,8 @@
     <resources>
         <image name="11111" width="70" height="33"/>
         <image name="photoview_image_default_white" width="320" height="70"/>
-        <image name="top_navigation_infoicon" width="30" height="30"/>
-        <image name="top_navigation_menuicon" width="30" height="30"/>
+        <image name="top_navi_bell_normal" width="24" height="24"/>
+        <image name="top_navigation_square" width="19" height="19"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Lp7-P0-X2x"/>
