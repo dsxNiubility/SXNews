@@ -99,6 +99,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [self.navigationController setNavigationBarHidden:YES animated:YES];
+    self.tabBarController.tabBar.hidden = YES;
 }
 
 /** 提前把评论的请求也发出去 得到评论的信息 */

@@ -58,8 +58,8 @@
                                                 <constraint firstAttribute="width" constant="80" id="znN-cC-4yH"/>
                                             </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V3U-Va-OTb">
-                                            <rect key="frame" x="96" y="8" width="39" height="19"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V3U-Va-OTb">
+                                            <rect key="frame" x="96" y="8" width="40" height="19"/>
                                             <fontDescription key="fontDescription" name="HYQiHei-EZJ" family="HYQiHei" pointSize="16"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -112,8 +112,8 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="y9L-c3-hpy" id="Se5-2D-y2E">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IhF-1M-RHV">
-                                            <rect key="frame" x="8" y="8" width="39" height="19"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IhF-1M-RHV">
+                                            <rect key="frame" x="8" y="8" width="40" height="19"/>
                                             <fontDescription key="fontDescription" name="HYQiHei-EZJ" family="HYQiHei" pointSize="16"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -180,8 +180,8 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="VOS-Lr-xSz" id="SYT-wf-DIy">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rAF-Nf-yoj">
-                                            <rect key="frame" x="8" y="8" width="39" height="19"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rAF-Nf-yoj">
+                                            <rect key="frame" x="8" y="8" width="40" height="19"/>
                                             <fontDescription key="fontDescription" name="HYQiHei-EZJ" family="HYQiHei" pointSize="16"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -391,7 +391,7 @@
         <!--图集-->
         <scene sceneID="9pE-6T-E3a">
             <objects>
-                <viewController id="lfx-tz-RHK" customClass="SXPhotoSetController" sceneMemberID="viewController">
+                <viewController hidesBottomBarWhenPushed="YES" id="lfx-tz-RHK" customClass="SXPhotoSetController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="7On-M5-J9i"/>
                         <viewControllerLayoutGuide type="bottom" id="D9H-WT-4KQ"/>
@@ -677,7 +677,7 @@
         <!--新闻详情-->
         <scene sceneID="RC0-Cc-OkJ">
             <objects>
-                <viewController id="AGK-Ys-EEq" customClass="SXDetailController" sceneMemberID="viewController">
+                <viewController hidesBottomBarWhenPushed="YES" id="AGK-Ys-EEq" customClass="SXDetailController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="QGQ-K1-5xM"/>
                         <viewControllerLayoutGuide type="bottom" id="X81-OH-VM3"/>
@@ -785,8 +785,8 @@
         <image name="weather_share" width="45" height="44"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="taV-i8-kFc"/>
         <segue reference="uaS-US-B7U"/>
-        <segue reference="KzH-9A-Ids"/>
+        <segue reference="taV-i8-kFc"/>
+        <segue reference="Kax-d4-jez"/>
     </inferredMetricsTieBreakers>
 </document>

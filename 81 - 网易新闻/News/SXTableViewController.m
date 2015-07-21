@@ -51,6 +51,7 @@
     [[NSNotificationCenter defaultCenter]postNotification:[NSNotification notificationWithName:@"contentStart" object:nil]];
 }
 
+
 #pragma mark - /************************* 刷新数据 ***************************/
 // ------下拉刷新
 - (void)loadData

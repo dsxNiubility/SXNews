@@ -90,6 +90,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [self.navigationController setNavigationBarHidden:YES animated:YES];
+    self.tabBarController.tabBar.hidden = YES;
 }
 #pragma mark - ******************** 发请求
 - (void)sendRequestWithUrl:(NSString *)url
