@@ -62,6 +62,7 @@
 		1D58EEDB1A70C28300411E39 /* SXCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D58EEDA1A70C28300411E39 /* SXCollectionCell.m */; };
 		1D6BE37B1A84B04600BF1AB7 /* SXNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D6BE37A1A84B04600BF1AB7 /* SXNavController.m */; };
 		1D7B6F961A8903B4000DB2CE /* SXReplyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D7B6F951A8903B4000DB2CE /* SXReplyModel.m */; };
+		1D7B9F4F1B5E1EC000774BDA /* HYQiHei-50J.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1D7B9F4E1B5E1EC000774BDA /* HYQiHei-50J.ttf */; };
 		1D882E391A811392004C9C9A /* SXPhotoSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D882E381A811392004C9C9A /* SXPhotoSet.m */; };
 		1D882E3C1A81151C004C9C9A /* SXPhotosDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D882E3B1A81151C004C9C9A /* SXPhotosDetail.m */; };
 		1D882E4D1A8117D1004C9C9A /* MJConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D882E3F1A8117D1004C9C9A /* MJConst.m */; };
@@ -207,6 +208,7 @@
 		1D6BE37A1A84B04600BF1AB7 /* SXNavController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SXNavController.m; sourceTree = "<group>"; };
 		1D7B6F941A8903B4000DB2CE /* SXReplyModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SXReplyModel.h; sourceTree = "<group>"; };
 		1D7B6F951A8903B4000DB2CE /* SXReplyModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SXReplyModel.m; sourceTree = "<group>"; };
+		1D7B9F4E1B5E1EC000774BDA /* HYQiHei-50J.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "HYQiHei-50J.ttf"; sourceTree = "<group>"; };
 		1D882E371A811392004C9C9A /* SXPhotoSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SXPhotoSet.h; sourceTree = "<group>"; };
 		1D882E381A811392004C9C9A /* SXPhotoSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SXPhotoSet.m; sourceTree = "<group>"; };
 		1D882E3A1A81151C004C9C9A /* SXPhotosDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SXPhotosDetail.h; sourceTree = "<group>"; };
@@ -378,6 +380,7 @@
 		1D2A59081A700822001F9B8E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				1D7B9F4E1B5E1EC000774BDA /* HYQiHei-50J.ttf */,
 				1D58EED71A70C18000411E39 /* NewsURLs.plist */,
 				1D2A59091A700822001F9B8E /* Info.plist */,
 				1D2A590A1A700822001F9B8E /* main.m */,
@@ -671,6 +674,7 @@
 				1D2A59161A700822001F9B8E /* Images.xcassets in Resources */,
 				1D58EED81A70C18000411E39 /* NewsURLs.plist in Resources */,
 				1D4FB7E51A73F8B1009F6A9E /* TemplateIcon2x.png in Resources */,
+				1D7B9F4F1B5E1EC000774BDA /* HYQiHei-50J.ttf in Resources */,
 				1D4FB7E41A73F8B1009F6A9E /* SXDetails.css in Resources */,
 				1D2357761A80A4B2000C7AAC /* Main.storyboard in Resources */,
 				1D58EED31A70BD1300411E39 /* NewsCollection.storyboard in Resources */,
