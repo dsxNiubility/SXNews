@@ -48,6 +48,8 @@
 // 图片数
 @property (nonatomic, copy) NSNumber *imgsum;
 
+@property (nonatomic,copy) NSString *clientadurl;
+
 + (instancetype)photoSetWith:(NSDictionary *)dict;
 
 @end
