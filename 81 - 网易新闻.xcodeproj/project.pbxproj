@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1D007F3B1B6C823500EA119C /* SXWeatherView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D007F3A1B6C823500EA119C /* SXWeatherView.m */; };
+		1D007F3D1B6C824D00EA119C /* SXWeatherView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D007F3C1B6C824D00EA119C /* SXWeatherView.xib */; };
 		1D0AC8291A73B6EF00EEF963 /* SXDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D0AC8281A73B6EF00EEF963 /* SXDetailModel.m */; };
 		1D0AC82C1A73B8AE00EEF963 /* SXDetailImgModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D0AC82B1A73B8AE00EEF963 /* SXDetailImgModel.m */; };
 		1D0AC8321A73C66200EEF963 /* SXDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D0AC8311A73C66200EEF963 /* SXDetailController.m */; };
@@ -102,6 +104,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1D007F391B6C823500EA119C /* SXWeatherView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SXWeatherView.h; sourceTree = "<group>"; };
+		1D007F3A1B6C823500EA119C /* SXWeatherView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SXWeatherView.m; sourceTree = "<group>"; };
+		1D007F3C1B6C824D00EA119C /* SXWeatherView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SXWeatherView.xib; sourceTree = "<group>"; };
 		1D0AC8271A73B6EF00EEF963 /* SXDetailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SXDetailModel.h; sourceTree = "<group>"; };
 		1D0AC8281A73B6EF00EEF963 /* SXDetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SXDetailModel.m; sourceTree = "<group>"; };
 		1D0AC82A1A73B8AE00EEF963 /* SXDetailImgModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SXDetailImgModel.h; sourceTree = "<group>"; };
@@ -280,6 +285,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1D007F381B6C820400EA119C /* Weather */ = {
+			isa = PBXGroup;
+			children = (
+				1D007F391B6C823500EA119C /* SXWeatherView.h */,
+				1D007F3A1B6C823500EA119C /* SXWeatherView.m */,
+				1D007F3C1B6C824D00EA119C /* SXWeatherView.xib */,
+			);
+			path = Weather;
+			sourceTree = "<group>";
+		};
 		1D0AC8241A73B6C000EEF963 /* Detail */ = {
 			isa = PBXGroup;
 			children = (
@@ -361,6 +376,7 @@
 				1D0AC8241A73B6C000EEF963 /* Detail */,
 				1D0AC8261A73B6C000EEF963 /* Other */,
 				1D882E361A8112ED004C9C9A /* PhotoSet */,
+				1D007F381B6C820400EA119C /* Weather */,
 				1D23576B1A80A4A2000C7AAC /* Main */,
 				1D58EED11A70BD0000411E39 /* NewsCollection */,
 				1D2A597E1A700864001F9B8E /* News */,
@@ -682,6 +698,7 @@
 				1D8B9DD51A812D700085D265 /* SXPhotoView.xib in Resources */,
 				1D925CB91A87B8DF0063921A /* SXReplyHeader.xib in Resources */,
 				1D58EECA1A709AE600411E39 /* News.storyboard in Resources */,
+				1D007F3D1B6C824D00EA119C /* SXWeatherView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -735,6 +752,7 @@
 				1D2A597B1A700840001F9B8E /* UIImageView+HighlightedWebCache.m in Sources */,
 				1D925CD11A87CA030063921A /* UIScrollView+MJRefresh.m in Sources */,
 				1D2A59691A700840001F9B8E /* AFSecurityPolicy.m in Sources */,
+				1D007F3B1B6C823500EA119C /* SXWeatherView.m in Sources */,
 				1D2A59731A700840001F9B8E /* SDWebImageDownloader.m in Sources */,
 				2D42989A1B4D918A004B7C6E /* UINavigationController+FDFullscreenPopGesture.m in Sources */,
 				1DC4731C1A81377B00DA905D /* UIView+Frame.m in Sources */,
