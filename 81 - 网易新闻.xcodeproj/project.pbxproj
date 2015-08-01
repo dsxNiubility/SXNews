@@ -17,6 +17,9 @@
 		1D007F551B6D114900EA119C /* NSObject+MJKeyValue.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D007F4B1B6D114900EA119C /* NSObject+MJKeyValue.m */; };
 		1D007F561B6D114900EA119C /* NSObject+MJProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D007F4D1B6D114900EA119C /* NSObject+MJProperty.m */; };
 		1D007F571B6D114900EA119C /* NSString+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D007F4F1B6D114900EA119C /* NSString+MJExtension.m */; };
+		1D007F5A1B6D151D00EA119C /* SXWeatherModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D007F591B6D151D00EA119C /* SXWeatherModel.m */; };
+		1D007F5D1B6D155B00EA119C /* SXWeatherDetailM.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D007F5C1B6D155B00EA119C /* SXWeatherDetailM.m */; };
+		1D007F601B6D17B200EA119C /* SXWeatherBgM.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D007F5F1B6D17B200EA119C /* SXWeatherBgM.m */; };
 		1D0AC8291A73B6EF00EEF963 /* SXDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D0AC8281A73B6EF00EEF963 /* SXDetailModel.m */; };
 		1D0AC82C1A73B8AE00EEF963 /* SXDetailImgModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D0AC82B1A73B8AE00EEF963 /* SXDetailImgModel.m */; };
 		1D0AC8321A73C66200EEF963 /* SXDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D0AC8311A73C66200EEF963 /* SXDetailController.m */; };
@@ -125,6 +128,12 @@
 		1D007F4D1B6D114900EA119C /* NSObject+MJProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+MJProperty.m"; sourceTree = "<group>"; };
 		1D007F4E1B6D114900EA119C /* NSString+MJExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MJExtension.h"; sourceTree = "<group>"; };
 		1D007F4F1B6D114900EA119C /* NSString+MJExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MJExtension.m"; sourceTree = "<group>"; };
+		1D007F581B6D151D00EA119C /* SXWeatherModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SXWeatherModel.h; sourceTree = "<group>"; };
+		1D007F591B6D151D00EA119C /* SXWeatherModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SXWeatherModel.m; sourceTree = "<group>"; };
+		1D007F5B1B6D155B00EA119C /* SXWeatherDetailM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SXWeatherDetailM.h; sourceTree = "<group>"; };
+		1D007F5C1B6D155B00EA119C /* SXWeatherDetailM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SXWeatherDetailM.m; sourceTree = "<group>"; };
+		1D007F5E1B6D17B200EA119C /* SXWeatherBgM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SXWeatherBgM.h; sourceTree = "<group>"; };
+		1D007F5F1B6D17B200EA119C /* SXWeatherBgM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SXWeatherBgM.m; sourceTree = "<group>"; };
 		1D0AC8271A73B6EF00EEF963 /* SXDetailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SXDetailModel.h; sourceTree = "<group>"; };
 		1D0AC8281A73B6EF00EEF963 /* SXDetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SXDetailModel.m; sourceTree = "<group>"; };
 		1D0AC82A1A73B8AE00EEF963 /* SXDetailImgModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SXDetailImgModel.h; sourceTree = "<group>"; };
@@ -294,6 +303,12 @@
 				1D007F391B6C823500EA119C /* SXWeatherView.h */,
 				1D007F3A1B6C823500EA119C /* SXWeatherView.m */,
 				1D007F3C1B6C824D00EA119C /* SXWeatherView.xib */,
+				1D007F581B6D151D00EA119C /* SXWeatherModel.h */,
+				1D007F591B6D151D00EA119C /* SXWeatherModel.m */,
+				1D007F5B1B6D155B00EA119C /* SXWeatherDetailM.h */,
+				1D007F5C1B6D155B00EA119C /* SXWeatherDetailM.m */,
+				1D007F5E1B6D17B200EA119C /* SXWeatherBgM.h */,
+				1D007F5F1B6D17B200EA119C /* SXWeatherBgM.m */,
 			);
 			path = Weather;
 			sourceTree = "<group>";
@@ -724,6 +739,7 @@
 				1D007F551B6D114900EA119C /* NSObject+MJKeyValue.m in Sources */,
 				1D2A59651A700840001F9B8E /* AFHTTPRequestOperation.m in Sources */,
 				1D2A59111A700822001F9B8E /* ViewController.m in Sources */,
+				1D007F601B6D17B200EA119C /* SXWeatherBgM.m in Sources */,
 				1D4FB7E11A73E6D6009F6A9E /* SXHTTPManager.m in Sources */,
 				1D2A597A1A700840001F9B8E /* UIImage+WebP.m in Sources */,
 				1D6BE37B1A84B04600BF1AB7 /* SXNavController.m in Sources */,
@@ -735,10 +751,12 @@
 				1D0AC8291A73B6EF00EEF963 /* SXDetailModel.m in Sources */,
 				1D925CCE1A87CA030063921A /* MJRefreshFooterView.m in Sources */,
 				1D58EEDB1A70C28300411E39 /* SXCollectionCell.m in Sources */,
+				1D007F5A1B6D151D00EA119C /* SXWeatherModel.m in Sources */,
 				1D2A59741A700840001F9B8E /* SDWebImageDownloaderOperation.m in Sources */,
 				1D0AC8321A73C66200EEF963 /* SXDetailController.m in Sources */,
 				1D925CB41A87B7030063921A /* SXReplyCell.m in Sources */,
 				1D2A59681A700840001F9B8E /* AFNetworkReachabilityManager.m in Sources */,
+				1D007F5D1B6D155B00EA119C /* SXWeatherDetailM.m in Sources */,
 				1D58EEC81A70924A00411E39 /* SXNewsModel.m in Sources */,
 				1D2A59701A700840001F9B8E /* SDImageCache.m in Sources */,
 				1D882E391A811392004C9C9A /* SXPhotoSet.m in Sources */,
