@@ -11,6 +11,20 @@
 
 @interface SXWeatherView ()
 @property(nonatomic,strong)UIView *bottomView;
+@property(nonatomic,strong)UIButton *btn1;
+@property(nonatomic,strong)UIButton *btn2;
+@property(nonatomic,strong)UIButton *btn3;
+@property(nonatomic,strong)UIButton *btn4;
+@property(nonatomic,strong)UIButton *btn5;
+@property(nonatomic,strong)UIButton *btn6;
+
+@property(nonatomic,strong)UIImageView *img1;
+@property(nonatomic,strong)UIImageView *img2;
+@property(nonatomic,strong)UIImageView *img3;
+@property(nonatomic,strong)UIImageView *img4;
+@property(nonatomic,strong)UIImageView *img5;
+@property(nonatomic,strong)UIImageView *img6;
+
 @end
 @implementation SXWeatherView
 
@@ -87,24 +101,85 @@
     titleLbl.textAlignment = NSTextAlignmentCenter;
     [itemView addSubview:titleLbl];
     
+    switch (index) {
+        case 0:
+            self.btn1 = btn;
+            self.img1 = img;
+            break;
+        case 1:
+            self.btn2 = btn;
+            self.img2 = img;
+            break;
+        case 2:
+            self.btn3 = btn;
+            self.img3 = img;
+            break;
+        case 3:
+            self.btn4 = btn;
+            self.img4 = img;
+            break;
+        case 4:
+            self.btn5 = btn;
+            self.img5 = img;
+            break;
+        case 5:
+            self.btn6 = btn;
+            self.img6 = img;
+            break;
+            
+        default:
+            break;
+    }
+
 }
 
+// ------为了实现和网易一样的动画 只能把代码写的这么蛋疼
 - (void)addAnimate{
     
+    self.btn1.transform = CGAffineTransformMakeScale(0.2, 0.2);
+    self.btn2.transform = CGAffineTransformMakeScale(0.2, 0.2);
+    self.btn3.transform = CGAffineTransformMakeScale(0.2, 0.2);
+    self.btn4.transform = CGAffineTransformMakeScale(0.2, 0.2);
+    self.btn5.transform = CGAffineTransformMakeScale(0.2, 0.2);
+    self.btn6.transform = CGAffineTransformMakeScale(0.2, 0.2);
+    
+    self.img1.transform = CGAffineTransformMakeScale(1.4, 1.4);
+    self.img2.transform = CGAffineTransformMakeScale(1.4, 1.4);
+    self.img3.transform = CGAffineTransformMakeScale(1.4, 1.4);
+    self.img4.transform = CGAffineTransformMakeScale(1.4, 1.4);
+    self.img5.transform = CGAffineTransformMakeScale(1.4, 1.4);
+    self.img6.transform = CGAffineTransformMakeScale(1.4, 1.4);
     [UIView animateWithDuration:0.2 animations:^{
-        for (UIView *view in self.bottomView.subviews) {
-            for (UIButton *btn in view.subviews) {
-                btn.transform = CGAffineTransformMakeScale(1.2, 1.2);
-            }
-        }
+        self.btn1.transform = CGAffineTransformMakeScale(1.2, 1.2);
+        self.btn2.transform = CGAffineTransformMakeScale(1.2, 1.2);
+        self.btn3.transform = CGAffineTransformMakeScale(1.2, 1.2);
+        self.btn4.transform = CGAffineTransformMakeScale(1.2, 1.2);
+        self.btn5.transform = CGAffineTransformMakeScale(1.2, 1.2);
+        self.btn6.transform = CGAffineTransformMakeScale(1.2, 1.2);
+        
+        self.img1.transform = CGAffineTransformMakeScale(0.7, 0.7);
+        self.img2.transform = CGAffineTransformMakeScale(0.7, 0.7);
+        self.img3.transform = CGAffineTransformMakeScale(0.7, 0.7);
+        self.img4.transform = CGAffineTransformMakeScale(0.7, 0.7);
+        self.img5.transform = CGAffineTransformMakeScale(0.7, 0.7);
+        self.img6.transform = CGAffineTransformMakeScale(0.7, 0.7);
     } completion:^(BOOL finished) {
         [UIView animateWithDuration:0.2 animations:^{
-            for (UIView *view in self.bottomView.subviews) {
-                for (UIButton *btn in view.subviews) {
-                    btn.transform = CGAffineTransformIdentity;
-                }
-            }
+            self.btn1.transform = CGAffineTransformIdentity;
+            self.btn2.transform = CGAffineTransformIdentity;
+            self.btn3.transform = CGAffineTransformIdentity;
+            self.btn4.transform = CGAffineTransformIdentity;
+            self.btn5.transform = CGAffineTransformIdentity;
+            self.btn6.transform = CGAffineTransformIdentity;
+            
+            self.img1.transform = CGAffineTransformIdentity;
+            self.img2.transform = CGAffineTransformIdentity;
+            self.img3.transform = CGAffineTransformIdentity;
+            self.img4.transform = CGAffineTransformIdentity;
+            self.img5.transform = CGAffineTransformIdentity;
+            self.img6.transform = CGAffineTransformIdentity;
         }];
+
     }];
 
 }
