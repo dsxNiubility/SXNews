@@ -63,7 +63,7 @@
         
         //        CGFloat btnW = self.frame.size.width/self.subviews.count;
         //        CGFloat btnH = self.frame.size.height;
-        CGFloat btnW = 375/5;
+        CGFloat btnW = [UIScreen mainScreen].bounds.size.width/5;
         CGFloat btnH = 49;
         CGFloat btnX = (i-1) * btnW;
         CGFloat btnY = 0;
