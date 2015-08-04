@@ -91,7 +91,7 @@
 
 @property (nonatomic,copy) NSString *wap_portal;
 @property (nonatomic,copy) NSString *live_info;
-
+@property (nonatomic,copy) NSString *ads;
 
 + (instancetype)newsModelWithDict:(NSDictionary *)dict;
 
