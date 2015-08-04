@@ -8,7 +8,9 @@
 
 #import "SXMainViewController.h"
 #import "SXTableViewController.h"
+#import "SXWeatherView.h"
 #import "SXTitleLable.h"
+#import "UIView+Frame.h"
 
 @interface SXMainViewController ()<UIScrollViewDelegate>
 
@@ -22,6 +24,8 @@
 
 /** 新闻接口的数组 */
 @property(nonatomic,strong) NSArray *arrayLists;
+@property(nonatomic,assign,getter=isWeatherShow)BOOL weatherShow;
+@property(nonatomic,strong)SXWeatherView *weatherView;
 
 @end
 
@@ -209,7 +213,24 @@
 }
 
 - (IBAction)rightItemClick:(UIBarButtonItem *)sender {
-    NSLog(@"右item");
+    if (self.isWeatherShow) {
+        self.weatherView.hidden = YES;
+    }else{
+        if (self.weatherView == nil) {
+            SXWeatherView *weatherView = [SXWeatherView view];
+            self.weatherView = weatherView;
+            weatherView.alpha = 0.9;
+            UIWindow *win = [UIApplication sharedApplication].windows.firstObject;
+            [win addSubview:weatherView];
+            weatherView.frame = [UIScreen mainScreen].bounds;
+            weatherView.y = 64;
+            weatherView.height -= 64;
+        }else{
+            self.weatherView.hidden = NO;
+        }
+    }
+    self.weatherShow = !self.isWeatherShow;
+    
 }
 
 @end

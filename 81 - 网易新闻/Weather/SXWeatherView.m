@@ -18,4 +18,9 @@
 }
 */
 
++ (instancetype)view{
+    return [[NSBundle mainBundle]loadNibNamed:@"SXWeatherView" owner:nil options:nil].firstObject;
+}
+
+
 @end

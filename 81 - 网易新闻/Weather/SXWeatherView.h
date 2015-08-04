@@ -10,4 +10,6 @@
 
 @interface SXWeatherView : UIView
 
++ (instancetype)view;
+
 @end
