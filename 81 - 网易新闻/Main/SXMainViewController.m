@@ -115,14 +115,14 @@
 {
     for (int i = 0; i < 8; i++) {
         CGFloat lblW = 70;
-        CGFloat lblH = 30;
+        CGFloat lblH = 40;
         CGFloat lblY = 0;
         CGFloat lblX = i * lblW;
         SXTitleLable *lbl1 = [[SXTitleLable alloc]init];
         UIViewController *vc = self.childViewControllers[i];
         lbl1.text =vc.title;
         lbl1.frame = CGRectMake(lblX, lblY, lblW, lblH);
-        lbl1.font = [UIFont fontWithName:@"HYQiHei" size:17];
+        lbl1.font = [UIFont fontWithName:@"HYQiHei" size:19];
         [self.smallScrollView addSubview:lbl1];
         lbl1.tag = i;
         lbl1.userInteractionEnabled = YES;
