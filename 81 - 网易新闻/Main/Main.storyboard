@@ -107,7 +107,11 @@
                     <navigationItem key="navigationItem" id="7HA-Qb-Akk">
                         <nil key="title"/>
                         <barButtonItem key="backBarButtonItem" title="主页" id="P4N-DD-m30"/>
-                        <barButtonItem key="leftBarButtonItem" image="top_navi_bell_normal" id="cm4-NW-Hz7"/>
+                        <barButtonItem key="leftBarButtonItem" image="top_navi_bell_normal" id="cm4-NW-Hz7">
+                            <connections>
+                                <segue destination="VD5-GR-y2z" kind="show" id="Lej-3a-h49"/>
+                            </connections>
+                        </barButtonItem>
                         <view key="titleView" contentMode="scaleToFill" id="kYI-wd-bEY">
                             <rect key="frame" x="163" y="11" width="50" height="23"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -125,7 +129,7 @@
                         </view>
                         <barButtonItem key="rightBarButtonItem" image="top_navigation_square" id="cLT-0p-4Gg">
                             <connections>
-                                <segue destination="VD5-GR-y2z" kind="push" id="Lp7-P0-X2x"/>
+                                <action selector="rightItemClick:" destination="vXZ-lx-hvc" id="Kca-0V-8rc"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -137,23 +141,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-177.5" y="176.5"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="RBT-uS-GpY">
-            <objects>
-                <navigationController id="vsl-rM-ArI" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="qdb-Pp-x2S">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="VD5-GR-y2z" kind="relationship" relationship="rootViewController" id="AVc-g7-qwg"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="YIF-Vi-05C" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-163" y="-740"/>
+            <point key="canvasLocation" x="312.5" y="243.5"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="2kQ-KM-T7e">
@@ -193,7 +181,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="42B-vq-cR6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="296.5" y="-7.5"/>
+            <point key="canvasLocation" x="772.5" y="0.5"/>
         </scene>
     </scenes>
     <resources>
@@ -202,7 +190,4 @@
         <image name="top_navi_bell_normal" width="24" height="24"/>
         <image name="top_navigation_square" width="19" height="19"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="Lp7-P0-X2x"/>
-    </inferredMetricsTieBreakers>
 </document>

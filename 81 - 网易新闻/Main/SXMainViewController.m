@@ -58,6 +58,7 @@
     [self.bigScrollView addSubview:vc.view];
     SXTitleLable *lable = [self.smallScrollView.subviews firstObject];
     lable.scale = 1.0;
+    self.bigScrollView.showsHorizontalScrollIndicator = NO;
 }
 
 
@@ -133,16 +134,6 @@
 {
     SXTitleLable *titlelable = (SXTitleLable *)recognizer.view;
     
-//    NSUInteger index = self.bigScrollView.contentOffset.x / self.bigScrollView.frame.size.width;
-    
-//    self.oldTitleLable = self.smallScrollView.subviews[index];
-//    self.beginOffsetX = self.bigScrollView.frame.size.width * index;
-//    NSLog(@"%f %ld",self.beginOffsetX,index);
-    
-    
-//    titlelable.textColor = [UIColor redColor];
-//    titlelable.font = [UIFont systemFontOfSize:15];
-    
     CGFloat offsetX = titlelable.tag * self.bigScrollView.frame.size.width;
    
     CGFloat offsetY = self.bigScrollView.contentOffset.y;
@@ -217,5 +208,8 @@
     
 }
 
+- (IBAction)rightItemClick:(UIBarButtonItem *)sender {
+    NSLog(@"右item");
+}
 
 @end
