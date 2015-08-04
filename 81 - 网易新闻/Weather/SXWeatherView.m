@@ -28,10 +28,14 @@
     self.bottomView.height = self.height-self.bottomView.y;
     self.bottomView.width = self.width;
     self.bottomView.x = 0;
-    self.bottomView.backgroundColor = [UIColor yellowColor];
     
-    [self addBtnWithTitle:@"搜索" icon:@"201" color:[UIColor redColor] index:0];
-    
+    [self addBtnWithTitle:@"搜索" icon:@"204" color:[UIColor orangeColor] index:0];
+    [self addBtnWithTitle:@"上头条" icon:@"202" color:[UIColor redColor] index:1];
+    [self addBtnWithTitle:@"离线" icon:@"203" color:[UIColor colorWithRed:213/255.0 green:22/255.0 blue:71/255.0 alpha:1] index:2];
+    [self addBtnWithTitle:@"夜间" icon:@"205" color:[UIColor colorWithRed:58/255.0 green:153/255.0 blue:208/255.0 alpha:1] index:3];
+    [self addBtnWithTitle:@"扫一扫" icon:@"204" color:[UIColor colorWithRed:70/255.0 green:95/255.0 blue:176/255.0 alpha:1] index:4];
+    [self addBtnWithTitle:@"邀请好友" icon:@"201" color:[UIColor colorWithRed:80/255.0 green:192/255.0 blue:70/255.0 alpha:1] index:5];
+
 }
 
 + (instancetype)view{
@@ -51,13 +55,13 @@
     itemView.width = w;
     itemView.height = h;
     
-    NSLog(@"%@",NSStringFromCGRect(self.bottomView.frame));
-    NSLog(@"%@",NSStringFromCGRect(itemView.frame));
-    
     UIButton *btn = [[UIButton alloc]init];
     btn.width = w-40;
     btn.height = btn.width;
     btn.y = 40;
+    if (index > 2) {
+        btn.y = 10;
+    }
     btn.x = 20;
     
     btn.layer.cornerRadius = btn.width/2;
@@ -79,12 +83,30 @@
     titleLbl.height = 40;
     titleLbl.width = itemView.width;
     titleLbl.x = 0;
-    titleLbl.y = itemView.height - titleLbl.height;
+    titleLbl.y = btn.y + btn.height;
     titleLbl.textAlignment = NSTextAlignmentCenter;
     [itemView addSubview:titleLbl];
-    itemView.backgroundColor = [UIColor orangeColor];
     
+}
+
+- (void)addAnimate{
     
+    [UIView animateWithDuration:0.2 animations:^{
+        for (UIView *view in self.bottomView.subviews) {
+            for (UIButton *btn in view.subviews) {
+                btn.transform = CGAffineTransformMakeScale(1.2, 1.2);
+            }
+        }
+    } completion:^(BOOL finished) {
+        [UIView animateWithDuration:0.2 animations:^{
+            for (UIView *view in self.bottomView.subviews) {
+                for (UIButton *btn in view.subviews) {
+                    btn.transform = CGAffineTransformIdentity;
+                }
+            }
+        }];
+    }];
+
 }
 
 @end

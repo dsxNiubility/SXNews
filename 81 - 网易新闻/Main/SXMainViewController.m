@@ -51,6 +51,7 @@
     
     [self addController];
     [self addLable];
+    [self addWeather];
     
     CGFloat contentX = self.childViewControllers.count * [UIScreen mainScreen].bounds.size.width;
     self.bigScrollView.contentSize = CGSizeMake(contentX, 0);
@@ -212,22 +213,24 @@
     
 }
 
+- (void)addWeather{
+    SXWeatherView *weatherView = [SXWeatherView view];
+    self.weatherView = weatherView;
+    weatherView.alpha = 0.9;
+    UIWindow *win = [UIApplication sharedApplication].windows.firstObject;
+    [win addSubview:weatherView];
+    weatherView.frame = [UIScreen mainScreen].bounds;
+    weatherView.y = 64;
+    weatherView.height -= 64;
+    self.weatherView.hidden = YES;
+}
+
 - (IBAction)rightItemClick:(UIBarButtonItem *)sender {
     if (self.isWeatherShow) {
         self.weatherView.hidden = YES;
     }else{
-        if (self.weatherView == nil) {
-            SXWeatherView *weatherView = [SXWeatherView view];
-            self.weatherView = weatherView;
-            weatherView.alpha = 0.9;
-            UIWindow *win = [UIApplication sharedApplication].windows.firstObject;
-            [win addSubview:weatherView];
-            weatherView.frame = [UIScreen mainScreen].bounds;
-            weatherView.y = 64;
-            weatherView.height -= 64;
-        }else{
-            self.weatherView.hidden = NO;
-        }
+        self.weatherView.hidden = NO;
+        [self.weatherView addAnimate];
     }
     self.weatherShow = !self.isWeatherShow;
     

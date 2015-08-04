@@ -11,5 +11,6 @@
 @interface SXWeatherView : UIView
 
 + (instancetype)view;
+- (void)addAnimate;
 
 @end
