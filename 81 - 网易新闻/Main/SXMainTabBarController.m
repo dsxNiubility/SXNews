@@ -41,7 +41,7 @@
     [tabBar addBarButtonWithNorName:@"tabbar_icon_found_normal" andDisName:@"tabbar_icon_found_highlight" andTitle:@"发现"];
     [tabBar addBarButtonWithNorName:@"tabbar_icon_me_normal" andDisName:@"tabbar_icon_me_highlight" andTitle:@"我"];
     
-    self.selectedIndex = 1;
+    self.selectedIndex = 0;
 }
 
 #pragma mark - ******************** SXTabBarDelegate代理方法

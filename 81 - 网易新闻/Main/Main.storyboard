@@ -26,7 +26,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZB7-wm-LSs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-697" y="120"/>
+            <point key="canvasLocation" x="-121" y="-32"/>
         </scene>
         <!--Main Tab Bar Controller-->
         <scene sceneID="kFJ-mz-Xgj">
@@ -41,11 +41,48 @@
                     </tabBar>
                     <connections>
                         <segue destination="Fb3-j1-el5" kind="relationship" relationship="viewControllers" id="3c2-rv-aVg"/>
+                        <segue destination="QUT-lh-x6l" kind="relationship" relationship="viewControllers" id="pQP-vu-clK"/>
+                        <segue destination="rUr-6w-qch" kind="relationship" relationship="viewControllers" id="Eag-dT-B1b"/>
+                        <segue destination="TY2-ry-KrA" kind="relationship" relationship="viewControllers" id="bR0-lU-srk"/>
+                        <segue destination="mlZ-K8-TSP" kind="relationship" relationship="viewControllers" id="ilr-7K-r9p"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="34D-Vv-B3Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1279" y="100"/>
+            <point key="canvasLocation" x="-716" y="487"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="cea-Qr-jAq">
+            <objects>
+                <viewController id="QUT-lh-x6l" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Fof-Bz-iVQ"/>
+                        <viewControllerLayoutGuide type="bottom" id="HfW-eo-Tjh"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="dji-B3-wxg">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="125" translatesAutoresizingMaskIntoConstraints="NO" id="Tyw-lW-Oo0">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="618" id="1yS-8e-3qA"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Tyw-lW-Oo0" secondAttribute="trailing" id="SBg-fw-8en"/>
+                            <constraint firstItem="Tyw-lW-Oo0" firstAttribute="top" secondItem="dji-B3-wxg" secondAttribute="top" id="aby-Ha-bdb"/>
+                            <constraint firstItem="Tyw-lW-Oo0" firstAttribute="leading" secondItem="dji-B3-wxg" secondAttribute="leading" id="fqm-9d-GZB"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="Dn4-mC-KrQ"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GBJ-qF-1fK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-120.5" y="742.5"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="i0E-N6-0fE">
@@ -63,7 +100,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IEb-fC-IuO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="321" y="1005"/>
+            <point key="canvasLocation" x="-363" y="1505"/>
         </scene>
         <!--Main View Controller-->
         <scene sceneID="ufC-wZ-h7g">
@@ -141,7 +178,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="312.5" y="243.5"/>
+            <point key="canvasLocation" x="296.5" y="-4.5"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="2kQ-KM-T7e">
@@ -183,9 +220,112 @@
             </objects>
             <point key="canvasLocation" x="772.5" y="0.5"/>
         </scene>
+        <!--Item-->
+        <scene sceneID="ZRe-46-9Rb">
+            <objects>
+                <viewController id="rUr-6w-qch" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="p0b-Ms-sDy"/>
+                        <viewControllerLayoutGuide type="bottom" id="mMk-cc-CvV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="elS-KV-vqI">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="121" translatesAutoresizingMaskIntoConstraints="NO" id="F23-8g-oXg">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="618" id="Y40-5t-Hvn"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="F23-8g-oXg" firstAttribute="top" secondItem="elS-KV-vqI" secondAttribute="top" id="DAG-Ja-7fR"/>
+                            <constraint firstAttribute="trailing" secondItem="F23-8g-oXg" secondAttribute="trailing" id="Ykf-pa-UOu"/>
+                            <constraint firstItem="F23-8g-oXg" firstAttribute="leading" secondItem="elS-KV-vqI" secondAttribute="leading" id="muW-aV-ec7"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="GFm-0s-Do9"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Gu3-LC-9gp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="307.5" y="742.5"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="p2q-Or-egg">
+            <objects>
+                <viewController id="TY2-ry-KrA" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Sek-wm-ON6"/>
+                        <viewControllerLayoutGuide type="bottom" id="bGL-zJ-HuX"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="pCK-hU-Mym">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="122" translatesAutoresizingMaskIntoConstraints="NO" id="3fO-S6-fKc">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="618" id="feb-av-EmO"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="3fO-S6-fKc" secondAttribute="trailing" id="CAO-id-dhW"/>
+                            <constraint firstItem="3fO-S6-fKc" firstAttribute="leading" secondItem="pCK-hU-Mym" secondAttribute="leading" id="RoD-9H-sHM"/>
+                            <constraint firstItem="3fO-S6-fKc" firstAttribute="top" secondItem="pCK-hU-Mym" secondAttribute="top" id="mHB-3R-gUz"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="TDE-Zx-14f"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OFO-dl-Tu8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="731.5" y="742.5"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="fox-zc-9gN">
+            <objects>
+                <viewController id="mlZ-K8-TSP" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="fd6-OX-Nv5"/>
+                        <viewControllerLayoutGuide type="bottom" id="yZz-gD-z2C"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kUi-sL-YVG">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="124" translatesAutoresizingMaskIntoConstraints="NO" id="alj-pq-5nS">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="618" id="0p8-C6-hmE"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="alj-pq-5nS" firstAttribute="leading" secondItem="kUi-sL-YVG" secondAttribute="leading" id="Cr0-ez-aqR"/>
+                            <constraint firstItem="alj-pq-5nS" firstAttribute="top" secondItem="kUi-sL-YVG" secondAttribute="top" id="n5S-u1-GVo"/>
+                            <constraint firstAttribute="trailing" secondItem="alj-pq-5nS" secondAttribute="trailing" id="pj1-XV-fwK"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="402-M4-EoP"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QOd-cO-ntx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1127.5" y="742.5"/>
+        </scene>
     </scenes>
     <resources>
         <image name="11111" width="70" height="33"/>
+        <image name="121" width="375" height="618"/>
+        <image name="122" width="375" height="617"/>
+        <image name="124" width="375" height="617"/>
+        <image name="125" width="375" height="618"/>
         <image name="photoview_image_default_white" width="320" height="70"/>
         <image name="top_navi_bell_normal" width="24" height="24"/>
         <image name="top_navigation_square" width="19" height="19"/>
