@@ -102,6 +102,15 @@
     self.tabBarController.tabBar.hidden = YES;
 }
 
+//- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+//{
+//    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+//    if (self) {
+//        self.hidesBottomBarWhenPushed=YES;
+//    }
+//    return self;
+//}
+
 /** 提前把评论的请求也发出去 得到评论的信息 */
 - (void)sendRequestWithUrl2:(NSString *)url
 {

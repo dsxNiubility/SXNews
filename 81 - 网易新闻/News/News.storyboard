@@ -748,7 +748,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fee-Cb-3Pb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="555.5" y="451"/>
+            <point key="canvasLocation" x="455.5" y="367"/>
         </scene>
     </scenes>
     <resources>
@@ -767,8 +767,8 @@
         <image name="weather_share" width="45" height="44"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="2uJ-wj-MSP"/>
         <segue reference="taV-i8-kFc"/>
-        <segue reference="azu-K6-x3y"/>
-        <segue reference="Kax-d4-jez"/>
+        <segue reference="KzH-9A-Ids"/>
     </inferredMetricsTieBreakers>
 </document>

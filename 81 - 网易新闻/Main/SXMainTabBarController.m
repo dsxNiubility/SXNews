@@ -25,6 +25,7 @@
     
     SXTabBar *tabBar = [[SXTabBar alloc]init];
     tabBar.frame = self.tabBar.bounds;
+    tabBar.backgroundColor = [UIColor colorWithRed:239/255.0 green:239/255.0 blue:239/255.0 alpha:1];
     
     [self.tabBar addSubview:tabBar];
     
