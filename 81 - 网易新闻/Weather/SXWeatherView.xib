@@ -93,6 +93,19 @@
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UA2-65-4dG" userLabel="跳转按钮">
+                    <rect key="frame" x="220" y="60" width="100" height="150"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="100" id="Onc-C1-h7l"/>
+                        <constraint firstAttribute="height" constant="150" id="Rqn-El-Axf"/>
+                    </constraints>
+                    <state key="normal">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="pushDetail" destination="iN0-l3-epB" eventType="touchUpInside" id="JaM-KH-Hcn"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
@@ -107,11 +120,13 @@
                 <constraint firstItem="ggL-iU-APc" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="18" id="Tap-He-kpV"/>
                 <constraint firstItem="fsE-Lb-Whk" firstAttribute="top" secondItem="M3j-hr-UI9" secondAttribute="bottom" constant="20" id="WFF-iK-RJV"/>
                 <constraint firstItem="adm-dy-s3K" firstAttribute="leading" secondItem="ggL-iU-APc" secondAttribute="trailing" id="dzR-Td-SJP"/>
+                <constraint firstItem="UA2-65-4dG" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="60" id="fVq-PG-b52"/>
                 <constraint firstItem="owv-tI-RrS" firstAttribute="leading" secondItem="ggL-iU-APc" secondAttribute="trailing" constant="8" symbolic="YES" id="hMO-I8-dTe"/>
                 <constraint firstItem="cPF-zt-sUo" firstAttribute="top" secondItem="M3j-hr-UI9" secondAttribute="bottom" constant="2" id="jq9-Rb-Jog"/>
                 <constraint firstItem="ggL-iU-APc" firstAttribute="leading" secondItem="Hh9-gU-vxK" secondAttribute="leading" constant="-9" id="kK8-0P-dnD"/>
                 <constraint firstAttribute="trailing" secondItem="M3j-hr-UI9" secondAttribute="trailing" constant="16" id="kcx-tW-LGc"/>
                 <constraint firstItem="owv-tI-RrS" firstAttribute="bottom" secondItem="ggL-iU-APc" secondAttribute="bottom" constant="-14" id="kde-rO-ScQ"/>
+                <constraint firstAttribute="trailing" secondItem="UA2-65-4dG" secondAttribute="trailing" id="yhG-3k-aaa"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>

@@ -9,6 +9,7 @@
 #import "SXMainViewController.h"
 #import "SXTableViewController.h"
 #import "SXWeatherView.h"
+#import "SXWeatherDetailVC.h"
 #import "SXTitleLable.h"
 #import "UIView+Frame.h"
 
@@ -223,6 +224,8 @@
     weatherView.y = 64;
     weatherView.height -= 64;
     self.weatherView.hidden = YES;
+    
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(pushWeatherDetail) name:@"pushWeatherDetail" object:nil];
 }
 
 - (IBAction)rightItemClick:(UIBarButtonItem *)sender {
@@ -234,6 +237,14 @@
     }
     self.weatherShow = !self.isWeatherShow;
     
+}
+
+- (void)pushWeatherDetail
+{
+    self.weatherView.hidden = YES;
+    self.weatherShow = NO;
+    SXWeatherDetailVC *wdvc = [[SXWeatherDetailVC alloc]init];
+    [self.navigationController pushViewController:wdvc animated:YES];
 }
 
 @end

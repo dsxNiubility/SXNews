@@ -16,6 +16,7 @@
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HEr-Fp-PfO">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="微风" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mgv-KF-jFX">
                     <rect key="frame" x="163" y="214" width="30" height="18"/>
@@ -118,7 +119,7 @@
                 <constraint firstItem="xU0-q0-uN4" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="25" id="jyg-Qq-3Pi"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
-            <point key="canvasLocation" x="338.5" y="217.5"/>
+            <point key="canvasLocation" x="371.5" y="159.5"/>
         </view>
     </objects>
 </document>

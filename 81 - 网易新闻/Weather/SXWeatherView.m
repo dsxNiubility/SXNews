@@ -183,5 +183,8 @@
     }];
 
 }
+- (IBAction)pushDetail {
+    [[NSNotificationCenter defaultCenter]postNotificationName:@"pushWeatherDetail" object:nil];
+}
 
 @end
