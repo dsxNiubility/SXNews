@@ -26,6 +26,9 @@
 - (void)setReplyModel:(SXReplyModel *)replyModel
 {
     _replyModel = replyModel;
+    if (_replyModel.name == nil) {
+        _replyModel.name = @"";
+    }
     self.nameLabel.text = _replyModel.name;
     self.addressLabel.text = _replyModel.address;
     

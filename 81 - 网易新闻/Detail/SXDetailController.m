@@ -69,7 +69,7 @@
     
     //  http://comment.api.163.com/api/json/post/list/new/hot/ent2_bbs/AI1O4EEK00032DGD/0/10/10/2/2
     
-    NSString *replyURL = self.news[self.index][@"replyUrl"];
+//    NSString *replyURL = self.news[self.index][@"replyUrl"];
     NSString *docID = self.newsModel.docid;
     
     
@@ -125,7 +125,6 @@
             }
         }
         
-#warning TODO
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"failure %@",error);
     }];

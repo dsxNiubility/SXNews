@@ -18,27 +18,6 @@
         </mutableArray>
     </customFonts>
     <scenes>
-        <!--Navigation Controller-->
-        <scene sceneID="4fb-U8-0FW">
-            <objects>
-                <navigationController id="9Fu-fG-V4d" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="FuV-F8-njK">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                        <color key="barTintColor" red="1" green="0.14715226009999999" blue="0.15876712139999999" alpha="1" colorSpace="calibratedRGB"/>
-                        <textAttributes key="titleTextAttributes">
-                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                        </textAttributes>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="dLE-KE-4lH" kind="relationship" relationship="rootViewController" id="e3f-iR-7BF"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="LNo-M8-x0g" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-658" y="-146"/>
-        </scene>
         <!--网易新闻-->
         <scene sceneID="911-Un-5t9">
             <objects>
@@ -112,7 +91,7 @@
                                     <outlet property="lblReply" destination="K8d-vD-CgX" id="DEK-Ke-tut"/>
                                     <outlet property="lblSubtitle" destination="GwA-bM-jax" id="U3Z-pF-DNq"/>
                                     <outlet property="lblTitle" destination="V3U-Va-OTb" id="0gC-cU-ywJ"/>
-                                    <segue destination="AGK-Ys-EEq" kind="push" id="2uJ-wj-MSP"/>
+                                    <segue destination="AGK-Ys-EEq" kind="show" id="2uJ-wj-MSP"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ImagesCell" rowHeight="130" id="y9L-c3-hpy" customClass="SXNewsCell">
@@ -187,7 +166,7 @@
                                     <outlet property="imgOther2" destination="yLj-fV-8cc" id="ghi-HY-xeE"/>
                                     <outlet property="lblReply" destination="kTe-12-7sR" id="QEa-qw-mdW"/>
                                     <outlet property="lblTitle" destination="IhF-1M-RHV" id="1YL-eV-Tal"/>
-                                    <segue destination="lfx-tz-RHK" kind="push" id="taV-i8-kFc"/>
+                                    <segue destination="lfx-tz-RHK" kind="show" id="taV-i8-kFc"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="BigImageCell" rowHeight="170" id="VOS-Lr-xSz" customClass="SXNewsCell">
@@ -237,7 +216,7 @@
                                     <outlet property="imgIcon" destination="GRH-9r-HRd" id="7Ne-NE-bNk"/>
                                     <outlet property="lblSubtitle" destination="3wN-1g-jc3" id="O9p-Sp-e9W"/>
                                     <outlet property="lblTitle" destination="rAF-Nf-yoj" id="euz-oo-r8n"/>
-                                    <segue destination="AGK-Ys-EEq" kind="push" id="azu-K6-x3y"/>
+                                    <segue destination="AGK-Ys-EEq" kind="show" id="azu-K6-x3y"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TopImageCell" rowHeight="245" id="nDs-Tx-EfH" customClass="SXNewsCell">
@@ -303,7 +282,7 @@
                                 <connections>
                                     <outlet property="imgIcon" destination="g2q-JR-Yn5" id="Em2-Xy-qFO"/>
                                     <outlet property="lblTitle" destination="F8i-0g-b5l" id="MQQ-Hv-4Ne"/>
-                                    <segue destination="lfx-tz-RHK" kind="push" id="rhD-LA-CtI"/>
+                                    <segue destination="lfx-tz-RHK" kind="show" id="rhD-LA-CtI"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TopTxtCell" rowHeight="245" id="IC2-iZ-vKl" customClass="SXNewsCell">
@@ -369,7 +348,7 @@
                                 <connections>
                                     <outlet property="imgIcon" destination="VUZ-Ze-3f9" id="IcX-yi-lvG"/>
                                     <outlet property="lblTitle" destination="w5X-9P-eHt" id="nfQ-8H-mxR"/>
-                                    <segue destination="AGK-Ys-EEq" kind="push" id="uaS-US-B7U"/>
+                                    <segue destination="AGK-Ys-EEq" kind="show" id="uaS-US-B7U"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -380,7 +359,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="网易新闻" id="19b-X8-a69">
                         <barButtonItem key="backBarButtonItem" title="主页" id="7ID-cI-7eU"/>
-                        <barButtonItem key="leftBarButtonItem" image="001" style="plain" id="iKZ-90-ZkW"/>
+                        <barButtonItem key="leftBarButtonItem" image="001" id="iKZ-90-ZkW"/>
                         <barButtonItem key="rightBarButtonItem" image="003" id="yhS-Nu-IN4"/>
                     </navigationItem>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
@@ -389,20 +368,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dgM-pD-AFU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-12.5" y="45"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="fuv-IJ-FeD">
-            <objects>
-                <navigationController id="Wi2-5b-E8O" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Wiw-5W-tCm">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.80000001190000003" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
-                    </navigationBar>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="UYe-C3-Ki5" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-155" y="-945"/>
         </scene>
         <!--图集-->
         <scene sceneID="9pE-6T-E3a">
@@ -417,7 +382,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LOk-YG-gEv">
-                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="598"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="delegate" destination="lfx-tz-RHK" id="MuR-8c-0Ax"/>
@@ -489,7 +454,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O9c-Pq-dVx" userLabel="返回">
-                                <rect key="frame" x="5" y="69" width="40" height="40"/>
+                                <rect key="frame" x="5" y="25" width="40" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="40" id="fU5-Cp-kJG"/>
                                     <constraint firstAttribute="height" constant="40" id="nMK-do-kEd"/>
@@ -502,7 +467,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AFR-b5-qK2">
-                                <rect key="frame" x="290" y="69" width="80" height="35"/>
+                                <rect key="frame" x="290" y="25" width="80" height="35"/>
                                 <rect key="contentStretch" x="0.5" y="0.5" width="0.0" height="0.0"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="Brj-BS-xiN"/>
@@ -515,7 +480,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="4aM-sd-RR8" kind="push" id="KzH-9A-Ids"/>
+                                    <segue destination="4aM-sd-RR8" kind="show" id="KzH-9A-Ids"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -744,7 +709,7 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <segue destination="4aM-sd-RR8" kind="push" id="Kax-d4-jez"/>
+                                            <segue destination="4aM-sd-RR8" kind="show" id="Kax-d4-jez"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -802,8 +767,8 @@
         <image name="weather_share" width="45" height="44"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="rhD-LA-CtI"/>
-        <segue reference="uaS-US-B7U"/>
+        <segue reference="taV-i8-kFc"/>
+        <segue reference="azu-K6-x3y"/>
         <segue reference="Kax-d4-jez"/>
     </inferredMetricsTieBreakers>
 </document>
