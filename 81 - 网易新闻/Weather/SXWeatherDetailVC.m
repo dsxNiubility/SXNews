@@ -7,6 +7,10 @@
 //
 
 #import "SXWeatherDetailVC.h"
+#import "UIView+Frame.h"
+#import "SXWeatherItemView.h"
+
+#define W [UIScreen mainScreen].bounds.size.width
 
 @interface SXWeatherDetailVC ()
 
@@ -16,8 +20,32 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-        [self.tabBarController setHidesBottomBarWhenPushed:YES];
-    // Do any additional setup after loading the view from its nib.
+    
+    UIView *bottomView = [[UIView alloc]init];
+    [self.view addSubview:bottomView];
+    bottomView.height = 250;
+    bottomView.width = W;
+    bottomView.x = 0;
+    bottomView.y = [UIScreen mainScreen].bounds.size.height - bottomView.height;
+    bottomView.backgroundColor = [UIColor blackColor];
+    bottomView.alpha = 0.2;
+    
+    
+}
+
+- (void)addItemWithTitle:(NSString *)title weather:(NSString *)weather wind:(NSString *)wind T:(NSString *)T index:(int)index
+{
+    SXWeatherItemView *itemView = [[SXWeatherItemView alloc]init];
+    itemView.width = W/3;
+    itemView.y = 0;
+    itemView.height = 200;
+    itemView.x = index * itemView.width;
+    
+    itemView.weather = weather;
+    itemView.titleLbl.text = title;
+    itemView.tLbl.text = T;
+    itemView.windLbl.text = wind;
+    
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
