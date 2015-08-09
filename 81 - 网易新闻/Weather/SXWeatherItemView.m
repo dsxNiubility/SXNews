@@ -10,13 +10,12 @@
 
 @implementation SXWeatherItemView
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
+
++ (instancetype)view
+{
+    return [[NSBundle mainBundle]loadNibNamed:@"SXWeatherItemView" owner:nil options:nil][0];
 }
-*/
+
 - (void)setWeather:(NSString *)weather{
     _weather = weather;
     self.weatherLbl.text = weather;

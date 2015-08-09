@@ -15,5 +15,5 @@
 @property (weak, nonatomic) IBOutlet UILabel *windLbl;
 @property (weak, nonatomic) IBOutlet UIImageView *weatherImg;
 @property(nonatomic,copy)NSString *weather;
-
++ (instancetype)view;
 @end

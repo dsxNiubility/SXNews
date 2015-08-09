@@ -13,7 +13,7 @@
 #define W [UIScreen mainScreen].bounds.size.width
 
 @interface SXWeatherDetailVC ()
-
+@property(nonatomic,strong)UIView *bottomView;
 @end
 
 @implementation SXWeatherDetailVC
@@ -22,20 +22,23 @@
     [super viewDidLoad];
     
     UIView *bottomView = [[UIView alloc]init];
+    self.bottomView = bottomView;
     [self.view addSubview:bottomView];
     bottomView.height = 250;
     bottomView.width = W;
     bottomView.x = 0;
     bottomView.y = [UIScreen mainScreen].bounds.size.height - bottomView.height;
-    bottomView.backgroundColor = [UIColor blackColor];
-    bottomView.alpha = 0.2;
+    bottomView.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.2];
     
+    [self addItemWithTitle:@"星期日" weather:@"多云" wind:@"微风" T:@" 36°/27°" index:0];
+    [self addItemWithTitle:@"星期一" weather:@"雷阵雨" wind:@"微风" T:@" 39°/17°" index:1];
+    [self addItemWithTitle:@"星期二" weather:@"小雨" wind:@"微风" T:@" -2°/15°" index:2];
     
 }
 
 - (void)addItemWithTitle:(NSString *)title weather:(NSString *)weather wind:(NSString *)wind T:(NSString *)T index:(int)index
 {
-    SXWeatherItemView *itemView = [[SXWeatherItemView alloc]init];
+    SXWeatherItemView *itemView = [SXWeatherItemView view];
     itemView.width = W/3;
     itemView.y = 0;
     itemView.height = 200;
@@ -45,7 +48,7 @@
     itemView.titleLbl.text = title;
     itemView.tLbl.text = T;
     itemView.windLbl.text = wind;
-    
+    [self.bottomView addSubview:itemView];
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
