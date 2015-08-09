@@ -241,10 +241,15 @@
 
 - (void)pushWeatherDetail
 {
-    self.weatherView.hidden = YES;
     self.weatherShow = NO;
     SXWeatherDetailVC *wdvc = [[SXWeatherDetailVC alloc]init];
     [self.navigationController pushViewController:wdvc animated:YES];
+    [UIView animateWithDuration:0.1 animations:^{
+        self.weatherView.alpha = 0;
+    } completion:^(BOOL finished) {
+        self.weatherView.alpha = 0.9;
+        self.weatherView.hidden = YES;
+    }];
 }
 
 @end

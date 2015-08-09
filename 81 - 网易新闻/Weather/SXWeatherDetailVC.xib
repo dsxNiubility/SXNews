@@ -14,80 +14,83 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HEr-Fp-PfO">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="QingTian" translatesAutoresizingMaskIntoConstraints="NO" id="HEr-Fp-PfO">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="微风" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mgv-KF-jFX">
-                    <rect key="frame" x="163" y="214" width="30" height="18"/>
+                    <rect key="frame" x="163" y="210" width="30" height="18"/>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <color key="textColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZXJ-Hp-gbW">
                     <rect key="frame" x="8" y="25" width="40" height="40"/>
-                    <color key="backgroundColor" red="0.64705884459999996" green="0.92549026010000002" blue="0.8980392814" alpha="1" colorSpace="deviceRGB"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="40" id="RCb-9B-drg"/>
                         <constraint firstAttribute="height" constant="40" id="pIe-zX-dfb"/>
                     </constraints>
-                    <state key="normal">
+                    <state key="normal" backgroundImage="weather_back">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="back" destination="-1" eventType="touchUpInside" id="HWd-US-mjG"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xU0-q0-uN4">
                     <rect key="frame" x="327" y="25" width="40" height="40"/>
-                    <color key="backgroundColor" red="0.64705884459999996" green="0.92549026010000002" blue="0.8980392814" alpha="1" colorSpace="deviceRGB"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="XVT-uf-zyT"/>
                         <constraint firstAttribute="width" constant="40" id="Zc0-rh-nK7"/>
                     </constraints>
-                    <state key="normal">
+                    <state key="normal" backgroundImage="weather_share">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="北京" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aoh-Xd-Tb7">
                     <rect key="frame" x="168" y="40" width="40" height="24"/>
                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <color key="textColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1UX-ds-WxK">
-                    <rect key="frame" x="211" y="37" width="30" height="30"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="weather_location" translatesAutoresizingMaskIntoConstraints="NO" id="1UX-ds-WxK">
+                    <rect key="frame" x="211" y="42" width="20" height="21"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="30" id="9BC-E6-Yaj"/>
-                        <constraint firstAttribute="height" constant="30" id="ISA-yX-bpX"/>
+                        <constraint firstAttribute="width" constant="20" id="9BC-E6-Yaj"/>
+                        <constraint firstAttribute="height" constant="21" id="ISA-yX-bpX"/>
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="08月01日 星期六" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VET-l9-CIc">
-                    <rect key="frame" x="127" y="75" width="121" height="20"/>
+                    <rect key="frame" x="127" y="71" width="121" height="20"/>
                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <color key="textColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KnQ-ZC-2ad">
-                    <rect key="frame" x="55" y="155" width="100" height="100"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sunandcloud" translatesAutoresizingMaskIntoConstraints="NO" id="KnQ-ZC-2ad">
+                    <rect key="frame" x="55" y="151" width="100" height="150"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="100" id="CWY-FZ-XL1"/>
-                        <constraint firstAttribute="height" constant="100" id="L4S-Mg-PcB"/>
+                        <constraint firstAttribute="height" constant="150" id="L4S-Mg-PcB"/>
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="31°/23°" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nch-RF-oMO">
-                    <rect key="frame" x="163" y="155" width="112" height="41"/>
+                    <rect key="frame" x="163" y="151" width="112" height="41"/>
                     <fontDescription key="fontDescription" type="system" pointSize="34"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <color key="textColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="阴" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sk8-fv-w4F">
-                    <rect key="frame" x="163" y="196" width="15" height="18"/>
+                    <rect key="frame" x="163" y="192" width="15" height="18"/>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <color key="textColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PM2.5   72   良" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fbv-EP-zLO">
-                    <rect key="frame" x="163" y="232" width="103" height="18"/>
+                    <rect key="frame" x="163" y="228" width="103" height="18"/>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <color key="textColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
@@ -122,4 +125,11 @@
             <point key="canvasLocation" x="371.5" y="159.5"/>
         </view>
     </objects>
+    <resources>
+        <image name="QingTian" width="320" height="504"/>
+        <image name="sunandcloud" width="100" height="135"/>
+        <image name="weather_back" width="50" height="50"/>
+        <image name="weather_location" width="20" height="21"/>
+        <image name="weather_share" width="45" height="44"/>
+    </resources>
 </document>
