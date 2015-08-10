@@ -15,4 +15,7 @@
 /** 数组里面装的是SXWeatherDetailM模型*/
 @property(nonatomic,strong)NSArray *detailArray;
 @property(nonatomic,strong)SXWeatherBgM *pm2d5;
+@property(nonatomic,copy)NSString *dt;
+@property(nonatomic,assign)int rt_temperature;
+
 @end

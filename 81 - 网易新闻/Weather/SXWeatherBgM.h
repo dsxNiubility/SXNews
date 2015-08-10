@@ -15,7 +15,7 @@
 /** 这个是真正的背景图*/
 @property(nonatomic,copy)NSString *nbg2;
 
-@property(nonatomic,copy)NSString *api;
+@property(nonatomic,copy)NSString *aqi;
 
 @property(nonatomic,copy)NSString *pm2_5;
 

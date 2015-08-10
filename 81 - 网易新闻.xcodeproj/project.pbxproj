@@ -77,6 +77,7 @@
 		1D58EED61A70BD3D00411E39 /* SXNewsCollectionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D58EED51A70BD3D00411E39 /* SXNewsCollectionController.m */; };
 		1D58EED81A70C18000411E39 /* NewsURLs.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1D58EED71A70C18000411E39 /* NewsURLs.plist */; };
 		1D58EEDB1A70C28300411E39 /* SXCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D58EEDA1A70C28300411E39 /* SXCollectionCell.m */; };
+		1D5995C61B78CA9B0067B471 /* MJExtensionConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D5995C51B78CA9B0067B471 /* MJExtensionConfig.m */; };
 		1D6BE37B1A84B04600BF1AB7 /* SXNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D6BE37A1A84B04600BF1AB7 /* SXNavController.m */; };
 		1D7B6F961A8903B4000DB2CE /* SXReplyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D7B6F951A8903B4000DB2CE /* SXReplyModel.m */; };
 		1D7B9F4F1B5E1EC000774BDA /* HYQiHei-50J.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1D7B9F4E1B5E1EC000774BDA /* HYQiHei-50J.ttf */; };
@@ -246,6 +247,8 @@
 		1D58EED71A70C18000411E39 /* NewsURLs.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = NewsURLs.plist; sourceTree = "<group>"; };
 		1D58EED91A70C28300411E39 /* SXCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SXCollectionCell.h; sourceTree = "<group>"; };
 		1D58EEDA1A70C28300411E39 /* SXCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SXCollectionCell.m; sourceTree = "<group>"; };
+		1D5995C41B78CA9B0067B471 /* MJExtensionConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJExtensionConfig.h; sourceTree = "<group>"; };
+		1D5995C51B78CA9B0067B471 /* MJExtensionConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJExtensionConfig.m; sourceTree = "<group>"; };
 		1D6BE3791A84B04600BF1AB7 /* SXNavController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SXNavController.h; sourceTree = "<group>"; };
 		1D6BE37A1A84B04600BF1AB7 /* SXNavController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SXNavController.m; sourceTree = "<group>"; };
 		1D7B6F941A8903B4000DB2CE /* SXReplyModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SXReplyModel.h; sourceTree = "<group>"; };
@@ -444,6 +447,8 @@
 				1D2A590D1A700822001F9B8E /* AppDelegate.m */,
 				1D2A590F1A700822001F9B8E /* ViewController.h */,
 				1D2A59101A700822001F9B8E /* ViewController.m */,
+				1D5995C41B78CA9B0067B471 /* MJExtensionConfig.h */,
+				1D5995C51B78CA9B0067B471 /* MJExtensionConfig.m */,
 				1D2A59151A700822001F9B8E /* Images.xcassets */,
 				1D2A59171A700822001F9B8E /* LaunchScreen.xib */,
 				1D2A59081A700822001F9B8E /* Supporting Files */,
@@ -825,6 +830,7 @@
 				1D2A597C1A700840001F9B8E /* UIImageView+WebCache.m in Sources */,
 				1D2A597D1A700840001F9B8E /* UIView+WebCacheOperation.m in Sources */,
 				1D2A59751A700840001F9B8E /* SDWebImageManager.m in Sources */,
+				1D5995C61B78CA9B0067B471 /* MJExtensionConfig.m in Sources */,
 				1D2A590E1A700822001F9B8E /* AppDelegate.m in Sources */,
 				1D58EECD1A709E0300411E39 /* SXNewsCell.m in Sources */,
 				1D925CD01A87CA030063921A /* UIScrollView+MJExtension.m in Sources */,

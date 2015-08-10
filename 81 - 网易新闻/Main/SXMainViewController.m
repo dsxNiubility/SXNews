@@ -12,6 +12,9 @@
 #import "SXWeatherDetailVC.h"
 #import "SXTitleLable.h"
 #import "UIView+Frame.h"
+#import "SXHTTPManager.h"
+#import "SXWeatherModel.h"
+#import "MJExtension.h"
 
 @interface SXMainViewController ()<UIScrollViewDelegate>
 
@@ -65,6 +68,8 @@
     SXTitleLable *lable = [self.smallScrollView.subviews firstObject];
     lable.scale = 1.0;
     self.bigScrollView.showsHorizontalScrollIndicator = NO;
+    
+    [self sendWeatherRequest];
 }
 
 
@@ -228,6 +233,19 @@
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(pushWeatherDetail) name:@"pushWeatherDetail" object:nil];
 }
 
+- (void)sendWeatherRequest
+{
+    NSString *url = @"http://c.3g.163.com/nc/weather/5YyX5LqsfOWMl%2BS6rA%3D%3D.html";
+    [[SXHTTPManager manager]GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, NSDictionary *responseObject) {
+        
+       SXWeatherModel *weatherModel = [SXWeatherModel objectWithKeyValues:responseObject];
+        int a = 0;
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"failure %@",error);
+    }];
+}
+
+
 - (IBAction)rightItemClick:(UIBarButtonItem *)sender {
     if (self.isWeatherShow) {
         self.weatherView.hidden = YES;
@@ -236,7 +254,6 @@
         [self.weatherView addAnimate];
     }
     self.weatherShow = !self.isWeatherShow;
-    
 }
 
 - (void)pushWeatherDetail
