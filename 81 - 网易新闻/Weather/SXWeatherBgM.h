@@ -10,4 +10,13 @@
 
 @interface SXWeatherBgM : NSObject
 
+@property(nonatomic,copy)NSString *nbg1;
+
+/** 这个是真正的背景图*/
+@property(nonatomic,copy)NSString *nbg2;
+
+@property(nonatomic,copy)NSString *api;
+
+@property(nonatomic,copy)NSString *pm2_5;
+
 @end
