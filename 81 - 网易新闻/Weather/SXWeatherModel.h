@@ -7,8 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
-@class SXWeatherBgM;
-@class SXWeatherDetailM;
+#import "SXWeatherDetailM.h"
+#import "SXWeatherBgM.h"
+//@class SXWeatherBgM;
+//@class SXWeatherDetailM;
 
 @interface SXWeatherModel : NSObject
 

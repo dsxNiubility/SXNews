@@ -30,6 +30,7 @@
 @property(nonatomic,strong) NSArray *arrayLists;
 @property(nonatomic,assign,getter=isWeatherShow)BOOL weatherShow;
 @property(nonatomic,strong)SXWeatherView *weatherView;
+@property(nonatomic,strong)SXWeatherModel *weatherModel;
 
 @end
 
@@ -55,7 +56,6 @@
     
     [self addController];
     [self addLable];
-    [self addWeather];
     
     CGFloat contentX = self.childViewControllers.count * [UIScreen mainScreen].bounds.size.width;
     self.bigScrollView.contentSize = CGSizeMake(contentX, 0);
@@ -221,6 +221,7 @@
 
 - (void)addWeather{
     SXWeatherView *weatherView = [SXWeatherView view];
+    weatherView.weatherModel = self.weatherModel;
     self.weatherView = weatherView;
     weatherView.alpha = 0.9;
     UIWindow *win = [UIApplication sharedApplication].windows.firstObject;
@@ -239,7 +240,8 @@
     [[SXHTTPManager manager]GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, NSDictionary *responseObject) {
         
        SXWeatherModel *weatherModel = [SXWeatherModel objectWithKeyValues:responseObject];
-        int a = 0;
+        self.weatherModel = weatherModel;
+        [self addWeather];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"failure %@",error);
     }];

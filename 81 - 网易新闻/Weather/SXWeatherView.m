@@ -7,6 +7,7 @@
 //
 
 #import "SXWeatherView.h"
+#import "SXWeatherModel.h"
 #import "UIView+Frame.h"
 
 @interface SXWeatherView ()
@@ -24,6 +25,13 @@
 @property(nonatomic,strong)UIImageView *img4;
 @property(nonatomic,strong)UIImageView *img5;
 @property(nonatomic,strong)UIImageView *img6;
+@property (weak, nonatomic) IBOutlet UILabel *tempLbl;
+@property (weak, nonatomic) IBOutlet UILabel *nowTempLbl;
+@property (weak, nonatomic) IBOutlet UIImageView *weatherImg;
+@property (weak, nonatomic) IBOutlet UILabel *dateWeekLbl;
+@property (weak, nonatomic) IBOutlet UILabel *airPMLbl;
+@property (weak, nonatomic) IBOutlet UILabel *climateLbl;
+@property (weak, nonatomic) IBOutlet UILabel *localLbl;
 
 @end
 @implementation SXWeatherView
@@ -50,6 +58,46 @@
     [self addBtnWithTitle:@"扫一扫" icon:@"204" color:[UIColor colorWithRed:70/255.0 green:95/255.0 blue:176/255.0 alpha:1] index:4];
     [self addBtnWithTitle:@"邀请好友" icon:@"201" color:[UIColor colorWithRed:80/255.0 green:192/255.0 blue:70/255.0 alpha:1] index:5];
 
+}
+
+- (void)setWeatherModel:(SXWeatherModel *)weatherModel
+{
+    _weatherModel = weatherModel;
+    self.nowTempLbl.text = [NSString stringWithFormat:@"%d",weatherModel.rt_temperature];
+    SXWeatherDetailM *weatherDetail = weatherModel.detailArray[0];
+    self.tempLbl.text = weatherDetail.temperature;
+    self.dateWeekLbl.text = [NSString stringWithFormat:@"%@  %@",weatherModel.dt,weatherDetail.week];
+    
+    NSString *desc;
+    int pm = weatherModel.pm2d5.pm2_5.intValue;
+    if (pm < 50) {
+        desc = @"优";
+    }else if (pm < 100){
+        desc = @"良";
+    }else{
+        desc = @"差";
+    }
+    
+    self.airPMLbl.text = [NSString stringWithFormat:@"PM2.5 %d %@",pm,desc];
+    self.localLbl.text = @"北京";
+    self.climateLbl.text = [NSString stringWithFormat:@"%@ %@",weatherDetail.climate,weatherDetail.wind];
+    
+    if ([weatherDetail.climate isEqualToString:@"雷阵雨"]) {
+        self.weatherImg.image = [UIImage imageNamed:@"thunder"];
+    }else if ([weatherDetail.climate isEqualToString:@"晴"]){
+        self.weatherImg.image = [UIImage imageNamed:@"sun"];
+    }else if ([weatherDetail.climate isEqualToString:@"多云"]){
+        self.weatherImg.image = [UIImage imageNamed:@"sunandcloud"];
+    }else if ([weatherDetail.climate isEqualToString:@"阴"]){
+        self.weatherImg.image = [UIImage imageNamed:@"cloud"];
+    }else if ([weatherDetail.climate hasSuffix:@"雨"]){
+        self.weatherImg.image = [UIImage imageNamed:@"rain"];
+    }else if ([weatherDetail.climate hasSuffix:@"雪"]){
+        self.weatherImg.image = [UIImage imageNamed:@"snow"];
+    }else{
+        self.weatherImg.image = [UIImage imageNamed:@"sandfloat"];
+    }
+    
 }
 
 + (instancetype)view{

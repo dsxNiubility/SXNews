@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class SXWeatherModel;
 @interface SXWeatherView : UIView
+@property(nonatomic,strong)SXWeatherModel *weatherModel;
 
 + (instancetype)view;
 - (void)addAnimate;

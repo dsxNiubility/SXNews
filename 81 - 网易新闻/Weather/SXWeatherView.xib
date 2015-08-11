@@ -44,9 +44,8 @@
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="阴 微风" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cPF-zt-sUo">
-                    <rect key="frame" x="245" y="129" width="59" height="21"/>
+                    <rect key="frame" x="251" y="129" width="53" height="21"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="59" id="Eud-T7-9gj"/>
                         <constraint firstAttribute="height" constant="21" id="owt-p2-vJz"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="HYQiHei-EZJ" family="HYQiHei" pointSize="16"/>
@@ -64,20 +63,18 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="31°/23°" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="owv-tI-RrS">
-                    <rect key="frame" x="141" y="120" width="64" height="21"/>
+                    <rect key="frame" x="141" y="120" width="60" height="21"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="21" id="laW-7U-ZfC"/>
-                        <constraint firstAttribute="width" constant="64" id="wvk-dP-n0y"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2015.08.01 星期六" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hh9-gU-vxK">
-                    <rect key="frame" x="27" y="156" width="146" height="21"/>
+                    <rect key="frame" x="27" y="156" width="143" height="21"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="21" id="Z6Y-87-U0p"/>
-                        <constraint firstAttribute="width" constant="146" id="lbL-Uz-KsN"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -130,6 +127,15 @@
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+            <connections>
+                <outlet property="airPMLbl" destination="ezo-qd-b7q" id="oQm-Ve-T3q"/>
+                <outlet property="climateLbl" destination="cPF-zt-sUo" id="3h2-Bj-yaI"/>
+                <outlet property="dateWeekLbl" destination="Hh9-gU-vxK" id="kfv-X7-gwm"/>
+                <outlet property="localLbl" destination="fsE-Lb-Whk" id="IsY-5a-4Xw"/>
+                <outlet property="nowTempLbl" destination="ggL-iU-APc" id="IBR-cP-7IB"/>
+                <outlet property="tempLbl" destination="owv-tI-RrS" id="VJg-v6-txq"/>
+                <outlet property="weatherImg" destination="M3j-hr-UI9" id="L5v-ls-m9h"/>
+            </connections>
             <point key="canvasLocation" x="64" y="-94"/>
         </view>
     </objects>
