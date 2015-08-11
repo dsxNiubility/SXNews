@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+@class SXWeatherModel;
 
 @interface SXWeatherDetailVC : UIViewController
 
+@property(nonatomic,strong)SXWeatherModel *weatherModel;
 @end

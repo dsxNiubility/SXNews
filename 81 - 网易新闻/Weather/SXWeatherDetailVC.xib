@@ -16,7 +16,13 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SXWeatherDetailVC">
             <connections>
+                <outlet property="airPMLbl" destination="Fbv-EP-zLO" id="osL-2N-JMl"/>
+                <outlet property="climateLbl" destination="sk8-fv-w4F" id="Jh6-Oc-OMD"/>
+                <outlet property="dateWeekLbl" destination="VET-l9-CIc" id="NfG-w6-nEc"/>
+                <outlet property="tempLbl" destination="nch-RF-oMO" id="Wfa-sT-nDd"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="weatherImg" destination="KnQ-ZC-2ad" id="bXz-pV-1aY"/>
+                <outlet property="windLbl" destination="Mgv-KF-jFX" id="Mtz-tw-8lp"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>

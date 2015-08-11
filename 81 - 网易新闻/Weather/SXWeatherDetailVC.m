@@ -9,11 +9,19 @@
 #import "SXWeatherDetailVC.h"
 #import "UIView+Frame.h"
 #import "SXWeatherItemView.h"
+#import "SXWeatherModel.h"
 
 #define W [UIScreen mainScreen].bounds.size.width
 
 @interface SXWeatherDetailVC ()
 @property(nonatomic,strong)UIView *bottomView;
+@property (weak, nonatomic) IBOutlet UILabel *tempLbl;
+@property (weak, nonatomic) IBOutlet UIImageView *weatherImg;
+@property (weak, nonatomic) IBOutlet UILabel *dateWeekLbl;
+@property (weak, nonatomic) IBOutlet UILabel *airPMLbl;
+@property (weak, nonatomic) IBOutlet UILabel *climateLbl;
+@property (weak, nonatomic) IBOutlet UILabel *windLbl;
+
 @end
 
 @implementation SXWeatherDetailVC
@@ -29,10 +37,12 @@
     bottomView.x = 0;
     bottomView.y = [UIScreen mainScreen].bounds.size.height - bottomView.height;
     bottomView.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.2];
-    
-    [self addItemWithTitle:@"星期日" weather:@"多云" wind:@"微风" T:@" 36°/27°" index:0];
-    [self addItemWithTitle:@"星期一" weather:@"雷阵雨" wind:@"微风" T:@" 39°/17°" index:1];
-    [self addItemWithTitle:@"星期二" weather:@"小雨" wind:@"微风" T:@" -2°/15°" index:2];
+
+    [self addWeather];
+    for (int i = 1 ; i < 4 ; i++) {
+        SXWeatherDetailM *weatherDetail = self.weatherModel.detailArray[i];
+        [self addItemWithTitle:weatherDetail.week weather:weatherDetail.climate wind:weatherDetail.wind T:weatherDetail.temperature index:i-1];
+    }
     
 }
 
@@ -58,6 +68,52 @@
         self.hidesBottomBarWhenPushed=YES;
     }
     return self;  
+}
+
+//- (void)setWeatherModel:(SXWeatherModel *)weatherModel
+//{
+//    _weatherModel = weatherModel;
+//
+//}
+
+- (void)addWeather
+{
+    
+    SXWeatherDetailM *weatherDetail = self.weatherModel.detailArray[0];
+    
+    self.tempLbl.text = weatherDetail.temperature;
+    self.dateWeekLbl.text = [NSString stringWithFormat:@"%@  %@",self.weatherModel.dt,weatherDetail.week];
+    
+    NSString *desc;
+    int pm = self.weatherModel.pm2d5.pm2_5.intValue;
+    if (pm < 50) {
+        desc = @"优";
+    }else if (pm < 100){
+        desc = @"良";
+    }else{
+        desc = @"差";
+    }
+    
+    self.airPMLbl.text = [NSString stringWithFormat:@"PM2.5 %d %@",pm,desc];
+    //    self.localLbl.text = @"北京";
+    self.climateLbl.text = weatherDetail.climate;
+    self.windLbl.text = weatherDetail.wind;
+    
+    if ([weatherDetail.climate isEqualToString:@"雷阵雨"]) {
+        self.weatherImg.image = [UIImage imageNamed:@"thunder"];
+    }else if ([weatherDetail.climate isEqualToString:@"晴"]){
+        self.weatherImg.image = [UIImage imageNamed:@"sun"];
+    }else if ([weatherDetail.climate isEqualToString:@"多云"]){
+        self.weatherImg.image = [UIImage imageNamed:@"sunandcloud"];
+    }else if ([weatherDetail.climate isEqualToString:@"阴"]){
+        self.weatherImg.image = [UIImage imageNamed:@"cloud"];
+    }else if ([weatherDetail.climate hasSuffix:@"雨"]){
+        self.weatherImg.image = [UIImage imageNamed:@"rain"];
+    }else if ([weatherDetail.climate hasSuffix:@"雪"]){
+        self.weatherImg.image = [UIImage imageNamed:@"snow"];
+    }else{
+        self.weatherImg.image = [UIImage imageNamed:@"sandfloat"];
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated
