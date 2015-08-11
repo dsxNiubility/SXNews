@@ -83,21 +83,20 @@
     self.climateLbl.text = [NSString stringWithFormat:@"%@ %@",weatherDetail.climate,weatherDetail.wind];
     
     if ([weatherDetail.climate isEqualToString:@"雷阵雨"]) {
-        self.weatherImg.image = [UIImage imageNamed:@"thunder"];
+        self.weatherImg.image = [UIImage imageNamed:@"thunder_mini"];
     }else if ([weatherDetail.climate isEqualToString:@"晴"]){
-        self.weatherImg.image = [UIImage imageNamed:@"sun"];
+        self.weatherImg.image = [UIImage imageNamed:@"sun_mini"];
     }else if ([weatherDetail.climate isEqualToString:@"多云"]){
-        self.weatherImg.image = [UIImage imageNamed:@"sunandcloud"];
+        self.weatherImg.image = [UIImage imageNamed:@"sun_and_cloud_mini"];
     }else if ([weatherDetail.climate isEqualToString:@"阴"]){
-        self.weatherImg.image = [UIImage imageNamed:@"cloud"];
+        self.weatherImg.image = [UIImage imageNamed:@"nosun_mini"];
     }else if ([weatherDetail.climate hasSuffix:@"雨"]){
-        self.weatherImg.image = [UIImage imageNamed:@"rain"];
+        self.weatherImg.image = [UIImage imageNamed:@"rain_mini"];
     }else if ([weatherDetail.climate hasSuffix:@"雪"]){
-        self.weatherImg.image = [UIImage imageNamed:@"snow"];
+        self.weatherImg.image = [UIImage imageNamed:@"snow_heavyx_mini"];
     }else{
-        self.weatherImg.image = [UIImage imageNamed:@"sandfloat"];
+        self.weatherImg.image = [UIImage imageNamed:@"sand_float_mini"];
     }
-    
 }
 
 + (instancetype)view{

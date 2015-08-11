@@ -36,7 +36,7 @@
                     <color key="textColor" red="0.83921568629999999" green="0.1529411765" blue="0.19215686269999999" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="night_rain_and_snow_mini" translatesAutoresizingMaskIntoConstraints="NO" id="M3j-hr-UI9">
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="night_rain_and_snow_mini" translatesAutoresizingMaskIntoConstraints="NO" id="M3j-hr-UI9">
                     <rect key="frame" x="245" y="68" width="59" height="59"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="59" id="3Ho-yg-3UB"/>
