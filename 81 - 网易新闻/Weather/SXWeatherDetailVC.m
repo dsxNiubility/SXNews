@@ -10,6 +10,7 @@
 #import "UIView+Frame.h"
 #import "SXWeatherItemView.h"
 #import "SXWeatherModel.h"
+#import "UIImageView+WebCache.h"
 
 #define W [UIScreen mainScreen].bounds.size.width
 
@@ -56,7 +57,11 @@
     
     itemView.weather = weather;
     itemView.titleLbl.text = title;
-    itemView.tLbl.text = T;
+    
+    NSMutableString *temp = [T mutableCopy];
+    [temp replaceOccurrencesOfString:@"C" withString:@"" options:NSCaseInsensitiveSearch range:NSMakeRange(0, temp.length)];
+    
+    itemView.tLbl.text = temp;
     itemView.windLbl.text = wind;
     [self.bottomView addSubview:itemView];
 }
@@ -81,7 +86,11 @@
     
     SXWeatherDetailM *weatherDetail = self.weatherModel.detailArray[0];
     
-    self.tempLbl.text = weatherDetail.temperature;
+    NSMutableString *temp = [weatherDetail.temperature mutableCopy];
+    [temp replaceOccurrencesOfString:@"C" withString:@"" options:NSCaseInsensitiveSearch range:NSMakeRange(0, temp.length)];
+    
+    self.tempLbl.text = temp;
+    
     self.dateWeekLbl.text = [NSString stringWithFormat:@"%@  %@",self.weatherModel.dt,weatherDetail.week];
     
     NSString *desc;
@@ -114,6 +123,7 @@
     }else{
         self.weatherImg.image = [UIImage imageNamed:@"sandfloat"];
     }
+    [self.bgImg sd_setImageWithURL:[NSURL URLWithString:self.weatherModel.pm2d5.nbg2] placeholderImage:[UIImage imageNamed:@"QingTian"]];
 }
 
 - (void)viewWillAppear:(BOOL)animated

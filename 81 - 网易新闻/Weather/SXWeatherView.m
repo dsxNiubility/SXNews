@@ -65,7 +65,11 @@
     _weatherModel = weatherModel;
     self.nowTempLbl.text = [NSString stringWithFormat:@"%d",weatherModel.rt_temperature];
     SXWeatherDetailM *weatherDetail = weatherModel.detailArray[0];
-    self.tempLbl.text = weatherDetail.temperature;
+    
+    NSMutableString *temp = [weatherDetail.temperature mutableCopy];
+    [temp replaceOccurrencesOfString:@"C" withString:@"" options:NSCaseInsensitiveSearch range:NSMakeRange(0, temp.length)];
+    
+    self.tempLbl.text = temp;
     self.dateWeekLbl.text = [NSString stringWithFormat:@"%@  %@",weatherModel.dt,weatherDetail.week];
     
     NSString *desc;

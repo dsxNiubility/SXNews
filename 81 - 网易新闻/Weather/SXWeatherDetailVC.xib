@@ -17,6 +17,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SXWeatherDetailVC">
             <connections>
                 <outlet property="airPMLbl" destination="Fbv-EP-zLO" id="osL-2N-JMl"/>
+                <outlet property="bgImg" destination="HEr-Fp-PfO" id="rVg-ly-zSF"/>
                 <outlet property="climateLbl" destination="sk8-fv-w4F" id="Jh6-Oc-OMD"/>
                 <outlet property="dateWeekLbl" destination="VET-l9-CIc" id="NfG-w6-nEc"/>
                 <outlet property="tempLbl" destination="nch-RF-oMO" id="Wfa-sT-nDd"/>
@@ -30,7 +31,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="QingTian" translatesAutoresizingMaskIntoConstraints="NO" id="HEr-Fp-PfO">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HEr-Fp-PfO">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                 </imageView>
@@ -142,7 +143,6 @@
         </view>
     </objects>
     <resources>
-        <image name="QingTian" width="320" height="504"/>
         <image name="sunandcloud" width="100" height="135"/>
         <image name="weather_back" width="50" height="50"/>
         <image name="weather_location" width="20" height="21"/>

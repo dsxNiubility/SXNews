@@ -12,4 +12,5 @@
 @interface SXWeatherDetailVC : UIViewController
 
 @property(nonatomic,strong)SXWeatherModel *weatherModel;
+@property (weak, nonatomic) IBOutlet UIImageView *bgImg;
 @end
