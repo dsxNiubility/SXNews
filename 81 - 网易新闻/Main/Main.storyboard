@@ -146,11 +146,6 @@
                                 <constraint firstItem="F5C-Lj-Tfl" firstAttribute="top" secondItem="kYI-wd-bEY" secondAttribute="top" id="iI5-kU-e03"/>
                             </constraints>
                         </view>
-                        <barButtonItem key="rightBarButtonItem" image="top_navigation_square" id="cLT-0p-4Gg">
-                            <connections>
-                                <action selector="rightItemClick:" destination="vXZ-lx-hvc" id="Kca-0V-8rc"/>
-                            </connections>
-                        </barButtonItem>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
@@ -310,6 +305,5 @@
         <image name="125" width="375" height="618"/>
         <image name="photoview_image_default_white" width="320" height="70"/>
         <image name="top_navi_bell_normal" width="24" height="24"/>
-        <image name="top_navigation_square" width="19" height="19"/>
     </resources>
 </document>

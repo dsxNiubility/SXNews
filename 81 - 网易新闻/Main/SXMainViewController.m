@@ -30,7 +30,10 @@
 @property(nonatomic,strong) NSArray *arrayLists;
 @property(nonatomic,assign,getter=isWeatherShow)BOOL weatherShow;
 @property(nonatomic,strong)SXWeatherView *weatherView;
+@property(nonatomic,strong)UIImageView *tran;
 @property(nonatomic,strong)SXWeatherModel *weatherModel;
+
+@property(nonatomic,strong)UIButton *rightItem;
 
 @end
 
@@ -69,12 +72,64 @@
     lable.scale = 1.0;
     self.bigScrollView.showsHorizontalScrollIndicator = NO;
     
+   
+    UIButton *rightItem = [[UIButton alloc]init];
+    self.rightItem = rightItem;
+    UIWindow *win = [UIApplication sharedApplication].windows.firstObject;
+    [win addSubview:rightItem];
+    rightItem.y = 30;
+    rightItem.width = 20;
+    rightItem.height = 20;
+    [rightItem addTarget:self action:@selector(rightItemClick) forControlEvents:UIControlEventTouchUpInside];
+    rightItem.x = [UIScreen mainScreen].bounds.size.width - rightItem.width - 15;
+    NSLog(@"%@",NSStringFromCGRect(rightItem.frame));
+    [rightItem setImage:[UIImage imageNamed:@"top_navigation_square"] forState:UIControlStateNormal];
+    
     [self sendWeatherRequest];
+}
+
+- (void)rightItemClick{
+
+    if (self.isWeatherShow) {
+        
+
+        self.weatherView.hidden = YES;
+        self.tran.hidden = YES;
+        [UIView animateWithDuration:0.1 animations:^{
+            self.rightItem.transform = CGAffineTransformRotate(self.rightItem.transform, M_1_PI * 5);
+            
+        } completion:^(BOOL finished) {
+            [self.rightItem setImage:[UIImage imageNamed:@"top_navigation_square"] forState:UIControlStateNormal];
+        }];
+    }else{
+        
+        [self.rightItem setImage:[UIImage imageNamed:@"223"] forState:UIControlStateNormal];
+        self.weatherView.hidden = NO;
+        self.tran.hidden = NO;
+        [self.weatherView addAnimate];
+        [UIView animateWithDuration:0.2 animations:^{
+            self.rightItem.transform = CGAffineTransformRotate(self.rightItem.transform, -M_1_PI * 6);
+            
+        } completion:^(BOOL finished) {
+
+            [UIView animateWithDuration:0.1 animations:^{
+                self.rightItem.transform = CGAffineTransformRotate(self.rightItem.transform, M_1_PI );
+            } completion:^(BOOL finished) {
+                
+            }];
+        }];
+    }
+    self.weatherShow = !self.isWeatherShow;
 }
 
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    self.rightItem.hidden = NO;
+    self.rightItem.alpha = 0;
+    [UIView animateWithDuration:0.4 animations:^{
+        self.rightItem.alpha = 1;
+    }];
     [self.navigationController setNavigationBarHidden:NO animated:YES];
 }
 
@@ -226,10 +281,20 @@
     weatherView.alpha = 0.9;
     UIWindow *win = [UIApplication sharedApplication].windows.firstObject;
     [win addSubview:weatherView];
+    
+    UIImageView *tran = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"224"]];
+    self.tran = tran;
+    tran.width = 7;
+    tran.height = 7;
+    tran.y = 57;
+    tran.x = [UIScreen mainScreen].bounds.size.width - 33;
+    [win addSubview:tran];
+    
     weatherView.frame = [UIScreen mainScreen].bounds;
     weatherView.y = 64;
     weatherView.height -= 64;
     self.weatherView.hidden = YES;
+    self.tran.hidden = YES;
     
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(pushWeatherDetail) name:@"pushWeatherDetail" object:nil];
 }
@@ -252,6 +317,10 @@
     if (self.isWeatherShow) {
         self.weatherView.hidden = YES;
     }else{
+
+        self.navigationItem.rightBarButtonItem.image = [UIImage imageNamed:@"223.png"];
+        
+        
         self.weatherView.hidden = NO;
         [self.weatherView addAnimate];
     }
@@ -261,6 +330,9 @@
 - (void)pushWeatherDetail
 {
     self.weatherShow = NO;
+    self.rightItem.hidden = YES;
+    self.rightItem.transform = CGAffineTransformIdentity;
+    [self.rightItem setImage:[UIImage imageNamed:@"top_navigation_square"] forState:UIControlStateNormal];
     SXWeatherDetailVC *wdvc = [[SXWeatherDetailVC alloc]init];
     wdvc.weatherModel = self.weatherModel;
     [self.navigationController pushViewController:wdvc animated:YES];
@@ -269,6 +341,7 @@
     } completion:^(BOOL finished) {
         self.weatherView.alpha = 0.9;
         self.weatherView.hidden = YES;
+        self.tran.hidden = YES;
     }];
 }
 
