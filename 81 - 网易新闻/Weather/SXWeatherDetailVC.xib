@@ -11,6 +11,7 @@
             <string>HYQiHei-EZJ</string>
             <string>HYQiHei-EZJ</string>
             <string>HYQiHei-EZJ</string>
+            <string>HYQiHei-EZJ</string>
         </mutableArray>
     </customFonts>
     <objects>
@@ -110,6 +111,12 @@
                     <color key="textColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="— 数据来自中国天气 —" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eyt-DD-Cx7">
+                    <rect key="frame" x="129" y="634" width="117" height="13"/>
+                    <fontDescription key="fontDescription" name="HYQiHei-EZJ" family="HYQiHei" pointSize="11"/>
+                    <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
@@ -133,10 +140,12 @@
                 <constraint firstItem="KnQ-ZC-2ad" firstAttribute="top" secondItem="VET-l9-CIc" secondAttribute="bottom" constant="60" id="cAy-gT-sWs"/>
                 <constraint firstItem="Mgv-KF-jFX" firstAttribute="leading" secondItem="KnQ-ZC-2ad" secondAttribute="trailing" constant="8" id="d1a-90-ec1"/>
                 <constraint firstItem="Fbv-EP-zLO" firstAttribute="leading" secondItem="KnQ-ZC-2ad" secondAttribute="trailing" constant="8" id="e2r-dW-QrG"/>
+                <constraint firstAttribute="centerX" secondItem="eyt-DD-Cx7" secondAttribute="centerX" id="eU7-HV-puD"/>
                 <constraint firstItem="sk8-fv-w4F" firstAttribute="leading" secondItem="KnQ-ZC-2ad" secondAttribute="trailing" constant="8" id="gih-uC-f97"/>
                 <constraint firstItem="1UX-ds-WxK" firstAttribute="leading" secondItem="Aoh-Xd-Tb7" secondAttribute="trailing" constant="3" id="grQ-lh-2aa"/>
                 <constraint firstItem="ZXJ-Hp-gbW" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="25" id="hUC-Xf-cJ4"/>
                 <constraint firstItem="xU0-q0-uN4" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="25" id="jyg-Qq-3Pi"/>
+                <constraint firstAttribute="bottom" secondItem="eyt-DD-Cx7" secondAttribute="bottom" constant="20" id="soI-Tc-NkJ"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
             <point key="canvasLocation" x="371.5" y="159.5"/>
