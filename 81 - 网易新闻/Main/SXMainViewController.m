@@ -88,40 +88,6 @@
     [self sendWeatherRequest];
 }
 
-- (void)rightItemClick{
-
-    if (self.isWeatherShow) {
-        
-
-        self.weatherView.hidden = YES;
-        self.tran.hidden = YES;
-        [UIView animateWithDuration:0.1 animations:^{
-            self.rightItem.transform = CGAffineTransformRotate(self.rightItem.transform, M_1_PI * 5);
-            
-        } completion:^(BOOL finished) {
-            [self.rightItem setImage:[UIImage imageNamed:@"top_navigation_square"] forState:UIControlStateNormal];
-        }];
-    }else{
-        
-        [self.rightItem setImage:[UIImage imageNamed:@"223"] forState:UIControlStateNormal];
-        self.weatherView.hidden = NO;
-        self.tran.hidden = NO;
-        [self.weatherView addAnimate];
-        [UIView animateWithDuration:0.2 animations:^{
-            self.rightItem.transform = CGAffineTransformRotate(self.rightItem.transform, -M_1_PI * 6);
-            
-        } completion:^(BOOL finished) {
-
-            [UIView animateWithDuration:0.1 animations:^{
-                self.rightItem.transform = CGAffineTransformRotate(self.rightItem.transform, M_1_PI );
-            } completion:^(BOOL finished) {
-                
-            }];
-        }];
-    }
-    self.weatherShow = !self.isWeatherShow;
-}
-
 
 - (void)viewWillAppear:(BOOL)animated
 {
@@ -131,6 +97,13 @@
         self.rightItem.alpha = 1;
     }];
     [self.navigationController setNavigationBarHidden:NO animated:YES];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    self.rightItem.hidden = YES;
+    self.rightItem.transform = CGAffineTransformIdentity;
+    [self.rightItem setImage:[UIImage imageNamed:@"top_navigation_square"] forState:UIControlStateNormal];
 }
 
 #pragma mark - ******************** 添加方法
@@ -287,16 +260,34 @@
 }
 
 
-- (IBAction)rightItemClick:(UIBarButtonItem *)sender {
+- (void)rightItemClick{
+    
     if (self.isWeatherShow) {
+        
+        
         self.weatherView.hidden = YES;
+        self.tran.hidden = YES;
+        [UIView animateWithDuration:0.1 animations:^{
+            self.rightItem.transform = CGAffineTransformRotate(self.rightItem.transform, M_1_PI * 5);
+            
+        } completion:^(BOOL finished) {
+            [self.rightItem setImage:[UIImage imageNamed:@"top_navigation_square"] forState:UIControlStateNormal];
+        }];
     }else{
-
-        self.navigationItem.rightBarButtonItem.image = [UIImage imageNamed:@"223.png"];
         
-        
+        [self.rightItem setImage:[UIImage imageNamed:@"223"] forState:UIControlStateNormal];
         self.weatherView.hidden = NO;
+        self.tran.hidden = NO;
         [self.weatherView addAnimate];
+        [UIView animateWithDuration:0.2 animations:^{
+            self.rightItem.transform = CGAffineTransformRotate(self.rightItem.transform, -M_1_PI * 6);
+            
+        } completion:^(BOOL finished) {
+            
+            [UIView animateWithDuration:0.1 animations:^{
+                self.rightItem.transform = CGAffineTransformRotate(self.rightItem.transform, M_1_PI );
+            }];
+        }];
     }
     self.weatherShow = !self.isWeatherShow;
 }
@@ -304,9 +295,6 @@
 - (void)pushWeatherDetail
 {
     self.weatherShow = NO;
-    self.rightItem.hidden = YES;
-    self.rightItem.transform = CGAffineTransformIdentity;
-    [self.rightItem setImage:[UIImage imageNamed:@"top_navigation_square"] forState:UIControlStateNormal];
     SXWeatherDetailVC *wdvc = [[SXWeatherDetailVC alloc]init];
     wdvc.weatherModel = self.weatherModel;
     [self.navigationController pushViewController:wdvc animated:YES];
