@@ -138,38 +138,12 @@
 /** 添加子控制器 */
 - (void)addController
 {
-    SXTableViewController *vc1 = [[UIStoryboard storyboardWithName:@"News" bundle:[NSBundle mainBundle]] instantiateInitialViewController];
-    vc1.title = @"头条";
-    vc1.urlString = self.arrayLists[0][@"urlString"];
-    [self addChildViewController:vc1];
-    SXTableViewController *vc2 = [[UIStoryboard storyboardWithName:@"News" bundle:[NSBundle mainBundle]] instantiateInitialViewController];
-    vc2.title = @"NBA";
-    vc2.urlString = self.arrayLists[1][@"urlString"];
-    [self addChildViewController:vc2];
-    SXTableViewController *vc3 = [[UIStoryboard storyboardWithName:@"News" bundle:[NSBundle mainBundle]] instantiateInitialViewController];
-    vc3.title = @"手机";
-    vc3.urlString = self.arrayLists[2][@"urlString"];
-    [self addChildViewController:vc3];
-    SXTableViewController *vc4 = [[UIStoryboard storyboardWithName:@"News" bundle:[NSBundle mainBundle]] instantiateInitialViewController];
-    vc4.title = @"移动互联";
-    vc4.urlString = self.arrayLists[3][@"urlString"];
-    [self addChildViewController:vc4];
-    SXTableViewController *vc8 = [[UIStoryboard storyboardWithName:@"News" bundle:[NSBundle mainBundle]] instantiateInitialViewController];
-    vc8.title = @"娱乐";
-    vc8.urlString = self.arrayLists[4][@"urlString"];
-    [self addChildViewController:vc8];
-    SXTableViewController *vc5 = [[UIStoryboard storyboardWithName:@"News" bundle:[NSBundle mainBundle]] instantiateInitialViewController];
-    vc5.title = @"时尚";
-    vc5.urlString = self.arrayLists[5][@"urlString"];
-    [self addChildViewController:vc5];
-    SXTableViewController *vc6 = [[UIStoryboard storyboardWithName:@"News" bundle:[NSBundle mainBundle]] instantiateInitialViewController];
-    vc6.title = @"电影";
-    vc6.urlString = self.arrayLists[6][@"urlString"];
-    [self addChildViewController:vc6];
-    SXTableViewController *vc7 = [[UIStoryboard storyboardWithName:@"News" bundle:[NSBundle mainBundle]] instantiateInitialViewController];
-    vc7.title = @"科技";
-    vc7.urlString = self.arrayLists[7][@"urlString"];
-    [self addChildViewController:vc7];
+    for (int i=0 ; i<self.arrayLists.count ;i++){
+        SXTableViewController *vc1 = [[UIStoryboard storyboardWithName:@"News" bundle:[NSBundle mainBundle]] instantiateInitialViewController];
+        vc1.title = self.arrayLists[i][@"title"];
+        vc1.urlString = self.arrayLists[i][@"urlString"];
+        [self addChildViewController:vc1];
+    }
 }
 
 /** 添加标题栏 */
