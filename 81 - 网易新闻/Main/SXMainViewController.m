@@ -77,11 +77,11 @@
     self.rightItem = rightItem;
     UIWindow *win = [UIApplication sharedApplication].windows.firstObject;
     [win addSubview:rightItem];
-    rightItem.y = 30;
-    rightItem.width = 20;
-    rightItem.height = 20;
+    rightItem.y = 20;
+    rightItem.width = 45;
+    rightItem.height = 45;
     [rightItem addTarget:self action:@selector(rightItemClick) forControlEvents:UIControlEventTouchUpInside];
-    rightItem.x = [UIScreen mainScreen].bounds.size.width - rightItem.width - 15;
+    rightItem.x = [UIScreen mainScreen].bounds.size.width - rightItem.width;
     NSLog(@"%@",NSStringFromCGRect(rightItem.frame));
     [rightItem setImage:[UIImage imageNamed:@"top_navigation_square"] forState:UIControlStateNormal];
     
