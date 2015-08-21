@@ -18,6 +18,8 @@
 #import "SXReplyModel.h"
 #import "SXReplyViewController.h"
 
+#import "MJExtension.h"
+
 @interface SXPhotoSetController ()<UIScrollViewDelegate>
 @property (weak, nonatomic) IBOutlet UIScrollView *photoScrollView;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
@@ -96,7 +98,8 @@
 - (void)sendRequestWithUrl:(NSString *)url
 {
     [[SXHTTPManager manager]GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        SXPhotoSet *photoSet = [SXPhotoSet photoSetWith:responseObject];
+//        SXPhotoSet *photoSet = [SXPhotoSet photoSetWith:responseObject];
+        SXPhotoSet *photoSet = [SXPhotoSet objectWithKeyValues:responseObject];
         self.photoSet = photoSet;
         
         [self setLabelWithModel:photoSet];

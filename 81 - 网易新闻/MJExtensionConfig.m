@@ -9,6 +9,7 @@
 #import "MJExtensionConfig.h"
 #import "MJExtension.h"
 #import "SXWeatherModel.h"
+#import "SXPhotoSet.h"
 
 @implementation MJExtensionConfig
 + (void)load
@@ -29,5 +30,11 @@
                  };
     }];
     // 相当于在Student.m中实现了+replacedKeyFromPropertyName方法
+    
+    [SXPhotoSet setupObjectClassInArray:^NSDictionary *{
+        return @{
+                 @"photos":@"SXPhotosDetail"
+                 };
+    }];
 }
 @end

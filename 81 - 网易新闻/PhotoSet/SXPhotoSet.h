@@ -29,7 +29,8 @@
 @property (nonatomic, copy) NSString *url;
 // 编辑
 @property (nonatomic, copy) NSString *creator;
-// 图片数组
+
+/** 里面装的是SXPhotosDetail对象*/
 @property (nonatomic, strong) NSArray *photos;
 @property (nonatomic, copy) NSString *reporter;
 // 标题

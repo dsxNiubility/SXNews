@@ -13,6 +13,8 @@
 #import "SXNetworkTools.h"
 #import "MJRefresh.h"
 
+#import "MJExtension.h"
+
 @interface SXTableViewController ()
 
 @property(nonatomic,strong) NSMutableArray *arrayList;
@@ -77,19 +79,21 @@
         
         NSArray *temArray = responseObject[key];
         
-        NSMutableArray *arrayM = [NSMutableArray arrayWithCapacity:temArray.count];
-        [temArray enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-            
-            SXNewsModel *news = [SXNewsModel newsModelWithDict:obj];
-            [arrayM addObject:news];
-        }];
+        NSMutableArray *arrayM = [SXNewsModel objectArrayWithKeyValuesArray:temArray];
+        
+//        NSMutableArray *arrayM = [NSMutableArray arrayWithCapacity:temArray.count];
+//        [temArray enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+//            
+//            SXNewsModel *news = [SXNewsModel newsModelWithDict:obj];
+//            [arrayM addObject:news];
+//        }];
         if (type == 1) {
             self.arrayList = arrayM;
             [self.tableView headerEndRefreshing];
             [self.tableView reloadData];
         }else if(type == 2){
             [self.arrayList addObjectsFromArray:arrayM];
-            //        NSLog(@"%ld",self.arrayList.count);
+            
             [self.tableView footerEndRefreshing];
             [self.tableView reloadData];
         }
