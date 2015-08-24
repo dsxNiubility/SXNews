@@ -2,28 +2,29 @@
 模仿网易新闻做的新闻软件
 
 ###8月24日更新
-![image](https://github.com/dsxNiubility/SXNews/raw/master/screenshots/65.gif)
-![image](https://github.com/dsxNiubility/SXNews/raw/master/screenshots/66.gif)<br />
+_加载gif动图可能较慢请耐心等待_<br />
+![image](https://github.com/dsxNiubility/SXNews/raw/master/screenshots/66.gif)
+&nbsp![image](https://github.com/dsxNiubility/SXNews/raw/master/screenshots/65.gif)<br />
 
 >这次更新的亮点是添加了天气效果以后也可以用网易新闻看天气预报了，各种轻微的动画效果也没有放过。
 
-![image](https://github.com/dsxNiubility/SXNews/raw/master/screenshots/015.png)<br />
-![image](https://github.com/dsxNiubility/SXNews/raw/master/screenshots/016.png)<br />
+&nbsp![image](https://github.com/dsxNiubility/SXNews/raw/master/screenshots/015.png)<br />
+&nbsp![image](https://github.com/dsxNiubility/SXNews/raw/master/screenshots/016.png)<br />
 
 
 
 >新版的网易新闻，整改了首页UI，在底部加上了tabbar，因此多了很多页面这里也都编了，但是无法交互。毕竟东西太多了，我觉得能点击看到效果就算不能进一步深入，就一个壳子也比全空没有强是吧。。<br />
-![image](https://github.com/dsxNiubility/SXNews/raw/master/screenshots/309.png)
+&nbsp![image](https://github.com/dsxNiubility/SXNews/raw/master/screenshots/309.png)
 
 
 >主页-主页的下方加了tabbar，nav的两个按钮做了改变<br />
-![image](https://github.com/dsxNiubility/SXNews/raw/master/screenshots/011.png)<br />
+&nbsp![image](https://github.com/dsxNiubility/SXNews/raw/master/screenshots/011.png)<br /><br />
 >详情页-详情页对细节的处理更加注意，如以前有人反馈的评论数不对问题已修复，并且以前会出现某条新闻点进去没评论，这个问题也找到了原因，并彻底修复。<br />
-![image](https://github.com/dsxNiubility/SXNews/raw/master/screenshots/012.png)<br />
+&nbsp![image](https://github.com/dsxNiubility/SXNews/raw/master/screenshots/012.png)<br /><br />
 >图集页-图集页无大改，现在图集的评论用的还是假数据，但是后面会陆续完善<br />
-![image](https://github.com/dsxNiubility/SXNews/raw/master/screenshots/014.png)<br />
+&nbsp![image](https://github.com/dsxNiubility/SXNews/raw/master/screenshots/014.png)<br /><br />
 >评论页-评论页对细节修改很多，如果以前玩过本项目的会发现现在评论页已经没有较乱得细节了都改了。<br />
-![image](https://github.com/dsxNiubility/SXNews/raw/master/screenshots/013.png)<br />
+&nbsp![image](https://github.com/dsxNiubility/SXNews/raw/master/screenshots/013.png)<br /><br />
 
 
 
