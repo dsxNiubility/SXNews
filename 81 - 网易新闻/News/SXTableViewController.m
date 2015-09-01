@@ -67,6 +67,7 @@
 - (void)loadMoreData
 {
     NSString *allUrlstring = [NSString stringWithFormat:@"/nc/article/%@/%ld-20.html",self.urlString,(self.arrayList.count - self.arrayList.count%10)];
+//    NSString *allUrlstring = [NSString stringWithFormat:@"/nc/article/%@/%ld-20.html",self.urlString,self.arrayList.count];
     [self loadDataForType:2 withURL:allUrlstring];
 }
 
@@ -114,6 +115,10 @@
     
     NSString *ID = [SXNewsCell idForRow:newsModel];
     
+    if ((indexPath.row%20 == 0)&&(indexPath.row != 0)) {
+        ID = @"NewsCell";
+    }
+    
     SXNewsCell * cell = [tableView dequeueReusableCellWithIdentifier:ID];
     
     cell.NewsModel = newsModel;
@@ -127,7 +132,13 @@
 {
     SXNewsModel *newsModel = self.arrayList[indexPath.row];
     
-    return [SXNewsCell heightForRow:newsModel];
+    CGFloat rowHeight = [SXNewsCell heightForRow:newsModel];
+    
+    if ((indexPath.row%20 == 0)&&(indexPath.row != 0)) {
+        rowHeight = 80;
+    }
+    
+    return rowHeight;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
