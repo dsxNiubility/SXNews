@@ -98,6 +98,7 @@
 		1D925CD01A87CA030063921A /* UIScrollView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D925CC61A87CA030063921A /* UIScrollView+MJExtension.m */; };
 		1D925CD11A87CA030063921A /* UIScrollView+MJRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D925CC81A87CA030063921A /* UIScrollView+MJRefresh.m */; };
 		1D925CD21A87CA030063921A /* UIView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D925CCA1A87CA030063921A /* UIView+MJExtension.m */; };
+		1DB395811BB7E021000E9C3E /* SXAdManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DB395801BB7E021000E9C3E /* SXAdManager.m */; settings = {ASSET_TAGS = (); }; };
 		1DC4731C1A81377B00DA905D /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DC4731B1A81377B00DA905D /* UIView+Frame.m */; };
 		2D42989A1B4D918A004B7C6E /* UINavigationController+FDFullscreenPopGesture.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D4298991B4D918A004B7C6E /* UINavigationController+FDFullscreenPopGesture.m */; };
 /* End PBXBuildFile section */
@@ -286,6 +287,8 @@
 		1D925CC81A87CA030063921A /* UIScrollView+MJRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+MJRefresh.m"; sourceTree = "<group>"; };
 		1D925CC91A87CA030063921A /* UIView+MJExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MJExtension.h"; sourceTree = "<group>"; };
 		1D925CCA1A87CA030063921A /* UIView+MJExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MJExtension.m"; sourceTree = "<group>"; };
+		1DB3957F1BB7E021000E9C3E /* SXAdManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SXAdManager.h; sourceTree = "<group>"; };
+		1DB395801BB7E021000E9C3E /* SXAdManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SXAdManager.m; sourceTree = "<group>"; };
 		1DC4731A1A81377B00DA905D /* UIView+Frame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Frame.h"; sourceTree = "<group>"; };
 		1DC4731B1A81377B00DA905D /* UIView+Frame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Frame.m"; sourceTree = "<group>"; };
 		2D4298981B4D918A004B7C6E /* UINavigationController+FDFullscreenPopGesture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+FDFullscreenPopGesture.h"; sourceTree = "<group>"; };
@@ -383,6 +386,8 @@
 			children = (
 				1DC4731A1A81377B00DA905D /* UIView+Frame.h */,
 				1DC4731B1A81377B00DA905D /* UIView+Frame.m */,
+				1DB3957F1BB7E021000E9C3E /* SXAdManager.h */,
+				1DB395801BB7E021000E9C3E /* SXAdManager.m */,
 				1D4FB7DF1A73E6D6009F6A9E /* SXHTTPManager.h */,
 				1D4FB7E01A73E6D6009F6A9E /* SXHTTPManager.m */,
 				1D4FB7E21A73F8B1009F6A9E /* SXDetails.css */,
@@ -769,6 +774,7 @@
 				1D2A59661A700840001F9B8E /* AFHTTPRequestOperationManager.m in Sources */,
 				1D882E3C1A81151C004C9C9A /* SXPhotosDetail.m in Sources */,
 				1D58EED01A70A42100411E39 /* SXTableViewController.m in Sources */,
+				1DB395811BB7E021000E9C3E /* SXAdManager.m in Sources */,
 				1D007F501B6D114900EA119C /* MJExtensionConst.m in Sources */,
 				1D2A59771A700840001F9B8E /* UIButton+WebCache.m in Sources */,
 				1D0AC8291A73B6EF00EEF963 /* SXDetailModel.m in Sources */,

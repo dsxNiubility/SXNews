@@ -11,5 +11,6 @@
 @interface SXNetworkTools : AFHTTPSessionManager
 
 + (instancetype)sharedNetworkTools;
++ (instancetype)sharedNetworkToolsWithoutBaseUrl;
 
 @end
