@@ -29,6 +29,7 @@
     if ([SXAdManager isShouldDisplayAd]) {
         // ------这里主要是容错一个bug。
         [[NSUserDefaults standardUserDefaults]setBool:YES forKey:@"top20"];
+        [[NSUserDefaults standardUserDefaults]setBool:YES forKey:@"rightItem"];
         
         
         // ------本想吧广告设置成广告显示完毕之后再加载rootViewController的，但是由于前期已经使用storyboard搭建了，写在AppDelete里会冲突，只好就随便整个view广告
@@ -52,7 +53,6 @@
             [[NSNotificationCenter defaultCenter]postNotificationName:@"SXAdvertisementKey" object:nil];
         }];
     }else{
-//        [[NSNotificationCenter defaultCenter]postNotificationName:@"SXAdvertisementKey" object:nil];
         [[NSUserDefaults standardUserDefaults]setBool:YES forKey:@"update"];
     }
 

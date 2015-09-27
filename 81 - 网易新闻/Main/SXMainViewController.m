@@ -52,9 +52,8 @@
 #pragma mark - ******************** 页面首次加载
 - (void)viewDidLoad {
     [super viewDidLoad];
-    if([[NSUserDefaults standardUserDefaults]valueForKey:@"top20"]){
-        self.TopToTop.constant = 20;
-    }
+
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(showRightItem) name:@"SXAdvertisementKey" object:nil];
     
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.smallScrollView.showsHorizontalScrollIndicator = NO;
@@ -95,7 +94,17 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    if([[NSUserDefaults standardUserDefaults]boolForKey:@"top20"]){
+        self.TopToTop.constant = 20;
+        [[NSUserDefaults standardUserDefaults]setBool:NO forKey:@"top20"];
+    }else{
+        self.TopToTop.constant = 0;
+    }
     self.rightItem.hidden = NO;
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"rightItem"]) {
+        self.rightItem.hidden = YES;
+        [[NSUserDefaults standardUserDefaults]setBool:NO forKey:@"rightItem"];
+    }
     self.rightItem.alpha = 0;
     [UIView animateWithDuration:0.4 animations:^{
         self.rightItem.alpha = 1;
@@ -108,6 +117,11 @@
     self.rightItem.hidden = YES;
     self.rightItem.transform = CGAffineTransformIdentity;
     [self.rightItem setImage:[UIImage imageNamed:@"top_navigation_square"] forState:UIControlStateNormal];
+}
+
+- (void)showRightItem
+{
+    self.rightItem.hidden = NO;
 }
 
 #pragma mark - ******************** 添加方法
