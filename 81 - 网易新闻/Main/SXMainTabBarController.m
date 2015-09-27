@@ -14,6 +14,7 @@
 #import "SXNavController.h"
 
 #import "SXAdManager.h"
+#import "UIView+Frame.h"
 
 
 @interface SXMainTabBarController ()<SXTabBarDelegate>
@@ -24,18 +25,25 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     [SXAdManager loadLatestAdImage];
     if ([SXAdManager isShouldDisplayAd]) {
+        // ------这里主要是容错一个bug。
+        [[NSUserDefaults standardUserDefaults]setBool:YES forKey:@"top20"];
+        
+        
         // ------本想吧广告设置成广告显示完毕之后再加载rootViewController的，但是由于前期已经使用storyboard搭建了，写在AppDelete里会冲突，只好就随便整个view广告
         UIImageView *adImg = [[UIImageView alloc]initWithImage:[SXAdManager getAdImage]];
         adImg.frame = [UIScreen mainScreen].bounds;
         adImg.alpha = 0.99f;
+//        UIWindow *win = [UIApplication sharedApplication].windows.lastObject;
+//        win.windowLevel = UIWindowLevelAlert;
         [self.view addSubview:adImg];
+        [[UIApplication sharedApplication]setStatusBarHidden:YES];
         
         [UIView animateWithDuration:3 animations:^{
             adImg.alpha = 1.0f;
         } completion:^(BOOL finished) {
+            [[UIApplication sharedApplication]setStatusBarHidden:NO];
             [UIView animateWithDuration:0.5 animations:^{
                 adImg.alpha = 0.0f;
             } completion:^(BOOL finished) {
@@ -47,7 +55,6 @@
 //        [[NSNotificationCenter defaultCenter]postNotificationName:@"SXAdvertisementKey" object:nil];
         [[NSUserDefaults standardUserDefaults]setBool:YES forKey:@"update"];
     }
-
 
     
     SXTabBar *tabBar = [[SXTabBar alloc]init];

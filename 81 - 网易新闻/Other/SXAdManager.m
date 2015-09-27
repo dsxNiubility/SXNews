@@ -48,7 +48,7 @@
 
 + (void)loadLatestAdImage
 {
-        NSString *path = @"http://g1.163.com/madr?app=7A16FBB6&platform=ios&category=startup&location=1&timestamp=1443013171";
+    NSString *path = @"http://g1.163.com/madr?app=7A16FBB6&platform=ios&category=startup&location=1&timestamp=1443013171";
     
     [[[SXNetworkTools sharedNetworkToolsWithoutBaseUrl]GET:path parameters:nil success:^(NSURLSessionDataTask *task, NSDictionary* responseObject) {
         

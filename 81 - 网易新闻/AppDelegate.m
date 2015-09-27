@@ -17,6 +17,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [[NSUserDefaults standardUserDefaults]setBool:NO forKey:@"update"];
+    [[NSUserDefaults standardUserDefaults]setBool:NO forKey:@"top20"];
     UIApplication *app = [UIApplication sharedApplication];
     app.statusBarStyle = UIStatusBarStyleLightContent;
     return YES;

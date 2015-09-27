@@ -150,6 +150,7 @@
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="TopToTop" destination="JYE-d6-EaV" id="z7w-u1-Hl1"/>
                         <outlet property="bigScrollView" destination="0lu-Rp-afC" id="Ms0-OY-7Bh"/>
                         <outlet property="smallScrollView" destination="1Wy-Sw-c0j" id="duA-S2-l6K"/>
                     </connections>

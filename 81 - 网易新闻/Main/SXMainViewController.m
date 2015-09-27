@@ -34,6 +34,7 @@
 @property(nonatomic,strong)SXWeatherModel *weatherModel;
 
 @property(nonatomic,strong)UIButton *rightItem;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *TopToTop;
 
 @end
 
@@ -51,6 +52,9 @@
 #pragma mark - ******************** 页面首次加载
 - (void)viewDidLoad {
     [super viewDidLoad];
+    if([[NSUserDefaults standardUserDefaults]valueForKey:@"top20"]){
+        self.TopToTop.constant = 20;
+    }
     
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.smallScrollView.showsHorizontalScrollIndicator = NO;
