@@ -30,6 +30,8 @@
     [self.tableView addHeaderWithTarget:self action:@selector(loadData)];
     [self.tableView addFooterWithTarget:self action:@selector(loadMoreData)];
     self.update = YES;
+    
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(welcome) name:@"SXAdvertisementKey" object:nil];
 //    self.tableView.headerHidden = NO;
 }
 
@@ -43,8 +45,17 @@
     _urlString = urlString;
 }
 
+- (void)welcome
+{
+    [[NSUserDefaults standardUserDefaults]setBool:YES forKey:@"update"];
+    [self.tableView headerBeginRefreshing];
+}
+
 - (void)viewWillAppear:(BOOL)animated
 {
+    if (![[NSUserDefaults standardUserDefaults]boolForKey:@"update"]) {
+        return;
+    }
 //    NSLog(@"bbbb");
     if (self.update == YES) {
         [self.tableView headerBeginRefreshing];

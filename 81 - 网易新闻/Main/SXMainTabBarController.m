@@ -23,14 +23,31 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    // ------本想吧广告设置成广告显示完毕之后再加载rootViewController的，但是由于前期已经使用storyboard搭建了，写在AppDelete里会冲突，只好就随便整个view广告
+    UIImageView *adImg = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"rose"]];
+    adImg.frame = [UIScreen mainScreen].bounds;
+    adImg.alpha = 0.99f;
+    [self.view addSubview:adImg];
+    
+    [UIView animateWithDuration:3 animations:^{
+        adImg.alpha = 1.0f;
+    } completion:^(BOOL finished) {
+        [UIView animateWithDuration:0.5 animations:^{
+            adImg.alpha = 0.0f;
+        } completion:^(BOOL finished) {
+            [adImg removeFromSuperview];
+        }];
+        [[NSNotificationCenter defaultCenter]postNotificationName:@"SXAdvertisementKey" object:nil];
+    }];
+    
+
+    
     SXTabBar *tabBar = [[SXTabBar alloc]init];
     tabBar.frame = self.tabBar.bounds;
     tabBar.backgroundColor = [UIColor colorWithRed:239/255.0 green:239/255.0 blue:239/255.0 alpha:1];
     
     [self.tabBar addSubview:tabBar];
     
-//    [self.tabBar setShadowImage:[UIImage imageNamed:@"shawdo"]];
-//    self.tabBar.backgroundImage = [UIImage imageNamed:@"shawdo"];
     tabBar.delegate = self;
     
     
