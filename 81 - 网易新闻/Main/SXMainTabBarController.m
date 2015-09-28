@@ -33,20 +33,27 @@
         
         
         // ------本想吧广告设置成广告显示完毕之后再加载rootViewController的，但是由于前期已经使用storyboard搭建了，写在AppDelete里会冲突，只好就随便整个view广告
+        UIView *adView = [[UIView alloc]initWithFrame:[UIScreen mainScreen].bounds];
         UIImageView *adImg = [[UIImageView alloc]initWithImage:[SXAdManager getAdImage]];
-        adImg.frame = [UIScreen mainScreen].bounds;
-        adImg.alpha = 0.99f;
-        [self.view addSubview:adImg];
+        UIImageView *adBottomImg = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"adBottom.png"]];
+        [adView addSubview:adBottomImg];
+        [adView addSubview:adImg];
+        adBottomImg.frame = CGRectMake(0, self.view.height - 135, self.view.width, 135);
+        adImg.frame = CGRectMake(0, 0, self.view.width, self.view.height - 135);
+        
+//        adImg.frame = [UIScreen mainScreen].bounds;
+        adView.alpha = 0.99f;
+        [self.view addSubview:adView];
         [[UIApplication sharedApplication]setStatusBarHidden:YES];
         
         [UIView animateWithDuration:3 animations:^{
-            adImg.alpha = 1.0f;
+            adView.alpha = 1.0f;
         } completion:^(BOOL finished) {
             [[UIApplication sharedApplication]setStatusBarHidden:NO];
             [UIView animateWithDuration:0.5 animations:^{
-                adImg.alpha = 0.0f;
+                adView.alpha = 0.0f;
             } completion:^(BOOL finished) {
-                [adImg removeFromSuperview];
+                [adView removeFromSuperview];
             }];
             [[NSNotificationCenter defaultCenter]postNotificationName:@"SXAdvertisementKey" object:nil];
         }];
