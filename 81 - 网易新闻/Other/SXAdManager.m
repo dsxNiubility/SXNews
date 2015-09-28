@@ -48,7 +48,8 @@
 
 + (void)loadLatestAdImage
 {
-    NSString *path = @"http://g1.163.com/madr?app=7A16FBB6&platform=ios&category=startup&location=1&timestamp=1443013171";
+    NSInteger now = [[[NSDate alloc] init] timeIntervalSince1970];
+    NSString *path = [NSString stringWithFormat:@"http://g1.163.com/madr?app=7A16FBB6&platform=ios&category=startup&location=1&timestamp=%ld",(long)now];
     
     [[[SXNetworkTools sharedNetworkToolsWithoutBaseUrl]GET:path parameters:nil success:^(NSURLSessionDataTask *task, NSDictionary* responseObject) {
         
@@ -58,7 +59,19 @@
         if (adArray.count >1) {
              imgUrl2= adArray[1][@"res_url"][0];
         }
-        [self downloadImage:imgUrl];
+        
+        BOOL one = [[NSUserDefaults standardUserDefaults]boolForKey:@"one"];
+        if (imgUrl2.length > 0) {
+            if (one) {
+                [self downloadImage:imgUrl];
+                [[NSUserDefaults standardUserDefaults]setBool:!one forKey:@"one"];
+            }else{
+                [self downloadImage:imgUrl2];
+                [[NSUserDefaults standardUserDefaults]setBool:!one forKey:@"one"];
+            }
+        }else{
+            [self downloadImage:imgUrl];
+        }
         
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         NSLog(@"%@",error);

@@ -36,8 +36,6 @@
         UIImageView *adImg = [[UIImageView alloc]initWithImage:[SXAdManager getAdImage]];
         adImg.frame = [UIScreen mainScreen].bounds;
         adImg.alpha = 0.99f;
-//        UIWindow *win = [UIApplication sharedApplication].windows.lastObject;
-//        win.windowLevel = UIWindowLevelAlert;
         [self.view addSubview:adImg];
         [[UIApplication sharedApplication]setStatusBarHidden:YES];
         
