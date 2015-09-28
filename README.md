@@ -1,6 +1,14 @@
 # SXNews
 模仿网易新闻做的新闻软件
 
+###9月28日更新
+_适配了iOS9_<br />
+_(如果模拟器仍有问题请使用真机调试)_<br />
+_新增了广告功能_<br />
+_(和网易广告一样，都是这次启动下载广告图片，下一次启动时展示）_<br />
+_(请求里带了时间戳每天的广告都会不同)_<br />
+![image](https://github.com/dsxNiubility/SXNews/raw/master/screenshots/68.gif)<br />
+
 ###8月24日更新
 _加载gif动图可能较慢请耐心等待_<br />
 ![image](https://github.com/dsxNiubility/SXNews/raw/master/screenshots/66.gif)
