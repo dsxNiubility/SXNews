@@ -291,6 +291,7 @@
 		1DB395801BB7E021000E9C3E /* SXAdManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SXAdManager.m; sourceTree = "<group>"; };
 		1DC4731A1A81377B00DA905D /* UIView+Frame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Frame.h"; sourceTree = "<group>"; };
 		1DC4731B1A81377B00DA905D /* UIView+Frame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Frame.m"; sourceTree = "<group>"; };
+		1DE0E76A1BD24CC800B807F4 /* SXEasyMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SXEasyMacro.h; sourceTree = "<group>"; };
 		2D4298981B4D918A004B7C6E /* UINavigationController+FDFullscreenPopGesture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+FDFullscreenPopGesture.h"; sourceTree = "<group>"; };
 		2D4298991B4D918A004B7C6E /* UINavigationController+FDFullscreenPopGesture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+FDFullscreenPopGesture.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -454,6 +455,7 @@
 				1D2A59101A700822001F9B8E /* ViewController.m */,
 				1D5995C41B78CA9B0067B471 /* MJExtensionConfig.h */,
 				1D5995C51B78CA9B0067B471 /* MJExtensionConfig.m */,
+				1DE0E76A1BD24CC800B807F4 /* SXEasyMacro.h */,
 				1D2A59151A700822001F9B8E /* Images.xcassets */,
 				1D2A59171A700822001F9B8E /* LaunchScreen.xib */,
 				1D2A59081A700822001F9B8E /* Supporting Files */,
