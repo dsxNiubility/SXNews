@@ -9,6 +9,7 @@
 #import "SXWeatherView.h"
 #import "SXWeatherModel.h"
 #import "UIView+Frame.h"
+#import "SXEasyMacro.h"
 
 @interface SXWeatherView ()
 @property(nonatomic,strong)UIView *bottomView;
@@ -46,7 +47,12 @@
 
 - (void)layoutSubviews{
     [super layoutSubviews];
-    self.bottomView.y = 255;
+    if (SXiPhone4_OR_4s) {
+        self.bottomView.y = 170;
+    }else{
+        self.bottomView.y = 255;
+    }
+    
     self.bottomView.height = self.height-self.bottomView.y;
     self.bottomView.width = self.width;
     self.bottomView.x = 0;
@@ -150,6 +156,9 @@
     titleLbl.width = itemView.width;
     titleLbl.x = 0;
     titleLbl.y = btn.y + btn.height;
+    if (SXiPhone4_OR_4s) {
+        titleLbl.y -= 8;
+    }
     titleLbl.textAlignment = NSTextAlignmentCenter;
     [itemView addSubview:titleLbl];
     
