@@ -22,12 +22,13 @@
 
 + (BOOL)isShouldDisplayAd
 {
-    return ([[NSFileManager defaultManager]fileExistsAtPath:kCachedCurrentImage isDirectory:NO] || [[NSFileManager defaultManager]fileExistsAtPath:kCachedNewImage isDirectory:NO]);
+    return ([[NSFileManager defaultManager]fileExistsAtPath:kCachedCurrentImage isDirectory:NULL] || [[NSFileManager defaultManager]fileExistsAtPath:kCachedNewImage isDirectory:NULL
+]);
 }
 
 + (UIImage *)getAdImage
 {
-    if ([[NSFileManager defaultManager]fileExistsAtPath:kCachedNewImage isDirectory:NO]) {
+    if ([[NSFileManager defaultManager]fileExistsAtPath:kCachedNewImage isDirectory:NULL]) {
         [[NSFileManager defaultManager]removeItemAtPath:kCachedCurrentImage error:nil];
         [[NSFileManager defaultManager]moveItemAtPath:kCachedNewImage toPath:kCachedCurrentImage error:nil];
     }
