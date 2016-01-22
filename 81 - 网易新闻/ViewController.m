@@ -74,7 +74,6 @@
         }else if ([className isEqualToString:@"__NSCFBoolean"]){
             [strM appendFormat:@"@property (nonatomic,assign)BOOL %@;\n",key];
         }
-        
         NSLog(@"\n%@",strM);
     }];
     

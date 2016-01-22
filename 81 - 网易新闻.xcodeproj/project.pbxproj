@@ -98,7 +98,13 @@
 		1D925CD01A87CA030063921A /* UIScrollView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D925CC61A87CA030063921A /* UIScrollView+MJExtension.m */; };
 		1D925CD11A87CA030063921A /* UIScrollView+MJRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D925CC81A87CA030063921A /* UIScrollView+MJRefresh.m */; };
 		1D925CD21A87CA030063921A /* UIView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D925CCA1A87CA030063921A /* UIView+MJExtension.m */; };
-		1DB395811BB7E021000E9C3E /* SXAdManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DB395801BB7E021000E9C3E /* SXAdManager.m */; settings = {ASSET_TAGS = (); }; };
+		1DA8BAB21C522AD800D041C5 /* OneAPM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DA8BAB11C522AD800D041C5 /* OneAPM.framework */; };
+		1DA8BAB41C522E1F00D041C5 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DA8BAB31C522E1F00D041C5 /* SystemConfiguration.framework */; };
+		1DA8BAB61C522E2800D041C5 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DA8BAB51C522E2800D041C5 /* CoreTelephony.framework */; };
+		1DA8BAB81C522E3200D041C5 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DA8BAB71C522E3200D041C5 /* CoreData.framework */; };
+		1DA8BABA1C522E5600D041C5 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DA8BAB91C522E5600D041C5 /* libz.tbd */; };
+		1DA8BABC1C522E5F00D041C5 /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DA8BABB1C522E5F00D041C5 /* libstdc++.tbd */; };
+		1DB395811BB7E021000E9C3E /* SXAdManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DB395801BB7E021000E9C3E /* SXAdManager.m */; };
 		1DC4731C1A81377B00DA905D /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DC4731B1A81377B00DA905D /* UIView+Frame.m */; };
 		2D42989A1B4D918A004B7C6E /* UINavigationController+FDFullscreenPopGesture.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D4298991B4D918A004B7C6E /* UINavigationController+FDFullscreenPopGesture.m */; };
 /* End PBXBuildFile section */
@@ -287,6 +293,13 @@
 		1D925CC81A87CA030063921A /* UIScrollView+MJRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+MJRefresh.m"; sourceTree = "<group>"; };
 		1D925CC91A87CA030063921A /* UIView+MJExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MJExtension.h"; sourceTree = "<group>"; };
 		1D925CCA1A87CA030063921A /* UIView+MJExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MJExtension.m"; sourceTree = "<group>"; };
+		1DA8BAB11C522AD800D041C5 /* OneAPM.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = OneAPM.framework; sourceTree = "<group>"; };
+		1DA8BAB31C522E1F00D041C5 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		1DA8BAB51C522E2800D041C5 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		1DA8BAB71C522E3200D041C5 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		1DA8BAB91C522E5600D041C5 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		1DA8BABB1C522E5F00D041C5 /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
+		1DA8BABD1C522EEE00D041C5 /* NetEasyPrefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetEasyPrefix.pch; sourceTree = "<group>"; };
 		1DB3957F1BB7E021000E9C3E /* SXAdManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SXAdManager.h; sourceTree = "<group>"; };
 		1DB395801BB7E021000E9C3E /* SXAdManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SXAdManager.m; sourceTree = "<group>"; };
 		1DC4731A1A81377B00DA905D /* UIView+Frame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Frame.h"; sourceTree = "<group>"; };
@@ -301,6 +314,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1DA8BABC1C522E5F00D041C5 /* libstdc++.tbd in Frameworks */,
+				1DA8BABA1C522E5600D041C5 /* libz.tbd in Frameworks */,
+				1DA8BAB81C522E3200D041C5 /* CoreData.framework in Frameworks */,
+				1DA8BAB61C522E2800D041C5 /* CoreTelephony.framework in Frameworks */,
+				1DA8BAB41C522E1F00D041C5 /* SystemConfiguration.framework in Frameworks */,
+				1DA8BAB21C522AD800D041C5 /* OneAPM.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -422,6 +441,11 @@
 		1D2A58FC1A700822001F9B8E = {
 			isa = PBXGroup;
 			children = (
+				1DA8BABB1C522E5F00D041C5 /* libstdc++.tbd */,
+				1DA8BAB91C522E5600D041C5 /* libz.tbd */,
+				1DA8BAB71C522E3200D041C5 /* CoreData.framework */,
+				1DA8BAB51C522E2800D041C5 /* CoreTelephony.framework */,
+				1DA8BAB31C522E1F00D041C5 /* SystemConfiguration.framework */,
 				1D2A59071A700822001F9B8E /* 81 - 网易新闻 */,
 				1D2A59211A700822001F9B8E /* 81 - 网易新闻Tests */,
 				1D2A59061A700822001F9B8E /* Products */,
@@ -440,6 +464,7 @@
 		1D2A59071A700822001F9B8E /* 81 - 网易新闻 */ = {
 			isa = PBXGroup;
 			children = (
+				1DA8BAB11C522AD800D041C5 /* OneAPM.framework */,
 				1D0AC8241A73B6C000EEF963 /* Detail */,
 				1D0AC8261A73B6C000EEF963 /* Other */,
 				1D882E361A8112ED004C9C9A /* PhotoSet */,
@@ -456,6 +481,7 @@
 				1D5995C41B78CA9B0067B471 /* MJExtensionConfig.h */,
 				1D5995C51B78CA9B0067B471 /* MJExtensionConfig.m */,
 				1DE0E76A1BD24CC800B807F4 /* SXEasyMacro.h */,
+				1DA8BABD1C522EEE00D041C5 /* NetEasyPrefix.pch */,
 				1D2A59151A700822001F9B8E /* Images.xcassets */,
 				1D2A59171A700822001F9B8E /* LaunchScreen.xib */,
 				1D2A59081A700822001F9B8E /* Supporting Files */,
@@ -959,6 +985,14 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Wei Feng Hou (P4XREMZX86)";
 				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/81",
+					"-",
+					"网易新闻",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = "/Users/dsx/Documents/Github/SXNews/81 - 网易新闻/NetEasyPrefix.pch";
 				INFOPLIST_FILE = "81 - 网易新闻/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -974,6 +1008,14 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Wei Feng Hou (P4XREMZX86)";
 				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/81",
+					"-",
+					"网易新闻",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = "/Users/dsx/Documents/Github/SXNews/81 - 网易新闻/NetEasyPrefix.pch";
 				INFOPLIST_FILE = "81 - 网易新闻/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
