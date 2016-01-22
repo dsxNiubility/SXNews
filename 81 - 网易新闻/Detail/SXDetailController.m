@@ -222,7 +222,6 @@
         NSData *imgData = [cache cachedResponseForRequest:request].data;
         UIImage *image = [UIImage imageWithData:imgData];
         UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);
-        
     }]];
     
     
