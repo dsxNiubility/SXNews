@@ -129,7 +129,7 @@
                         <barButtonItem key="backBarButtonItem" title="主页" id="P4N-DD-m30"/>
                         <barButtonItem key="leftBarButtonItem" image="search_icon" id="cm4-NW-Hz7">
                             <connections>
-                                <segue destination="pXv-hz-Jdu" kind="show" id="JLe-i4-Wij"/>
+                                <segue destination="pXv-hz-Jdu" kind="show" id="AQG-49-JmX"/>
                             </connections>
                         </barButtonItem>
                         <view key="titleView" contentMode="scaleToFill" id="kYI-wd-bEY">
@@ -174,16 +174,23 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZDy-5F-9VF" userLabel="navView">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="64"/>
                                 <subviews>
-                                    <searchBar contentMode="redraw" fixedFrame="YES" backgroundImage="searchBar_background" translatesAutoresizingMaskIntoConstraints="NO" id="jKP-No-2S4">
-                                        <rect key="frame" x="4" y="17" width="258" height="44"/>
+                                    <searchBar contentMode="redraw" placeholder="搜索" backgroundImage="searchBar_background" translatesAutoresizingMaskIntoConstraints="NO" id="jKP-No-2S4">
+                                        <rect key="frame" x="5" y="23" width="259" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="5pq-jZ-Og1"/>
+                                        </constraints>
                                         <color key="barTintColor" red="0.92941176469999998" green="0.92941176469999998" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
                                         <textInputTraits key="textInputTraits"/>
                                         <connections>
                                             <outlet property="delegate" destination="pXv-hz-Jdu" id="nL9-BR-K0g"/>
                                         </connections>
                                     </searchBar>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6bK-9S-CRQ">
-                                        <rect key="frame" x="267" y="24" width="46" height="30"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6bK-9S-CRQ">
+                                        <rect key="frame" x="269" y="24" width="46" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="A7f-fJ-keI"/>
+                                            <constraint firstAttribute="width" constant="46" id="JUb-mT-aDc"/>
+                                        </constraints>
                                         <state key="normal" title="取消"/>
                                         <connections>
                                             <action selector="cancelBtnClick:" destination="pXv-hz-Jdu" eventType="touchUpInside" id="HFE-0Q-yl3"/>
@@ -192,7 +199,12 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.92941176470588238" green="0.92941176470588238" blue="0.92941176470588238" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
+                                    <constraint firstItem="jKP-No-2S4" firstAttribute="top" secondItem="ZDy-5F-9VF" secondAttribute="top" constant="23" id="5ag-ce-wQe"/>
+                                    <constraint firstAttribute="trailing" secondItem="6bK-9S-CRQ" secondAttribute="trailing" constant="5" id="Gs8-X1-G08"/>
+                                    <constraint firstAttribute="bottom" secondItem="6bK-9S-CRQ" secondAttribute="bottom" constant="10" id="LHF-8s-bB9"/>
+                                    <constraint firstItem="6bK-9S-CRQ" firstAttribute="leading" secondItem="jKP-No-2S4" secondAttribute="trailing" constant="5" id="ND7-mP-mDq"/>
                                     <constraint firstAttribute="height" constant="64" id="W28-W1-nX9"/>
+                                    <constraint firstItem="jKP-No-2S4" firstAttribute="leading" secondItem="ZDy-5F-9VF" secondAttribute="leading" constant="5" id="ilg-6x-TBQ"/>
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="b5k-h3-sdx">
