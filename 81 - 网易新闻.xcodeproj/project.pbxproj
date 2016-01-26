@@ -107,6 +107,7 @@
 		1DA8BAC11C55C4C100D041C5 /* OneAPM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DA8BAC01C55C4C100D041C5 /* OneAPM.framework */; };
 		1DB395811BB7E021000E9C3E /* SXAdManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DB395801BB7E021000E9C3E /* SXAdManager.m */; };
 		1DC4731C1A81377B00DA905D /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DC4731B1A81377B00DA905D /* UIView+Frame.m */; };
+		1DE822A41C579CDC00E965C1 /* NSString+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DE822A31C579CDC00E965C1 /* NSString+Base64.m */; };
 		2D42989A1B4D918A004B7C6E /* UINavigationController+FDFullscreenPopGesture.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D4298991B4D918A004B7C6E /* UINavigationController+FDFullscreenPopGesture.m */; };
 /* End PBXBuildFile section */
 
@@ -308,6 +309,8 @@
 		1DC4731A1A81377B00DA905D /* UIView+Frame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Frame.h"; sourceTree = "<group>"; };
 		1DC4731B1A81377B00DA905D /* UIView+Frame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Frame.m"; sourceTree = "<group>"; };
 		1DE0E76A1BD24CC800B807F4 /* SXEasyMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SXEasyMacro.h; sourceTree = "<group>"; };
+		1DE822A21C579CDC00E965C1 /* NSString+Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Base64.h"; sourceTree = "<group>"; };
+		1DE822A31C579CDC00E965C1 /* NSString+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Base64.m"; sourceTree = "<group>"; };
 		2D4298981B4D918A004B7C6E /* UINavigationController+FDFullscreenPopGesture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+FDFullscreenPopGesture.h"; sourceTree = "<group>"; };
 		2D4298991B4D918A004B7C6E /* UINavigationController+FDFullscreenPopGesture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+FDFullscreenPopGesture.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -616,6 +619,8 @@
 		1D2A597F1A70086B001F9B8E /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				1DE822A21C579CDC00E965C1 /* NSString+Base64.h */,
+				1DE822A31C579CDC00E965C1 /* NSString+Base64.m */,
 				1D2A59801A700968001F9B8E /* SXNetworkTools.h */,
 				1D2A59811A700968001F9B8E /* SXNetworkTools.m */,
 			);
@@ -808,6 +813,7 @@
 				1D007F551B6D114900EA119C /* NSObject+MJKeyValue.m in Sources */,
 				1D2A59651A700840001F9B8E /* AFHTTPRequestOperation.m in Sources */,
 				1D2A59111A700822001F9B8E /* ViewController.m in Sources */,
+				1DE822A41C579CDC00E965C1 /* NSString+Base64.m in Sources */,
 				1D007F601B6D17B200EA119C /* SXWeatherBgM.m in Sources */,
 				1D4FB7E11A73E6D6009F6A9E /* SXHTTPManager.m in Sources */,
 				1D2A597A1A700840001F9B8E /* UIImage+WebP.m in Sources */,

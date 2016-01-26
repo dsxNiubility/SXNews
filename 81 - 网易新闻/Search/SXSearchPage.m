@@ -22,11 +22,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    self.searchBar.height = 20;
     // Do any additional setup after loading the view.
     
-    
+    NSString *url = [NSString stringWithFormat:@"http://c.3g.163.com/search/comp/MA==/20/5Lit5aSu5pS/5rOV5Lya6K6u.html?deviceId=Rjc2NTNDN0QtRUJFNi00NzFFLTk5QjItMDRFRDgyODZGMDRC&version=NS41LjE=&channel=5aS05p2h"];
+    [[SXHTTPManager manager]GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        
+    }];
 }
 - (IBAction)cancelBtnClick:(UIButton *)sender {
     [self.navigationController popViewControllerAnimated:YES];
