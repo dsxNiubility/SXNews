@@ -7,6 +7,7 @@
 //
 
 #import "SXSearchListCell.h"
+#import "UILabel+Wonderful.h"
 
 @interface SXSearchListCell ()
 @property (weak, nonatomic) IBOutlet UILabel *titleLbl;
@@ -33,7 +34,12 @@
 - (void)setModel:(SXSearchListEntity *)model
 {
     _model = model;
-    self.titleLbl.text = model.title;
+    
+    NSMutableString *mstring = [model.title mutableCopy];
+    [mstring replaceOccurrencesOfString:@"<em>" withString:@"<" options:NSCaseInsensitiveSearch range:NSMakeRange(0, mstring.length)];
+    [mstring replaceOccurrencesOfString:@"</em>" withString:@">" options:NSCaseInsensitiveSearch range:NSMakeRange(0, mstring.length)];
+    
+    [self.titleLbl setColorText:mstring];
     self.timeLbl.text = model.ptime;
 }
 
