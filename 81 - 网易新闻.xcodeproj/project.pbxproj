@@ -111,6 +111,7 @@
 		1DE822A71C586A2500E965C1 /* SXSearchListEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DE822A61C586A2500E965C1 /* SXSearchListEntity.m */; };
 		1DE822AB1C5875CC00E965C1 /* SXSearchListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DE822A91C5875CC00E965C1 /* SXSearchListCell.m */; };
 		1DE822AC1C5875CC00E965C1 /* SXSearchListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DE822AA1C5875CC00E965C1 /* SXSearchListCell.xib */; };
+		1DE822B21C58B68500E965C1 /* UILabel+Wonderful.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DE822B11C58B68500E965C1 /* UILabel+Wonderful.m */; };
 		2D42989A1B4D918A004B7C6E /* UINavigationController+FDFullscreenPopGesture.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D4298991B4D918A004B7C6E /* UINavigationController+FDFullscreenPopGesture.m */; };
 /* End PBXBuildFile section */
 
@@ -319,6 +320,8 @@
 		1DE822A81C5875CC00E965C1 /* SXSearchListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SXSearchListCell.h; sourceTree = "<group>"; };
 		1DE822A91C5875CC00E965C1 /* SXSearchListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SXSearchListCell.m; sourceTree = "<group>"; };
 		1DE822AA1C5875CC00E965C1 /* SXSearchListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SXSearchListCell.xib; sourceTree = "<group>"; };
+		1DE822B01C58B68500E965C1 /* UILabel+Wonderful.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+Wonderful.h"; sourceTree = "<group>"; };
+		1DE822B11C58B68500E965C1 /* UILabel+Wonderful.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+Wonderful.m"; sourceTree = "<group>"; };
 		2D4298981B4D918A004B7C6E /* UINavigationController+FDFullscreenPopGesture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+FDFullscreenPopGesture.h"; sourceTree = "<group>"; };
 		2D4298991B4D918A004B7C6E /* UINavigationController+FDFullscreenPopGesture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+FDFullscreenPopGesture.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -631,6 +634,8 @@
 				1DE822A31C579CDC00E965C1 /* NSString+Base64.m */,
 				1D2A59801A700968001F9B8E /* SXNetworkTools.h */,
 				1D2A59811A700968001F9B8E /* SXNetworkTools.m */,
+				1DE822B01C58B68500E965C1 /* UILabel+Wonderful.h */,
+				1DE822B11C58B68500E965C1 /* UILabel+Wonderful.m */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -847,6 +852,7 @@
 				1D0AC8321A73C66200EEF963 /* SXDetailController.m in Sources */,
 				1D1C4A461B77257300CE3E01 /* SXWeatherItemView.m in Sources */,
 				1D925CB41A87B7030063921A /* SXReplyCell.m in Sources */,
+				1DE822B21C58B68500E965C1 /* UILabel+Wonderful.m in Sources */,
 				1D2A59681A700840001F9B8E /* AFNetworkReachabilityManager.m in Sources */,
 				1D007F5D1B6D155B00EA119C /* SXWeatherDetailM.m in Sources */,
 				1D58EEC81A70924A00411E39 /* SXNewsModel.m in Sources */,
