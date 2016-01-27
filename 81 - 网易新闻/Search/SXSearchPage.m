@@ -8,6 +8,8 @@
 
 #import "SXSearchPage.h"
 #import "UIView+Frame.h"
+#import "NSString+Base64.h"
+#import "SXSearchListEntity.h"
 
 @interface SXSearchPage ()<UITableViewDataSource,UITableViewDelegate,UISearchBarDelegate>
 
@@ -15,6 +17,8 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIButton *cancelBtn;
 @property (weak, nonatomic) IBOutlet UIView *beginView;
+
+@property(nonatomic,strong)NSArray<SXSearchListEntity *> *searchListArray;
 
 @end
 
@@ -24,7 +28,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    NSString *url = [NSString stringWithFormat:@"http://c.3g.163.com/search/comp/MA==/20/5Lit5aSu5pS/5rOV5Lya6K6u.html?deviceId=Rjc2NTNDN0QtRUJFNi00NzFFLTk5QjItMDRFRDgyODZGMDRC&version=NS41LjE=&channel=5aS05p2h"];
+    NSString *url = [NSString stringWithFormat:@"http://c.3g.163.com/nc/search/hotWord.html"];
     [[SXHTTPManager manager]GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -49,7 +53,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 3;
+    return self.searchListArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -64,6 +68,20 @@
         [self.beginView removeFromSuperview];
     }
     [searchBar resignFirstResponder];
+    
+    NSString *searchKeyWord = [searchBar.text base64encode];
+    NSString *url = [NSString stringWithFormat:@"http://c.3g.163.com/search/comp/MA==/20/%@.html",searchKeyWord];
+    
+    __weak SXSearchPage *weakSelf = self;
+    [[SXHTTPManager manager]GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, NSDictionary* responseObject) {
+        NSArray *dictArray = responseObject[@"doc"][@"result"];
+        weakSelf.searchListArray = [SXSearchListEntity objectArrayWithKeyValuesArray:dictArray];
+        [weakSelf.tableView reloadData];
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"%@",error.userInfo);
+    }];
+    
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event

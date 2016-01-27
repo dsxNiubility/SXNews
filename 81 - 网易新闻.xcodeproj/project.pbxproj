@@ -108,6 +108,9 @@
 		1DB395811BB7E021000E9C3E /* SXAdManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DB395801BB7E021000E9C3E /* SXAdManager.m */; };
 		1DC4731C1A81377B00DA905D /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DC4731B1A81377B00DA905D /* UIView+Frame.m */; };
 		1DE822A41C579CDC00E965C1 /* NSString+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DE822A31C579CDC00E965C1 /* NSString+Base64.m */; };
+		1DE822A71C586A2500E965C1 /* SXSearchListEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DE822A61C586A2500E965C1 /* SXSearchListEntity.m */; };
+		1DE822AB1C5875CC00E965C1 /* SXSearchListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DE822A91C5875CC00E965C1 /* SXSearchListCell.m */; };
+		1DE822AC1C5875CC00E965C1 /* SXSearchListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DE822AA1C5875CC00E965C1 /* SXSearchListCell.xib */; };
 		2D42989A1B4D918A004B7C6E /* UINavigationController+FDFullscreenPopGesture.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D4298991B4D918A004B7C6E /* UINavigationController+FDFullscreenPopGesture.m */; };
 /* End PBXBuildFile section */
 
@@ -311,6 +314,11 @@
 		1DE0E76A1BD24CC800B807F4 /* SXEasyMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SXEasyMacro.h; sourceTree = "<group>"; };
 		1DE822A21C579CDC00E965C1 /* NSString+Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Base64.h"; sourceTree = "<group>"; };
 		1DE822A31C579CDC00E965C1 /* NSString+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Base64.m"; sourceTree = "<group>"; };
+		1DE822A51C586A2500E965C1 /* SXSearchListEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SXSearchListEntity.h; sourceTree = "<group>"; };
+		1DE822A61C586A2500E965C1 /* SXSearchListEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SXSearchListEntity.m; sourceTree = "<group>"; };
+		1DE822A81C5875CC00E965C1 /* SXSearchListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SXSearchListCell.h; sourceTree = "<group>"; };
+		1DE822A91C5875CC00E965C1 /* SXSearchListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SXSearchListCell.m; sourceTree = "<group>"; };
+		1DE822AA1C5875CC00E965C1 /* SXSearchListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SXSearchListCell.xib; sourceTree = "<group>"; };
 		2D4298981B4D918A004B7C6E /* UINavigationController+FDFullscreenPopGesture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+FDFullscreenPopGesture.h"; sourceTree = "<group>"; };
 		2D4298991B4D918A004B7C6E /* UINavigationController+FDFullscreenPopGesture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+FDFullscreenPopGesture.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -632,6 +640,11 @@
 			children = (
 				1D577F451C57719F00B547B8 /* SXSearchPage.h */,
 				1D577F461C57719F00B547B8 /* SXSearchPage.m */,
+				1DE822A51C586A2500E965C1 /* SXSearchListEntity.h */,
+				1DE822A61C586A2500E965C1 /* SXSearchListEntity.m */,
+				1DE822A81C5875CC00E965C1 /* SXSearchListCell.h */,
+				1DE822A91C5875CC00E965C1 /* SXSearchListCell.m */,
+				1DE822AA1C5875CC00E965C1 /* SXSearchListCell.xib */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -779,6 +792,7 @@
 			files = (
 				1D2A59191A700822001F9B8E /* LaunchScreen.xib in Resources */,
 				1D1C4A3C1B7604C700CE3E01 /* SXWeatherDetailVC.xib in Resources */,
+				1DE822AC1C5875CC00E965C1 /* SXSearchListCell.xib in Resources */,
 				1D2A59161A700822001F9B8E /* Images.xcassets in Resources */,
 				1D58EED81A70C18000411E39 /* NewsURLs.plist in Resources */,
 				1D4FB7E51A73F8B1009F6A9E /* TemplateIcon2x.png in Resources */,
@@ -821,6 +835,7 @@
 				1D2A59661A700840001F9B8E /* AFHTTPRequestOperationManager.m in Sources */,
 				1D882E3C1A81151C004C9C9A /* SXPhotosDetail.m in Sources */,
 				1D58EED01A70A42100411E39 /* SXTableViewController.m in Sources */,
+				1DE822AB1C5875CC00E965C1 /* SXSearchListCell.m in Sources */,
 				1DB395811BB7E021000E9C3E /* SXAdManager.m in Sources */,
 				1D007F501B6D114900EA119C /* MJExtensionConst.m in Sources */,
 				1D2A59771A700840001F9B8E /* UIButton+WebCache.m in Sources */,
@@ -889,6 +904,7 @@
 				1D58EECD1A709E0300411E39 /* SXNewsCell.m in Sources */,
 				1D925CD01A87CA030063921A /* UIScrollView+MJExtension.m in Sources */,
 				1D2A590B1A700822001F9B8E /* main.m in Sources */,
+				1DE822A71C586A2500E965C1 /* SXSearchListEntity.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
