@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SXSearchListEntity.h"
 
 @interface SXSearchListCell : UITableViewCell
+
+@property(nonatomic,strong)SXSearchListEntity *model;
++ (instancetype)cellWithTableView:(UITableView *)tableview;
 
 @end

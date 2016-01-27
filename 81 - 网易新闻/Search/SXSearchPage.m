@@ -10,6 +10,7 @@
 #import "UIView+Frame.h"
 #import "NSString+Base64.h"
 #import "SXSearchListEntity.h"
+#import "SXSearchListCell.h"
 
 @interface SXSearchPage ()<UITableViewDataSource,UITableViewDelegate,UISearchBarDelegate>
 
@@ -28,6 +29,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    self.tableView.rowHeight = 80;
     NSString *url = [NSString stringWithFormat:@"http://c.3g.163.com/nc/search/hotWord.html"];
     [[SXHTTPManager manager]GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
@@ -58,7 +60,9 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return [UITableViewCell new];
+    SXSearchListCell *cell = [SXSearchListCell cellWithTableView:tableView];
+    cell.model = self.searchListArray[indexPath.row];
+    return cell;
 }
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar;
@@ -72,11 +76,11 @@
     NSString *searchKeyWord = [searchBar.text base64encode];
     NSString *url = [NSString stringWithFormat:@"http://c.3g.163.com/search/comp/MA==/20/%@.html",searchKeyWord];
     
-    __weak SXSearchPage *weakSelf = self;
+//    __weak SXSearchPage *weakSelf = self;
     [[SXHTTPManager manager]GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, NSDictionary* responseObject) {
         NSArray *dictArray = responseObject[@"doc"][@"result"];
-        weakSelf.searchListArray = [SXSearchListEntity objectArrayWithKeyValuesArray:dictArray];
-        [weakSelf.tableView reloadData];
+        self.searchListArray = [SXSearchListEntity objectArrayWithKeyValuesArray:dictArray];
+        [self.tableView reloadData];
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"%@",error.userInfo);
