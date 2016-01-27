@@ -18,8 +18,13 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIButton *cancelBtn;
 @property (weak, nonatomic) IBOutlet UIView *beginView;
+@property (weak, nonatomic) IBOutlet UIScrollView *hotWordView;
+
+@property(nonatomic,assign)CGFloat maxRight;
+@property(nonatomic,assign)CGFloat maxBottom;
 
 @property(nonatomic,strong)NSArray<SXSearchListEntity *> *searchListArray;
+@property(nonatomic,strong)NSArray *hotwordArray;
 
 @end
 
@@ -30,9 +35,18 @@
     // Do any additional setup after loading the view.
     
     self.tableView.rowHeight = 80;
+    self.hotWordView.bounces = YES;
+    self.maxRight = 0;
+    self.maxBottom = 10;
+    self.hotWordView.contentSize = self.hotWordView.frame.size;
+//    self.hotWordView.contentInset = UIEdgeInsetsMake(10, 0, 0, 0);
+//    self.hotWordView.contentOffset = CGPointMake(0, 10);
+    self.hotWordView.showsHorizontalScrollIndicator = NO;
+    self.hotWordView.showsVerticalScrollIndicator = NO;
     NSString *url = [NSString stringWithFormat:@"http://c.3g.163.com/nc/search/hotWord.html"];
-    [[SXHTTPManager manager]GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        
+    [[SXHTTPManager manager]GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, NSDictionary* responseObject) {
+        self.hotwordArray = responseObject[@"hotWordList"];
+        [self addHotWordInHotWordView];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         
     }];
@@ -65,12 +79,15 @@
     return cell;
 }
 
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    UITableViewCell *cell = [[NSBundle mainBundle]loadNibNamed:@"SXSearchListCell" owner:nil options:nil][1];
+    return cell;
+}
+
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar;
 {
     NSLog(@"%@",searchBar.text);
-    if (self.beginView.superview) {
-        [self.beginView removeFromSuperview];
-    }
     [searchBar resignFirstResponder];
     
     NSString *searchKeyWord = [searchBar.text base64encode];
@@ -81,11 +98,57 @@
         NSArray *dictArray = responseObject[@"doc"][@"result"];
         self.searchListArray = [SXSearchListEntity objectArrayWithKeyValuesArray:dictArray];
         [self.tableView reloadData];
+        self.beginView.hidden = YES;
+        self.tableView.hidden = NO;
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"%@",error.userInfo);
     }];
+}
+
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
+{
+    if (searchText.length < 1) {
+        self.tableView.hidden = YES;
+        self.beginView.hidden = NO;
+    }
+}
+
+- (void)addHotWordInHotWordView
+{
+    for (NSDictionary *dict in self.hotwordArray) {
+        [self addKeyWordBtnWithTitle:dict[@"hotWord"]];
+    }
+}
+
+- (void)addKeyWordBtnWithTitle:(NSString *)title
+{
+    UIButton *button = [[UIButton alloc]initWithFrame:CGRectMake(self.maxRight, self.maxBottom, 0, 0)];
+    [button setTitle:title forState:UIControlStateNormal];
+    [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    button.titleLabel.font = [UIFont systemFontOfSize:15];
+    [button setBackgroundImage:[UIImage imageNamed:@"night_contentview_votebutton"] forState:UIControlStateNormal];
+    [button sizeToFit];
     
+    button.width += 15;
+    button.height = 34 ;
+    [button addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchUpInside];
+    [self.hotWordView addSubview:button];
+    self.maxRight = button.width + button.x + 10;
+    
+    if (self.maxRight > self.hotWordView.width) {
+        self.maxRight = 0;
+        self.maxBottom += 48;
+        button.x = self.maxRight;
+        button.y = self.maxBottom;
+        self.maxRight = button.width + button.x + 10;
+    }
+}
+
+- (void)buttonClick:(UIButton *)sender
+{
+    self.searchBar.text = sender.titleLabel.text;
+    [self searchBarSearchButtonClicked:self.searchBar];
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event

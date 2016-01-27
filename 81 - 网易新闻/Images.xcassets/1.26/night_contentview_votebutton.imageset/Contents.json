@@ -13,14 +13,14 @@
           "height" : 1
         },
         "cap-insets" : {
-          "bottom" : 40,
-          "top" : 40,
-          "right" : 9,
-          "left" : 9
+          "bottom" : 5,
+          "top" : 4,
+          "right" : 5,
+          "left" : 4
         }
       },
       "idiom" : "universal",
-      "filename" : "headex_button@2x.png",
+      "filename" : "night_contentview_votebutton@2x.png",
       "scale" : "2x"
     },
     {
