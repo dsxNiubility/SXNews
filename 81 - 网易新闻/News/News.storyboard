@@ -666,7 +666,7 @@
         <!--新闻详情-->
         <scene sceneID="RC0-Cc-OkJ">
             <objects>
-                <viewController hidesBottomBarWhenPushed="YES" id="AGK-Ys-EEq" customClass="SXDetailController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SXDetailController" hidesBottomBarWhenPushed="YES" id="AGK-Ys-EEq" customClass="SXDetailController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="QGQ-K1-5xM"/>
                         <viewControllerLayoutGuide type="bottom" id="X81-OH-VM3"/>

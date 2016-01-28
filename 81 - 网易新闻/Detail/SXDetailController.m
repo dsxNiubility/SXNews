@@ -51,7 +51,7 @@
 #pragma mark - ******************** 返回按钮
 - (IBAction)backBtn:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
-    [self.navigationController setNavigationBarHidden:NO animated:YES];
+//    [self.navigationController setNavigationBarHidden:NO animated:YES];
 }
 
 #pragma mark - ******************** 首次加载
@@ -62,7 +62,14 @@
     
     [[SXHTTPManager manager]GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         self.detailModel = [SXDetailModel detailWithDict:responseObject[self.newsModel.docid]];
+        if (self.newsModel.boardid.length < 1) {
+            self.newsModel.boardid = self.detailModel.replyBoard;
+        }
         [self showInWebView];
+        // 真数据
+        NSString *docID = self.newsModel.docid;
+        NSString *url2 = [NSString stringWithFormat:@"http://comment.api.163.com/api/json/post/list/new/hot/%@/%@/0/10/10/2/2",self.newsModel.boardid,docID];
+        [self sendRequestWithUrl2:url2];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"failure %@",error);
     }];
@@ -70,7 +77,7 @@
     //  http://comment.api.163.com/api/json/post/list/new/hot/ent2_bbs/AI1O4EEK00032DGD/0/10/10/2/2
     
 //    NSString *replyURL = self.news[self.index][@"replyUrl"];
-    NSString *docID = self.newsModel.docid;
+
     
     
     CGFloat count =  [self.newsModel.replyCount intValue];
@@ -84,15 +91,11 @@
     
     [self.replyCountBtn setTitle:displayCount forState:UIControlStateNormal];
     
-    NSLog(@"%@",self.news[1]);
-    NSLog(@"%@----%@",self.newsModel.boardid,docID);
+//    NSLog(@"%@",self.news[1]);
+//    NSLog(@"%@----%@",self.newsModel.boardid,docID);
     
     // 假数据
 //    NSString *url2 = @"http://comment.api.163.com/api/json/post/list/new/hot/photoview_bbs/PHOT1ODB009654GK/0/10/10/2/2";
-    
-    // 真数据
-    NSString *url2 = [NSString stringWithFormat:@"http://comment.api.163.com/api/json/post/list/new/hot/%@/%@/0/10/10/2/2",self.newsModel.boardid,docID];
-    [self sendRequestWithUrl2:url2];
     
     self.automaticallyAdjustsScrollViewInsets = NO;
 }

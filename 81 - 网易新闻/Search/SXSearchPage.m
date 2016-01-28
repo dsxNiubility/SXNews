@@ -11,6 +11,8 @@
 #import "NSString+Base64.h"
 #import "SXSearchListEntity.h"
 #import "SXSearchListCell.h"
+#import "SXNewsModel.h"
+#import "SXDetailController.h"
 
 @interface SXSearchPage ()<UITableViewDataSource,UITableViewDelegate,UISearchBarDelegate>
 
@@ -39,8 +41,7 @@
     self.maxRight = 0;
     self.maxBottom = 10;
     self.hotWordView.contentSize = self.hotWordView.frame.size;
-//    self.hotWordView.contentInset = UIEdgeInsetsMake(10, 0, 0, 0);
-//    self.hotWordView.contentOffset = CGPointMake(0, 10);
+
     self.hotWordView.showsHorizontalScrollIndicator = NO;
     self.hotWordView.showsVerticalScrollIndicator = NO;
     NSString *url = [NSString stringWithFormat:@"http://c.3g.163.com/nc/search/hotWord.html"];
@@ -64,7 +65,7 @@
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
-    [self.navigationController setNavigationBarHidden:NO animated:YES];
+//    [self.navigationController setNavigationBarHidden:NO animated:YES];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -143,6 +144,18 @@
         button.y = self.maxBottom;
         self.maxRight = button.width + button.x + 10;
     }
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    SXNewsModel *model = [[SXNewsModel alloc]init];
+    model.docid = [self.searchListArray[indexPath.row] docid];
+    
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"News" bundle:nil];
+    SXDetailController *devc = (SXDetailController *)[sb instantiateViewControllerWithIdentifier:@"SXDetailController"];
+    devc.newsModel = model;
+    [self.navigationController pushViewController:devc animated:YES];
+    
 }
 
 - (void)buttonClick:(UIButton *)sender

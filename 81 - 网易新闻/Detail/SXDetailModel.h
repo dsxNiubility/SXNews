@@ -18,6 +18,8 @@
 @property (nonatomic, copy) NSString *body;
 /** 新闻配图(希望这个数组中以后放HMNewsDetailImg模型) */
 @property (nonatomic, strong) NSArray *img;
+/** 模块名*/
+@property(nonatomic,copy)NSString *replyBoard;
 
 + (instancetype)detailWithDict:(NSDictionary *)dict;
 
