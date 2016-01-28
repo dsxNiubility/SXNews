@@ -94,6 +94,7 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    self.navigationController.navigationBar.barTintColor = [UIColor redColor];
     if([[NSUserDefaults standardUserDefaults]boolForKey:@"top20"]){
         self.TopToTop.constant = 20;
         [[NSUserDefaults standardUserDefaults]setBool:NO forKey:@"top20"];
