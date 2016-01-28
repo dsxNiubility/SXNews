@@ -65,39 +65,33 @@
         if (self.newsModel.boardid.length < 1) {
             self.newsModel.boardid = self.detailModel.replyBoard;
         }
+        self.newsModel.replyCount = @(self.detailModel.replyCount);
         [self showInWebView];
         // 真数据
         NSString *docID = self.newsModel.docid;
         NSString *url2 = [NSString stringWithFormat:@"http://comment.api.163.com/api/json/post/list/new/hot/%@/%@/0/10/10/2/2",self.newsModel.boardid,docID];
         [self sendRequestWithUrl2:url2];
+        
+        CGFloat count =  [self.newsModel.replyCount intValue];
+        NSString *displayCount;
+        if (count > 10000) {
+            displayCount = [NSString stringWithFormat:@"%.1f万跟帖",count/10000];
+        }else{
+            displayCount = [NSString stringWithFormat:@"%.0f跟帖",count];
+        }
+        [self.replyCountBtn setTitle:displayCount forState:UIControlStateNormal];
+        self.automaticallyAdjustsScrollViewInsets = NO;
+        
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"failure %@",error);
     }];
     
-    //  http://comment.api.163.com/api/json/post/list/new/hot/ent2_bbs/AI1O4EEK00032DGD/0/10/10/2/2
-    
+//  http://comment.api.163.com/api/json/post/list/new/hot/ent2_bbs/AI1O4EEK00032DGD/0/10/10/2/2
 //    NSString *replyURL = self.news[self.index][@"replyUrl"];
-
-    
-    
-    CGFloat count =  [self.newsModel.replyCount intValue];
-    NSString *displayCount;
-    if (count > 10000) {
-        displayCount = [NSString stringWithFormat:@"%.1f万跟帖",count/10000];
-    }else{
-        displayCount = [NSString stringWithFormat:@"%.0f跟帖",count];
-    }
-    
-    
-    [self.replyCountBtn setTitle:displayCount forState:UIControlStateNormal];
-    
 //    NSLog(@"%@",self.news[1]);
 //    NSLog(@"%@----%@",self.newsModel.boardid,docID);
-    
-    // 假数据
+// 假数据
 //    NSString *url2 = @"http://comment.api.163.com/api/json/post/list/new/hot/photoview_bbs/PHOT1ODB009654GK/0/10/10/2/2";
-    
-    self.automaticallyAdjustsScrollViewInsets = NO;
 }
 - (void)viewWillAppear:(BOOL)animated
 {

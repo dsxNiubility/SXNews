@@ -20,6 +20,8 @@
 @property (nonatomic, strong) NSArray *img;
 /** 模块名*/
 @property(nonatomic,copy)NSString *replyBoard;
+/** 回复数*/
+@property(nonatomic,assign)NSInteger replyCount;
 
 + (instancetype)detailWithDict:(NSDictionary *)dict;
 

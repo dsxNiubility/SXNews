@@ -18,6 +18,7 @@
     detail.ptime = dict[@"ptime"];
     detail.body = dict[@"body"];
     detail.replyBoard = dict[@"replyBoard"];
+    detail.replyCount = [dict[@"replyCount"] integerValue];
     
     NSArray *imgArray = dict[@"img"];
     NSMutableArray *temArray = [NSMutableArray arrayWithCapacity:imgArray.count];
