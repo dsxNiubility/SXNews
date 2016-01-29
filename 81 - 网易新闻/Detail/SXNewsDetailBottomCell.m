@@ -44,7 +44,7 @@
 }
 
 + (instancetype)theContactNewsCell{
-    return [[NSBundle mainBundle]loadNibNamed:@"SXNewsDetailBottomCell" owner:nil options:nil][5];
+    return [[NSBundle mainBundle]loadNibNamed:@"SXNewsDetailBottomCell" owner:nil options:nil][4];
 }
 
 - (void)awakeFromNib {

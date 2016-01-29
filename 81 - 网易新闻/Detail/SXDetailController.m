@@ -13,6 +13,7 @@
 
 #import "SXReplyModel.h"
 #import "SXReplyViewController.h"
+#import "SXNewsDetailBottomCell.h"
 
 @interface SXDetailController ()<UIWebViewDelegate,UITableViewDataSource,UITableViewDelegate>
 @property (strong, nonatomic) UIWebView *webView;
@@ -256,29 +257,102 @@
     [[NSNotificationCenter defaultCenter]postNotification:[NSNotification notificationWithName:@"contentStart" object:nil]];
 }
 
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 3;
+}
+
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    return self.webView;
+    if (section == 0) {
+        return self.webView;
+    }else if (section == 1){
+        SXNewsDetailBottomCell *head = [SXNewsDetailBottomCell theSectionHeaderCell];
+//        head.sectionHeaderLbl.text = @"热门跟帖";
+        return head;
+    }else if (section == 2){
+        SXNewsDetailBottomCell *head = [SXNewsDetailBottomCell theSectionHeaderCell];
+//        head.sectionHeaderLbl.text = @"相关新闻";
+        return head;
+    }
+    return [UIView new];
 }
 
 - (CGFloat )tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    return self.webView.height;
+    if (section == 0) {
+        return self.webView.height;
+    }else if (section == 1){
+        return 40;
+    }else if (section == 2){
+        return 40;
+    }
+    return CGFLOAT_MIN;
 }
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    return 1;
-}
+//- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
+//{
+//    if (section == 1){
+//        SXNewsDetailBottomCell *foot = [SXNewsDetailBottomCell theSectionBottomCell];
+//        return foot;
+//    }
+//    return [[UIView alloc]init];
+//}
+//
+//- (CGFloat )tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+//{
+//    if (section == 2){
+//        return 50;
+//    }
+//    return CGFLOAT_MIN;
+//}
+
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 10;
+    if (section == 0) {
+        return 1;
+    }else if (section == 1){
+        return 1+3;
+    }else if (section == 2){
+        return 1+4;
+    }
+    return 0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return [[UITableViewCell alloc]init];
+    if (indexPath.section == 0) {
+        return [SXNewsDetailBottomCell theShareCell];
+    }else if (indexPath.section == 1){
+        if (indexPath.row == 3) {
+            SXNewsDetailBottomCell *foot = [SXNewsDetailBottomCell theSectionBottomCell];
+            return foot;
+        }else{
+            SXNewsDetailBottomCell *hotreply = [SXNewsDetailBottomCell theHotReplyCell];
+            return hotreply;
+        }
+    }else if (indexPath.section == 2){
+        SXNewsDetailBottomCell *other = [SXNewsDetailBottomCell theContactNewsCell];
+        return other;
+    }
+    return [UITableViewCell new];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.section == 0) {
+        return 126;
+    }else if (indexPath.section == 1){
+        if (indexPath.row == 3) {
+            return 50;
+        }else{
+            return 110.5;
+        }
+    }else if (indexPath.section == 2){
+        return 80.5;
+    }
+    return CGFLOAT_MIN;
 }
 
 
