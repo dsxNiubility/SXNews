@@ -1045,7 +1045,7 @@
 					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
-				GCC_PREFIX_HEADER = "/Users/dsx/Documents/Github/SXNews/81 - 网易新闻/NetEasyPrefix.pch";
+				GCC_PREFIX_HEADER = "$(SRCROOT)/81 - 网易新闻/NetEasyPrefix.pch";
 				INFOPLIST_FILE = "81 - 网易新闻/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1069,7 +1069,7 @@
 					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
-				GCC_PREFIX_HEADER = "/Users/dsx/Documents/Github/SXNews/81 - 网易新闻/NetEasyPrefix.pch";
+				GCC_PREFIX_HEADER = "$(SRCROOT)/81 - 网易新闻/NetEasyPrefix.pch";
 				INFOPLIST_FILE = "81 - 网易新闻/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
