@@ -25,6 +25,18 @@
                     <constraint firstAttribute="bottom" secondItem="YOY-mw-FSj" secondAttribute="bottom" id="p2U-2P-sG2"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="goodLbl" destination="Axv-cX-K5w" id="tzZ-Vt-IVE"/>
+                <outlet property="iconImg" destination="bEU-BO-IQz" id="dm9-UD-CgJ"/>
+                <outlet property="newsFromLbl" destination="mQc-7H-xj1" id="Ppo-DG-uGw"/>
+                <outlet property="newsIcon" destination="wDT-1L-oqa" id="LpO-h6-fqG"/>
+                <outlet property="newsTimeLbl" destination="Rp1-vk-PAo" id="FOI-IT-luv"/>
+                <outlet property="newsTitleLbl" destination="fHZ-dD-Ktz" id="lnM-Ym-u5R"/>
+                <outlet property="replyDetail" destination="cpu-Co-DXb" id="LaZ-Sq-ydt"/>
+                <outlet property="sectionHeaderLbl" destination="j9a-Uj-ghv" id="sHh-5v-277"/>
+                <outlet property="userLbl" destination="DaI-Z2-Bb0" id="Pie-c7-4T9"/>
+                <outlet property="userLocationLbl" destination="nWb-cg-Rxe" id="g9h-GQ-9DC"/>
+            </connections>
             <point key="canvasLocation" x="313.5" y="156"/>
         </tableViewCell>
         <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="fmF-g6-U6G">
@@ -177,6 +189,7 @@
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bEU-BO-IQz">
                                 <rect key="frame" x="10" y="20" width="30" height="30"/>
+                                <color key="backgroundColor" red="0.53333333329999999" green="0.86666666670000003" blue="0.83137254900000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="9qH-zM-G6i"/>
                                     <constraint firstAttribute="width" constant="30" id="cJ9-h9-mbf"/>
@@ -275,6 +288,7 @@
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wDT-1L-oqa">
                                 <rect key="frame" x="10" y="10" width="80" height="60"/>
+                                <color key="backgroundColor" red="0.53333333329999999" green="0.86666666670000003" blue="0.83137254900000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="Xce-ZU-Qvw"/>
                                     <constraint firstAttribute="width" constant="80" id="tbs-Ve-sxY"/>

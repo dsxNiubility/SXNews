@@ -10,4 +10,16 @@
 
 @interface SXNewsDetailBottomCell : UITableViewCell
 
+@property (weak, nonatomic) IBOutlet UILabel *sectionHeaderLbl;
+
++ (instancetype)theShareCell;
+
++ (instancetype)theSectionHeaderCell;
+
++ (instancetype)theSectionBottomCell;
+
++ (instancetype)theHotReplyCell;
+
++ (instancetype)theContactNewsCell;
+
 @end
