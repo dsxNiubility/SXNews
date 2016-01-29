@@ -14,11 +14,12 @@
 #import "SXReplyModel.h"
 #import "SXReplyViewController.h"
 
-@interface SXDetailController ()<UIWebViewDelegate>
-@property (weak, nonatomic) IBOutlet UIWebView *webView;
+@interface SXDetailController ()<UIWebViewDelegate,UITableViewDataSource,UITableViewDelegate>
+@property (strong, nonatomic) UIWebView *webView;
 @property(nonatomic,strong) SXDetailModel *detailModel;
 @property (weak, nonatomic) IBOutlet UIButton *replyCountBtn;
 @property (weak, nonatomic) IBOutlet UIButton *backBtn;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 
 @property(nonatomic,strong) NSMutableArray *replyModels;
@@ -48,6 +49,15 @@
     return _news;
 }
 
+- (UIWebView *)webView
+{
+    if (!_webView) {
+        UIWebView *web = [[UIWebView alloc]initWithFrame:CGRectMake(0, 0, SXSCREEN_W, 700)];
+        _webView = web;
+    }
+    return _webView;
+}
+
 #pragma mark - ******************** 返回按钮
 - (IBAction)backBtn:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
@@ -57,6 +67,8 @@
 #pragma mark - ******************** 首次加载
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+//    self.webView = [[UIWebView alloc]initWithFrame:CGRectMake(0, 0, SXSCREEN_W, 300)];
     self.webView.delegate = self;
     NSString *url = [NSString stringWithFormat:@"http://c.m.163.com/nc/article/%@/full.html",self.newsModel.docid];
     
@@ -106,6 +118,7 @@
 //    }
 //    return self;
 //}
+
 
 /** 提前把评论的请求也发出去 得到评论的信息 */
 - (void)sendRequestWithUrl2:(NSString *)url
@@ -205,6 +218,12 @@
     return YES;
 }
 
+- (void)webViewDidFinishLoad:(UIWebView *)webView
+{
+    self.webView.height = self.webView.scrollView.contentSize.height;
+    [self.tableView reloadData];
+}
+
 #pragma mark - ******************** 保存到相册方法
 - (void)savePictureToAlbum:(NSString *)src
 {
@@ -235,6 +254,31 @@
     }
     
     [[NSNotificationCenter defaultCenter]postNotification:[NSNotification notificationWithName:@"contentStart" object:nil]];
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    return self.webView;
+}
+
+- (CGFloat )tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return self.webView.height;
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 10;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return [[UITableViewCell alloc]init];
 }
 
 

@@ -112,6 +112,8 @@
 		1DE822AB1C5875CC00E965C1 /* SXSearchListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DE822A91C5875CC00E965C1 /* SXSearchListCell.m */; };
 		1DE822AC1C5875CC00E965C1 /* SXSearchListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DE822AA1C5875CC00E965C1 /* SXSearchListCell.xib */; };
 		1DE822B21C58B68500E965C1 /* UILabel+Wonderful.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DE822B11C58B68500E965C1 /* UILabel+Wonderful.m */; };
+		1DE822B91C5B5C4A00E965C1 /* SXNewsDetailBottomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DE822B71C5B5C4A00E965C1 /* SXNewsDetailBottomCell.m */; };
+		1DE822BA1C5B5C4A00E965C1 /* SXNewsDetailBottomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DE822B81C5B5C4A00E965C1 /* SXNewsDetailBottomCell.xib */; };
 		2D42989A1B4D918A004B7C6E /* UINavigationController+FDFullscreenPopGesture.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D4298991B4D918A004B7C6E /* UINavigationController+FDFullscreenPopGesture.m */; };
 /* End PBXBuildFile section */
 
@@ -322,6 +324,9 @@
 		1DE822AA1C5875CC00E965C1 /* SXSearchListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SXSearchListCell.xib; sourceTree = "<group>"; };
 		1DE822B01C58B68500E965C1 /* UILabel+Wonderful.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+Wonderful.h"; sourceTree = "<group>"; };
 		1DE822B11C58B68500E965C1 /* UILabel+Wonderful.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+Wonderful.m"; sourceTree = "<group>"; };
+		1DE822B61C5B5C4A00E965C1 /* SXNewsDetailBottomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SXNewsDetailBottomCell.h; sourceTree = "<group>"; };
+		1DE822B71C5B5C4A00E965C1 /* SXNewsDetailBottomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SXNewsDetailBottomCell.m; sourceTree = "<group>"; };
+		1DE822B81C5B5C4A00E965C1 /* SXNewsDetailBottomCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SXNewsDetailBottomCell.xib; sourceTree = "<group>"; };
 		2D4298981B4D918A004B7C6E /* UINavigationController+FDFullscreenPopGesture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+FDFullscreenPopGesture.h"; sourceTree = "<group>"; };
 		2D4298991B4D918A004B7C6E /* UINavigationController+FDFullscreenPopGesture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+FDFullscreenPopGesture.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -405,6 +410,9 @@
 				1D0AC82B1A73B8AE00EEF963 /* SXDetailImgModel.m */,
 				1D0AC8301A73C66200EEF963 /* SXDetailController.h */,
 				1D0AC8311A73C66200EEF963 /* SXDetailController.m */,
+				1DE822B61C5B5C4A00E965C1 /* SXNewsDetailBottomCell.h */,
+				1DE822B71C5B5C4A00E965C1 /* SXNewsDetailBottomCell.m */,
+				1DE822B81C5B5C4A00E965C1 /* SXNewsDetailBottomCell.xib */,
 				1D925CAF1A87B50B0063921A /* SXReplyViewController.h */,
 				1D925CB01A87B50B0063921A /* SXReplyViewController.m */,
 				1D925CB21A87B7030063921A /* SXReplyCell.h */,
@@ -802,6 +810,7 @@
 				1D58EED81A70C18000411E39 /* NewsURLs.plist in Resources */,
 				1D4FB7E51A73F8B1009F6A9E /* TemplateIcon2x.png in Resources */,
 				1D7B9F4F1B5E1EC000774BDA /* HYQiHei-50J.ttf in Resources */,
+				1DE822BA1C5B5C4A00E965C1 /* SXNewsDetailBottomCell.xib in Resources */,
 				1D4FB7E41A73F8B1009F6A9E /* SXDetails.css in Resources */,
 				1D2357761A80A4B2000C7AAC /* Main.storyboard in Resources */,
 				1D58EED31A70BD1300411E39 /* NewsCollection.storyboard in Resources */,
@@ -907,6 +916,7 @@
 				1D2A59751A700840001F9B8E /* SDWebImageManager.m in Sources */,
 				1D5995C61B78CA9B0067B471 /* MJExtensionConfig.m in Sources */,
 				1D2A590E1A700822001F9B8E /* AppDelegate.m in Sources */,
+				1DE822B91C5B5C4A00E965C1 /* SXNewsDetailBottomCell.m in Sources */,
 				1D58EECD1A709E0300411E39 /* SXNewsCell.m in Sources */,
 				1D925CD01A87CA030063921A /* UIScrollView+MJExtension.m in Sources */,
 				1D2A590B1A700822001F9B8E /* main.m in Sources */,

@@ -672,13 +672,9 @@
                         <viewControllerLayoutGuide type="bottom" id="X81-OH-VM3"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="XPx-sf-5Zy">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="1200"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dlk-Pz-rJr">
-                                <rect key="frame" x="0.0" y="55" width="375" height="1145"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </webView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7b7-5X-G74">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="55"/>
                                 <subviews>
@@ -697,7 +693,7 @@
                                         </connections>
                                     </button>
                                     <view alpha="0.69999998807907104" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MaR-if-e2b">
-                                        <rect key="frame" x="0.0" y="53" width="375" height="1"/>
+                                        <rect key="frame" x="0.0" y="54" width="375" height="1"/>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="bzM-FX-qw5"/>
@@ -728,35 +724,44 @@
                                     <constraint firstAttribute="height" constant="55" id="G2z-7R-EQS"/>
                                     <constraint firstItem="MaR-if-e2b" firstAttribute="leading" secondItem="7b7-5X-G74" secondAttribute="leading" id="LSf-hS-kZM"/>
                                     <constraint firstItem="ZPp-e4-Lgf" firstAttribute="top" secondItem="7b7-5X-G74" secondAttribute="top" constant="19" id="P0K-Rb-AQy"/>
-                                    <constraint firstAttribute="bottom" secondItem="MaR-if-e2b" secondAttribute="bottom" constant="1" id="b91-Yt-qZ8"/>
+                                    <constraint firstAttribute="bottom" secondItem="MaR-if-e2b" secondAttribute="bottom" id="b91-Yt-qZ8"/>
                                     <constraint firstAttribute="trailing" secondItem="MaR-if-e2b" secondAttribute="trailing" id="m9Q-42-Y8D"/>
                                     <constraint firstItem="nQn-TM-cYT" firstAttribute="top" secondItem="7b7-5X-G74" secondAttribute="top" constant="12" id="xVj-MD-GeY"/>
                                 </constraints>
                             </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="hdz-rA-apW">
+                                <rect key="frame" x="0.0" y="55" width="375" height="612"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="AGK-Ys-EEq" id="SRd-Ri-PYQ"/>
+                                    <outlet property="delegate" destination="AGK-Ys-EEq" id="Net-bc-N91"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="X81-OH-VM3" firstAttribute="top" secondItem="dlk-Pz-rJr" secondAttribute="bottom" id="8aC-pk-XJ0"/>
+                            <constraint firstItem="hdz-rA-apW" firstAttribute="top" secondItem="XPx-sf-5Zy" secondAttribute="top" constant="55" id="7aU-4A-Jbc"/>
+                            <constraint firstAttribute="trailing" secondItem="hdz-rA-apW" secondAttribute="trailing" id="8G7-7S-7Dx"/>
                             <constraint firstItem="7b7-5X-G74" firstAttribute="top" secondItem="XPx-sf-5Zy" secondAttribute="top" id="EUn-dL-uPp"/>
                             <constraint firstItem="7b7-5X-G74" firstAttribute="leading" secondItem="XPx-sf-5Zy" secondAttribute="leading" id="GAr-eV-Wyi"/>
                             <constraint firstAttribute="trailing" secondItem="7b7-5X-G74" secondAttribute="trailing" id="KKM-2l-OJD"/>
-                            <constraint firstAttribute="trailing" secondItem="dlk-Pz-rJr" secondAttribute="trailing" id="Rcu-Tg-BYb"/>
-                            <constraint firstItem="dlk-Pz-rJr" firstAttribute="leading" secondItem="XPx-sf-5Zy" secondAttribute="leading" id="cqW-yi-rTU"/>
-                            <constraint firstItem="dlk-Pz-rJr" firstAttribute="top" secondItem="XPx-sf-5Zy" secondAttribute="top" constant="55" id="tSQ-bh-SLO"/>
+                            <constraint firstItem="X81-OH-VM3" firstAttribute="top" secondItem="hdz-rA-apW" secondAttribute="bottom" id="Qkl-E1-DJW"/>
+                            <constraint firstItem="hdz-rA-apW" firstAttribute="leading" secondItem="XPx-sf-5Zy" secondAttribute="leading" id="bHv-EM-BK7"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="新闻详情" id="TYY-CD-yZi">
                         <barButtonItem key="rightBarButtonItem" image="002" id="C33-g8-HfC"/>
                     </navigationItem>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="backBtn" destination="nQn-TM-cYT" id="UwP-AI-3vk"/>
                         <outlet property="replyCountBtn" destination="ZPp-e4-Lgf" id="rWQ-XA-CqN"/>
-                        <outlet property="webView" destination="dlk-Pz-rJr" id="N2d-hm-AV7"/>
+                        <outlet property="tableView" destination="hdz-rA-apW" id="1bv-Xb-3PK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fee-Cb-3Pb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="455.5" y="367"/>
+            <point key="canvasLocation" x="455.5" y="366.5"/>
         </scene>
     </scenes>
     <resources>
