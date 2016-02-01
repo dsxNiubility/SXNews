@@ -271,11 +271,11 @@
         return self.webView;
     }else if (section == 1){
         SXNewsDetailBottomCell *head = [SXNewsDetailBottomCell theSectionHeaderCell];
-//        head.sectionHeaderLbl.text = @"热门跟帖";
+        head.sectionHeaderLbl.text = @"热门跟帖";
         return head;
     }else if (section == 2){
         SXNewsDetailBottomCell *head = [SXNewsDetailBottomCell theSectionHeaderCell];
-//        head.sectionHeaderLbl.text = @"相关新闻";
+        head.sectionHeaderLbl.text = @"相关新闻";
         return head;
     }
     return [UIView new];

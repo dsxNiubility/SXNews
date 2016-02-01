@@ -25,18 +25,6 @@
                     <constraint firstAttribute="bottom" secondItem="YOY-mw-FSj" secondAttribute="bottom" id="p2U-2P-sG2"/>
                 </constraints>
             </tableViewCellContentView>
-            <connections>
-                <outlet property="goodLbl" destination="Axv-cX-K5w" id="tzZ-Vt-IVE"/>
-                <outlet property="iconImg" destination="bEU-BO-IQz" id="dm9-UD-CgJ"/>
-                <outlet property="newsFromLbl" destination="mQc-7H-xj1" id="Ppo-DG-uGw"/>
-                <outlet property="newsIcon" destination="wDT-1L-oqa" id="LpO-h6-fqG"/>
-                <outlet property="newsTimeLbl" destination="Rp1-vk-PAo" id="FOI-IT-luv"/>
-                <outlet property="newsTitleLbl" destination="fHZ-dD-Ktz" id="lnM-Ym-u5R"/>
-                <outlet property="replyDetail" destination="cpu-Co-DXb" id="LaZ-Sq-ydt"/>
-                <outlet property="sectionHeaderLbl" destination="j9a-Uj-ghv" id="sHh-5v-277"/>
-                <outlet property="userLbl" destination="DaI-Z2-Bb0" id="Pie-c7-4T9"/>
-                <outlet property="userLocationLbl" destination="nWb-cg-Rxe" id="g9h-GQ-9DC"/>
-            </connections>
             <point key="canvasLocation" x="313.5" y="156"/>
         </tableViewCell>
         <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="fmF-g6-U6G" customClass="SXNewsDetailBottomCell">
@@ -111,6 +99,9 @@
                     <constraint firstAttribute="trailing" secondItem="Z8D-EV-M3v" secondAttribute="trailing" constant="10" id="bqw-Oj-fpc"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="sectionHeaderLbl" destination="j9a-Uj-ghv" id="fqd-P5-VlR"/>
+            </connections>
             <point key="canvasLocation" x="312.5" y="300"/>
         </tableViewCell>
         <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="x89-l6-9fL" customClass="SXNewsDetailBottomCell">
@@ -274,6 +265,13 @@
                     <constraint firstItem="GhO-sh-vYA" firstAttribute="leading" secondItem="tCb-bD-DtD" secondAttribute="leading" constant="10" id="zdc-w8-oha"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="goodLbl" destination="Axv-cX-K5w" id="8gJ-E8-tY1"/>
+                <outlet property="iconImg" destination="bEU-BO-IQz" id="am4-Tc-sE1"/>
+                <outlet property="replyDetail" destination="cpu-Co-DXb" id="TAZ-YV-y70"/>
+                <outlet property="userLbl" destination="DaI-Z2-Bb0" id="32c-dw-fpy"/>
+                <outlet property="userLocationLbl" destination="nWb-cg-Rxe" id="0rV-Gb-isL"/>
+            </connections>
             <point key="canvasLocation" x="313.5" y="523.5"/>
         </tableViewCell>
         <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="82" id="Ge3-Xc-gWA" customClass="SXNewsDetailBottomCell">
@@ -365,6 +363,12 @@
                     <constraint firstItem="NMI-FK-3Sg" firstAttribute="leading" secondItem="j1n-So-Qav" secondAttribute="leading" constant="10" id="xGn-zY-Zdu"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="newsFromLbl" destination="mQc-7H-xj1" id="0MC-ga-f0d"/>
+                <outlet property="newsIcon" destination="wDT-1L-oqa" id="fJe-Rj-UKl"/>
+                <outlet property="newsTimeLbl" destination="Rp1-vk-PAo" id="SYu-5q-Lrz"/>
+                <outlet property="newsTitleLbl" destination="fHZ-dD-Ktz" id="Ur3-so-qPm"/>
+            </connections>
             <point key="canvasLocation" x="313.5" y="683"/>
         </tableViewCell>
         <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="QWK-Gn-q1A" customClass="SXNewsDetailBottomCell">
@@ -400,7 +404,7 @@
                 <outlet property="closeImg" destination="6vl-3P-Gxa" id="TgN-Iq-9Uk"/>
                 <outlet property="closeLbl" destination="8Fq-BX-Wqa" id="LWp-Bt-fgn"/>
             </connections>
-            <point key="canvasLocation" x="314.5" y="793"/>
+            <point key="canvasLocation" x="315.5" y="811"/>
         </tableViewCell>
     </objects>
     <resources>
