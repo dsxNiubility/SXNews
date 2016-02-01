@@ -12,6 +12,8 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *sectionHeaderLbl;
 
+@property(nonatomic,assign)BOOL iSCloseing;
+
 + (instancetype)theShareCell;
 
 + (instancetype)theSectionHeaderCell;
@@ -21,5 +23,7 @@
 + (instancetype)theHotReplyCell;
 
 + (instancetype)theContactNewsCell;
+
++ (instancetype)theCloseCell;
 
 @end

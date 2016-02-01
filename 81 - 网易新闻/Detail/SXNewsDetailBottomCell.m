@@ -10,18 +10,21 @@
 
 @interface SXNewsDetailBottomCell ()
 
-@property (weak, nonatomic) IBOutlet UIImageView *iconImg;
-@property (weak, nonatomic) IBOutlet UILabel *userLbl;
-@property (weak, nonatomic) IBOutlet UILabel *goodLbl;
-@property (weak, nonatomic) IBOutlet UILabel *userLocationLbl;
-@property (weak, nonatomic) IBOutlet UILabel *replyDetail;
+@property (strong, nonatomic) IBOutlet UIImageView *iconImg;
+@property (strong, nonatomic) IBOutlet UILabel *userLbl;
+@property (strong, nonatomic) IBOutlet UILabel *goodLbl;
+@property (strong, nonatomic) IBOutlet UILabel *userLocationLbl;
+@property (strong, nonatomic) IBOutlet UILabel *replyDetail;
 
 
-@property (weak, nonatomic) IBOutlet UIImageView *newsIcon;
-@property (weak, nonatomic) IBOutlet UILabel *newsTitleLbl;
-@property (weak, nonatomic) IBOutlet UILabel *newsFromLbl;
-@property (weak, nonatomic) IBOutlet UILabel *newsTimeLbl;
+@property (strong, nonatomic) IBOutlet UIImageView *newsIcon;
+@property (strong, nonatomic) IBOutlet UILabel *newsTitleLbl;
+@property (strong, nonatomic) IBOutlet UILabel *newsFromLbl;
+@property (strong, nonatomic) IBOutlet UILabel *newsTimeLbl;
 
+
+@property (strong, nonatomic) IBOutlet UIImageView *closeImg;
+@property (strong, nonatomic) IBOutlet UILabel *closeLbl;
 
 
 @end
@@ -45,6 +48,17 @@
 
 + (instancetype)theContactNewsCell{
     return [[NSBundle mainBundle]loadNibNamed:@"SXNewsDetailBottomCell" owner:nil options:nil][4];
+}
+
++ (instancetype)theCloseCell{
+    return [[NSBundle mainBundle]loadNibNamed:@"SXNewsDetailBottomCell" owner:nil options:nil][5];
+}
+
+- (void)setISCloseing:(BOOL)iSCloseing
+{
+    _iSCloseing = iSCloseing;
+    self.closeImg.image = [UIImage imageNamed:iSCloseing ? @"newscontent_drag_return" : @"newscontent_drag_arrow"];
+    self.closeLbl.text = iSCloseing ? @"松手关闭当前页" : @"上拉关闭当前页" ;
 }
 
 - (void)awakeFromNib {

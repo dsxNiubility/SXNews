@@ -39,7 +39,7 @@
             </connections>
             <point key="canvasLocation" x="313.5" y="156"/>
         </tableViewCell>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="fmF-g6-U6G">
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="fmF-g6-U6G" customClass="SXNewsDetailBottomCell">
             <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fmF-g6-U6G" id="81f-O0-Qpw">
@@ -113,7 +113,7 @@
             </tableViewCellContentView>
             <point key="canvasLocation" x="312.5" y="300"/>
         </tableViewCell>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="x89-l6-9fL">
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="x89-l6-9fL" customClass="SXNewsDetailBottomCell">
             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="x89-l6-9fL" id="EAI-aW-GA8">
@@ -177,7 +177,7 @@
             </tableViewCellContentView>
             <point key="canvasLocation" x="312.5" y="393"/>
         </tableViewCell>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="111" id="MoE-Z9-aD2">
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="111" id="MoE-Z9-aD2" customClass="SXNewsDetailBottomCell">
             <rect key="frame" x="0.0" y="0.0" width="375" height="111"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="MoE-Z9-aD2" id="tCb-bD-DtD">
@@ -276,15 +276,15 @@
             </tableViewCellContentView>
             <point key="canvasLocation" x="313.5" y="523.5"/>
         </tableViewCell>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="82" id="Ge3-Xc-gWA">
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="82" id="Ge3-Xc-gWA" customClass="SXNewsDetailBottomCell">
             <rect key="frame" x="0.0" y="0.0" width="375" height="82"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ge3-Xc-gWA" id="j1n-So-Qav">
                 <rect key="frame" x="0.0" y="0.0" width="375" height="81.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NMI-FK-3Sg">
-                        <rect key="frame" x="10" y="0.0" width="355" height="83.5"/>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NMI-FK-3Sg">
+                        <rect key="frame" x="10" y="0.0" width="355" height="81.5"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wDT-1L-oqa">
                                 <rect key="frame" x="10" y="10" width="80" height="60"/>
@@ -306,15 +306,15 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qqe-oP-CHz" userLabel="左边线">
-                                <rect key="frame" x="0.0" y="0.0" width="0.5" height="83.5"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qqe-oP-CHz" userLabel="左边线">
+                                <rect key="frame" x="0.0" y="0.0" width="0.5" height="81.5"/>
                                 <color key="backgroundColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="0.5" id="nvy-XU-b0Y"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="g78-la-2xM" userLabel="左边线">
-                                <rect key="frame" x="354" y="0.0" width="0.5" height="83.5"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g78-la-2xM" userLabel="左边线">
+                                <rect key="frame" x="354" y="0.0" width="0.5" height="81.5"/>
                                 <color key="backgroundColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="0.5" id="8V5-ou-kvs"/>
@@ -367,8 +367,44 @@
             </tableViewCellContentView>
             <point key="canvasLocation" x="313.5" y="683"/>
         </tableViewCell>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="QWK-Gn-q1A" customClass="SXNewsDetailBottomCell">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="QWK-Gn-q1A" id="cFn-io-tgT">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="63.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="上拉关闭当前页" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Fq-BX-Wqa">
+                        <rect key="frame" x="135" y="33" width="105" height="18"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" red="0.66274509800000003" green="0.66274509800000003" blue="0.66274509800000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="newscontent_drag_arrow" translatesAutoresizingMaskIntoConstraints="NO" id="6vl-3P-Gxa">
+                        <rect key="frame" x="99" y="29" width="26" height="26"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="26" id="Fav-ZL-hdy"/>
+                            <constraint firstAttribute="width" constant="26" id="cli-i6-eWD"/>
+                        </constraints>
+                    </imageView>
+                </subviews>
+                <color key="backgroundColor" red="0.96470588239999999" green="0.96470588239999999" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
+                <constraints>
+                    <constraint firstItem="6vl-3P-Gxa" firstAttribute="centerY" secondItem="8Fq-BX-Wqa" secondAttribute="centerY" id="Bzt-qt-tVk"/>
+                    <constraint firstItem="8Fq-BX-Wqa" firstAttribute="centerX" secondItem="cFn-io-tgT" secondAttribute="centerX" id="Dv7-Ne-Dfz"/>
+                    <constraint firstItem="8Fq-BX-Wqa" firstAttribute="leading" secondItem="6vl-3P-Gxa" secondAttribute="trailing" constant="10" id="Epb-lJ-Juk"/>
+                    <constraint firstItem="8Fq-BX-Wqa" firstAttribute="centerY" secondItem="cFn-io-tgT" secondAttribute="centerY" constant="10" id="I8q-a7-sbc"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="closeImg" destination="6vl-3P-Gxa" id="TgN-Iq-9Uk"/>
+                <outlet property="closeLbl" destination="8Fq-BX-Wqa" id="LWp-Bt-fgn"/>
+            </connections>
+            <point key="canvasLocation" x="314.5" y="793"/>
+        </tableViewCell>
     </objects>
     <resources>
         <image name="news_share" width="375" height="126"/>
+        <image name="newscontent_drag_arrow" width="26" height="26"/>
     </resources>
 </document>

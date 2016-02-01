@@ -15,6 +15,8 @@
 #import "SXReplyViewController.h"
 #import "SXNewsDetailBottomCell.h"
 
+#define NewsDetailControllerClose (self.tableView.contentOffset.y - (self.tableView.contentSize.height - SXSCREEN_H + 55) > (100 - 54))
+
 @interface SXDetailController ()<UIWebViewDelegate,UITableViewDataSource,UITableViewDelegate>
 @property (strong, nonatomic) UIWebView *webView;
 @property(nonatomic,strong) SXDetailModel *detailModel;
@@ -22,6 +24,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *backBtn;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
+@property(nonatomic,strong)SXNewsDetailBottomCell *closeCell;
 
 @property(nonatomic,strong) NSMutableArray *replyModels;
 @property(nonatomic,strong) NSArray *news;
@@ -290,22 +293,23 @@
     return CGFLOAT_MIN;
 }
 
-//- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
-//{
-//    if (section == 1){
-//        SXNewsDetailBottomCell *foot = [SXNewsDetailBottomCell theSectionBottomCell];
-//        return foot;
-//    }
-//    return [[UIView alloc]init];
-//}
-//
-//- (CGFloat )tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
-//{
-//    if (section == 2){
-//        return 50;
-//    }
-//    return CGFLOAT_MIN;
-//}
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
+{
+    if (section == 2){
+        SXNewsDetailBottomCell *closeCell = [SXNewsDetailBottomCell theCloseCell];
+        self.closeCell = closeCell;
+        return closeCell;
+    }
+    return [[UIView alloc]init];
+}
+
+- (CGFloat )tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+{
+    if (section == 2){
+        return 64;
+    }
+    return 15;
+}
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -357,13 +361,15 @@
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-//    NSLog(@"%f--%f",self.tableView.contentOffset.y,self.tableView.contentSize.height - SXSCREEN_H + 55);
+    if (self.closeCell) {
+        self.closeCell.iSCloseing = NewsDetailControllerClose;
+    }
 }
 
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
 {
     NSLog(@"松手了%f--%f",self.tableView.contentOffset.y,self.tableView.contentSize.height - SXSCREEN_H + 55);
-    if (self.tableView.contentOffset.y - (self.tableView.contentSize.height - SXSCREEN_H + 55) > 100) {
+    if (NewsDetailControllerClose) {
         UIImageView *imgV =[[UIImageView alloc]initWithFrame:CGRectMake(0, 0, SXSCREEN_W, SXSCREEN_H)];
         imgV.image = [self getImage];
         UIWindow *window = [UIApplication sharedApplication].keyWindow;
