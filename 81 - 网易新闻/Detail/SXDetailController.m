@@ -355,10 +355,45 @@
     return CGFLOAT_MIN;
 }
 
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+//    NSLog(@"%f--%f",self.tableView.contentOffset.y,self.tableView.contentSize.height - SXSCREEN_H + 55);
+}
+
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
+{
+    NSLog(@"松手了%f--%f",self.tableView.contentOffset.y,self.tableView.contentSize.height - SXSCREEN_H + 55);
+    if (self.tableView.contentOffset.y - (self.tableView.contentSize.height - SXSCREEN_H + 55) > 100) {
+        UIImageView *imgV =[[UIImageView alloc]initWithFrame:CGRectMake(0, 0, SXSCREEN_W, SXSCREEN_H)];
+        imgV.image = [self getImage];
+        UIWindow *window = [UIApplication sharedApplication].keyWindow;
+        [window addSubview:imgV];
+        [self.navigationController popViewControllerAnimated:NO];
+        imgV.alpha = 1.0;
+        [UIView animateWithDuration:0.5 animations:^{
+            imgV.frame = CGRectMake(0, SXSCREEN_H/2, SXSCREEN_W, 0);
+            imgV.alpha = 0.0;
+        } completion:^(BOOL finished) {
+            [imgV removeFromSuperview];
+        }];
+    }
+}
+
 
 - (void)dealloc
 {
     NSLog(@"%s",__func__);
+}
+
+- (UIImage *)getImage {
+    
+    UIGraphicsBeginImageContextWithOptions(CGSizeMake(SXSCREEN_W, SXSCREEN_H), NO, 1.0);  //NO，YES 控制是否透明
+    [self.view.layer renderInContext:UIGraphicsGetCurrentContext()];
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    // 生成后的image
+    
+    return image;
 }
 
 

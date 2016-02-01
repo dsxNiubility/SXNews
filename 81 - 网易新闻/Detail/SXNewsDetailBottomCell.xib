@@ -184,8 +184,8 @@
                 <rect key="frame" x="0.0" y="0.0" width="375" height="110.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GhO-sh-vYA">
-                        <rect key="frame" x="10" y="0.0" width="355" height="113.5"/>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GhO-sh-vYA">
+                        <rect key="frame" x="10" y="0.0" width="355" height="110.5"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bEU-BO-IQz">
                                 <rect key="frame" x="10" y="20" width="30" height="30"/>
@@ -226,15 +226,15 @@
                                     <constraint firstAttribute="height" constant="0.5" id="mRT-rp-Co7"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VeY-GL-prr" userLabel="左边线">
-                                <rect key="frame" x="0.0" y="0.0" width="0.5" height="113.5"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VeY-GL-prr" userLabel="左边线">
+                                <rect key="frame" x="0.0" y="0.0" width="0.5" height="110.5"/>
                                 <color key="backgroundColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="0.5" id="ZV8-bq-fRL"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LmF-tf-ohG" userLabel="左边线">
-                                <rect key="frame" x="354.5" y="0.0" width="0.5" height="113.5"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LmF-tf-ohG" userLabel="左边线">
+                                <rect key="frame" x="354" y="0.0" width="0.5" height="110.5"/>
                                 <color key="backgroundColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="0.5" id="8xV-zz-846"/>
