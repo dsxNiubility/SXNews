@@ -158,7 +158,7 @@
     [html appendFormat:@"<link rel=\"stylesheet\" href=\"%@\">",[[NSBundle mainBundle] URLForResource:@"SXDetails.css" withExtension:nil]];
     [html appendString:@"</head>"];
     
-    [html appendString:@"<body>"];
+    [html appendString:@"<body style=\"background:#f6f6f6\">"];
     [html appendString:[self touchBody]];
     [html appendString:@"</body>"];
     
