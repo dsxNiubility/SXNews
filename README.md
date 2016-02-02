@@ -1,5 +1,17 @@
 # SXNews
 模仿网易新闻做的新闻软件
+###2月2日更新
+这次主要是做了三点，上划返回——新闻搜索页——新闻详情页的丰富。
+######上划返回
+`在一个页面翻到最下面看完了之后直接上划，划到一定高度就可以返回上一页面了`
+######新闻搜索
+`网易新闻新增的新闻搜索功能。 你也许看过哪个非常精彩的新闻但是忘了收藏，仅仅记得大概名字就可以搜到了，这个功能非常实用。 因为之前右上角是天气的网易把它撤了改成搜索了，所以我只好把搜索放在左边了。`
+######详情页丰富
+`还有一点就是增加了，新闻详情页下面的部分。 现在网易支持在新闻详情页就可以进行回复了，所以在详情页下面就会展示热门评价，并且还有相关新闻，和相关关键字，点击会跳到搜索页搜索，并且更多评论相关新闻，还有新闻搜索都是可以点进去的`<br /><br />
+![image](https://github.com/dsxNiubility/SXNews/raw/master/screenshots/89.gif =200x373)x
+![image](https://github.com/dsxNiubility/SXNews/raw/master/screenshots/88.gif =200x373)x
+![image](https://github.com/dsxNiubility/SXNews/raw/master/screenshots/90.gif =200x373)
+
 
 ###9月28日更新
 _适配了iOS9_<br />
@@ -11,13 +23,13 @@ _(请求里带了时间戳每天的广告都会不同)_<br />
 
 ###8月24日更新
 _加载gif动图可能较慢请耐心等待_<br />
-![image](https://github.com/dsxNiubility/SXNews/raw/master/screenshots/66.gif)
-&nbsp![image](https://github.com/dsxNiubility/SXNews/raw/master/screenshots/65.gif)<br />
+![image](https://github.com/dsxNiubility/SXNews/raw/master/screenshots/66.gif =200x373)
+&nbsp![image](https://github.com/dsxNiubility/SXNews/raw/master/screenshots/65.gif =200x373)<br />
 
 >1.这次更新的亮点是添加了天气效果以后也可以用网易新闻看天气预报了，各种轻微的动画效果也没有放过。
 
-![image](https://github.com/dsxNiubility/SXNews/raw/master/screenshots/015.png)<br />
-![image](https://github.com/dsxNiubility/SXNews/raw/master/screenshots/016.png)<br />
+![image](https://github.com/dsxNiubility/SXNews/raw/master/screenshots/015.png =375x667)
+![image](https://github.com/dsxNiubility/SXNews/raw/master/screenshots/016.png =375x667)<br />
 
 
 

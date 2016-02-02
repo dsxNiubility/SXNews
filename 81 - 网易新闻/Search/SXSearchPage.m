@@ -133,7 +133,11 @@
     [button setTitle:title forState:UIControlStateNormal];
     [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     button.titleLabel.font = [UIFont systemFontOfSize:15];
-    [button setBackgroundImage:[UIImage imageNamed:@"night_contentview_votebutton"] forState:UIControlStateNormal];
+//    [button setBackgroundImage:[UIImage imageNamed:@"night_contentview_votebutton"] forState:UIControlStateNormal];
+    button.layer.borderWidth = 0.5;
+    button.layer.borderColor = SXRGBColor(220, 220, 220).CGColor;
+    button.layer.cornerRadius = 2;
+    button.layer.masksToBounds = YES;
     [button sizeToFit];
     
     button.width += 15;
