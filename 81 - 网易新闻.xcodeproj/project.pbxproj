@@ -114,6 +114,7 @@
 		1DE822B21C58B68500E965C1 /* UILabel+Wonderful.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DE822B11C58B68500E965C1 /* UILabel+Wonderful.m */; };
 		1DE822B91C5B5C4A00E965C1 /* SXNewsDetailBottomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DE822B71C5B5C4A00E965C1 /* SXNewsDetailBottomCell.m */; };
 		1DE822BA1C5B5C4A00E965C1 /* SXNewsDetailBottomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DE822B81C5B5C4A00E965C1 /* SXNewsDetailBottomCell.xib */; };
+		1DE822C01C60577900E965C1 /* SXSameNewsEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DE822BF1C60577900E965C1 /* SXSameNewsEntity.m */; };
 		2D42989A1B4D918A004B7C6E /* UINavigationController+FDFullscreenPopGesture.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D4298991B4D918A004B7C6E /* UINavigationController+FDFullscreenPopGesture.m */; };
 /* End PBXBuildFile section */
 
@@ -327,6 +328,8 @@
 		1DE822B61C5B5C4A00E965C1 /* SXNewsDetailBottomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SXNewsDetailBottomCell.h; sourceTree = "<group>"; };
 		1DE822B71C5B5C4A00E965C1 /* SXNewsDetailBottomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SXNewsDetailBottomCell.m; sourceTree = "<group>"; };
 		1DE822B81C5B5C4A00E965C1 /* SXNewsDetailBottomCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SXNewsDetailBottomCell.xib; sourceTree = "<group>"; };
+		1DE822BE1C60577900E965C1 /* SXSameNewsEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SXSameNewsEntity.h; sourceTree = "<group>"; };
+		1DE822BF1C60577900E965C1 /* SXSameNewsEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SXSameNewsEntity.m; sourceTree = "<group>"; };
 		2D4298981B4D918A004B7C6E /* UINavigationController+FDFullscreenPopGesture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+FDFullscreenPopGesture.h"; sourceTree = "<group>"; };
 		2D4298991B4D918A004B7C6E /* UINavigationController+FDFullscreenPopGesture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+FDFullscreenPopGesture.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -422,6 +425,8 @@
 				1D925CB81A87B8DF0063921A /* SXReplyHeader.xib */,
 				1D7B6F941A8903B4000DB2CE /* SXReplyModel.h */,
 				1D7B6F951A8903B4000DB2CE /* SXReplyModel.m */,
+				1DE822BE1C60577900E965C1 /* SXSameNewsEntity.h */,
+				1DE822BF1C60577900E965C1 /* SXSameNewsEntity.m */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -840,6 +845,7 @@
 				1D007F541B6D114900EA119C /* NSObject+MJCoding.m in Sources */,
 				1D007F551B6D114900EA119C /* NSObject+MJKeyValue.m in Sources */,
 				1D2A59651A700840001F9B8E /* AFHTTPRequestOperation.m in Sources */,
+				1DE822C01C60577900E965C1 /* SXSameNewsEntity.m in Sources */,
 				1D2A59111A700822001F9B8E /* ViewController.m in Sources */,
 				1DE822A41C579CDC00E965C1 /* NSString+Base64.m in Sources */,
 				1D007F601B6D17B200EA119C /* SXWeatherBgM.m in Sources */,

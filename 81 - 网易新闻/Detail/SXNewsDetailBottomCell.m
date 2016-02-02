@@ -78,6 +78,15 @@
     [self.iconImg sd_setImageWithURL:[NSURL URLWithString:replyModel.icon] placeholderImage:[UIImage new]];
 }
 
+- (void)setSameNewsEntity:(SXSameNewsEntity *)sameNewsEntity
+{
+    _sameNewsEntity = sameNewsEntity;
+    [self.newsIcon sd_setImageWithURL:[NSURL URLWithString:sameNewsEntity.imgsrc] placeholderImage:[UIImage new]];
+    self.newsTitleLbl.text = sameNewsEntity.title;
+    self.newsFromLbl.text = sameNewsEntity.source;
+    self.newsTimeLbl.text = sameNewsEntity.ptime;
+}
+
 - (void)awakeFromNib {
     // Initialization code
 }

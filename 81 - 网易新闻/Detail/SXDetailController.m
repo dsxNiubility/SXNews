@@ -14,6 +14,7 @@
 #import "SXReplyModel.h"
 #import "SXReplyViewController.h"
 #import "SXNewsDetailBottomCell.h"
+#import "SXSameNewsEntity.h"
 
 #define NewsDetailControllerClose (self.tableView.contentOffset.y - (self.tableView.contentSize.height - SXSCREEN_H + 55) > (100 - 54))
 
@@ -27,6 +28,8 @@
 @property(nonatomic,strong)SXNewsDetailBottomCell *closeCell;
 
 @property(nonatomic,strong) NSMutableArray *replyModels;
+/** 相似新闻*/
+@property(nonatomic,strong)NSArray *sameNews;
 @property(nonatomic,strong) NSArray *news;
 
 // http://c.m.163.com/nc/article/AHHQIG5B00014JB6/full.html
@@ -87,6 +90,8 @@
         NSString *docID = self.newsModel.docid;
         NSString *url2 = [NSString stringWithFormat:@"http://comment.api.163.com/api/json/post/list/new/hot/%@/%@/0/10/10/2/2",self.newsModel.boardid,docID];
         [self sendRequestWithUrl2:url2];
+        
+        self.sameNews = [SXSameNewsEntity objectArrayWithKeyValuesArray:responseObject[self.newsModel.docid][@"relative_sys"]];
         
         CGFloat count =  [self.newsModel.replyCount intValue];
         NSString *displayCount;
@@ -321,7 +326,7 @@
     }else if (section == 1){
         return 1 + self.replyModels.count;
     }else if (section == 2){
-        return 1+4;
+        return self.sameNews.count;
     }
     return 0;
 }
@@ -341,6 +346,7 @@
         }
     }else if (indexPath.section == 2){
         SXNewsDetailBottomCell *other = [SXNewsDetailBottomCell theContactNewsCell];
+        other.sameNewsEntity = self.sameNews[indexPath.row];
         return other;
     }
     return [UITableViewCell new];
@@ -395,7 +401,7 @@
         [window addSubview:imgV];
         [self.navigationController popViewControllerAnimated:NO];
         imgV.alpha = 1.0;
-        [UIView animateWithDuration:0.5 animations:^{
+        [UIView animateWithDuration:0.3 animations:^{
             imgV.frame = CGRectMake(0, SXSCREEN_H/2, SXSCREEN_W, 0);
             imgV.alpha = 0.0;
         } completion:^(BOOL finished) {
