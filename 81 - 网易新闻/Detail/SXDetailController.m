@@ -143,6 +143,8 @@
                 replyModel.address = dict[@"f"];
                 replyModel.say = dict[@"b"];
                 replyModel.suppose = dict[@"v"];
+                replyModel.icon = dict[@"timg"];
+                replyModel.rtime = dict[@"t"];
                 [self.replyModels addObject:replyModel];
             }
         }
@@ -317,7 +319,7 @@
     if (section == 0) {
         return 1;
     }else if (section == 1){
-        return 1+3;
+        return 1 + self.replyModels.count;
     }else if (section == 2){
         return 1+4;
     }
@@ -329,11 +331,12 @@
     if (indexPath.section == 0) {
         return [SXNewsDetailBottomCell theShareCell];
     }else if (indexPath.section == 1){
-        if (indexPath.row == 3) {
+        if (indexPath.row == self.replyModels.count) {
             SXNewsDetailBottomCell *foot = [SXNewsDetailBottomCell theSectionBottomCell];
             return foot;
         }else{
             SXNewsDetailBottomCell *hotreply = [SXNewsDetailBottomCell theHotReplyCell];
+            hotreply.replyModel = self.replyModels[indexPath.row];
             return hotreply;
         }
     }else if (indexPath.section == 2){
@@ -344,6 +347,22 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.section == 0) {
+        return 126;
+    }else if (indexPath.section == 1){
+        if (indexPath.row == self.replyModels.count) {
+            return 50;
+        }else{
+            return 110.5;
+        }
+    }else if (indexPath.section == 2){
+        return 80.5;
+    }
+    return CGFLOAT_MIN;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.section == 0) {
         return 126;
@@ -368,7 +387,7 @@
 
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
 {
-    NSLog(@"松手了%f--%f",self.tableView.contentOffset.y,self.tableView.contentSize.height - SXSCREEN_H + 55);
+//    NSLog(@"松手了%f--%f",self.tableView.contentOffset.y,self.tableView.contentSize.height - SXSCREEN_H + 55);
     if (NewsDetailControllerClose) {
         UIImageView *imgV =[[UIImageView alloc]initWithFrame:CGRectMake(0, 0, SXSCREEN_W, SXSCREEN_H)];
         imgV.image = [self getImage];
@@ -392,13 +411,10 @@
 }
 
 - (UIImage *)getImage {
-    
-    UIGraphicsBeginImageContextWithOptions(CGSizeMake(SXSCREEN_W, SXSCREEN_H), NO, 1.0);  //NO，YES 控制是否透明
+    UIGraphicsBeginImageContextWithOptions(CGSizeMake(SXSCREEN_W, SXSCREEN_H), NO, 1.0);
     [self.view.layer renderInContext:UIGraphicsGetCurrentContext()];
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
-    // 生成后的image
-    
     return image;
 }
 

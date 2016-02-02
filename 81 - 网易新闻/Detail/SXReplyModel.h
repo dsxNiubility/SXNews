@@ -18,5 +18,22 @@
 @property(nonatomic,copy) NSString *say;
 /** 用户的点赞 */
 @property(nonatomic,copy) NSString *suppose;
+/** 头像*/
+@property(nonatomic,strong)NSString *icon;
+/** 回复时间*/
+@property(nonatomic,copy)NSString *rtime;
+
+
+/*************下面是hotreply 直接写在一起了************/
+/** 用户头像*/
+@property(nonatomic,copy)NSString *timg;
+/** 用户地址*/
+@property(nonatomic,copy)NSString *f;
+/** 实际评价*/
+@property(nonatomic,copy)NSString *b;
+/** 用户名称*/
+@property(nonatomic,copy)NSString *n;
+/** 顶帖人数*/
+@property(nonatomic,copy)NSString *v;
 
 @end

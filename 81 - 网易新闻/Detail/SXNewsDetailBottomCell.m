@@ -7,6 +7,7 @@
 //
 
 #import "SXNewsDetailBottomCell.h"
+#import "UIImageView+WebCache.h"
 
 @interface SXNewsDetailBottomCell ()
 
@@ -59,6 +60,22 @@
     _iSCloseing = iSCloseing;
     self.closeImg.image = [UIImage imageNamed:iSCloseing ? @"newscontent_drag_return" : @"newscontent_drag_arrow"];
     self.closeLbl.text = iSCloseing ? @"松手关闭当前页" : @"上拉关闭当前页" ;
+}
+
+-(void)setReplyModel:(SXReplyModel *)replyModel
+{
+    _replyModel = replyModel;
+    self.userLbl.text = replyModel.name;
+    
+    NSRange range = [replyModel.address rangeOfString:@"&"];
+    if (range.location != NSNotFound) {
+        replyModel.address = [replyModel.address substringToIndex:range.location];
+    }
+    
+    self.userLocationLbl.text = [NSString stringWithFormat:@"%@ %@",replyModel.address,replyModel.rtime];
+    self.replyDetail.text = replyModel.say;
+    self.goodLbl.text = [NSString stringWithFormat:@"%@顶",replyModel.suppose];
+    [self.iconImg sd_setImageWithURL:[NSURL URLWithString:replyModel.icon] placeholderImage:[UIImage new]];
 }
 
 - (void)awakeFromNib {
