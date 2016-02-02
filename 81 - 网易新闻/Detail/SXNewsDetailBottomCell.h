@@ -32,4 +32,6 @@
 
 + (instancetype)theCloseCell;
 
++ (instancetype)theKeywordCell;
+
 @end

@@ -30,6 +30,9 @@
 @property(nonatomic,strong) NSMutableArray *replyModels;
 /** 相似新闻*/
 @property(nonatomic,strong)NSArray *sameNews;
+/** 搜索关键字*/
+@property(nonatomic,strong)NSArray *keywordSearch;
+
 @property(nonatomic,strong) NSArray *news;
 
 // http://c.m.163.com/nc/article/AHHQIG5B00014JB6/full.html
@@ -92,6 +95,7 @@
         [self sendRequestWithUrl2:url2];
         
         self.sameNews = [SXSameNewsEntity objectArrayWithKeyValuesArray:responseObject[self.newsModel.docid][@"relative_sys"]];
+        self.keywordSearch = responseObject[self.newsModel.docid][@"keyword_search"];
         
         CGFloat count =  [self.newsModel.replyCount intValue];
         NSString *displayCount;
@@ -293,9 +297,9 @@
     if (section == 0) {
         return self.webView.height;
     }else if (section == 1){
-        return 40;
+        return self.replyModels.count > 0 ? 40 : CGFLOAT_MIN;
     }else if (section == 2){
-        return 40;
+        return self.sameNews.count > 0 ? 40 : CGFLOAT_MIN;
     }
     return CGFLOAT_MIN;
 }
@@ -345,9 +349,15 @@
             return hotreply;
         }
     }else if (indexPath.section == 2){
-        SXNewsDetailBottomCell *other = [SXNewsDetailBottomCell theContactNewsCell];
-        other.sameNewsEntity = self.sameNews[indexPath.row];
-        return other;
+        if (indexPath.row == 0) {
+            SXNewsDetailBottomCell *cell = [SXNewsDetailBottomCell theKeywordCell];
+            [cell.contentView addSubview:[self addKeywordButton]];
+            return cell;
+        }else{
+            SXNewsDetailBottomCell *other = [SXNewsDetailBottomCell theContactNewsCell];
+            other.sameNewsEntity = self.sameNews[indexPath.row];
+            return other;
+        }
     }
     return [UITableViewCell new];
 }
@@ -363,7 +373,11 @@
             return 110.5;
         }
     }else if (indexPath.section == 2){
-        return 80.5;
+        if (indexPath.row == 0) {
+            return 60;
+        }else{
+            return 81;
+        }
     }
     return CGFLOAT_MIN;
 }
@@ -373,13 +387,17 @@
     if (indexPath.section == 0) {
         return 126;
     }else if (indexPath.section == 1){
-        if (indexPath.row == 3) {
+        if (indexPath.row == self.replyModels.count) {
             return 50;
         }else{
             return 110.5;
         }
     }else if (indexPath.section == 2){
-        return 80.5;
+        if (indexPath.row == 0) {
+            return 60;
+        }else{
+            return 81;
+        }
     }
     return CGFLOAT_MIN;
 }
@@ -414,6 +432,26 @@
 - (void)dealloc
 {
     NSLog(@"%s",__func__);
+}
+
+- (UIView *)addKeywordButton
+{
+    CGFloat maxRight = 20;
+    UIView *view = [[UIView alloc]initWithFrame:CGRectMake(0, 0, SXSCREEN_W, 60)];
+    for (int i = 0;i<self.keywordSearch.count ; ++i) {
+        UIButton *button = [[UIButton alloc]initWithFrame:CGRectMake(maxRight, 10, 0, 0)];
+        button.titleLabel.font = [UIFont systemFontOfSize:14];
+        [button setTitleColor:SXRGBColor(74, 133, 198) forState:UIControlStateNormal];
+        [button setTitle:self.keywordSearch[i][@"word"] forState:UIControlStateNormal];
+        [button setBackgroundImage:[UIImage imageNamed:@"choose_city_normal"] forState:UIControlStateNormal];
+        [button setBackgroundImage:[UIImage imageNamed:@"choose_city_highlight"] forState:UIControlStateHighlighted];
+        [button sizeToFit];
+        button.width += 20;
+        button.height = 35;
+        maxRight = button.x + button.width + 10;
+        [view addSubview:button];
+    }
+    return view;
 }
 
 - (UIImage *)getImage {

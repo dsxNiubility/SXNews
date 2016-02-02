@@ -55,6 +55,10 @@
     return [[NSBundle mainBundle]loadNibNamed:@"SXNewsDetailBottomCell" owner:nil options:nil][5];
 }
 
++ (instancetype)theKeywordCell{
+    return [[NSBundle mainBundle]loadNibNamed:@"SXNewsDetailBottomCell" owner:nil options:nil][6];
+}
+
 - (void)setISCloseing:(BOOL)iSCloseing
 {
     _iSCloseing = iSCloseing;
@@ -75,13 +79,19 @@
     self.userLocationLbl.text = [NSString stringWithFormat:@"%@ %@",replyModel.address,replyModel.rtime];
     self.replyDetail.text = replyModel.say;
     self.goodLbl.text = [NSString stringWithFormat:@"%@顶",replyModel.suppose];
-    [self.iconImg sd_setImageWithURL:[NSURL URLWithString:replyModel.icon] placeholderImage:[UIImage new]];
+    [self.iconImg sd_setImageWithURL:[NSURL URLWithString:replyModel.icon] placeholderImage:[UIImage imageNamed:@"comment_profile_mars"]];
+    self.iconImg.layer.cornerRadius = self.iconImg.width/2;
+    self.iconImg.layer.masksToBounds = YES;
+    self.iconImg.layer.shouldRasterize = YES;
 }
 
 - (void)setSameNewsEntity:(SXSameNewsEntity *)sameNewsEntity
 {
     _sameNewsEntity = sameNewsEntity;
-    [self.newsIcon sd_setImageWithURL:[NSURL URLWithString:sameNewsEntity.imgsrc] placeholderImage:[UIImage new]];
+    [self.newsIcon sd_setImageWithURL:[NSURL URLWithString:sameNewsEntity.imgsrc] placeholderImage:[UIImage imageNamed:@"303"]];
+    self.newsIcon.layer.cornerRadius = 2;
+    self.newsIcon.layer.masksToBounds = YES;
+    self.newsIcon.layer.shouldRasterize = YES;
     self.newsTitleLbl.text = sameNewsEntity.title;
     self.newsFromLbl.text = sameNewsEntity.source;
     self.newsTimeLbl.text = sameNewsEntity.ptime;
