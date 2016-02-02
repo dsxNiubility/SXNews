@@ -10,4 +10,6 @@
 
 @interface SXSearchPage : UIViewController
 
+@property(nonatomic,copy)NSString *keyword;
+
 @end

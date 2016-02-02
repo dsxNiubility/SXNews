@@ -44,6 +44,12 @@
 
     self.hotWordView.showsHorizontalScrollIndicator = NO;
     self.hotWordView.showsVerticalScrollIndicator = NO;
+    
+    if (self.keyword.length > 0) {
+        self.searchBar.text = self.keyword;
+        [self searchBarSearchButtonClicked:self.searchBar];
+    }
+    
     NSString *url = [NSString stringWithFormat:@"http://c.3g.163.com/nc/search/hotWord.html"];
     [[SXHTTPManager manager]GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, NSDictionary* responseObject) {
         self.hotwordArray = responseObject[@"hotWordList"];

@@ -15,6 +15,7 @@
 #import "SXReplyViewController.h"
 #import "SXNewsDetailBottomCell.h"
 #import "SXSameNewsEntity.h"
+#import "SXSearchPage.h"
 
 #define NewsDetailControllerClose (self.tableView.contentOffset.y - (self.tableView.contentSize.height - SXSCREEN_H + 55) > (100 - 54))
 
@@ -335,6 +336,25 @@
     return 0;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.section == 1) {
+        if (indexPath.row == self.replyModels.count) {
+            [self performSegueWithIdentifier:@"toReply" sender:nil];
+        }
+    }else if (indexPath.section == 2){
+        if (indexPath.row > 0) {
+            SXNewsModel *model = [[SXNewsModel alloc]init];
+            model.docid = [self.sameNews[indexPath.row] id];
+            
+            UIStoryboard *sb = [UIStoryboard storyboardWithName:@"News" bundle:nil];
+            SXDetailController *devc = (SXDetailController *)[sb instantiateViewControllerWithIdentifier:@"SXDetailController"];
+            devc.newsModel = model;
+            [self.navigationController pushViewController:devc animated:YES];
+        }
+    }
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.section == 0) {
@@ -448,10 +468,19 @@
         [button sizeToFit];
         button.width += 20;
         button.height = 35;
+        [button addTarget:self action:@selector(keywordButtonClick:) forControlEvents:UIControlEventTouchUpInside];
         maxRight = button.x + button.width + 10;
         [view addSubview:button];
     }
     return view;
+}
+
+- (void)keywordButtonClick:(UIButton *)sender
+{
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    SXSearchPage *sp = [sb instantiateViewControllerWithIdentifier:@"SXSearchPage"];
+    sp.keyword = sender.titleLabel.text;
+    [self.navigationController pushViewController:sp animated:YES];
 }
 
 - (UIImage *)getImage {

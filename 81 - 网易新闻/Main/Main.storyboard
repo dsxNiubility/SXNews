@@ -162,7 +162,7 @@
         <!--Search Page-->
         <scene sceneID="2LD-GY-4In">
             <objects>
-                <viewController hidesBottomBarWhenPushed="YES" id="pXv-hz-Jdu" customClass="SXSearchPage" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SXSearchPage" hidesBottomBarWhenPushed="YES" id="pXv-hz-Jdu" customClass="SXSearchPage" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="nu4-j3-eHh"/>
                         <viewControllerLayoutGuide type="bottom" id="V2z-IM-ItD"/>

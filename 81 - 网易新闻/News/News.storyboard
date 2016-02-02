@@ -713,7 +713,7 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <segue destination="4aM-sd-RR8" kind="show" id="Kax-d4-jez"/>
+                                            <segue destination="4aM-sd-RR8" kind="show" identifier="toReply" id="Kax-d4-jez"/>
                                         </connections>
                                     </button>
                                 </subviews>
