@@ -43,8 +43,13 @@
     return [[NSBundle mainBundle]loadNibNamed:@"SXNewsDetailBottomCell" owner:nil options:nil][2];
 }
 
-+ (instancetype)theHotReplyCell{
-    return [[NSBundle mainBundle]loadNibNamed:@"SXNewsDetailBottomCell" owner:nil options:nil][3];
++ (instancetype)theHotReplyCellWithTableView:(UITableView *)tableView;{
+    static NSString *ID = @"horreplycell";
+    SXNewsDetailBottomCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
+    if (cell == nil) {
+        cell = [[NSBundle mainBundle]loadNibNamed:@"SXNewsDetailBottomCell" owner:nil options:nil][3];
+    }
+    return cell;
 }
 
 + (instancetype)theContactNewsCell{

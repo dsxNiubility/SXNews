@@ -26,7 +26,7 @@
 
 + (instancetype)theSectionBottomCell;
 
-+ (instancetype)theHotReplyCell;
++ (instancetype)theHotReplyCellWithTableView:(UITableView *)tableView;
 
 + (instancetype)theContactNewsCell;
 

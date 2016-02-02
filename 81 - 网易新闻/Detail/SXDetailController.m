@@ -364,7 +364,7 @@
             SXNewsDetailBottomCell *foot = [SXNewsDetailBottomCell theSectionBottomCell];
             return foot;
         }else{
-            SXNewsDetailBottomCell *hotreply = [SXNewsDetailBottomCell theHotReplyCell];
+            SXNewsDetailBottomCell *hotreply = [SXNewsDetailBottomCell theHotReplyCellWithTableView:tableView];
             hotreply.replyModel = self.replyModels[indexPath.row];
             return hotreply;
         }

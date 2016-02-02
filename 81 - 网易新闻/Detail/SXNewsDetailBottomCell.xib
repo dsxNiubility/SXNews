@@ -168,7 +168,7 @@
             </tableViewCellContentView>
             <point key="canvasLocation" x="312.5" y="393"/>
         </tableViewCell>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="111" id="MoE-Z9-aD2" customClass="SXNewsDetailBottomCell">
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="horreplycell" rowHeight="111" id="MoE-Z9-aD2" customClass="SXNewsDetailBottomCell">
             <rect key="frame" x="0.0" y="0.0" width="375" height="111"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="MoE-Z9-aD2" id="tCb-bD-DtD">
