@@ -1,5 +1,28 @@
 # SXNews
-模仿网易新闻做的新闻软件
+模仿网易新闻做的新闻软件<br />
+图片较多但是为了清晰就采用了些大图和gif，加载耽误你时间请见谅，如果你的网速较慢请耐心等待。
+
+---
+###2月4日更新
+
+前两周接入了一个性能观测SDK做调研，虽然对比后公司项目最终还是用了自己的库（因为他们不能观察页面FPS和内存CPU指数），但是小型app接这个第三方的性能SDK还是挺直观的，接入简单并且项目的侵入性也不大。<br />
+######1.先贴个SXNews的总览
+总评分还好哈，统计的维度也是蛮多的，响应时间有的见红了，而且流量也挺大。
+<img src="https://github.com/dsxNiubility/SXNews/raw/master/screenshots/generate.png" alt="Drawing" width="850px" />
+######2.页面打开速度
+本工程采用了storyboard，xib，手码，frame，autolayout等多种混合开发模式，单结果看来还没有太影响页面初始化和布局速度的地方。
+<img src="https://github.com/dsxNiubility/SXNews/raw/master/screenshots/launch.png" alt="Drawing" width="850px" />
+######3.用户量
+用户量其实比我想象中的要多，我开始以为全国也就能够零星的亮几个省。可结果表明还是挺受欢迎的，虽然这个项目跨度有点长，虽然有页面也都是采用投机取巧写法写的都能做“反面教材”了，但是有一些点点滴滴的地方还是有点学习价值的。 除了西北，也就贵州和黑龙江没人上github了😂（开玩笑的）？
+<img src="https://github.com/dsxNiubility/SXNews/raw/master/screenshots/active_china.png" alt="Drawing" width="850px" />
+######4.世界地图
+这个地域统计里可以看中国也可以看世界，美国和西班牙的友人也有玩过这个app的。（虽然可能是vpn...）
+<img src="https://github.com/dsxNiubility/SXNews/raw/master/screenshots/active_world.png" alt="Drawing" width="850px" />
+#####5.接口
+接口响应速度感觉不太准，还有500万秒的导致把我的平均时长都拉高了，毕竟接口全是抓的网易的不怪我了。
+<img src="https://github.com/dsxNiubility/SXNews/raw/master/screenshots/error.png" alt="Drawing" width="850px" />
+
+---
 ###2月2日更新
 这次主要是做了三点，上划返回——新闻搜索页——新闻详情页的丰富。
 ######1.上划返回
@@ -12,7 +35,7 @@
 <img src="https://github.com/dsxNiubility/SXNews/raw/master/screenshots/88.gif" alt="Drawing" width="200px" />x
 <img src="https://github.com/dsxNiubility/SXNews/raw/master/screenshots/90.gif" alt="Drawing" width="200px" />
 
-
+---
 ###9月28日更新
 _适配了iOS9_<br />
 _(如果模拟器仍有问题请使用真机调试)_<br />
@@ -21,6 +44,7 @@ _(和网易广告一样，都是这次启动下载广告图片，下一次启动
 _(请求里带了时间戳每天的广告都会不同)_<br />
 <img src="https://github.com/dsxNiubility/SXNews/raw/master/screenshots/68.gif" alt="Drawing" width="200px" />
 
+---
 ###8月24日更新
 _加载gif动图可能较慢请耐心等待_<br />
 <img src="https://github.com/dsxNiubility/SXNews/raw/master/screenshots/66.gif" alt="Drawing" width="200px" />xxxxx
