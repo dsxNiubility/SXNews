@@ -10,7 +10,6 @@
 #import "AppDelegate.h"
 
 int main(int argc, char * argv[]) {
-    [OneAPM startWithApplicationToken:@"8F2CEF7EFD35705B06C02AE391A130F292"];
     @autoreleasepool {
         return UIApplicationMain(argc, argv, nil, NSStringFromClass([AppDelegate class]));
     }

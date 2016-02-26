@@ -150,7 +150,7 @@
         UIViewController *vc = self.childViewControllers[i];
         lbl1.text =vc.title;
         lbl1.frame = CGRectMake(lblX, lblY, lblW, lblH);
-        lbl1.font = [UIFont fontWithName:@"HYQiHei" size:19];
+        lbl1.font = [UIFont systemFontOfSize:19];
         [self.smallScrollView addSubview:lbl1];
         lbl1.tag = i;
         lbl1.userInteractionEnabled = YES;

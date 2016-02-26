@@ -10,7 +10,6 @@
 #define NetEasyPrefix_pch
 
 #define sxcolor [UIColor redColor]
-#import <OneAPM/OneAPM.h>
 #import "SXHTTPManager.h"
 #import "SXEasyMacro.h"
 #import "UIView+Frame.h"

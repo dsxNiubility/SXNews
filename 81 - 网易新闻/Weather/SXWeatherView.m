@@ -150,7 +150,7 @@
     [itemView addSubview:img];
     
     UILabel *titleLbl = [[UILabel alloc]init];
-    titleLbl.font = [UIFont fontWithName:@"HYQiHei" size:16];
+    titleLbl.font = [UIFont systemFontOfSize:16];
     titleLbl.text = title;
     titleLbl.height = 40;
     titleLbl.width = itemView.width;

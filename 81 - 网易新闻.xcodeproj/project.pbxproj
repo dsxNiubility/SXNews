@@ -48,7 +48,6 @@
 		1D5995C61B78CA9B0067B471 /* MJExtensionConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D5995C51B78CA9B0067B471 /* MJExtensionConfig.m */; };
 		1D6BE37B1A84B04600BF1AB7 /* SXNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D6BE37A1A84B04600BF1AB7 /* SXNavController.m */; };
 		1D7B6F961A8903B4000DB2CE /* SXReplyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D7B6F951A8903B4000DB2CE /* SXReplyModel.m */; };
-		1D7B9F4F1B5E1EC000774BDA /* HYQiHei-50J.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1D7B9F4E1B5E1EC000774BDA /* HYQiHei-50J.ttf */; };
 		1D882E391A811392004C9C9A /* SXPhotoSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D882E381A811392004C9C9A /* SXPhotoSet.m */; };
 		1D882E3C1A81151C004C9C9A /* SXPhotosDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D882E3B1A81151C004C9C9A /* SXPhotosDetail.m */; };
 		1D882E561A811E1D004C9C9A /* SXPhotoSetController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D882E551A811E1D004C9C9A /* SXPhotoSetController.m */; };
@@ -58,12 +57,6 @@
 		1D925CB41A87B7030063921A /* SXReplyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D925CB31A87B7030063921A /* SXReplyCell.m */; };
 		1D925CB71A87B8CA0063921A /* SXReplyHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D925CB61A87B8CA0063921A /* SXReplyHeader.m */; };
 		1D925CB91A87B8DF0063921A /* SXReplyHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D925CB81A87B8DF0063921A /* SXReplyHeader.xib */; };
-		1DA8BAB41C522E1F00D041C5 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DA8BAB31C522E1F00D041C5 /* SystemConfiguration.framework */; };
-		1DA8BAB61C522E2800D041C5 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DA8BAB51C522E2800D041C5 /* CoreTelephony.framework */; };
-		1DA8BAB81C522E3200D041C5 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DA8BAB71C522E3200D041C5 /* CoreData.framework */; };
-		1DA8BABA1C522E5600D041C5 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DA8BAB91C522E5600D041C5 /* libz.tbd */; };
-		1DA8BABC1C522E5F00D041C5 /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DA8BABB1C522E5F00D041C5 /* libstdc++.tbd */; };
-		1DA8BAC11C55C4C100D041C5 /* OneAPM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DA8BAC01C55C4C100D041C5 /* OneAPM.framework */; };
 		1DB395811BB7E021000E9C3E /* SXAdManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DB395801BB7E021000E9C3E /* SXAdManager.m */; };
 		1DC4731C1A81377B00DA905D /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DC4731B1A81377B00DA905D /* UIView+Frame.m */; };
 		1DE822A41C579CDC00E965C1 /* NSString+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DE822A31C579CDC00E965C1 /* NSString+Base64.m */; };
@@ -161,7 +154,6 @@
 		1D6BE37A1A84B04600BF1AB7 /* SXNavController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SXNavController.m; sourceTree = "<group>"; };
 		1D7B6F941A8903B4000DB2CE /* SXReplyModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SXReplyModel.h; sourceTree = "<group>"; };
 		1D7B6F951A8903B4000DB2CE /* SXReplyModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SXReplyModel.m; sourceTree = "<group>"; };
-		1D7B9F4E1B5E1EC000774BDA /* HYQiHei-50J.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "HYQiHei-50J.ttf"; sourceTree = "<group>"; };
 		1D882E371A811392004C9C9A /* SXPhotoSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SXPhotoSet.h; sourceTree = "<group>"; };
 		1D882E381A811392004C9C9A /* SXPhotoSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SXPhotoSet.m; sourceTree = "<group>"; };
 		1D882E3A1A81151C004C9C9A /* SXPhotosDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SXPhotosDetail.h; sourceTree = "<group>"; };
@@ -178,13 +170,7 @@
 		1D925CB51A87B8CA0063921A /* SXReplyHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SXReplyHeader.h; sourceTree = "<group>"; };
 		1D925CB61A87B8CA0063921A /* SXReplyHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SXReplyHeader.m; sourceTree = "<group>"; };
 		1D925CB81A87B8DF0063921A /* SXReplyHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SXReplyHeader.xib; sourceTree = "<group>"; };
-		1DA8BAB31C522E1F00D041C5 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		1DA8BAB51C522E2800D041C5 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
-		1DA8BAB71C522E3200D041C5 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		1DA8BAB91C522E5600D041C5 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
-		1DA8BABB1C522E5F00D041C5 /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
 		1DA8BABD1C522EEE00D041C5 /* NetEasyPrefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetEasyPrefix.pch; sourceTree = "<group>"; };
-		1DA8BAC01C55C4C100D041C5 /* OneAPM.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = OneAPM.framework; sourceTree = "<group>"; };
 		1DB3957F1BB7E021000E9C3E /* SXAdManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SXAdManager.h; sourceTree = "<group>"; };
 		1DB395801BB7E021000E9C3E /* SXAdManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SXAdManager.m; sourceTree = "<group>"; };
 		1DC4731A1A81377B00DA905D /* UIView+Frame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Frame.h"; sourceTree = "<group>"; };
@@ -214,12 +200,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1DA8BAC11C55C4C100D041C5 /* OneAPM.framework in Frameworks */,
-				1DA8BABC1C522E5F00D041C5 /* libstdc++.tbd in Frameworks */,
-				1DA8BABA1C522E5600D041C5 /* libz.tbd in Frameworks */,
-				1DA8BAB81C522E3200D041C5 /* CoreData.framework in Frameworks */,
-				1DA8BAB61C522E2800D041C5 /* CoreTelephony.framework in Frameworks */,
-				1DA8BAB41C522E1F00D041C5 /* SystemConfiguration.framework in Frameworks */,
 				E59CD3B44516224892254B99 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -323,12 +303,6 @@
 		1D2A58FC1A700822001F9B8E = {
 			isa = PBXGroup;
 			children = (
-				1DA8BABB1C522E5F00D041C5 /* libstdc++.tbd */,
-				1DA8BAB91C522E5600D041C5 /* libz.tbd */,
-				1DA8BAC01C55C4C100D041C5 /* OneAPM.framework */,
-				1DA8BAB71C522E3200D041C5 /* CoreData.framework */,
-				1DA8BAB51C522E2800D041C5 /* CoreTelephony.framework */,
-				1DA8BAB31C522E1F00D041C5 /* SystemConfiguration.framework */,
 				1D2A59071A700822001F9B8E /* 81 - 网易新闻 */,
 				1D2A59211A700822001F9B8E /* 81 - 网易新闻Tests */,
 				1D2A59061A700822001F9B8E /* Products */,
@@ -376,7 +350,6 @@
 		1D2A59081A700822001F9B8E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				1D7B9F4E1B5E1EC000774BDA /* HYQiHei-50J.ttf */,
 				1D58EED71A70C18000411E39 /* NewsURLs.plist */,
 				1D2A59091A700822001F9B8E /* Info.plist */,
 				1D2A590A1A700822001F9B8E /* main.m */,
@@ -577,7 +550,6 @@
 				1D2A59161A700822001F9B8E /* Images.xcassets in Resources */,
 				1D58EED81A70C18000411E39 /* NewsURLs.plist in Resources */,
 				1D4FB7E51A73F8B1009F6A9E /* TemplateIcon2x.png in Resources */,
-				1D7B9F4F1B5E1EC000774BDA /* HYQiHei-50J.ttf in Resources */,
 				1DE822BA1C5B5C4A00E965C1 /* SXNewsDetailBottomCell.xib in Resources */,
 				1D4FB7E41A73F8B1009F6A9E /* SXDetails.css in Resources */,
 				1D2357761A80A4B2000C7AAC /* Main.storyboard in Resources */,

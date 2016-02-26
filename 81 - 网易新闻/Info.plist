@@ -28,9 +28,7 @@
 		<true/>
 	</dict>
 	<key>UIAppFonts</key>
-	<array>
-		<string>HYQiHei-50J.ttf</string>
-	</array>
+	<array/>
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
 	<key>UIRequiredDeviceCapabilities</key>
