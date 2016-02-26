@@ -6,7 +6,7 @@
 //  Copyright (c) 2015年 ShangxianDante. All rights reserved.
 //
 
-#import "AFHTTPRequestOperationManager.h"
+#import <AFNetworking/AFHTTPRequestOperationManager.h>
 
 @interface SXHTTPManager : AFHTTPRequestOperationManager
 

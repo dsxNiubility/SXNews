@@ -11,9 +11,6 @@
 #import "SXPhotoSetController.h"
 #import "SXNewsCell.h"
 #import "SXNetworkTools.h"
-#import "MJRefresh.h"
-
-#import "MJExtension.h"
 
 @interface SXTableViewController ()
 
@@ -28,8 +25,13 @@
     [super viewDidLoad];
 
     self.view.backgroundColor = [UIColor clearColor];
-    [self.tableView addHeaderWithTarget:self action:@selector(loadData)];
-    [self.tableView addFooterWithTarget:self action:@selector(loadMoreData)];
+    __weak SXTableViewController *weakSelf = self;
+    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        [weakSelf loadData];
+    }];
+    self.tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+        [weakSelf loadMoreData];
+    }];
     self.update = YES;
     
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(welcome) name:@"SXAdvertisementKey" object:nil];
@@ -49,7 +51,7 @@
 - (void)welcome
 {
     [[NSUserDefaults standardUserDefaults]setBool:YES forKey:@"update"];
-    [self.tableView headerBeginRefreshing];
+    [self.tableView.mj_header beginRefreshing];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -59,7 +61,7 @@
     }
 //    NSLog(@"bbbb");
     if (self.update == YES) {
-        [self.tableView headerBeginRefreshing];
+        [self.tableView.mj_header beginRefreshing];
         self.update = NO;
     }
     [[NSNotificationCenter defaultCenter]postNotification:[NSNotification notificationWithName:@"contentStart" object:nil]];
@@ -92,7 +94,7 @@
         
         NSArray *temArray = responseObject[key];
         
-        NSMutableArray *arrayM = [SXNewsModel objectArrayWithKeyValuesArray:temArray];
+        NSArray *arrayM = [SXNewsModel objectArrayWithKeyValuesArray:temArray];
         
 //        NSMutableArray *arrayM = [NSMutableArray arrayWithCapacity:temArray.count];
 //        [temArray enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
@@ -101,13 +103,13 @@
 //            [arrayM addObject:news];
 //        }];
         if (type == 1) {
-            self.arrayList = arrayM;
-            [self.tableView headerEndRefreshing];
+            self.arrayList = [arrayM mutableCopy];
+            [self.tableView.mj_header endRefreshing];
             [self.tableView reloadData];
         }else if(type == 2){
             [self.arrayList addObjectsFromArray:arrayM];
             
-            [self.tableView footerEndRefreshing];
+            [self.tableView.mj_footer endRefreshing];
             [self.tableView reloadData];
         }
         

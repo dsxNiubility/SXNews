@@ -6,7 +6,7 @@
 //  Copyright (c) 2015年 ShangxianDante. All rights reserved.
 //
 
-#import "AFHTTPSessionManager.h"
+#import <AFNetworking/AFNetworking.h>
 
 @interface SXNetworkTools : AFHTTPSessionManager
 
