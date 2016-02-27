@@ -60,13 +60,13 @@ _加载gif动图可能较慢请耐心等待_<br />
 
 
 >3.主页-主页的下方加了tabbar，nav的两个按钮做了改变<br />
-![image](https://github.com/dsxNiubility/SXNews/raw/master/screenshots/011.png)<br /><br />
+<img src="https://github.com/dsxNiubility/SXNews/raw/master/screenshots/011.png" alt="Drawing" width="375px" /><br /><br />
 >4.详情页-详情页对细节的处理更加注意，如以前有人反馈的评论数不对问题已修复，并且以前会出现某条新闻点进去没评论，这个问题也找到了原因，并彻底修复。<br />
-![image](https://github.com/dsxNiubility/SXNews/raw/master/screenshots/012.png)<br /><br />
+<img src="https://github.com/dsxNiubility/SXNews/raw/master/screenshots/012.png" alt="Drawing" width="375px" /><br /><br />
 >5.图集页-图集页无大改，现在图集的评论用的还是假数据，但是后面会陆续完善<br />
-![image](https://github.com/dsxNiubility/SXNews/raw/master/screenshots/014.png)<br /><br />
+<img src="https://github.com/dsxNiubility/SXNews/raw/master/screenshots/014.png" alt="Drawing" width="375px" /><br /><br />
 >6.评论页-评论页对细节修改很多，如果以前玩过本项目的会发现现在评论页已经没有较乱得细节了都改了。<br />
-![image](https://github.com/dsxNiubility/SXNews/raw/master/screenshots/013.png)<br /><br />
+<img src="https://github.com/dsxNiubility/SXNews/raw/master/screenshots/013.png" alt="Drawing" width="375px" /><br /><br />
 
 
 
