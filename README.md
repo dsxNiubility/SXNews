@@ -12,7 +12,7 @@
 前两周接入了一个性能观测SDK做调研，虽然对比后公司项目最终还是用了自己的库（因为他们不能观察页面FPS和内存CPU指数），但是小型app接这个第三方的性能SDK还是挺直观的，接入简单并且项目的侵入性也不大。<br />
 ######1.先贴个SXNews的总览
 总评分还好哈，统计的维度也是蛮多的，响应时间有的见红了，而且流量也挺大。
-<img src="https://github.com/dsxNiubility/SXNews/raw/master/screenshots/generate1.png" alt="Drawing" width="850px" />
+<img src="https://github.com/dsxNiubility/SXNews/raw/master/screenshots/generate.png" alt="Drawing" width="850px" />
 ######2.页面打开速度
 本工程采用了storyboard，xib，手码，frame，autolayout等多种混合开发模式，单结果看来还没有太影响页面初始化和布局速度的地方。
 <img src="https://github.com/dsxNiubility/SXNews/raw/master/screenshots/launch.png" alt="Drawing" width="850px" />
