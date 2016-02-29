@@ -1,6 +1,10 @@
 # SXNews
 模仿网易新闻做的新闻软件<br />
 图片较多但是为了清晰就采用了些大图和gif，加载耽误你时间请见谅，如果你的网速较慢请耐心等待。
+###2月29日更新
+#####说编译不能通过的看这里⬇️<br />
+1.现在已经将工程分为三个分支，old分支即之前代码的保存，master分支将会进行后续框架性的修改，lightToDown分支剔除了字体资源图等文件包体积较小用于给网速不好的人下载。 如果你网速还好建议下载master分支包含所有功能19M左右。<br />
+2.现在项目中的拖入的第三方库都改为Cocoapods支持了。包体积减小，但是拿到手后不能直接RUN需要先进行`pod install` 。如果你觉得麻烦 那就下载old分支的代码吧，下来直接能RUN。<br />
 
 ---
 ###2月4日更新
@@ -8,7 +12,7 @@
 前两周接入了一个性能观测SDK做调研，虽然对比后公司项目最终还是用了自己的库（因为他们不能观察页面FPS和内存CPU指数），但是小型app接这个第三方的性能SDK还是挺直观的，接入简单并且项目的侵入性也不大。<br />
 ######1.先贴个SXNews的总览
 总评分还好哈，统计的维度也是蛮多的，响应时间有的见红了，而且流量也挺大。
-<img src="https://github.com/dsxNiubility/SXNews/raw/master/screenshots/generate.png" alt="Drawing" width="850px" />
+<img src="https://github.com/dsxNiubility/SXNews/raw/master/screenshots/generate1.png" alt="Drawing" width="850px" />
 ######2.页面打开速度
 本工程采用了storyboard，xib，手码，frame，autolayout等多种混合开发模式，单结果看来还没有太影响页面初始化和布局速度的地方。
 <img src="https://github.com/dsxNiubility/SXNews/raw/master/screenshots/launch.png" alt="Drawing" width="850px" />
