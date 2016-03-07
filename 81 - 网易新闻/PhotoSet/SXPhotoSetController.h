@@ -10,8 +10,5 @@
 #import "SXNewsModel.h"
 
 @interface SXPhotoSetController : UIViewController
-@property (weak, nonatomic) IBOutlet UILabel *lblName;
-@property (weak, nonatomic) IBOutlet UIImageView *imgPhotos;
-
 @property(nonatomic,strong) SXNewsModel *newsModel;
 @end
