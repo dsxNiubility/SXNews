@@ -23,7 +23,6 @@
 		1D20211F1B5A572700F38C4C /* SXMainTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D20211B1B5A572700F38C4C /* SXMainTabBarController.m */; };
 		1D2021201B5A572700F38C4C /* SXTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D20211D1B5A572700F38C4C /* SXTabBar.m */; };
 		1D2357721A80A4A2000C7AAC /* SXMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D23576D1A80A4A2000C7AAC /* SXMainViewController.m */; };
-		1D2357731A80A4A2000C7AAC /* SXNewsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D23576F1A80A4A2000C7AAC /* SXNewsController.m */; };
 		1D2357741A80A4A2000C7AAC /* SXTitleLable.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D2357711A80A4A2000C7AAC /* SXTitleLable.m */; };
 		1D2357761A80A4B2000C7AAC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D2357751A80A4B2000C7AAC /* Main.storyboard */; };
 		1D25EA451C8D69E4009AFE2E /* NSString+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D25EA391C8D69E4009AFE2E /* NSString+Base64.m */; };
@@ -111,8 +110,6 @@
 		1D20211D1B5A572700F38C4C /* SXTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SXTabBar.m; sourceTree = "<group>"; };
 		1D23576C1A80A4A2000C7AAC /* SXMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SXMainViewController.h; sourceTree = "<group>"; };
 		1D23576D1A80A4A2000C7AAC /* SXMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SXMainViewController.m; sourceTree = "<group>"; };
-		1D23576E1A80A4A2000C7AAC /* SXNewsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SXNewsController.h; sourceTree = "<group>"; };
-		1D23576F1A80A4A2000C7AAC /* SXNewsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SXNewsController.m; sourceTree = "<group>"; };
 		1D2357701A80A4A2000C7AAC /* SXTitleLable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SXTitleLable.h; sourceTree = "<group>"; };
 		1D2357711A80A4A2000C7AAC /* SXTitleLable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SXTitleLable.m; sourceTree = "<group>"; };
 		1D2357751A80A4B2000C7AAC /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -222,21 +219,9 @@
 		1D007F381B6C820400EA119C /* Weather */ = {
 			isa = PBXGroup;
 			children = (
-				1D007F391B6C823500EA119C /* SXWeatherView.h */,
-				1D007F3A1B6C823500EA119C /* SXWeatherView.m */,
-				1D007F3C1B6C824D00EA119C /* SXWeatherView.xib */,
-				1D1C4A381B7604C700CE3E01 /* SXWeatherDetailPage.h */,
-				1D1C4A391B7604C700CE3E01 /* SXWeatherDetailPage.m */,
-				1D1C4A3A1B7604C700CE3E01 /* SXWeatherDetailPage.xib */,
-				1D1C4A441B77257300CE3E01 /* SXWeatherItemView.h */,
-				1D1C4A451B77257300CE3E01 /* SXWeatherItemView.m */,
-				1D1C4A471B77259C00CE3E01 /* SXWeatherItemView.xib */,
-				1D007F581B6D151D00EA119C /* SXWeatherEntity.h */,
-				1D007F591B6D151D00EA119C /* SXWeatherEntity.m */,
-				1D007F5B1B6D155B00EA119C /* SXWeatherDetailEntity.h */,
-				1D007F5C1B6D155B00EA119C /* SXWeatherDetailEntity.m */,
-				1D007F5E1B6D17B200EA119C /* SXWeatherBgEntity.h */,
-				1D007F5F1B6D17B200EA119C /* SXWeatherBgEntity.m */,
+				1D25EA601C8D89FD009AFE2E /* Page */,
+				1D25EA5F1C8D89FB009AFE2E /* Entity */,
+				1D25EA5E1C8D89F9009AFE2E /* ViewModel */,
 			);
 			path = Weather;
 			sourceTree = "<group>";
@@ -244,26 +229,9 @@
 		1D0AC8241A73B6C000EEF963 /* Detail */ = {
 			isa = PBXGroup;
 			children = (
-				1D0AC8271A73B6EF00EEF963 /* SXNewsDetailEntity.h */,
-				1D0AC8281A73B6EF00EEF963 /* SXNewsDetailEntity.m */,
-				1D0AC82A1A73B8AE00EEF963 /* SXDetailImgEntity.h */,
-				1D0AC82B1A73B8AE00EEF963 /* SXDetailImgEntity.m */,
-				1D0AC8301A73C66200EEF963 /* SXDetailPage.h */,
-				1D0AC8311A73C66200EEF963 /* SXDetailPage.m */,
-				1DE822B61C5B5C4A00E965C1 /* SXNewsDetailBottomCell.h */,
-				1DE822B71C5B5C4A00E965C1 /* SXNewsDetailBottomCell.m */,
-				1DE822B81C5B5C4A00E965C1 /* SXNewsDetailBottomCell.xib */,
-				1D925CAF1A87B50B0063921A /* SXReplyPage.h */,
-				1D925CB01A87B50B0063921A /* SXReplyPage.m */,
-				1D925CB21A87B7030063921A /* SXReplyCell.h */,
-				1D925CB31A87B7030063921A /* SXReplyCell.m */,
-				1D925CB51A87B8CA0063921A /* SXReplyHeader.h */,
-				1D925CB61A87B8CA0063921A /* SXReplyHeader.m */,
-				1D925CB81A87B8DF0063921A /* SXReplyHeader.xib */,
-				1D7B6F941A8903B4000DB2CE /* SXReplyEntity.h */,
-				1D7B6F951A8903B4000DB2CE /* SXReplyEntity.m */,
-				1DE822BE1C60577900E965C1 /* SXSameNewsEntity.h */,
-				1DE822BF1C60577900E965C1 /* SXSameNewsEntity.m */,
+				1D25EA5A1C8D89EC009AFE2E /* Page */,
+				1D25EA591C8D89E9009AFE2E /* Entity */,
+				1D25EA581C8D89E0009AFE2E /* ViewModel */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -271,21 +239,19 @@
 		1D23576B1A80A4A2000C7AAC /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				1D2021181B5A572700F38C4C /* SXBarButton.h */,
-				1D2021191B5A572700F38C4C /* SXBarButton.m */,
+				1D2357751A80A4B2000C7AAC /* Main.storyboard */,
 				1D20211A1B5A572700F38C4C /* SXMainTabBarController.h */,
 				1D20211B1B5A572700F38C4C /* SXMainTabBarController.m */,
-				1D20211C1B5A572700F38C4C /* SXTabBar.h */,
-				1D20211D1B5A572700F38C4C /* SXTabBar.m */,
-				1D2357751A80A4B2000C7AAC /* Main.storyboard */,
 				1D23576C1A80A4A2000C7AAC /* SXMainViewController.h */,
 				1D23576D1A80A4A2000C7AAC /* SXMainViewController.m */,
-				1D23576E1A80A4A2000C7AAC /* SXNewsController.h */,
-				1D23576F1A80A4A2000C7AAC /* SXNewsController.m */,
-				1D2357701A80A4A2000C7AAC /* SXTitleLable.h */,
-				1D2357711A80A4A2000C7AAC /* SXTitleLable.m */,
 				1D6BE3791A84B04600BF1AB7 /* SXNavController.h */,
 				1D6BE37A1A84B04600BF1AB7 /* SXNavController.m */,
+				1D2021181B5A572700F38C4C /* SXBarButton.h */,
+				1D2021191B5A572700F38C4C /* SXBarButton.m */,
+				1D20211C1B5A572700F38C4C /* SXTabBar.h */,
+				1D20211D1B5A572700F38C4C /* SXTabBar.m */,
+				1D2357701A80A4A2000C7AAC /* SXTitleLable.h */,
+				1D2357711A80A4A2000C7AAC /* SXTitleLable.m */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -324,6 +290,166 @@
 			path = Other;
 			sourceTree = "<group>";
 		};
+		1D25EA541C8D89AB009AFE2E /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = ViewModel;
+			sourceTree = "<group>";
+		};
+		1D25EA561C8D89B7009AFE2E /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				1DE822A51C586A2500E965C1 /* SXSearchListEntity.h */,
+				1DE822A61C586A2500E965C1 /* SXSearchListEntity.m */,
+			);
+			name = Entity;
+			sourceTree = "<group>";
+		};
+		1D25EA571C8D89BA009AFE2E /* Page */ = {
+			isa = PBXGroup;
+			children = (
+				1D577F451C57719F00B547B8 /* SXSearchPage.h */,
+				1D577F461C57719F00B547B8 /* SXSearchPage.m */,
+				1DE822A81C5875CC00E965C1 /* SXSearchListCell.h */,
+				1DE822A91C5875CC00E965C1 /* SXSearchListCell.m */,
+				1DE822AA1C5875CC00E965C1 /* SXSearchListCell.xib */,
+			);
+			name = Page;
+			sourceTree = "<group>";
+		};
+		1D25EA581C8D89E0009AFE2E /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = ViewModel;
+			sourceTree = "<group>";
+		};
+		1D25EA591C8D89E9009AFE2E /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				1D0AC8271A73B6EF00EEF963 /* SXNewsDetailEntity.h */,
+				1D0AC8281A73B6EF00EEF963 /* SXNewsDetailEntity.m */,
+				1D0AC82A1A73B8AE00EEF963 /* SXDetailImgEntity.h */,
+				1D0AC82B1A73B8AE00EEF963 /* SXDetailImgEntity.m */,
+				1D7B6F941A8903B4000DB2CE /* SXReplyEntity.h */,
+				1D7B6F951A8903B4000DB2CE /* SXReplyEntity.m */,
+				1DE822BE1C60577900E965C1 /* SXSameNewsEntity.h */,
+				1DE822BF1C60577900E965C1 /* SXSameNewsEntity.m */,
+			);
+			name = Entity;
+			sourceTree = "<group>";
+		};
+		1D25EA5A1C8D89EC009AFE2E /* Page */ = {
+			isa = PBXGroup;
+			children = (
+				1D0AC8301A73C66200EEF963 /* SXDetailPage.h */,
+				1D0AC8311A73C66200EEF963 /* SXDetailPage.m */,
+				1D925CAF1A87B50B0063921A /* SXReplyPage.h */,
+				1D925CB01A87B50B0063921A /* SXReplyPage.m */,
+				1DE822B61C5B5C4A00E965C1 /* SXNewsDetailBottomCell.h */,
+				1DE822B71C5B5C4A00E965C1 /* SXNewsDetailBottomCell.m */,
+				1DE822B81C5B5C4A00E965C1 /* SXNewsDetailBottomCell.xib */,
+				1D925CB21A87B7030063921A /* SXReplyCell.h */,
+				1D925CB31A87B7030063921A /* SXReplyCell.m */,
+				1D925CB51A87B8CA0063921A /* SXReplyHeader.h */,
+				1D925CB61A87B8CA0063921A /* SXReplyHeader.m */,
+				1D925CB81A87B8DF0063921A /* SXReplyHeader.xib */,
+			);
+			name = Page;
+			sourceTree = "<group>";
+		};
+		1D25EA5B1C8D89F1009AFE2E /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = ViewModel;
+			sourceTree = "<group>";
+		};
+		1D25EA5C1C8D89F3009AFE2E /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				1D882E371A811392004C9C9A /* SXPhotoSetEntity.h */,
+				1D882E381A811392004C9C9A /* SXPhotoSetEntity.m */,
+				1D882E3A1A81151C004C9C9A /* SXPhotosDetailEntity.h */,
+				1D882E3B1A81151C004C9C9A /* SXPhotosDetailEntity.m */,
+			);
+			name = Entity;
+			sourceTree = "<group>";
+		};
+		1D25EA5D1C8D89F6009AFE2E /* Page */ = {
+			isa = PBXGroup;
+			children = (
+				1D882E541A811E1D004C9C9A /* SXPhotoSetPage.h */,
+				1D882E551A811E1D004C9C9A /* SXPhotoSetPage.m */,
+			);
+			name = Page;
+			sourceTree = "<group>";
+		};
+		1D25EA5E1C8D89F9009AFE2E /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = ViewModel;
+			sourceTree = "<group>";
+		};
+		1D25EA5F1C8D89FB009AFE2E /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				1D007F581B6D151D00EA119C /* SXWeatherEntity.h */,
+				1D007F591B6D151D00EA119C /* SXWeatherEntity.m */,
+				1D007F5B1B6D155B00EA119C /* SXWeatherDetailEntity.h */,
+				1D007F5C1B6D155B00EA119C /* SXWeatherDetailEntity.m */,
+				1D007F5E1B6D17B200EA119C /* SXWeatherBgEntity.h */,
+				1D007F5F1B6D17B200EA119C /* SXWeatherBgEntity.m */,
+			);
+			name = Entity;
+			sourceTree = "<group>";
+		};
+		1D25EA601C8D89FD009AFE2E /* Page */ = {
+			isa = PBXGroup;
+			children = (
+				1D1C4A381B7604C700CE3E01 /* SXWeatherDetailPage.h */,
+				1D1C4A391B7604C700CE3E01 /* SXWeatherDetailPage.m */,
+				1D1C4A3A1B7604C700CE3E01 /* SXWeatherDetailPage.xib */,
+				1D007F391B6C823500EA119C /* SXWeatherView.h */,
+				1D007F3A1B6C823500EA119C /* SXWeatherView.m */,
+				1D007F3C1B6C824D00EA119C /* SXWeatherView.xib */,
+				1D1C4A441B77257300CE3E01 /* SXWeatherItemView.h */,
+				1D1C4A451B77257300CE3E01 /* SXWeatherItemView.m */,
+				1D1C4A471B77259C00CE3E01 /* SXWeatherItemView.xib */,
+			);
+			name = Page;
+			sourceTree = "<group>";
+		};
+		1D25EA611C8D8A09009AFE2E /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = ViewModel;
+			sourceTree = "<group>";
+		};
+		1D25EA621C8D8A0C009AFE2E /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				1D58EEC61A70924A00411E39 /* SXNewsEntity.h */,
+				1D58EEC71A70924A00411E39 /* SXNewsEntity.m */,
+			);
+			name = Entity;
+			sourceTree = "<group>";
+		};
+		1D25EA631C8D8A0E009AFE2E /* Page */ = {
+			isa = PBXGroup;
+			children = (
+				1D58EEC91A709AE600411E39 /* News.storyboard */,
+				1D58EECE1A70A42100411E39 /* SXNewsTableViewPage.h */,
+				1D58EECF1A70A42100411E39 /* SXNewsTableViewPage.m */,
+				1D58EECB1A709E0300411E39 /* SXNewsCell.h */,
+				1D58EECC1A709E0300411E39 /* SXNewsCell.m */,
+			);
+			name = Page;
+			sourceTree = "<group>";
+		};
 		1D2A58FC1A700822001F9B8E = {
 			isa = PBXGroup;
 			children = (
@@ -357,8 +483,8 @@
 				1D0AC8241A73B6C000EEF963 /* Detail */,
 				1D882E361A8112ED004C9C9A /* PhotoSet */,
 				1D007F381B6C820400EA119C /* Weather */,
-				1D23576B1A80A4A2000C7AAC /* Main */,
 				1D2A597E1A700864001F9B8E /* News */,
+				1D23576B1A80A4A2000C7AAC /* Main */,
 				1D25EA371C8D69E4009AFE2E /* Tools */,
 				1D25EA4B1C8D69EE009AFE2E /* Other */,
 				1D2A590C1A700822001F9B8E /* AppDelegate.h */,
@@ -400,13 +526,9 @@
 		1D2A597E1A700864001F9B8E /* News */ = {
 			isa = PBXGroup;
 			children = (
-				1D58EEC61A70924A00411E39 /* SXNewsEntity.h */,
-				1D58EEC71A70924A00411E39 /* SXNewsEntity.m */,
-				1D58EEC91A709AE600411E39 /* News.storyboard */,
-				1D58EECB1A709E0300411E39 /* SXNewsCell.h */,
-				1D58EECC1A709E0300411E39 /* SXNewsCell.m */,
-				1D58EECE1A70A42100411E39 /* SXNewsTableViewPage.h */,
-				1D58EECF1A70A42100411E39 /* SXNewsTableViewPage.m */,
+				1D25EA631C8D8A0E009AFE2E /* Page */,
+				1D25EA621C8D8A0C009AFE2E /* Entity */,
+				1D25EA611C8D8A09009AFE2E /* ViewModel */,
 			);
 			path = News;
 			sourceTree = "<group>";
@@ -414,13 +536,9 @@
 		1D577F441C57717E00B547B8 /* Search */ = {
 			isa = PBXGroup;
 			children = (
-				1D577F451C57719F00B547B8 /* SXSearchPage.h */,
-				1D577F461C57719F00B547B8 /* SXSearchPage.m */,
-				1DE822A51C586A2500E965C1 /* SXSearchListEntity.h */,
-				1DE822A61C586A2500E965C1 /* SXSearchListEntity.m */,
-				1DE822A81C5875CC00E965C1 /* SXSearchListCell.h */,
-				1DE822A91C5875CC00E965C1 /* SXSearchListCell.m */,
-				1DE822AA1C5875CC00E965C1 /* SXSearchListCell.xib */,
+				1D25EA571C8D89BA009AFE2E /* Page */,
+				1D25EA561C8D89B7009AFE2E /* Entity */,
+				1D25EA541C8D89AB009AFE2E /* ViewModel */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -428,12 +546,9 @@
 		1D882E361A8112ED004C9C9A /* PhotoSet */ = {
 			isa = PBXGroup;
 			children = (
-				1D882E371A811392004C9C9A /* SXPhotoSetEntity.h */,
-				1D882E381A811392004C9C9A /* SXPhotoSetEntity.m */,
-				1D882E3A1A81151C004C9C9A /* SXPhotosDetailEntity.h */,
-				1D882E3B1A81151C004C9C9A /* SXPhotosDetailEntity.m */,
-				1D882E541A811E1D004C9C9A /* SXPhotoSetPage.h */,
-				1D882E551A811E1D004C9C9A /* SXPhotoSetPage.m */,
+				1D25EA5D1C8D89F6009AFE2E /* Page */,
+				1D25EA5C1C8D89F3009AFE2E /* Entity */,
+				1D25EA5B1C8D89F1009AFE2E /* ViewModel */,
 			);
 			path = PhotoSet;
 			sourceTree = "<group>";
@@ -649,7 +764,6 @@
 				1D20211E1B5A572700F38C4C /* SXBarButton.m in Sources */,
 				1D2357741A80A4A2000C7AAC /* SXTitleLable.m in Sources */,
 				1D925CB71A87B8CA0063921A /* SXReplyHeader.m in Sources */,
-				1D2357731A80A4A2000C7AAC /* SXNewsController.m in Sources */,
 				1D2A590E1A700822001F9B8E /* AppDelegate.m in Sources */,
 				1DE822B91C5B5C4A00E965C1 /* SXNewsDetailBottomCell.m in Sources */,
 				1D58EECD1A709E0300411E39 /* SXNewsCell.m in Sources */,
