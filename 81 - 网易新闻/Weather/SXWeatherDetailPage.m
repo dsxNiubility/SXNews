@@ -1,12 +1,12 @@
 //
-//  SXWeatherDetailVC.m
+//  SXWeatherDetailPage.m
 //  81 - 网易新闻
 //
 //  Created by dongshangxian on 15/8/8.
 //  Copyright (c) 2015年 ShangxianDante. All rights reserved.
 //
 
-#import "SXWeatherDetailVC.h"
+#import "SXWeatherDetailPage.h"
 #import "UIView+Frame.h"
 #import "SXWeatherItemView.h"
 #import "SXWeatherEntity.h"
@@ -14,7 +14,7 @@
 
 #define W [UIScreen mainScreen].bounds.size.width
 
-@interface SXWeatherDetailVC ()
+@interface SXWeatherDetailPage ()
 @property(nonatomic,strong)UIView *bottomView;
 @property (weak, nonatomic) IBOutlet UILabel *tempLbl;
 @property (weak, nonatomic) IBOutlet UIImageView *weatherImg;
@@ -25,7 +25,7 @@
 
 @end
 
-@implementation SXWeatherDetailVC
+@implementation SXWeatherDetailPage
 
 - (void)viewDidLoad {
     [super viewDidLoad];

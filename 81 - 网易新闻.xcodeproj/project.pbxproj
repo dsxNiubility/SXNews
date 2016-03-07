@@ -14,9 +14,9 @@
 		1D007F601B6D17B200EA119C /* SXWeatherBgEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D007F5F1B6D17B200EA119C /* SXWeatherBgEntity.m */; };
 		1D0AC8291A73B6EF00EEF963 /* SXNewsDetailEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D0AC8281A73B6EF00EEF963 /* SXNewsDetailEntity.m */; };
 		1D0AC82C1A73B8AE00EEF963 /* SXDetailImgEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D0AC82B1A73B8AE00EEF963 /* SXDetailImgEntity.m */; };
-		1D0AC8321A73C66200EEF963 /* SXDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D0AC8311A73C66200EEF963 /* SXDetailController.m */; };
-		1D1C4A3B1B7604C700CE3E01 /* SXWeatherDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D1C4A391B7604C700CE3E01 /* SXWeatherDetailVC.m */; };
-		1D1C4A3C1B7604C700CE3E01 /* SXWeatherDetailVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D1C4A3A1B7604C700CE3E01 /* SXWeatherDetailVC.xib */; };
+		1D0AC8321A73C66200EEF963 /* SXDetailPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D0AC8311A73C66200EEF963 /* SXDetailPage.m */; };
+		1D1C4A3B1B7604C700CE3E01 /* SXWeatherDetailPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D1C4A391B7604C700CE3E01 /* SXWeatherDetailPage.m */; };
+		1D1C4A3C1B7604C700CE3E01 /* SXWeatherDetailPage.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D1C4A3A1B7604C700CE3E01 /* SXWeatherDetailPage.xib */; };
 		1D1C4A461B77257300CE3E01 /* SXWeatherItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D1C4A451B77257300CE3E01 /* SXWeatherItemView.m */; };
 		1D1C4A481B77259C00CE3E01 /* SXWeatherItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D1C4A471B77259C00CE3E01 /* SXWeatherItemView.xib */; };
 		1D20211E1B5A572700F38C4C /* SXBarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D2021191B5A572700F38C4C /* SXBarButton.m */; };
@@ -44,15 +44,15 @@
 		1D58EEC81A70924A00411E39 /* SXNewsEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D58EEC71A70924A00411E39 /* SXNewsEntity.m */; };
 		1D58EECA1A709AE600411E39 /* News.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D58EEC91A709AE600411E39 /* News.storyboard */; };
 		1D58EECD1A709E0300411E39 /* SXNewsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D58EECC1A709E0300411E39 /* SXNewsCell.m */; };
-		1D58EED01A70A42100411E39 /* SXTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D58EECF1A70A42100411E39 /* SXTableViewController.m */; };
+		1D58EED01A70A42100411E39 /* SXNewsTableViewPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D58EECF1A70A42100411E39 /* SXNewsTableViewPage.m */; };
 		1D58EED81A70C18000411E39 /* NewsURLs.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1D58EED71A70C18000411E39 /* NewsURLs.plist */; };
 		1D6BE37B1A84B04600BF1AB7 /* SXNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D6BE37A1A84B04600BF1AB7 /* SXNavController.m */; };
 		1D7B6F961A8903B4000DB2CE /* SXReplyEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D7B6F951A8903B4000DB2CE /* SXReplyEntity.m */; };
 		1D7B9F4F1B5E1EC000774BDA /* HYQiHei-50J.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1D7B9F4E1B5E1EC000774BDA /* HYQiHei-50J.ttf */; };
 		1D882E391A811392004C9C9A /* SXPhotoSetEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D882E381A811392004C9C9A /* SXPhotoSetEntity.m */; };
 		1D882E3C1A81151C004C9C9A /* SXPhotosDetailEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D882E3B1A81151C004C9C9A /* SXPhotosDetailEntity.m */; };
-		1D882E561A811E1D004C9C9A /* SXPhotoSetController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D882E551A811E1D004C9C9A /* SXPhotoSetController.m */; };
-		1D925CB11A87B50B0063921A /* SXReplyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D925CB01A87B50B0063921A /* SXReplyViewController.m */; };
+		1D882E561A811E1D004C9C9A /* SXPhotoSetPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D882E551A811E1D004C9C9A /* SXPhotoSetPage.m */; };
+		1D925CB11A87B50B0063921A /* SXReplyPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D925CB01A87B50B0063921A /* SXReplyPage.m */; };
 		1D925CB41A87B7030063921A /* SXReplyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D925CB31A87B7030063921A /* SXReplyCell.m */; };
 		1D925CB71A87B8CA0063921A /* SXReplyHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D925CB61A87B8CA0063921A /* SXReplyHeader.m */; };
 		1D925CB91A87B8DF0063921A /* SXReplyHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D925CB81A87B8DF0063921A /* SXReplyHeader.xib */; };
@@ -95,11 +95,11 @@
 		1D0AC8281A73B6EF00EEF963 /* SXNewsDetailEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SXNewsDetailEntity.m; sourceTree = "<group>"; };
 		1D0AC82A1A73B8AE00EEF963 /* SXDetailImgEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SXDetailImgEntity.h; sourceTree = "<group>"; };
 		1D0AC82B1A73B8AE00EEF963 /* SXDetailImgEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SXDetailImgEntity.m; sourceTree = "<group>"; };
-		1D0AC8301A73C66200EEF963 /* SXDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SXDetailController.h; sourceTree = "<group>"; };
-		1D0AC8311A73C66200EEF963 /* SXDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SXDetailController.m; sourceTree = "<group>"; };
-		1D1C4A381B7604C700CE3E01 /* SXWeatherDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SXWeatherDetailVC.h; sourceTree = "<group>"; };
-		1D1C4A391B7604C700CE3E01 /* SXWeatherDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SXWeatherDetailVC.m; sourceTree = "<group>"; };
-		1D1C4A3A1B7604C700CE3E01 /* SXWeatherDetailVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SXWeatherDetailVC.xib; sourceTree = "<group>"; };
+		1D0AC8301A73C66200EEF963 /* SXDetailPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SXDetailPage.h; sourceTree = "<group>"; };
+		1D0AC8311A73C66200EEF963 /* SXDetailPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SXDetailPage.m; sourceTree = "<group>"; };
+		1D1C4A381B7604C700CE3E01 /* SXWeatherDetailPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SXWeatherDetailPage.h; sourceTree = "<group>"; };
+		1D1C4A391B7604C700CE3E01 /* SXWeatherDetailPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SXWeatherDetailPage.m; sourceTree = "<group>"; };
+		1D1C4A3A1B7604C700CE3E01 /* SXWeatherDetailPage.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SXWeatherDetailPage.xib; sourceTree = "<group>"; };
 		1D1C4A441B77257300CE3E01 /* SXWeatherItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SXWeatherItemView.h; sourceTree = "<group>"; };
 		1D1C4A451B77257300CE3E01 /* SXWeatherItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SXWeatherItemView.m; sourceTree = "<group>"; };
 		1D1C4A471B77259C00CE3E01 /* SXWeatherItemView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SXWeatherItemView.xib; sourceTree = "<group>"; };
@@ -151,8 +151,8 @@
 		1D58EEC91A709AE600411E39 /* News.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = News.storyboard; sourceTree = "<group>"; };
 		1D58EECB1A709E0300411E39 /* SXNewsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SXNewsCell.h; sourceTree = "<group>"; };
 		1D58EECC1A709E0300411E39 /* SXNewsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SXNewsCell.m; sourceTree = "<group>"; };
-		1D58EECE1A70A42100411E39 /* SXTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SXTableViewController.h; sourceTree = "<group>"; };
-		1D58EECF1A70A42100411E39 /* SXTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SXTableViewController.m; sourceTree = "<group>"; };
+		1D58EECE1A70A42100411E39 /* SXNewsTableViewPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SXNewsTableViewPage.h; sourceTree = "<group>"; };
+		1D58EECF1A70A42100411E39 /* SXNewsTableViewPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SXNewsTableViewPage.m; sourceTree = "<group>"; };
 		1D58EED71A70C18000411E39 /* NewsURLs.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = NewsURLs.plist; sourceTree = "<group>"; };
 		1D6BE3791A84B04600BF1AB7 /* SXNavController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SXNavController.h; sourceTree = "<group>"; };
 		1D6BE37A1A84B04600BF1AB7 /* SXNavController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SXNavController.m; sourceTree = "<group>"; };
@@ -163,10 +163,10 @@
 		1D882E381A811392004C9C9A /* SXPhotoSetEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SXPhotoSetEntity.m; sourceTree = "<group>"; };
 		1D882E3A1A81151C004C9C9A /* SXPhotosDetailEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SXPhotosDetailEntity.h; sourceTree = "<group>"; };
 		1D882E3B1A81151C004C9C9A /* SXPhotosDetailEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SXPhotosDetailEntity.m; sourceTree = "<group>"; };
-		1D882E541A811E1D004C9C9A /* SXPhotoSetController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SXPhotoSetController.h; sourceTree = "<group>"; };
-		1D882E551A811E1D004C9C9A /* SXPhotoSetController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SXPhotoSetController.m; sourceTree = "<group>"; };
-		1D925CAF1A87B50B0063921A /* SXReplyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SXReplyViewController.h; sourceTree = "<group>"; };
-		1D925CB01A87B50B0063921A /* SXReplyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SXReplyViewController.m; sourceTree = "<group>"; };
+		1D882E541A811E1D004C9C9A /* SXPhotoSetPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SXPhotoSetPage.h; sourceTree = "<group>"; };
+		1D882E551A811E1D004C9C9A /* SXPhotoSetPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SXPhotoSetPage.m; sourceTree = "<group>"; };
+		1D925CAF1A87B50B0063921A /* SXReplyPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SXReplyPage.h; sourceTree = "<group>"; };
+		1D925CB01A87B50B0063921A /* SXReplyPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SXReplyPage.m; sourceTree = "<group>"; };
 		1D925CB21A87B7030063921A /* SXReplyCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SXReplyCell.h; sourceTree = "<group>"; };
 		1D925CB31A87B7030063921A /* SXReplyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SXReplyCell.m; sourceTree = "<group>"; };
 		1D925CB51A87B8CA0063921A /* SXReplyHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SXReplyHeader.h; sourceTree = "<group>"; };
@@ -225,9 +225,9 @@
 				1D007F391B6C823500EA119C /* SXWeatherView.h */,
 				1D007F3A1B6C823500EA119C /* SXWeatherView.m */,
 				1D007F3C1B6C824D00EA119C /* SXWeatherView.xib */,
-				1D1C4A381B7604C700CE3E01 /* SXWeatherDetailVC.h */,
-				1D1C4A391B7604C700CE3E01 /* SXWeatherDetailVC.m */,
-				1D1C4A3A1B7604C700CE3E01 /* SXWeatherDetailVC.xib */,
+				1D1C4A381B7604C700CE3E01 /* SXWeatherDetailPage.h */,
+				1D1C4A391B7604C700CE3E01 /* SXWeatherDetailPage.m */,
+				1D1C4A3A1B7604C700CE3E01 /* SXWeatherDetailPage.xib */,
 				1D1C4A441B77257300CE3E01 /* SXWeatherItemView.h */,
 				1D1C4A451B77257300CE3E01 /* SXWeatherItemView.m */,
 				1D1C4A471B77259C00CE3E01 /* SXWeatherItemView.xib */,
@@ -248,13 +248,13 @@
 				1D0AC8281A73B6EF00EEF963 /* SXNewsDetailEntity.m */,
 				1D0AC82A1A73B8AE00EEF963 /* SXDetailImgEntity.h */,
 				1D0AC82B1A73B8AE00EEF963 /* SXDetailImgEntity.m */,
-				1D0AC8301A73C66200EEF963 /* SXDetailController.h */,
-				1D0AC8311A73C66200EEF963 /* SXDetailController.m */,
+				1D0AC8301A73C66200EEF963 /* SXDetailPage.h */,
+				1D0AC8311A73C66200EEF963 /* SXDetailPage.m */,
 				1DE822B61C5B5C4A00E965C1 /* SXNewsDetailBottomCell.h */,
 				1DE822B71C5B5C4A00E965C1 /* SXNewsDetailBottomCell.m */,
 				1DE822B81C5B5C4A00E965C1 /* SXNewsDetailBottomCell.xib */,
-				1D925CAF1A87B50B0063921A /* SXReplyViewController.h */,
-				1D925CB01A87B50B0063921A /* SXReplyViewController.m */,
+				1D925CAF1A87B50B0063921A /* SXReplyPage.h */,
+				1D925CB01A87B50B0063921A /* SXReplyPage.m */,
 				1D925CB21A87B7030063921A /* SXReplyCell.h */,
 				1D925CB31A87B7030063921A /* SXReplyCell.m */,
 				1D925CB51A87B8CA0063921A /* SXReplyHeader.h */,
@@ -405,8 +405,8 @@
 				1D58EEC91A709AE600411E39 /* News.storyboard */,
 				1D58EECB1A709E0300411E39 /* SXNewsCell.h */,
 				1D58EECC1A709E0300411E39 /* SXNewsCell.m */,
-				1D58EECE1A70A42100411E39 /* SXTableViewController.h */,
-				1D58EECF1A70A42100411E39 /* SXTableViewController.m */,
+				1D58EECE1A70A42100411E39 /* SXNewsTableViewPage.h */,
+				1D58EECF1A70A42100411E39 /* SXNewsTableViewPage.m */,
 			);
 			path = News;
 			sourceTree = "<group>";
@@ -432,8 +432,8 @@
 				1D882E381A811392004C9C9A /* SXPhotoSetEntity.m */,
 				1D882E3A1A81151C004C9C9A /* SXPhotosDetailEntity.h */,
 				1D882E3B1A81151C004C9C9A /* SXPhotosDetailEntity.m */,
-				1D882E541A811E1D004C9C9A /* SXPhotoSetController.h */,
-				1D882E551A811E1D004C9C9A /* SXPhotoSetController.m */,
+				1D882E541A811E1D004C9C9A /* SXPhotoSetPage.h */,
+				1D882E551A811E1D004C9C9A /* SXPhotoSetPage.m */,
 			);
 			path = PhotoSet;
 			sourceTree = "<group>";
@@ -540,7 +540,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1D2A59191A700822001F9B8E /* LaunchScreen.xib in Resources */,
-				1D1C4A3C1B7604C700CE3E01 /* SXWeatherDetailVC.xib in Resources */,
+				1D1C4A3C1B7604C700CE3E01 /* SXWeatherDetailPage.xib in Resources */,
 				1DE822AC1C5875CC00E965C1 /* SXSearchListCell.xib in Resources */,
 				1D2A59161A700822001F9B8E /* Images.xcassets in Resources */,
 				1D58EED81A70C18000411E39 /* NewsURLs.plist in Resources */,
@@ -623,12 +623,12 @@
 				1D007F601B6D17B200EA119C /* SXWeatherBgEntity.m in Sources */,
 				1D6BE37B1A84B04600BF1AB7 /* SXNavController.m in Sources */,
 				1D882E3C1A81151C004C9C9A /* SXPhotosDetailEntity.m in Sources */,
-				1D58EED01A70A42100411E39 /* SXTableViewController.m in Sources */,
+				1D58EED01A70A42100411E39 /* SXNewsTableViewPage.m in Sources */,
 				1DE822AB1C5875CC00E965C1 /* SXSearchListCell.m in Sources */,
 				1D0AC8291A73B6EF00EEF963 /* SXNewsDetailEntity.m in Sources */,
 				1D007F5A1B6D151D00EA119C /* SXWeatherEntity.m in Sources */,
 				1D25EA4A1C8D69E4009AFE2E /* UIView+Frame.m in Sources */,
-				1D0AC8321A73C66200EEF963 /* SXDetailController.m in Sources */,
+				1D0AC8321A73C66200EEF963 /* SXDetailPage.m in Sources */,
 				1D1C4A461B77257300CE3E01 /* SXWeatherItemView.m in Sources */,
 				1D925CB41A87B7030063921A /* SXReplyCell.m in Sources */,
 				1D007F5D1B6D155B00EA119C /* SXWeatherDetailEntity.m in Sources */,
@@ -639,12 +639,12 @@
 				1D7B6F961A8903B4000DB2CE /* SXReplyEntity.m in Sources */,
 				1D25EA491C8D69E4009AFE2E /* UILabel+Wonderful.m in Sources */,
 				1D577F471C57719F00B547B8 /* SXSearchPage.m in Sources */,
-				1D925CB11A87B50B0063921A /* SXReplyViewController.m in Sources */,
+				1D925CB11A87B50B0063921A /* SXReplyPage.m in Sources */,
 				1D007F3B1B6C823500EA119C /* SXWeatherView.m in Sources */,
-				1D1C4A3B1B7604C700CE3E01 /* SXWeatherDetailVC.m in Sources */,
+				1D1C4A3B1B7604C700CE3E01 /* SXWeatherDetailPage.m in Sources */,
 				1D2021201B5A572700F38C4C /* SXTabBar.m in Sources */,
 				1D2357721A80A4A2000C7AAC /* SXMainViewController.m in Sources */,
-				1D882E561A811E1D004C9C9A /* SXPhotoSetController.m in Sources */,
+				1D882E561A811E1D004C9C9A /* SXPhotoSetPage.m in Sources */,
 				1D0AC82C1A73B8AE00EEF963 /* SXDetailImgEntity.m in Sources */,
 				1D20211E1B5A572700F38C4C /* SXBarButton.m in Sources */,
 				1D2357741A80A4A2000C7AAC /* SXTitleLable.m in Sources */,

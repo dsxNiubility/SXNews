@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="dLE-KE-4lH">
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -22,7 +21,7 @@
         <!--网易新闻-->
         <scene sceneID="911-Un-5t9">
             <objects>
-                <tableViewController id="dLE-KE-4lH" customClass="SXTableViewController" sceneMemberID="viewController">
+                <tableViewController id="dLE-KE-4lH" customClass="SXNewsTableViewPage" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="72" sectionHeaderHeight="22" sectionFooterHeight="22" id="5x7-YG-CJj">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="1200"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -379,7 +378,7 @@
         <!--图集-->
         <scene sceneID="9pE-6T-E3a">
             <objects>
-                <viewController hidesBottomBarWhenPushed="YES" id="lfx-tz-RHK" customClass="SXPhotoSetController" sceneMemberID="viewController">
+                <viewController hidesBottomBarWhenPushed="YES" id="lfx-tz-RHK" customClass="SXPhotoSetPage" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="7On-M5-J9i"/>
                         <viewControllerLayoutGuide type="bottom" id="D9H-WT-4KQ"/>
@@ -527,10 +526,10 @@
             </objects>
             <point key="canvasLocation" x="455.5" y="-666.5"/>
         </scene>
-        <!--Reply View Controller-->
+        <!--Reply Page-->
         <scene sceneID="4xh-Oy-Ke7">
             <objects>
-                <viewController id="4aM-sd-RR8" customClass="SXReplyViewController" sceneMemberID="viewController">
+                <viewController id="4aM-sd-RR8" customClass="SXReplyPage" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Kia-me-6dD"/>
                         <viewControllerLayoutGuide type="bottom" id="qb5-cQ-2So"/>
@@ -666,7 +665,7 @@
         <!--新闻详情-->
         <scene sceneID="RC0-Cc-OkJ">
             <objects>
-                <viewController storyboardIdentifier="SXDetailController" hidesBottomBarWhenPushed="YES" id="AGK-Ys-EEq" customClass="SXDetailController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SXDetailPage" hidesBottomBarWhenPushed="YES" id="AGK-Ys-EEq" customClass="SXDetailPage" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="QGQ-K1-5xM"/>
                         <viewControllerLayoutGuide type="bottom" id="X81-OH-VM3"/>

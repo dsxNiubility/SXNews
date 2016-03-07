@@ -1,23 +1,23 @@
 //
-//  SXReplyViewController.m
+//  SXReplyPage.m
 //  81 - 网易新闻
 //
 //  Created by 董 尚先 on 15/2/8.
 //  Copyright (c) 2015年 ShangxianDante. All rights reserved.
 //
 
-#import "SXReplyViewController.h"
+#import "SXReplyPage.h"
 #import "SXReplyHeader.h"
 #import "SXReplyCell.h"
 
-@interface SXReplyViewController ()<UITableViewDataSource,UITableViewDelegate>
+@interface SXReplyPage ()<UITableViewDataSource,UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 
 @end
 
 
-@implementation SXReplyViewController
+@implementation SXReplyPage
 static NSString *ID = @"replyCell";
 
 #pragma mark - ******************** 返回按钮

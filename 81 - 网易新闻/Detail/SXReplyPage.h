@@ -1,5 +1,5 @@
 //
-//  SXReplyViewController.h
+//  SXReplyPage.h
 //  81 - 网易新闻
 //
 //  Created by 董 尚先 on 15/2/8.
@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "SXReplyEntity.h"
 
-@interface SXReplyViewController : UIViewController
+@interface SXReplyPage : UIViewController
 
 @property(nonatomic,strong) NSMutableArray *replys;
 

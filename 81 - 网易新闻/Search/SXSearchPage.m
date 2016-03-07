@@ -12,7 +12,7 @@
 #import "SXSearchListEntity.h"
 #import "SXSearchListCell.h"
 #import "SXNewsEntity.h"
-#import "SXDetailController.h"
+#import "SXDetailPage.h"
 
 @interface SXSearchPage ()<UITableViewDataSource,UITableViewDelegate,UISearchBarDelegate>
 
@@ -161,7 +161,7 @@
     model.docid = [self.searchListArray[indexPath.row] docid];
     
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"News" bundle:nil];
-    SXDetailController *devc = (SXDetailController *)[sb instantiateViewControllerWithIdentifier:@"SXDetailController"];
+    SXDetailPage *devc = (SXDetailPage *)[sb instantiateViewControllerWithIdentifier:@"SXDetailPage"];
     devc.newsModel = model;
     [self.navigationController pushViewController:devc animated:YES];
     

@@ -1,12 +1,12 @@
 //
-//  SXPhotoSetController.m
+//  SXPhotoSetPage.m
 //  81 - 网易新闻
 //
 //  Created by 董 尚先 on 15/2/3.
 //  Copyright (c) 2015年 ShangxianDante. All rights reserved.
 //
 
-#import "SXPhotoSetController.h"
+#import "SXPhotoSetPage.h"
 #import "UIImageView+WebCache.h"
 
 
@@ -16,11 +16,11 @@
 #import "UIView+Frame.h"
 
 #import "SXReplyEntity.h"
-#import "SXReplyViewController.h"
+#import "SXReplyPage.h"
 
 #import "MJExtension.h"
 
-@interface SXPhotoSetController ()<UIScrollViewDelegate>
+@interface SXPhotoSetPage ()<UIScrollViewDelegate>
 @property (weak, nonatomic) IBOutlet UIScrollView *photoScrollView;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *countLabel;
@@ -37,7 +37,7 @@
 
 @end
 
-@implementation SXPhotoSetController
+@implementation SXPhotoSetPage
 - (IBAction)backBtnClick:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
     [self.navigationController setNavigationBarHidden:NO animated:YES];
@@ -230,7 +230,7 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    SXReplyViewController *replyvc = segue.destinationViewController;
+    SXReplyPage *replyvc = segue.destinationViewController;
     replyvc.replys = self.replyModels;
 }
 

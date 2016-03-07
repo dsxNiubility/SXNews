@@ -7,9 +7,9 @@
 //
 
 #import "SXMainViewController.h"
-#import "SXTableViewController.h"
+#import "SXNewsTableViewPage.h"
 #import "SXWeatherView.h"
-#import "SXWeatherDetailVC.h"
+#import "SXWeatherDetailPage.h"
 #import "SXTitleLable.h"
 #import "UIView+Frame.h"
 #import "SXHTTPManager.h"
@@ -131,7 +131,7 @@
 - (void)addController
 {
     for (int i=0 ; i<self.arrayLists.count ;i++){
-        SXTableViewController *vc1 = [[UIStoryboard storyboardWithName:@"News" bundle:[NSBundle mainBundle]] instantiateInitialViewController];
+        SXNewsTableViewPage *vc1 = [[UIStoryboard storyboardWithName:@"News" bundle:[NSBundle mainBundle]] instantiateInitialViewController];
         vc1.title = self.arrayLists[i][@"title"];
         vc1.urlString = self.arrayLists[i][@"urlString"];
         [self addChildViewController:vc1];
@@ -199,7 +199,7 @@
     CGPoint offset = CGPointMake(offsetx, self.smallScrollView.contentOffset.y);
     [self.smallScrollView setContentOffset:offset animated:YES];
     // 添加控制器
-    SXTableViewController *newsVc = self.childViewControllers[index];
+    SXNewsTableViewPage *newsVc = self.childViewControllers[index];
     newsVc.index = index;
     
     [self.smallScrollView.subviews enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
@@ -314,7 +314,7 @@
 - (void)pushWeatherDetail
 {
     self.weatherShow = NO;
-    SXWeatherDetailVC *wdvc = [[SXWeatherDetailVC alloc]init];
+    SXWeatherDetailPage *wdvc = [[SXWeatherDetailPage alloc]init];
     wdvc.weatherModel = self.weatherModel;
     [self.navigationController pushViewController:wdvc animated:YES];
     [UIView animateWithDuration:0.1 animations:^{

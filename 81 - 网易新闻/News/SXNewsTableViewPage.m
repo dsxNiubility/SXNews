@@ -1,31 +1,31 @@
 //
-//  SXTableViewController.m
+//  SXTableViewPage.m
 //  81 - 网易新闻
 //
 //  Created by 董 尚先 on 15-1-22.
 //  Copyright (c) 2015年 ShangxianDante. All rights reserved.
 //
 
-#import "SXTableViewController.h"
-#import "SXDetailController.h"
-#import "SXPhotoSetController.h"
+#import "SXNewsTableViewPage.h"
+#import "SXDetailPage.h"
+#import "SXPhotoSetPage.h"
 #import "SXNewsCell.h"
 #import "SXNetworkTools.h"
 
-@interface SXTableViewController ()
+@interface SXNewsTableViewPage ()
 
 @property(nonatomic,strong) NSMutableArray *arrayList;
 @property(nonatomic,assign)BOOL update;
 
 @end
 
-@implementation SXTableViewController
+@implementation SXNewsTableViewPage
 
 - (void)viewDidLoad {
     [super viewDidLoad];
 
     self.view.backgroundColor = [UIColor clearColor];
-    __weak SXTableViewController *weakSelf = self;
+    __weak SXNewsTableViewPage *weakSelf = self;
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         [weakSelf loadData];
     }];
@@ -160,10 +160,10 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if ([segue.destinationViewController isKindOfClass:[SXDetailController class]]) {
+    if ([segue.destinationViewController isKindOfClass:[SXDetailPage class]]) {
         
         NSInteger x = self.tableView.indexPathForSelectedRow.row;
-        SXDetailController *dc = segue.destinationViewController;
+        SXDetailPage *dc = segue.destinationViewController;
         dc.newsModel = self.arrayList[x];
         dc.index = self.index;
         if ([self.navigationController respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
@@ -171,7 +171,7 @@
         }
     }else{
         NSInteger x = self.tableView.indexPathForSelectedRow.row;
-        SXPhotoSetController *pc = segue.destinationViewController;
+        SXPhotoSetPage *pc = segue.destinationViewController;
         pc.newsModel = self.arrayList[x];
     }
     

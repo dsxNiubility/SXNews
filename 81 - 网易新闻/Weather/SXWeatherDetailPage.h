@@ -1,5 +1,5 @@
 //
-//  SXWeatherDetailVC.h
+//  SXWeatherDetailPage.h
 //  81 - 网易新闻
 //
 //  Created by dongshangxian on 15/8/8.
@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 @class SXWeatherEntity;
 
-@interface SXWeatherDetailVC : UIViewController
+@interface SXWeatherDetailPage : UIViewController
 
 @property(nonatomic,strong)SXWeatherEntity *weatherModel;
 @property (weak, nonatomic) IBOutlet UIImageView *bgImg;

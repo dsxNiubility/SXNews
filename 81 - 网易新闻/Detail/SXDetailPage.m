@@ -1,25 +1,25 @@
 //
-//  SXDetailController.m
+//  SXDetailPage.m
 //  81 - 网易新闻
 //
 //  Created by 董 尚先 on 15-1-24.
 //  Copyright (c) 2015年 ShangxianDante. All rights reserved.
 //
 
-#import "SXDetailController.h"
+#import "SXDetailPage.h"
 #import "SXNewsDetailEntity.h"
 #import "SXDetailImgEntity.h"
 #import "SXHTTPManager.h"
 
 #import "SXReplyEntity.h"
-#import "SXReplyViewController.h"
+#import "SXReplyPage.h"
 #import "SXNewsDetailBottomCell.h"
 #import "SXSameNewsEntity.h"
 #import "SXSearchPage.h"
 
 #define NewsDetailControllerClose (self.tableView.contentOffset.y - (self.tableView.contentSize.height - SXSCREEN_H + 55) > (100 - 54))
 
-@interface SXDetailController ()<UIWebViewDelegate,UITableViewDataSource,UITableViewDelegate>
+@interface SXDetailPage ()<UIWebViewDelegate,UITableViewDataSource,UITableViewDelegate>
 @property (strong, nonatomic) UIWebView *webView;
 @property(nonatomic,strong) SXNewsDetailEntity *detailModel;
 @property (weak, nonatomic) IBOutlet UIButton *replyCountBtn;
@@ -39,7 +39,7 @@
 // http://c.m.163.com/nc/article/AHHQIG5B00014JB6/full.html
 @end
 
-@implementation SXDetailController
+@implementation SXDetailPage
 
 
 - (NSMutableArray *)replyModels
@@ -262,7 +262,7 @@
 #pragma mark - ******************** 即将跳转时
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    SXReplyViewController *replyvc = segue.destinationViewController;
+    SXReplyPage *replyvc = segue.destinationViewController;
     replyvc.replys = self.replyModels;
     
     if ([self.navigationController respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
@@ -348,7 +348,7 @@
             model.docid = [self.sameNews[indexPath.row] id];
             
             UIStoryboard *sb = [UIStoryboard storyboardWithName:@"News" bundle:nil];
-            SXDetailController *devc = (SXDetailController *)[sb instantiateViewControllerWithIdentifier:@"SXDetailController"];
+            SXDetailPage *devc = (SXDetailPage *)[sb instantiateViewControllerWithIdentifier:@"SXDetailPage"];
             devc.newsModel = model;
             [self.navigationController pushViewController:devc animated:YES];
         }
