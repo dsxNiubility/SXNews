@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "SXReplyModel.h"
+#import "SXReplyEntity.h"
 
 @interface SXReplyViewController : UIViewController
 

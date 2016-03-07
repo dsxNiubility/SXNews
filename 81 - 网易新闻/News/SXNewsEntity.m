@@ -1,18 +1,18 @@
 //
-//  SXNewsModel.m
+//  SXNewsEntity.m
 //  81 - 网易新闻
 //
 //  Created by 董 尚先 on 15-1-22.
 //  Copyright (c) 2015年 ShangxianDante. All rights reserved.
 //
 
-#import "SXNewsModel.h"
+#import "SXNewsEntity.h"
 
-@implementation SXNewsModel
+@implementation SXNewsEntity
 
 + (instancetype)newsModelWithDict:(NSDictionary *)dict
 {
-    SXNewsModel *model = [[self alloc]init];
+    SXNewsEntity *model = [[self alloc]init];
     
     [model setValuesForKeysWithDictionary:dict];
     

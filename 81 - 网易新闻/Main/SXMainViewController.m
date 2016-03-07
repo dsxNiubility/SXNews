@@ -13,7 +13,7 @@
 #import "SXTitleLable.h"
 #import "UIView+Frame.h"
 #import "SXHTTPManager.h"
-#import "SXWeatherModel.h"
+#import "SXWeatherEntity.h"
 #import "MJExtension.h"
 
 @interface SXMainViewController ()<UIScrollViewDelegate>
@@ -31,7 +31,7 @@
 @property(nonatomic,assign,getter=isWeatherShow)BOOL weatherShow;
 @property(nonatomic,strong)SXWeatherView *weatherView;
 @property(nonatomic,strong)UIImageView *tran;
-@property(nonatomic,strong)SXWeatherModel *weatherModel;
+@property(nonatomic,strong)SXWeatherEntity *weatherModel;
 
 @property(nonatomic,strong)UIButton *rightItem;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *TopToTop;
@@ -270,7 +270,7 @@
     NSString *url = @"http://c.3g.163.com/nc/weather/5YyX5LqsfOWMl%2BS6rA%3D%3D.html";
     [[SXHTTPManager manager]GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, NSDictionary *responseObject) {
         
-       SXWeatherModel *weatherModel = [SXWeatherModel objectWithKeyValues:responseObject];
+       SXWeatherEntity *weatherModel = [SXWeatherEntity objectWithKeyValues:responseObject];
         self.weatherModel = weatherModel;
         [self addWeather];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {

@@ -1,5 +1,5 @@
 //
-//  SXWeatherDetailM.h
+//  SXWeatherDetailEntity.h
 //  81 - 网易新闻
 //
 //  Created by dongshangxian on 15/8/1.
@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface SXWeatherDetailM : NSObject
+@interface SXWeatherDetailEntity : NSObject
 
 /** 什么风*/
 @property(nonatomic,copy)NSString *wind;

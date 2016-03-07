@@ -1,5 +1,5 @@
 //
-//  SXNewsModel.h
+//  SXNewsEntity.h
 //  81 - 网易新闻
 //
 //  Created by 董 尚先 on 15-1-22.
@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface SXNewsModel : NSObject
+@interface SXNewsEntity : NSObject
 
 @property (nonatomic,copy) NSString *tname;
 /**

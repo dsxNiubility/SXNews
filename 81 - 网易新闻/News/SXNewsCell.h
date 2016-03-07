@@ -7,21 +7,21 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "SXNewsModel.h"
+#import "SXNewsEntity.h"
 
 @interface SXNewsCell : UITableViewCell
 
-@property(nonatomic,strong) SXNewsModel *NewsModel;
+@property(nonatomic,strong) SXNewsEntity *NewsModel;
 
 
 
 /**
  *  类方法返回可重用的id
  */
-+ (NSString *)idForRow:(SXNewsModel *)NewsModel;
++ (NSString *)idForRow:(SXNewsEntity *)NewsModel;
 
 /**
  *  类方法返回行高
  */
-+ (CGFloat)heightForRow:(SXNewsModel *)NewsModel;
++ (CGFloat)heightForRow:(SXNewsEntity *)NewsModel;
 @end

@@ -66,7 +66,7 @@ static NSString *ID = @"replyCell";
         cell2.textLabel.text = @"     暂无跟帖数据";
         return cell2;
     }else{
-        SXReplyModel *model = self.replys[indexPath.row];
+        SXReplyEntity *model = self.replys[indexPath.row];
         cell.replyModel = model;
     }
     
@@ -90,7 +90,7 @@ static NSString *ID = @"replyCell";
     }else{
         SXReplyCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
         
-        SXReplyModel *model = self.replys[indexPath.row];
+        SXReplyEntity *model = self.replys[indexPath.row];
         
         cell.replyModel = model;
         

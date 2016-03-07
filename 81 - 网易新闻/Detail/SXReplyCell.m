@@ -23,7 +23,7 @@
 @implementation SXReplyCell
 
 /** set方法数据分发 */
-- (void)setReplyModel:(SXReplyModel *)replyModel
+- (void)setReplyModel:(SXReplyEntity *)replyModel
 {
     _replyModel = replyModel;
     if (_replyModel.name == nil) {

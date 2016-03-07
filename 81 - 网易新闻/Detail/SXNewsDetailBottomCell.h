@@ -7,14 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "SXReplyModel.h"
+#import "SXReplyEntity.h"
 #import "SXSameNewsEntity.h"
 
 @interface SXNewsDetailBottomCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UILabel *sectionHeaderLbl;
 
-@property(nonatomic,strong)SXReplyModel *replyModel;
+@property(nonatomic,strong)SXReplyEntity *replyModel;
 
 @property(nonatomic,strong)SXSameNewsEntity *sameNewsEntity;
 

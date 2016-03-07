@@ -45,7 +45,7 @@
     // Initialization code
 }
 
-- (void)setNewsModel:(SXNewsModel *)NewsModel
+- (void)setNewsModel:(SXNewsEntity *)NewsModel
 {
     _NewsModel = NewsModel;
     
@@ -78,7 +78,7 @@
 }
 
 #pragma mark - /************************* 类方法返回可重用ID ***************************/
-+ (NSString *)idForRow:(SXNewsModel *)NewsModel
++ (NSString *)idForRow:(SXNewsEntity *)NewsModel
 {
     if (NewsModel.hasHead && NewsModel.photosetID) {
         return @"TopImageCell";
@@ -94,7 +94,7 @@
 }
 
 #pragma mark - /************************* 类方法返回行高 ***************************/
-+ (CGFloat)heightForRow:(SXNewsModel *)NewsModel
++ (CGFloat)heightForRow:(SXNewsEntity *)NewsModel
 {
     if (NewsModel.hasHead && NewsModel.photosetID){
         return 245;

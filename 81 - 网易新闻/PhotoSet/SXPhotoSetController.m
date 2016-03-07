@@ -11,11 +11,11 @@
 
 
 #import "SXHTTPManager.h"
-#import "SXPhotoSet.h"
-#import "SXPhotosDetail.h"
+#import "SXPhotoSetEntity.h"
+#import "SXPhotosDetailEntity.h"
 #import "UIView+Frame.h"
 
-#import "SXReplyModel.h"
+#import "SXReplyEntity.h"
 #import "SXReplyViewController.h"
 
 #import "MJExtension.h"
@@ -27,9 +27,9 @@
 @property (weak, nonatomic) IBOutlet UITextView *contentText;
 @property (weak, nonatomic) IBOutlet UIButton *replayBtn;
 
-@property(nonatomic,strong) SXPhotoSet *photoSet;
+@property(nonatomic,strong) SXPhotoSetEntity *photoSet;
 
-@property(nonatomic,strong) SXReplyModel *replyModel;
+@property(nonatomic,strong) SXReplyEntity *replyModel;
 @property(nonatomic,strong) NSMutableArray *replyModels;
 
 @property(nonatomic,strong) NSArray *news;
@@ -99,7 +99,7 @@
 {
     [[SXHTTPManager manager]GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
 //        SXPhotoSet *photoSet = [SXPhotoSet photoSetWith:responseObject];
-        SXPhotoSet *photoSet = [SXPhotoSet objectWithKeyValues:responseObject];
+        SXPhotoSetEntity *photoSet = [SXPhotoSetEntity objectWithKeyValues:responseObject];
         self.photoSet = photoSet;
         
         [self setLabelWithModel:photoSet];
@@ -120,7 +120,7 @@
 //        NSLog(@"%ld",dictarray.count);
         for (int i = 0; i < dictarray.count; i++) {
             NSDictionary *dict = dictarray[i][@"1"];
-            SXReplyModel *replyModel = [[SXReplyModel alloc]init];
+            SXReplyEntity *replyModel = [[SXReplyEntity alloc]init];
             replyModel.name = dict[@"n"];
             if (replyModel.name == nil) {
                 replyModel.name = @"火星网友";
@@ -139,7 +139,7 @@
 #pragma mark - ******************** 设置页面的文字和图片
 
 /** 设置页面文字 */
-- (void)setLabelWithModel:(SXPhotoSet *)photoSet
+- (void)setLabelWithModel:(SXPhotoSetEntity *)photoSet
 {
     self.titleLabel.text = photoSet.setname;
     
@@ -151,7 +151,7 @@
 }
 
 /** 设置页面imgView */
-- (void)setImageViewWithModel:(SXPhotoSet *)photoSet
+- (void)setImageViewWithModel:(SXPhotoSetEntity *)photoSet
 {
     NSUInteger count = self.photoSet.photos.count;
     

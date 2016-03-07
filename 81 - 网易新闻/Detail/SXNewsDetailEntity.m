@@ -1,19 +1,19 @@
 //
-//  SXDetailModel.m
+//  SXNewsDetailEntity.m
 //  81 - 网易新闻
 //
 //  Created by 董 尚先 on 15-1-24.
 //  Copyright (c) 2015年 ShangxianDante. All rights reserved.
 //
 
-#import "SXDetailModel.h"
-#import "SXDetailImgModel.h"
-@implementation SXDetailModel
+#import "SXNewsDetailEntity.h"
+#import "SXDetailImgEntity.h"
+@implementation SXNewsDetailEntity
 
 /** 便利构造器 */
 + (instancetype)detailWithDict:(NSDictionary *)dict
 {
-    SXDetailModel *detail = [[self alloc]init];
+    SXNewsDetailEntity *detail = [[self alloc]init];
     detail.title = dict[@"title"];
     detail.ptime = dict[@"ptime"];
     detail.body = dict[@"body"];
@@ -24,7 +24,7 @@
     NSMutableArray *temArray = [NSMutableArray arrayWithCapacity:imgArray.count];
     
     for (NSDictionary *dict in imgArray) {
-        SXDetailImgModel *imgModel = [SXDetailImgModel detailImgWithDict:dict];
+        SXDetailImgEntity *imgModel = [SXDetailImgEntity detailImgWithDict:dict];
         [temArray addObject:imgModel];
     }
     detail.img = temArray;

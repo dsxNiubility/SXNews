@@ -1,5 +1,5 @@
 //
-//  SXPhotosDetail.h
+//  SXPhotosDetailEntity.h
 //  81 - 网易新闻
 //
 //  Created by 董 尚先 on 15/2/3.
@@ -10,7 +10,7 @@
 #import "MJExtension.h"
 
 
-@interface SXPhotosDetail : NSObject
+@interface SXPhotosDetailEntity : NSObject
 
 // 图片URL
 @property (nonatomic, copy) NSString *timgurl;

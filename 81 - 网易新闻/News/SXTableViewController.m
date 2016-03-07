@@ -94,14 +94,8 @@
         
         NSArray *temArray = responseObject[key];
         
-        NSArray *arrayM = [SXNewsModel objectArrayWithKeyValuesArray:temArray];
+        NSArray *arrayM = [SXNewsEntity objectArrayWithKeyValuesArray:temArray];
         
-//        NSMutableArray *arrayM = [NSMutableArray arrayWithCapacity:temArray.count];
-//        [temArray enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-//            
-//            SXNewsModel *news = [SXNewsModel newsModelWithDict:obj];
-//            [arrayM addObject:news];
-//        }];
         if (type == 1) {
             self.arrayList = [arrayM mutableCopy];
             [self.tableView.mj_header endRefreshing];
@@ -125,7 +119,7 @@
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    SXNewsModel *newsModel = self.arrayList[indexPath.row];
+    SXNewsEntity *newsModel = self.arrayList[indexPath.row];
     
     NSString *ID = [SXNewsCell idForRow:newsModel];
     
@@ -144,7 +138,7 @@
 #pragma mark - /************************* tbv代理方法 ***************************/
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    SXNewsModel *newsModel = self.arrayList[indexPath.row];
+    SXNewsEntity *newsModel = self.arrayList[indexPath.row];
     
     CGFloat rowHeight = [SXNewsCell heightForRow:newsModel];
     

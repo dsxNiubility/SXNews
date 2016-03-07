@@ -9,7 +9,7 @@
 #import "SXWeatherDetailVC.h"
 #import "UIView+Frame.h"
 #import "SXWeatherItemView.h"
-#import "SXWeatherModel.h"
+#import "SXWeatherEntity.h"
 #import "UIImageView+WebCache.h"
 
 #define W [UIScreen mainScreen].bounds.size.width
@@ -41,7 +41,7 @@
 
     [self addWeather];
     for (int i = 1 ; i < 4 ; i++) {
-        SXWeatherDetailM *weatherDetail = self.weatherModel.detailArray[i];
+        SXWeatherDetailEntity *weatherDetail = self.weatherModel.detailArray[i];
         [self addItemWithTitle:weatherDetail.week weather:weatherDetail.climate wind:weatherDetail.wind T:weatherDetail.temperature index:i-1];
     }
     
@@ -75,16 +75,10 @@
     return self;  
 }
 
-//- (void)setWeatherModel:(SXWeatherModel *)weatherModel
-//{
-//    _weatherModel = weatherModel;
-//
-//}
-
 - (void)addWeather
 {
     
-    SXWeatherDetailM *weatherDetail = self.weatherModel.detailArray[0];
+    SXWeatherDetailEntity *weatherDetail = self.weatherModel.detailArray[0];
     
     NSMutableString *temp = [weatherDetail.temperature mutableCopy];
     [temp replaceOccurrencesOfString:@"C" withString:@"" options:NSCaseInsensitiveSearch range:NSMakeRange(0, temp.length)];

@@ -8,7 +8,7 @@
 
 #import "ViewController.h"
 #import "SXNetworkTools.h"
-#import "SXNewsModel.h"
+#import "SXNewsEntity.h"
 
 @interface ViewController ()
 
@@ -44,7 +44,7 @@
         [temArray enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
             
             NSLog(@"=====》%tu",idx);
-            SXNewsModel *news = [SXNewsModel newsModelWithDict:obj];
+            SXNewsEntity *news = [SXNewsEntity newsModelWithDict:obj];
             [arrayM addObject:news];
         }];
         self.arrayList = arrayM;

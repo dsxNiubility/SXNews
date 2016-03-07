@@ -1,5 +1,5 @@
 //
-//  SXWeatherBgM.h
+//  SXWeatherBgEntity.h
 //  81 - 网易新闻
 //
 //  Created by dongshangxian on 15/8/1.
@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface SXWeatherBgM : NSObject
+@interface SXWeatherBgEntity : NSObject
 
 @property(nonatomic,copy)NSString *nbg1;
 

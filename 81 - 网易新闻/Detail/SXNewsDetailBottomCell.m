@@ -71,7 +71,7 @@
     self.closeLbl.text = iSCloseing ? @"松手关闭当前页" : @"上拉关闭当前页" ;
 }
 
--(void)setReplyModel:(SXReplyModel *)replyModel
+-(void)setReplyModel:(SXReplyEntity *)replyModel
 {
     _replyModel = replyModel;
     self.userLbl.text = replyModel.name;

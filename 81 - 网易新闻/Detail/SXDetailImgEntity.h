@@ -1,5 +1,5 @@
 //
-//  SXDetailImgModel.h
+//  SXDetailImgEntity.h
 //  81 - 网易新闻
 //
 //  Created by 董 尚先 on 15-1-24.
@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface SXDetailImgModel : NSObject
+@interface SXDetailImgEntity : NSObject
 
 @property (nonatomic, copy) NSString *src;
 /** 图片尺寸 */

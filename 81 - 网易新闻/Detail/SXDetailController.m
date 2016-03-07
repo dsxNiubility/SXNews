@@ -7,11 +7,11 @@
 //
 
 #import "SXDetailController.h"
-#import "SXDetailModel.h"
-#import "SXDetailImgModel.h"
+#import "SXNewsDetailEntity.h"
+#import "SXDetailImgEntity.h"
 #import "SXHTTPManager.h"
 
-#import "SXReplyModel.h"
+#import "SXReplyEntity.h"
 #import "SXReplyViewController.h"
 #import "SXNewsDetailBottomCell.h"
 #import "SXSameNewsEntity.h"
@@ -21,7 +21,7 @@
 
 @interface SXDetailController ()<UIWebViewDelegate,UITableViewDataSource,UITableViewDelegate>
 @property (strong, nonatomic) UIWebView *webView;
-@property(nonatomic,strong) SXDetailModel *detailModel;
+@property(nonatomic,strong) SXNewsDetailEntity *detailModel;
 @property (weak, nonatomic) IBOutlet UIButton *replyCountBtn;
 @property (weak, nonatomic) IBOutlet UIButton *backBtn;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -84,7 +84,7 @@
     NSString *url = [NSString stringWithFormat:@"http://c.m.163.com/nc/article/%@/full.html",self.newsModel.docid];
     
     [[SXHTTPManager manager]GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        self.detailModel = [SXDetailModel detailWithDict:responseObject[self.newsModel.docid]];
+        self.detailModel = [SXNewsDetailEntity detailWithDict:responseObject[self.newsModel.docid]];
         if (self.newsModel.boardid.length < 1) {
             self.newsModel.boardid = self.detailModel.replyBoard;
         }
@@ -145,7 +145,7 @@
             
             for (int i = 0; i < dictarray.count; i++) {
                 NSDictionary *dict = dictarray[i][@"1"];
-                SXReplyModel *replyModel = [[SXReplyModel alloc]init];
+                SXReplyEntity *replyModel = [[SXReplyEntity alloc]init];
                 replyModel.name = dict[@"n"];
                 if (replyModel.name == nil) {
                     replyModel.name = @"火星网友";
@@ -191,7 +191,7 @@
         [body appendString:self.detailModel.body];
     }
     // 遍历img
-    for (SXDetailImgModel *detailImgModel in self.detailModel.img) {
+    for (SXDetailImgEntity *detailImgModel in self.detailModel.img) {
         NSMutableString *imgHtml = [NSMutableString string];
     
     // 设置img的div
@@ -344,7 +344,7 @@
         }
     }else if (indexPath.section == 2){
         if (indexPath.row > 0) {
-            SXNewsModel *model = [[SXNewsModel alloc]init];
+            SXNewsEntity *model = [[SXNewsEntity alloc]init];
             model.docid = [self.sameNews[indexPath.row] id];
             
             UIStoryboard *sb = [UIStoryboard storyboardWithName:@"News" bundle:nil];

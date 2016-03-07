@@ -11,7 +11,7 @@
 #import "NSString+Base64.h"
 #import "SXSearchListEntity.h"
 #import "SXSearchListCell.h"
-#import "SXNewsModel.h"
+#import "SXNewsEntity.h"
 #import "SXDetailController.h"
 
 @interface SXSearchPage ()<UITableViewDataSource,UITableViewDelegate,UISearchBarDelegate>
@@ -157,7 +157,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    SXNewsModel *model = [[SXNewsModel alloc]init];
+    SXNewsEntity *model = [[SXNewsEntity alloc]init];
     model.docid = [self.searchListArray[indexPath.row] docid];
     
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"News" bundle:nil];

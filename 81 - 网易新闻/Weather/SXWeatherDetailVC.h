@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-@class SXWeatherModel;
+@class SXWeatherEntity;
 
 @interface SXWeatherDetailVC : UIViewController
 
-@property(nonatomic,strong)SXWeatherModel *weatherModel;
+@property(nonatomic,strong)SXWeatherEntity *weatherModel;
 @property (weak, nonatomic) IBOutlet UIImageView *bgImg;
 @end

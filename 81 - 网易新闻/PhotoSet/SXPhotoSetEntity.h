@@ -1,5 +1,5 @@
 //
-//  SXPhotoSet.h
+//  SXPhotoSetEntity.h
 //  81 - 网易新闻
 //
 //  Created by 董 尚先 on 15/2/3.
@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface SXPhotoSet : NSObject
+@interface SXPhotoSetEntity : NSObject
 
 // postID
 @property (nonatomic, copy) NSString *postid;
@@ -30,7 +30,7 @@
 // 编辑
 @property (nonatomic, copy) NSString *creator;
 
-/** 里面装的是SXPhotosDetail对象*/
+/** 里面装的是SXPhotosDetailEntity对象*/
 @property (nonatomic, strong) NSArray *photos;
 @property (nonatomic, copy) NSString *reporter;
 // 标题

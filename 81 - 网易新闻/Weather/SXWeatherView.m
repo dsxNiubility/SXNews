@@ -7,7 +7,7 @@
 //
 
 #import "SXWeatherView.h"
-#import "SXWeatherModel.h"
+#import "SXWeatherEntity.h"
 #import "UIView+Frame.h"
 #import "SXEasyMacro.h"
 
@@ -66,11 +66,11 @@
 
 }
 
-- (void)setWeatherModel:(SXWeatherModel *)weatherModel
+- (void)setWeatherModel:(SXWeatherEntity *)weatherModel
 {
     _weatherModel = weatherModel;
     self.nowTempLbl.text = [NSString stringWithFormat:@"%d",weatherModel.rt_temperature];
-    SXWeatherDetailM *weatherDetail = weatherModel.detailArray[0];
+    SXWeatherDetailEntity *weatherDetail = weatherModel.detailArray[0];
     
     NSMutableString *temp = [weatherDetail.temperature mutableCopy];
     [temp replaceOccurrencesOfString:@"C" withString:@"" options:NSCaseInsensitiveSearch range:NSMakeRange(0, temp.length)];

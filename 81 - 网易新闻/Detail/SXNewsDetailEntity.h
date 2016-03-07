@@ -1,5 +1,5 @@
 //
-//  SXDetailModel.h
+//  SXNewsDetailEntity.h
 //  81 - 网易新闻
 //
 //  Created by 董 尚先 on 15-1-24.
@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface SXDetailModel : NSObject
+@interface SXNewsDetailEntity : NSObject
 
 /** 新闻标题 */
 @property (nonatomic, copy) NSString *title;

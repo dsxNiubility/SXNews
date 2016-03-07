@@ -1,5 +1,5 @@
 //
-//  SXReplyModel.h
+//  SXReplyEntity.h
 //  81 - 网易新闻
 //
 //  Created by 董 尚先 on 15/2/9.
@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface SXReplyModel : NSObject
+@interface SXReplyEntity : NSObject
 
 /** 用户的姓名 */
 @property(nonatomic,copy) NSString *name;
