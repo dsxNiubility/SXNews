@@ -17,7 +17,7 @@
 #import "SXSimilarNewsEntity.h"
 #import "SXSearchPage.h"
 
-#define NewsDetailControllerClose (self.tableView.contentOffset.y - (self.tableView.contentSize.height - SXSCREEN_H + 55) > (100 - 54))
+#define kNewsDetailControllerClose (self.tableView.contentOffset.y - (self.tableView.contentSize.height - SXSCREEN_H + 55) > (100 - 54))
 
 @interface SXDetailPage ()<UIWebViewDelegate,UITableViewDataSource,UITableViewDelegate>
 @property (strong, nonatomic) UIWebView *webView;
@@ -41,7 +41,7 @@
 
 @implementation SXDetailPage
 
-
+#pragma mark - **************** lazy
 - (NSMutableArray *)replyModels
 {
     if (_replyModels == nil) {
@@ -69,17 +69,10 @@
     return _webView;
 }
 
-#pragma mark - ******************** 返回按钮
-- (IBAction)backBtn:(id)sender {
-    [self.navigationController popViewControllerAnimated:YES];
-//    [self.navigationController setNavigationBarHidden:NO animated:YES];
-}
 
-#pragma mark - ******************** 首次加载
+#pragma mark - ******************** lifecycle
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-//    self.webView = [[UIWebView alloc]initWithFrame:CGRectMake(0, 0, SXSCREEN_W, 300)];
     self.webView.delegate = self;
     NSString *url = [NSString stringWithFormat:@"http://c.m.163.com/nc/article/%@/full.html",self.newsModel.docid];
     
@@ -111,60 +104,36 @@
         NSLog(@"failure %@",error);
     }];
     self.automaticallyAdjustsScrollViewInsets = NO;
-//  http://comment.api.163.com/api/json/post/list/new/hot/ent2_bbs/AI1O4EEK00032DGD/0/10/10/2/2
-//    NSString *replyURL = self.news[self.index][@"replyUrl"];
-//    NSLog(@"%@",self.news[1]);
-//    NSLog(@"%@----%@",self.newsModel.boardid,docID);
-// 假数据
-//    NSString *url2 = @"http://comment.api.163.com/api/json/post/list/new/hot/photoview_bbs/PHOT1ODB009654GK/0/10/10/2/2";
 }
+
 - (void)viewWillAppear:(BOOL)animated
 {
     [self.navigationController setNavigationBarHidden:YES animated:YES];
     self.tabBarController.tabBar.hidden = YES;
 }
 
-//- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-//{
-//    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-//    if (self) {
-//        self.hidesBottomBarWhenPushed=YES;
-//    }
-//    return self;
-//}
-
-
-/** 提前把评论的请求也发出去 得到评论的信息 */
-- (void)sendRequestWithUrl2:(NSString *)url
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    [[SXHTTPManager manager]GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, NSDictionary *responseObject) {
-        
-        if (responseObject[@"hotPosts"] != [NSNull null]) {
-            NSArray *dictarray = responseObject[@"hotPosts"];
-            //        NSLog(@"%ld",dictarray.count);
-            
-            for (int i = 0; i < dictarray.count; i++) {
-                NSDictionary *dict = dictarray[i][@"1"];
-                SXReplyEntity *replyModel = [[SXReplyEntity alloc]init];
-                replyModel.name = dict[@"n"];
-                if (replyModel.name == nil) {
-                    replyModel.name = @"火星网友";
-                }
-                replyModel.address = dict[@"f"];
-                replyModel.say = dict[@"b"];
-                replyModel.suppose = dict[@"v"];
-                replyModel.icon = dict[@"timg"];
-                replyModel.rtime = dict[@"t"];
-                [self.replyModels addObject:replyModel];
-            }
-        }
-        
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"failure %@",error);
-    }];
+    SXReplyPage *replyvc = segue.destinationViewController;
+    replyvc.replys = self.replyModels;
+    
+    if ([self.navigationController respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
+        self.navigationController.interactivePopGestureRecognizer.delegate = nil;
+    }
+    
+    [[NSNotificationCenter defaultCenter]postNotification:[NSNotification notificationWithName:@"contentStart" object:nil]];
 }
 
-#pragma mark - ******************** 拼接html语言
+- (IBAction)backBtn:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (void)dealloc
+{
+    NSLog(@"%s",__func__);
+}
+
+#pragma mark - ******************** webView + html
 - (void)showInWebView
 {
     NSMutableString *html = [NSMutableString string];
@@ -190,18 +159,14 @@
     if (self.detailModel.body != nil) {
         [body appendString:self.detailModel.body];
     }
-    // 遍历img
     for (SXDetailImgEntity *detailImgModel in self.detailModel.img) {
         NSMutableString *imgHtml = [NSMutableString string];
-    
-    // 设置img的div
-    [imgHtml appendString:@"<div class=\"img-parent\">"];
-    
-    // 数组存放被切割的像素
+        // 设置img的div
+        [imgHtml appendString:@"<div class=\"img-parent\">"];
         NSArray *pixel = [detailImgModel.pixel componentsSeparatedByString:@"*"];
         CGFloat width = [[pixel firstObject]floatValue];
         CGFloat height = [[pixel lastObject]floatValue];
-    // 判断是否超过最大宽度
+        // 判断是否超过最大宽度
         CGFloat maxWidth = [UIScreen mainScreen].bounds.size.width * 0.96;
         if (width > maxWidth) {
             height = maxWidth / width * height;
@@ -209,18 +174,15 @@
         }
         
         NSString *onload = @"this.onclick = function() {"
-                            "  window.location.href = 'sx:src=' +this.src;"
-                                    "};";
+        "  window.location.href = 'sx:src=' +this.src;"
+        "};";
         [imgHtml appendFormat:@"<img onload=\"%@\" width=\"%f\" height=\"%f\" src=\"%@\">",onload,width,height,detailImgModel.src];
-    // 结束标记
-    [imgHtml appendString:@"</div>"];
-    // 替换标记
+        [imgHtml appendString:@"</div>"];
         [body replaceOccurrencesOfString:detailImgModel.ref withString:imgHtml options:NSCaseInsensitiveSearch range:NSMakeRange(0, body.length)];
     }
     return body;
 }
 
-#pragma mark - ******************** 将发出通知时调用
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
 {
     NSString *url = request.URL.absoluteString;
@@ -240,38 +202,7 @@
     [self.tableView reloadData];
 }
 
-#pragma mark - ******************** 保存到相册方法
-- (void)savePictureToAlbum:(NSString *)src
-{
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示" message:@"确定要保存到相册吗？" preferredStyle:UIAlertControllerStyleActionSheet];
-    
-    [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
-    [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
-        
-        NSURLCache *cache =[NSURLCache sharedURLCache];
-        NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:src]];
-        NSData *imgData = [cache cachedResponseForRequest:request].data;
-        UIImage *image = [UIImage imageWithData:imgData];
-        UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);
-    }]];
-    
-    
-    [self presentViewController:alert animated:YES completion:nil];
-}
-
-#pragma mark - ******************** 即将跳转时
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    SXReplyPage *replyvc = segue.destinationViewController;
-    replyvc.replys = self.replyModels;
-    
-    if ([self.navigationController respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
-        self.navigationController.interactivePopGestureRecognizer.delegate = nil;
-    }
-    
-    [[NSNotificationCenter defaultCenter]postNotification:[NSNotification notificationWithName:@"contentStart" object:nil]];
-}
-
+#pragma mark - **************** tableView
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 3;
@@ -425,14 +356,13 @@
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
     if (self.closeCell) {
-        self.closeCell.iSCloseing = NewsDetailControllerClose;
+        self.closeCell.iSCloseing = kNewsDetailControllerClose;
     }
 }
 
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
 {
-//    NSLog(@"松手了%f--%f",self.tableView.contentOffset.y,self.tableView.contentSize.height - SXSCREEN_H + 55);
-    if (NewsDetailControllerClose) {
+    if (kNewsDetailControllerClose) {
         UIImageView *imgV =[[UIImageView alloc]initWithFrame:CGRectMake(0, 0, SXSCREEN_W, SXSCREEN_H)];
         imgV.image = [self getImage];
         UIWindow *window = [UIApplication sharedApplication].keyWindow;
@@ -448,10 +378,34 @@
     }
 }
 
-
-- (void)dealloc
+#pragma mark - **************** other
+// 提前把评论的请求也发出去 得到评论的信息
+- (void)sendRequestWithUrl2:(NSString *)url
 {
-    NSLog(@"%s",__func__);
+    [[SXHTTPManager manager]GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, NSDictionary *responseObject) {
+        
+        if (responseObject[@"hotPosts"] != [NSNull null]) {
+            NSArray *dictarray = responseObject[@"hotPosts"];
+            
+            for (int i = 0; i < dictarray.count; i++) {
+                NSDictionary *dict = dictarray[i][@"1"];
+                SXReplyEntity *replyModel = [[SXReplyEntity alloc]init];
+                replyModel.name = dict[@"n"];
+                if (replyModel.name == nil) {
+                    replyModel.name = @"火星网友";
+                }
+                replyModel.address = dict[@"f"];
+                replyModel.say = dict[@"b"];
+                replyModel.suppose = dict[@"v"];
+                replyModel.icon = dict[@"timg"];
+                replyModel.rtime = dict[@"t"];
+                [self.replyModels addObject:replyModel];
+            }
+        }
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"failure %@",error);
+    }];
 }
 
 - (UIView *)addKeywordButton
@@ -483,6 +437,7 @@
     [self.navigationController pushViewController:sp animated:YES];
 }
 
+// 截图用于做上划返回
 - (UIImage *)getImage {
     UIGraphicsBeginImageContextWithOptions(CGSizeMake(SXSCREEN_W, SXSCREEN_H), NO, 1.0);
     [self.view.layer renderInContext:UIGraphicsGetCurrentContext()];
@@ -491,5 +446,23 @@
     return image;
 }
 
+// 将图片保存到相册
+- (void)savePictureToAlbum:(NSString *)src
+{
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示" message:@"确定要保存到相册吗？" preferredStyle:UIAlertControllerStyleActionSheet];
+    
+    [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
+    [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
+        
+        NSURLCache *cache =[NSURLCache sharedURLCache];
+        NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:src]];
+        NSData *imgData = [cache cachedResponseForRequest:request].data;
+        UIImage *image = [UIImage imageWithData:imgData];
+        UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);
+    }]];
+    
+    
+    [self presentViewController:alert animated:YES completion:nil];
+}
 
 @end
