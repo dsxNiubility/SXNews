@@ -58,6 +58,8 @@
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.smallScrollView.showsHorizontalScrollIndicator = NO;
     self.smallScrollView.showsVerticalScrollIndicator = NO;
+    self.smallScrollView.scrollsToTop = NO;
+    self.bigScrollView.scrollsToTop = NO;
     self.bigScrollView.delegate = self;
     
     [self addController];
@@ -173,8 +175,22 @@
     
     [self.bigScrollView setContentOffset:offset animated:YES];
     
-    
+    [self setScrollToTopWithTableViewIndex:titlelable.tag];
 }
+
+#pragma mark - ScrollToTop
+
+- (void)setScrollToTopWithTableViewIndex:(NSInteger)index
+{
+    for (SXTableViewController *sxtvc in self.childViewControllers) {
+        if (sxtvc.tableView.scrollsToTop) {
+            sxtvc.tableView.scrollsToTop = NO;
+        }
+    }
+    SXTableViewController *vc = self.childViewControllers[index];
+    vc.tableView.scrollsToTop = YES;
+}
+
 
 #pragma mark - ******************** scrollView代理方法
 
@@ -208,6 +224,8 @@
             temlabel.scale = 0.0;
         }
     }];
+    
+    [self setScrollToTopWithTableViewIndex:index];
     
     if (newsVc.view.superview) return;
     
