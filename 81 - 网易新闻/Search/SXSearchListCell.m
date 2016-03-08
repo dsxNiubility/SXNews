@@ -34,19 +34,12 @@
 - (void)setModel:(SXSearchListEntity *)model
 {
     _model = model;
-    
     NSMutableString *mstring = [model.title mutableCopy];
     [mstring replaceOccurrencesOfString:@"<em>" withString:@"<" options:NSCaseInsensitiveSearch range:NSMakeRange(0, mstring.length)];
     [mstring replaceOccurrencesOfString:@"</em>" withString:@">" options:NSCaseInsensitiveSearch range:NSMakeRange(0, mstring.length)];
     
     [self.titleLbl setColorText:mstring];
     self.timeLbl.text = model.ptime;
-}
-
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
 }
 
 @end

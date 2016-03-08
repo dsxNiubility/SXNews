@@ -7,11 +7,7 @@
 //
 
 #import "SXSearchPage.h"
-#import "UIView+Frame.h"
-//#import "NSString+Base64.h"
-#import "SXSearchListEntity.h"
 #import "SXSearchListCell.h"
-#import "SXNewsEntity.h"
 #import "SXDetailPage.h"
 #import "SXSearchViewModel.h"
 
@@ -32,6 +28,7 @@
 
 @implementation SXSearchPage
 
+#pragma mark - **************** lifecycle
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -40,35 +37,15 @@
     self.maxRight = 0;
     self.maxBottom = 10;
     self.hotWordView.contentSize = self.hotWordView.frame.size;
-
     self.hotWordView.showsHorizontalScrollIndicator = NO;
     self.hotWordView.showsVerticalScrollIndicator = NO;
-    
     if (self.keyword.length > 0) {
         self.searchBar.text = self.keyword;
         [self searchBarSearchButtonClicked:self.searchBar];
     }
     
     RAC(self.viewModel,searchText) = RACObserve(self.searchBar , text);
-    
-    @weakify(self);
-    [[self.viewModel.fetchHotWordCommand execute:nil]subscribeNext:^(NSArray *x) {
-        @strongify(self);
-        self.hotwordArray = x;
-        [self addHotWordInHotWordView];
-    } error:^(NSError *error) {
-        // 错误暂时先不管了
-    }];
-}
-- (IBAction)cancelBtnClick:(UIButton *)sender {
-    [self.navigationController popViewControllerAnimated:YES];
-}
-
-- (SXSearchViewModel *)viewModel{
-    if (!_viewModel) {
-        _viewModel = [[SXSearchViewModel alloc]init];
-    }
-    return _viewModel;
+    [self requestForHotWord];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -82,6 +59,16 @@
     self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
 }
 
+#pragma mark - **************** lazy
+- (SXSearchViewModel *)viewModel
+{
+    if (!_viewModel) {
+        _viewModel = [[SXSearchViewModel alloc]init];
+    }
+    return _viewModel;
+}
+
+#pragma mark - **************** tableView
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return self.searchListArray.count;
@@ -100,6 +87,18 @@
     return cell;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    SXNewsEntity *model = [[SXNewsEntity alloc]init];
+    model.docid = [self.searchListArray[indexPath.row] docid];
+    
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"News" bundle:nil];
+    SXDetailPage *devc = (SXDetailPage *)[sb instantiateViewControllerWithIdentifier:@"SXDetailPage"];
+    devc.newsModel = model;
+    [self.navigationController pushViewController:devc animated:YES];
+}
+
+#pragma mark - **************** searchBar
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar;
 {
     NSLog(@"%@",searchBar.text);
@@ -115,7 +114,7 @@
     } error:^(NSError *error) {
         // 暂时不作操作
     }];
-
+    
 }
 
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
@@ -124,6 +123,19 @@
         self.tableView.hidden = YES;
         self.beginView.hidden = NO;
     }
+}
+
+#pragma mark - **************** other
+- (void)requestForHotWord
+{
+    @weakify(self);
+    [[self.viewModel.fetchHotWordCommand execute:nil]subscribeNext:^(NSArray *x) {
+        @strongify(self);
+        self.hotwordArray = x;
+        [self addHotWordInHotWordView];
+    } error:^(NSError *error) {
+        // 错误暂时先不管了
+    }];
 }
 
 - (void)addHotWordInHotWordView
@@ -160,16 +172,8 @@
     }
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    SXNewsEntity *model = [[SXNewsEntity alloc]init];
-    model.docid = [self.searchListArray[indexPath.row] docid];
-    
-    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"News" bundle:nil];
-    SXDetailPage *devc = (SXDetailPage *)[sb instantiateViewControllerWithIdentifier:@"SXDetailPage"];
-    devc.newsModel = model;
-    [self.navigationController pushViewController:devc animated:YES];
-    
+- (IBAction)cancelBtnClick:(UIButton *)sender {
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)buttonClick:(UIButton *)sender
