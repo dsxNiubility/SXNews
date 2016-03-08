@@ -7,7 +7,6 @@
 //
 
 #import "SXDetailPage.h"
-#import "SXNewsDetailEntity.h"
 #import "SXDetailImgEntity.h"
 #import "SXHTTPManager.h"
 
@@ -16,6 +15,7 @@
 #import "SXNewsDetailBottomCell.h"
 #import "SXSimilarNewsEntity.h"
 #import "SXSearchPage.h"
+#import "SXNewsDetailViewModel.h"
 
 #define kNewsDetailControllerClose (self.tableView.contentOffset.y - (self.tableView.contentSize.height - SXSCREEN_H + 55) > (100 - 54))
 
@@ -35,6 +35,8 @@
 @property(nonatomic,strong)NSArray *keywordSearch;
 
 @property(nonatomic,strong) NSArray *news;
+
+@property(nonatomic,strong)SXNewsDetailViewModel *viewModel;
 
 // http://c.m.163.com/nc/article/AHHQIG5B00014JB6/full.html
 @end
@@ -69,40 +71,38 @@
     return _webView;
 }
 
+- (SXNewsDetailViewModel *)viewModel
+{
+    if (!_viewModel) {
+        _viewModel = [[SXNewsDetailViewModel alloc]init];
+    }
+    return _viewModel;
+}
 
 #pragma mark - ******************** lifecycle
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.webView.delegate = self;
-    NSString *url = [NSString stringWithFormat:@"http://c.m.163.com/nc/article/%@/full.html",self.newsModel.docid];
     
-    [[SXHTTPManager manager]GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        self.detailModel = [SXNewsDetailEntity detailWithDict:responseObject[self.newsModel.docid]];
-        if (self.newsModel.boardid.length < 1) {
-            self.newsModel.boardid = self.detailModel.replyBoard;
-        }
-        self.newsModel.replyCount = @(self.detailModel.replyCount);
-        [self showInWebView];
-        // 真数据
-        NSString *docID = self.newsModel.docid;
-        NSString *url2 = [NSString stringWithFormat:@"http://comment.api.163.com/api/json/post/list/new/hot/%@/%@/0/10/10/2/2",self.newsModel.boardid,docID];
-        [self sendRequestWithUrl2:url2];
-        
-        self.sameNews = [SXSimilarNewsEntity objectArrayWithKeyValuesArray:responseObject[self.newsModel.docid][@"relative_sys"]];
-        self.keywordSearch = responseObject[self.newsModel.docid][@"keyword_search"];
-        
-        CGFloat count =  [self.newsModel.replyCount intValue];
-        NSString *displayCount;
-        if (count > 10000) {
-            displayCount = [NSString stringWithFormat:@"%.1f万跟帖",count/10000];
-        }else{
-            displayCount = [NSString stringWithFormat:@"%.0f跟帖",count];
-        }
-        [self.replyCountBtn setTitle:displayCount forState:UIControlStateNormal];
-        
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"failure %@",error);
+    RAC(self.viewModel,newsModel) = RACObserve(self, newsModel);
+
+    // 以后可以吧控制器里的属性干掉，下面直接赋值
+    RAC(self, detailModel) = RACObserve(self.viewModel, detailModel);
+    RAC(self, sameNews) = RACObserve(self.viewModel, sameNews);
+    RAC(self, keywordSearch) = RACObserve(self.viewModel, keywordSearch);
+    RAC(self, replyModels) = RACObserve(self.viewModel, replyModels);
+    
+    [[RACObserve(self.viewModel, replyCountBtnTitle)skip:1]subscribeNext:^(NSString *x) {
+        [self.replyCountBtn setTitle:x forState:UIControlStateNormal];
     }];
+    
+    [[self.viewModel.fetchNewsDetailCommand execute:nil]subscribeError:^(NSError *error) {
+        // 暂时不做什么操作
+    } completed:^{
+        [self showInWebView];
+        [self requestForFeedbackList];
+    }];
+    
     self.automaticallyAdjustsScrollViewInsets = NO;
 }
 
@@ -254,7 +254,6 @@
     return 15;
 }
 
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if (section == 0) {
@@ -380,32 +379,10 @@
 
 #pragma mark - **************** other
 // 提前把评论的请求也发出去 得到评论的信息
-- (void)sendRequestWithUrl2:(NSString *)url
+- (void)requestForFeedbackList
 {
-    [[SXHTTPManager manager]GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, NSDictionary *responseObject) {
-        
-        if (responseObject[@"hotPosts"] != [NSNull null]) {
-            NSArray *dictarray = responseObject[@"hotPosts"];
-            
-            for (int i = 0; i < dictarray.count; i++) {
-                NSDictionary *dict = dictarray[i][@"1"];
-                SXReplyEntity *replyModel = [[SXReplyEntity alloc]init];
-                replyModel.name = dict[@"n"];
-                if (replyModel.name == nil) {
-                    replyModel.name = @"火星网友";
-                }
-                replyModel.address = dict[@"f"];
-                replyModel.say = dict[@"b"];
-                replyModel.suppose = dict[@"v"];
-                replyModel.icon = dict[@"timg"];
-                replyModel.rtime = dict[@"t"];
-                [self.replyModels addObject:replyModel];
-            }
-        }
-        
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"failure %@",error);
-    }];
+    [self.viewModel.fetchFeedbackCommand execute:nil];
+    // 成功和失败暂时都不做什么操作，所以subscribe就不写了
 }
 
 - (UIView *)addKeywordButton
@@ -422,7 +399,9 @@
         [button sizeToFit];
         button.width += 20;
         button.height = 35;
-        [button addTarget:self action:@selector(keywordButtonClick:) forControlEvents:UIControlEventTouchUpInside];
+        
+        [self rac_liftSelector:@selector(keywordButtonClick:) withSignalsFromArray:@[[button rac_signalForControlEvents:UIControlEventTouchUpInside]]];
+ 
         maxRight = button.x + button.width + 10;
         [view addSubview:button];
     }
