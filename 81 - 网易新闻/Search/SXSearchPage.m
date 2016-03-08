@@ -8,11 +8,12 @@
 
 #import "SXSearchPage.h"
 #import "UIView+Frame.h"
-#import "NSString+Base64.h"
+//#import "NSString+Base64.h"
 #import "SXSearchListEntity.h"
 #import "SXSearchListCell.h"
 #import "SXNewsEntity.h"
 #import "SXDetailPage.h"
+#import "SXSearchViewModel.h"
 
 @interface SXSearchPage ()<UITableViewDataSource,UITableViewDelegate,UISearchBarDelegate>
 
@@ -21,12 +22,11 @@
 @property (weak, nonatomic) IBOutlet UIButton *cancelBtn;
 @property (weak, nonatomic) IBOutlet UIView *beginView;
 @property (weak, nonatomic) IBOutlet UIScrollView *hotWordView;
-
 @property(nonatomic,assign)CGFloat maxRight;
 @property(nonatomic,assign)CGFloat maxBottom;
-
 @property(nonatomic,strong)NSArray<SXSearchListEntity *> *searchListArray;
 @property(nonatomic,strong)NSArray *hotwordArray;
+@property(nonatomic,strong)SXSearchViewModel *viewModel;
 
 @end
 
@@ -34,7 +34,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
     
     self.tableView.rowHeight = 80;
     self.hotWordView.bounces = YES;
@@ -50,16 +49,26 @@
         [self searchBarSearchButtonClicked:self.searchBar];
     }
     
-    NSString *url = [NSString stringWithFormat:@"http://c.3g.163.com/nc/search/hotWord.html"];
-    [[SXHTTPManager manager]GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, NSDictionary* responseObject) {
-        self.hotwordArray = responseObject[@"hotWordList"];
+    RAC(self.viewModel,searchText) = RACObserve(self.searchBar , text);
+    
+    @weakify(self);
+    [[self.viewModel.fetchHotWordCommand execute:nil]subscribeNext:^(NSArray *x) {
+        @strongify(self);
+        self.hotwordArray = x;
         [self addHotWordInHotWordView];
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        
+    } error:^(NSError *error) {
+        // 错误暂时先不管了
     }];
 }
 - (IBAction)cancelBtnClick:(UIButton *)sender {
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (SXSearchViewModel *)viewModel{
+    if (!_viewModel) {
+        _viewModel = [[SXSearchViewModel alloc]init];
+    }
+    return _viewModel;
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -96,20 +105,17 @@
     NSLog(@"%@",searchBar.text);
     [searchBar resignFirstResponder];
     
-    NSString *searchKeyWord = [searchBar.text base64encode];
-    NSString *url = [NSString stringWithFormat:@"http://c.3g.163.com/search/comp/MA==/20/%@.html",searchKeyWord];
-    
-//    __weak SXSearchPage *weakSelf = self;
-    [[SXHTTPManager manager]GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, NSDictionary* responseObject) {
-        NSArray *dictArray = responseObject[@"doc"][@"result"];
-        self.searchListArray = [SXSearchListEntity objectArrayWithKeyValuesArray:dictArray];
+    @weakify(self);
+    [[self.viewModel.fetchSearchResultListArray execute:nil]subscribeNext:^(NSArray *x) {
+        @strongify(self);
+        self.searchListArray = [SXSearchListEntity objectArrayWithKeyValuesArray:x];
         [self.tableView reloadData];
         self.beginView.hidden = YES;
         self.tableView.hidden = NO;
-        
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"%@",error.userInfo);
+    } error:^(NSError *error) {
+        // 暂时不作操作
     }];
+
 }
 
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
@@ -133,7 +139,6 @@
     [button setTitle:title forState:UIControlStateNormal];
     [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     button.titleLabel.font = [UIFont systemFontOfSize:15];
-//    [button setBackgroundImage:[UIImage imageNamed:@"night_contentview_votebutton"] forState:UIControlStateNormal];
     button.layer.borderWidth = 0.5;
     button.layer.borderColor = SXRGBColor(220, 220, 220).CGColor;
     button.layer.cornerRadius = 2;
