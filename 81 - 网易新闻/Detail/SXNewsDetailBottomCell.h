@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "SXReplyEntity.h"
-#import "SXSameNewsEntity.h"
+#import "SXSimilarNewsEntity.h"
 
 @interface SXNewsDetailBottomCell : UITableViewCell
 
@@ -16,7 +16,7 @@
 
 @property(nonatomic,strong)SXReplyEntity *replyModel;
 
-@property(nonatomic,strong)SXSameNewsEntity *sameNewsEntity;
+@property(nonatomic,strong)SXSimilarNewsEntity *sameNewsEntity;
 
 @property(nonatomic,assign)BOOL iSCloseing;
 

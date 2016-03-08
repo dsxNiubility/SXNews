@@ -49,6 +49,7 @@
     }];
 }
 
+#pragma mark - **************** 下面相当于service的代码
 - (void)requestForHotWordSuccess:(void (^)(NSArray *array))success
                          failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure{
     NSString *url = [NSString stringWithFormat:@"http://c.3g.163.com/nc/search/hotWord.html"];

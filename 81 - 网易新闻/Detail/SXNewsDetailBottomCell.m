@@ -90,7 +90,7 @@
     self.iconImg.layer.shouldRasterize = YES;
 }
 
-- (void)setSameNewsEntity:(SXSameNewsEntity *)sameNewsEntity
+- (void)setSameNewsEntity:(SXSimilarNewsEntity *)sameNewsEntity
 {
     _sameNewsEntity = sameNewsEntity;
     [self.newsIcon sd_setImageWithURL:[NSURL URLWithString:sameNewsEntity.imgsrc] placeholderImage:[UIImage imageNamed:@"303"]];

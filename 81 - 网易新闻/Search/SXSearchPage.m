@@ -159,7 +159,12 @@
     
     button.width += 15;
     button.height = 34 ;
-    [button addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchUpInside];
+
+    RACSignal *btnSignal = [[button rac_signalForControlEvents:UIControlEventTouchUpInside] map:^id(UIButton *btn) {
+        return btn.currentTitle;
+    }];
+    [self rac_liftSelector:@selector(buttonClick:) withSignalsFromArray:@[btnSignal]];
+    
     [self.hotWordView addSubview:button];
     self.maxRight = button.width + button.x + 10;
     
@@ -176,9 +181,9 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-- (void)buttonClick:(UIButton *)sender
+- (void)buttonClick:(NSString *)senderTitle
 {
-    self.searchBar.text = sender.titleLabel.text;
+    self.searchBar.text = senderTitle;
     [self searchBarSearchButtonClicked:self.searchBar];
 }
 

@@ -71,7 +71,7 @@
 		1DE822AC1C5875CC00E965C1 /* SXSearchListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DE822AA1C5875CC00E965C1 /* SXSearchListCell.xib */; };
 		1DE822B91C5B5C4A00E965C1 /* SXNewsDetailBottomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DE822B71C5B5C4A00E965C1 /* SXNewsDetailBottomCell.m */; };
 		1DE822BA1C5B5C4A00E965C1 /* SXNewsDetailBottomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DE822B81C5B5C4A00E965C1 /* SXNewsDetailBottomCell.xib */; };
-		1DE822C01C60577900E965C1 /* SXSameNewsEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DE822BF1C60577900E965C1 /* SXSameNewsEntity.m */; };
+		1DE822C01C60577900E965C1 /* SXSimilarNewsEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DE822BF1C60577900E965C1 /* SXSimilarNewsEntity.m */; };
 		E59CD3B44516224892254B99 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 444DF4EF638B7F11925A94D0 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -199,8 +199,8 @@
 		1DE822B61C5B5C4A00E965C1 /* SXNewsDetailBottomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SXNewsDetailBottomCell.h; sourceTree = "<group>"; };
 		1DE822B71C5B5C4A00E965C1 /* SXNewsDetailBottomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SXNewsDetailBottomCell.m; sourceTree = "<group>"; };
 		1DE822B81C5B5C4A00E965C1 /* SXNewsDetailBottomCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SXNewsDetailBottomCell.xib; sourceTree = "<group>"; };
-		1DE822BE1C60577900E965C1 /* SXSameNewsEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SXSameNewsEntity.h; sourceTree = "<group>"; };
-		1DE822BF1C60577900E965C1 /* SXSameNewsEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SXSameNewsEntity.m; sourceTree = "<group>"; };
+		1DE822BE1C60577900E965C1 /* SXSimilarNewsEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SXSimilarNewsEntity.h; sourceTree = "<group>"; };
+		1DE822BF1C60577900E965C1 /* SXSimilarNewsEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SXSimilarNewsEntity.m; sourceTree = "<group>"; };
 		36B590E04BD61018B424E360 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		444DF4EF638B7F11925A94D0 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F0C20E1664BC86106527F1E /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -353,8 +353,8 @@
 				1D0AC82B1A73B8AE00EEF963 /* SXDetailImgEntity.m */,
 				1D7B6F941A8903B4000DB2CE /* SXReplyEntity.h */,
 				1D7B6F951A8903B4000DB2CE /* SXReplyEntity.m */,
-				1DE822BE1C60577900E965C1 /* SXSameNewsEntity.h */,
-				1DE822BF1C60577900E965C1 /* SXSameNewsEntity.m */,
+				1DE822BE1C60577900E965C1 /* SXSimilarNewsEntity.h */,
+				1DE822BF1C60577900E965C1 /* SXSimilarNewsEntity.m */,
 			);
 			name = Entity;
 			sourceTree = "<group>";
@@ -759,7 +759,7 @@
 			files = (
 				1D25EA531C8D69EE009AFE2E /* ViewController.m in Sources */,
 				1D25EA511C8D69EE009AFE2E /* MJExtensionConfig.m in Sources */,
-				1DE822C01C60577900E965C1 /* SXSameNewsEntity.m in Sources */,
+				1DE822C01C60577900E965C1 /* SXSimilarNewsEntity.m in Sources */,
 				1D007F601B6D17B200EA119C /* SXWeatherBgEntity.m in Sources */,
 				1D6BE37B1A84B04600BF1AB7 /* SXNavController.m in Sources */,
 				1D882E3C1A81151C004C9C9A /* SXPhotosDetailEntity.m in Sources */,

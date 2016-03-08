@@ -14,7 +14,7 @@
 #import "SXReplyEntity.h"
 #import "SXReplyPage.h"
 #import "SXNewsDetailBottomCell.h"
-#import "SXSameNewsEntity.h"
+#import "SXSimilarNewsEntity.h"
 #import "SXSearchPage.h"
 
 #define NewsDetailControllerClose (self.tableView.contentOffset.y - (self.tableView.contentSize.height - SXSCREEN_H + 55) > (100 - 54))
@@ -95,7 +95,7 @@
         NSString *url2 = [NSString stringWithFormat:@"http://comment.api.163.com/api/json/post/list/new/hot/%@/%@/0/10/10/2/2",self.newsModel.boardid,docID];
         [self sendRequestWithUrl2:url2];
         
-        self.sameNews = [SXSameNewsEntity objectArrayWithKeyValuesArray:responseObject[self.newsModel.docid][@"relative_sys"]];
+        self.sameNews = [SXSimilarNewsEntity objectArrayWithKeyValuesArray:responseObject[self.newsModel.docid][@"relative_sys"]];
         self.keywordSearch = responseObject[self.newsModel.docid][@"keyword_search"];
         
         CGFloat count =  [self.newsModel.replyCount intValue];

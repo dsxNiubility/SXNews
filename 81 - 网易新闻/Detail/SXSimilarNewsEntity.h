@@ -1,5 +1,5 @@
 //
-//  SXSameNewsEntity.h
+//  SXSimilarNewsEntity.h
 //  81 - 网易新闻
 //
 //  Created by dongshangxian on 16/2/2.
@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface SXSameNewsEntity : NSObject
+@interface SXSimilarNewsEntity : NSObject
 
 @property(nonatomic,copy)NSString *title;
 
