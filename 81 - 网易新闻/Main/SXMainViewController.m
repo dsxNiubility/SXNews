@@ -36,6 +36,8 @@
 @property(nonatomic,strong)UIButton *rightItem;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *TopToTop;
 
+@property(nonatomic,strong)SXNewsTableViewPage *needScrollToTopPage;
+
 @end
 
 @implementation SXMainViewController
@@ -58,6 +60,8 @@
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.smallScrollView.showsHorizontalScrollIndicator = NO;
     self.smallScrollView.showsVerticalScrollIndicator = NO;
+    self.smallScrollView.scrollsToTop = NO;
+    self.bigScrollView.scrollsToTop = NO;
     self.bigScrollView.delegate = self;
     
     [self addController];
@@ -88,6 +92,7 @@
     NSLog(@"%@",NSStringFromCGRect(rightItem.frame));
     [rightItem setImage:[UIImage imageNamed:@"top_navigation_square"] forState:UIControlStateNormal];
     
+    self.needScrollToTopPage = self.childViewControllers[0];
     [self sendWeatherRequest];
 }
 
@@ -173,7 +178,16 @@
     
     [self.bigScrollView setContentOffset:offset animated:YES];
     
-    
+    [self setScrollToTopWithTableViewIndex:titlelable.tag];
+}
+
+#pragma mark - ScrollToTop
+
+- (void)setScrollToTopWithTableViewIndex:(NSInteger)index
+{
+    self.needScrollToTopPage.tableView.scrollsToTop = NO;
+    self.needScrollToTopPage = self.childViewControllers[index];
+    self.needScrollToTopPage.tableView.scrollsToTop = YES;
 }
 
 #pragma mark - ******************** scrollView代理方法
@@ -208,6 +222,8 @@
             temlabel.scale = 0.0;
         }
     }];
+    
+    [self setScrollToTopWithTableViewIndex:index];
     
     if (newsVc.view.superview) return;
     
