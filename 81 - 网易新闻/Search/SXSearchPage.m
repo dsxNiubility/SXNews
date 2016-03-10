@@ -10,6 +10,7 @@
 #import "SXSearchListCell.h"
 #import "SXDetailPage.h"
 #import "SXSearchViewModel.h"
+#import "SXNewsEntity.h"
 
 @interface SXSearchPage ()<UITableViewDataSource,UITableViewDelegate,UISearchBarDelegate>
 

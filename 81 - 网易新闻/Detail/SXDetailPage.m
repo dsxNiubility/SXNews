@@ -6,53 +6,31 @@
 //  Copyright (c) 2015年 ShangxianDante. All rights reserved.
 //
 
-#import "SXDetailPage.h"
-#import "SXDetailImgEntity.h"
-#import "SXHTTPManager.h"
-
-#import "SXReplyEntity.h"
-#import "SXReplyPage.h"
 #import "SXNewsDetailBottomCell.h"
-#import "SXSimilarNewsEntity.h"
-#import "SXSearchPage.h"
 #import "SXNewsDetailViewModel.h"
+#import "SXDetailImgEntity.h"
+#import "SXDetailPage.h"
+#import "SXSearchPage.h"
+#import "SXReplyPage.h"
 
 #define kNewsDetailControllerClose (self.tableView.contentOffset.y - (self.tableView.contentSize.height - SXSCREEN_H + 55) > (100 - 54))
 
 @interface SXDetailPage ()<UIWebViewDelegate,UITableViewDataSource,UITableViewDelegate>
 @property (strong, nonatomic) UIWebView *webView;
-//@property(nonatomic,strong) SXNewsDetailEntity *detailModel;
+
 @property (weak, nonatomic) IBOutlet UIButton *replyCountBtn;
 @property (weak, nonatomic) IBOutlet UIButton *backBtn;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @property(nonatomic,strong)SXNewsDetailBottomCell *closeCell;
-
-//@property(nonatomic,strong) NSMutableArray *replyModels;
-/** 相似新闻*/
-//@property(nonatomic,strong)NSArray *sameNews;
-/** 搜索关键字*/
-//@property(nonatomic,strong)NSArray *keywordSearch;
-
+@property(nonatomic,strong)SXNewsDetailViewModel *viewModel;
 @property(nonatomic,strong) NSArray *news;
 
-@property(nonatomic,strong)SXNewsDetailViewModel *viewModel;
-
-// http://c.m.163.com/nc/article/AHHQIG5B00014JB6/full.html
 @end
 
 @implementation SXDetailPage
 
 #pragma mark - **************** lazy
-//- (NSMutableArray *)replyModels
-//{
-//    if (_replyModels == nil) {
-//        _replyModels = [NSMutableArray array];
-//    }
-//    return _replyModels;
-//}
-
-
 - (NSArray *)news
 {
     if (_news == nil) {
@@ -85,33 +63,6 @@
     self.webView.delegate = self;
     
     RAC(self.viewModel,newsModel) = RACObserve(self, newsModel);
-
-    // 以后可以吧控制器里的属性干掉，下面直接赋值
-//    RAC(self, detailModel) = RACObserve(self.viewModel, detailModel);
-//    RAC(self, sameNews) = RACObserve(self.viewModel, sameNews);
-//    RAC(self, keywordSearch) = RACObserve(self.viewModel, keywordSearch);
-//    RAC(self, replyModels) = RACObserve(self.viewModel, replyModels);
-    
-//    [[[RACSignal combineLatest:@[RACObserve(self.viewModel, detailModel),RACObserve(self.viewModel, sameNews),RACObserve(self.viewModel, keywordSearch),RACObserve(self.viewModel, replyModels)]]reduceEach:^id{
-//        return @4;
-//    }]subscribeNext:^(id x) {
-//        NSLog(@"1111");
-//    } completed:^{
-//        NSLog(@"2222");
-//    }];
-    
-    
-//    [self rac_liftSelector:@selector(reloadTableViewA:B:C:D:) withSignalsFromArray:@[[RACObserve(self.viewModel, detailModel) map:^id(id value) {
-//        return @1;
-//    }],[RACObserve(self.viewModel, sameNews) map:^id(id value) {
-//        return @1;
-//    }],[RACObserve(self.viewModel, keywordSearch) map:^id(id value) {
-//        return @1;
-//    }],[RACObserve(self.viewModel, replyModels) map:^id(id value) {
-//        return @1;
-//    }]]];
-    
-    
     [[RACObserve(self.viewModel, replyCountBtnTitle)skip:1]subscribeNext:^(NSString *x) {
         [self.replyCountBtn setTitle:x forState:UIControlStateNormal];
     }];
@@ -226,11 +177,6 @@
 {
     self.webView.height = self.webView.scrollView.contentSize.height;
     [self.tableView reloadData];
-}
-
-- (void)reloadTableViewA:(id)a B:(id)b C:(id)c D:(id)d
-{
-    NSLog(@"---------0-0-");
 }
 
 #pragma mark - **************** tableView

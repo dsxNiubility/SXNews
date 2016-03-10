@@ -7,13 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "SXNewsEntity.h"
+@class SXNewsEntity;
 
 @interface SXDetailPage : UIViewController
 
 @property(nonatomic,strong) SXNewsEntity *newsModel;
-
 @property (nonatomic,assign) NSInteger index;
-
 
 @end
