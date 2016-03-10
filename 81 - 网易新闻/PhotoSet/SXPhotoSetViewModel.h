@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "SXNewsEntity.h"
 #import "SXPhotoSetEntity.h"
+#import "SXReplyEntity.h"
 
 @interface SXPhotoSetViewModel : NSObject
 
@@ -20,6 +21,10 @@
  *  按钮标题
  */
 @property(nonatomic,strong)NSString *replyCountBtnTitle;
+/**
+ *  评论列表
+ */
+@property(nonatomic,strong) NSMutableArray *replyModels;
 /**
  *  获取图集页数组命令
  */

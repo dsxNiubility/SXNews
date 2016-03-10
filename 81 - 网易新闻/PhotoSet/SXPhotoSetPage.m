@@ -78,30 +78,10 @@
     
     self.navigationController.navigationBar.backgroundColor = [UIColor yellowColor];
     
-    // 取出关键字
-//    NSString *one  = self.newsModel.photosetID;
-//    NSString *two = [one substringFromIndex:4];
-//    NSArray *three = [two componentsSeparatedByString:@"|"];
-//    
-//    CGFloat count =  [self.newsModel.replyCount intValue];
-//    NSString *displayCount;
-//    if (count > 10000) {
-//        displayCount = [NSString stringWithFormat:@"%.1f万跟帖",count/10000];
-//    }else{
-//        displayCount = [NSString stringWithFormat:@"%.0f跟帖",count];
-//    }
     
     RAC(self.viewModel, newsModel) = RACObserve(self, newsModel);
     RAC(self, photoSet) = [RACObserve(self.viewModel, photoSet)skip:1];
-    
-    [[RACObserve(self.viewModel, replyCountBtnTitle)skip:1]subscribeNext:^(NSString *x) {
-        [self.replayBtn setTitle:x forState:UIControlStateNormal];
-    }];
-    
-//    [self.replayBtn setTitle:displayCount forState:UIControlStateNormal];
-//    NSString *url = [NSString stringWithFormat:@"http://c.m.163.com/photo/api/set/%@/%@.json",[three firstObject],[three lastObject]];
-    // 发请求
-//    [self sendRequestWithUrl:url];
+    RAC(self, replyModels) = RACObserve(self.viewModel, replyModels);
     
     @weakify(self)
     [[self.viewModel.fetchPhotoSetCommand execute:nil]subscribeNext:^(SXPhotoSetEntity *x) {
@@ -110,10 +90,14 @@
         [self setImageViewWithModel:x];
     }];
     
-     //  http://comment.api.163.com/api/json/post/list/new/hot/tech_bbs/AI180I93000915BF/
-    NSString *url2 = @"http://comment.api.163.com/api/json/post/list/new/hot/photoview_bbs/PHOT1ODB009654GK/0/10/10/2/2";
-    [self sendRequestWithUrl2:url2];
-    }
+    [[RACObserve(self.viewModel, replyCountBtnTitle)skip:1]subscribeNext:^(NSString *x) {
+        @strongify(self)
+        [self.replayBtn setTitle:x forState:UIControlStateNormal];
+    }];
+    
+    [self.viewModel.fetchPhotoFeedbackCommand execute:nil];
+    
+}
 
 - (void)viewWillAppear:(BOOL)animated
 {
