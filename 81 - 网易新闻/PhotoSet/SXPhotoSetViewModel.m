@@ -67,14 +67,10 @@
 #pragma mark - **************** 下面相当于service的代码
 - (void)requestForPhotoSetSuccess:(void (^)(NSDictionary *result))success
                           failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure{
-    
     // 取出关键字
-//    NSString *one  = [self.newsModel.photosetID substringFromIndex:4];
-//    NSString *two = [one substringFromIndex:4];
     NSArray *parameters = [[self.newsModel.photosetID substringFromIndex:4] componentsSeparatedByString:@"|"];
     
     NSString *url = [NSString stringWithFormat:@"http://c.m.163.com/photo/api/set/%@/%@.json",[parameters firstObject],[parameters lastObject]];
-    
     
     CGFloat count =  [self.newsModel.replyCount intValue];
     if (count > 10000) {
@@ -82,7 +78,6 @@
     }else{
         self.replyCountBtnTitle = [NSString stringWithFormat:@"%.0f跟帖",count];
     }
-    
 
     [[SXHTTPManager manager]GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, NSDictionary *responseObject) {
         if (responseObject) {

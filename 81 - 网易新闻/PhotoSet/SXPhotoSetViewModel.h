@@ -7,9 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "SXNewsEntity.h"
+#import "SXPhotosDetailEntity.h"
 #import "SXPhotoSetEntity.h"
 #import "SXReplyEntity.h"
+#import "SXNewsEntity.h"
 
 @interface SXPhotoSetViewModel : NSObject
 

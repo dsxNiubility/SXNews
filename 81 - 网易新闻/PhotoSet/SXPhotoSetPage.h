@@ -11,4 +11,5 @@
 
 @interface SXPhotoSetPage : UIViewController
 @property(nonatomic,strong) SXNewsEntity *newsModel;
+
 @end

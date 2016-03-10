@@ -6,21 +6,9 @@
 //  Copyright (c) 2015年 ShangxianDante. All rights reserved.
 //
 
-#import "SXPhotoSetPage.h"
-#import "UIImageView+WebCache.h"
-
-
-#import "SXHTTPManager.h"
-#import "SXPhotoSetEntity.h"
-#import "SXPhotosDetailEntity.h"
-#import "UIView+Frame.h"
-
-#import "SXReplyEntity.h"
-#import "SXReplyPage.h"
-
-#import "MJExtension.h"
-
 #import "SXPhotoSetViewModel.h"
+#import "SXPhotoSetPage.h"
+#import "SXReplyPage.h"
 
 @interface SXPhotoSetPage ()<UIScrollViewDelegate>
 @property (weak, nonatomic) IBOutlet UIScrollView *photoScrollView;
@@ -30,22 +18,14 @@
 @property (weak, nonatomic) IBOutlet UIButton *replayBtn;
 
 @property(nonatomic,strong) SXPhotoSetEntity *photoSet;
-
 @property(nonatomic,strong) SXReplyEntity *replyModel;
 @property(nonatomic,strong) NSMutableArray *replyModels;
-
 @property(nonatomic,strong) NSArray *news;
-
 @property(nonatomic,strong)SXPhotoSetViewModel *viewModel;
-
 
 @end
 
 @implementation SXPhotoSetPage
-- (IBAction)backBtnClick:(id)sender {
-    [self.navigationController popViewControllerAnimated:YES];
-    [self.navigationController setNavigationBarHidden:NO animated:YES];
-}
 
 - (NSMutableArray *)replyModels
 {
@@ -72,13 +52,11 @@
     return _viewModel;
 }
 
-#pragma mark - ******************** 首次加载
+#pragma mark - ******************** lifecycle
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.navigationController.navigationBar.backgroundColor = [UIColor yellowColor];
-    
-    
+    // 这个页面是storyboard拖的所以一上来不用设置各种乱七八糟直接开始RAC
     RAC(self.viewModel, newsModel) = RACObserve(self, newsModel);
     RAC(self, photoSet) = [RACObserve(self.viewModel, photoSet)skip:1];
     RAC(self, replyModels) = RACObserve(self.viewModel, replyModels);
@@ -96,7 +74,6 @@
     }];
     
     [self.viewModel.fetchPhotoFeedbackCommand execute:nil];
-    
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -104,50 +81,19 @@
     [self.navigationController setNavigationBarHidden:YES animated:YES];
     self.tabBarController.tabBar.hidden = YES;
 }
-#pragma mark - ******************** 发请求
-//- (void)sendRequestWithUrl:(NSString *)url
-//{
-//    [[SXHTTPManager manager]GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-////        SXPhotoSet *photoSet = [SXPhotoSet photoSetWith:responseObject];
-//        SXPhotoSetEntity *photoSet = [SXPhotoSetEntity objectWithKeyValues:responseObject];
-//        self.photoSet = photoSet;
-//        
-//        [self setLabelWithModel:photoSet];
-//        
-//        [self setImageViewWithModel:photoSet];
-//        
-//            } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-//        NSLog(@"failure %@",error);
-//    }];
-//
-//}
 
-/** 提前把评论的请求也发出去 得到评论的信息 */
-- (void)sendRequestWithUrl2:(NSString *)url
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    [[SXHTTPManager manager]GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, NSDictionary *responseObject) {
-        NSArray *dictarray = responseObject[@"hotPosts"];
-//        NSLog(@"%ld",dictarray.count);
-        for (int i = 0; i < dictarray.count; i++) {
-            NSDictionary *dict = dictarray[i][@"1"];
-            SXReplyEntity *replyModel = [[SXReplyEntity alloc]init];
-            replyModel.name = dict[@"n"];
-            if (replyModel.name == nil) {
-                replyModel.name = @"火星网友";
-            }
-            replyModel.address = dict[@"f"];
-            replyModel.say = dict[@"b"];
-            replyModel.suppose = dict[@"v"];
-            [self.replyModels addObject:replyModel];
-        }
-        
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"failure %@",error);
-    }];
+    SXReplyPage *replyvc = segue.destinationViewController;
+    replyvc.replys = self.replyModels;
 }
 
-#pragma mark - ******************** 设置页面的文字和图片
+- (IBAction)backBtnClick:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
+}
 
+#pragma mark - ******************** UI
 /** 设置页面文字 */
 - (void)setLabelWithModel:(SXPhotoSetEntity *)photoSet
 {
@@ -173,14 +119,10 @@
         photoImgView.x = i * photoImgView.width;
         
         // 图片的显示格式为合适大小
-        photoImgView.contentMode= UIViewContentModeCenter;
         photoImgView.contentMode= UIViewContentModeScaleAspectFit;
         
         [self.photoScrollView addSubview:photoImgView];
-        
     }
-    
-    // 因为scroll尼玛默认就有两个子控件好吧
     [self setImgWithIndex:0];
     
     self.photoScrollView.contentOffset = CGPointZero;
@@ -221,7 +163,6 @@
 /** 懒加载添加图片！这里才是设置图片 */
 - (void)setImgWithIndex:(int)i
 {
-    // 这里不要问我为什么这么写因为尼玛就是有bug
     UIImageView *photoImgView = nil;
     if (i == 0) {
         photoImgView = self.photoScrollView.subviews[i+2];
@@ -235,15 +176,6 @@
     if (photoImgView.image == nil) {
         [photoImgView sd_setImageWithURL:purl placeholderImage:[UIImage imageNamed:@"photoview_image_default_white"]];
     }
-    
 }
-
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    SXReplyPage *replyvc = segue.destinationViewController;
-    replyvc.replys = self.replyModels;
-}
-
-
 
 @end
