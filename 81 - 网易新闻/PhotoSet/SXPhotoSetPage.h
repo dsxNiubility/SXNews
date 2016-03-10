@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "SXNewsEntity.h"
+@class SXNewsEntity;
 
 @interface SXPhotoSetPage : UIViewController
 @property(nonatomic,strong) SXNewsEntity *newsModel;

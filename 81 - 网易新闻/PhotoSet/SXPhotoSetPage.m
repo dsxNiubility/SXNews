@@ -20,6 +20,8 @@
 
 #import "MJExtension.h"
 
+#import "SXPhotoSetViewModel.h"
+
 @interface SXPhotoSetPage ()<UIScrollViewDelegate>
 @property (weak, nonatomic) IBOutlet UIScrollView *photoScrollView;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
@@ -33,6 +35,8 @@
 @property(nonatomic,strong) NSMutableArray *replyModels;
 
 @property(nonatomic,strong) NSArray *news;
+
+@property(nonatomic,strong)SXPhotoSetViewModel *viewModel;
 
 
 @end
@@ -60,6 +64,14 @@
     return _replyModels;
 }
 
+- (SXPhotoSetViewModel *)viewModel
+{
+    if (!_viewModel) {
+        _viewModel = [[SXPhotoSetViewModel alloc]init];
+    }
+    return _viewModel;
+}
+
 #pragma mark - ******************** 首次加载
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -67,22 +79,36 @@
     self.navigationController.navigationBar.backgroundColor = [UIColor yellowColor];
     
     // 取出关键字
-    NSString *one  = self.newsModel.photosetID;
-    NSString *two = [one substringFromIndex:4];
-    NSArray *three = [two componentsSeparatedByString:@"|"];
+//    NSString *one  = self.newsModel.photosetID;
+//    NSString *two = [one substringFromIndex:4];
+//    NSArray *three = [two componentsSeparatedByString:@"|"];
+//    
+//    CGFloat count =  [self.newsModel.replyCount intValue];
+//    NSString *displayCount;
+//    if (count > 10000) {
+//        displayCount = [NSString stringWithFormat:@"%.1f万跟帖",count/10000];
+//    }else{
+//        displayCount = [NSString stringWithFormat:@"%.0f跟帖",count];
+//    }
     
-    CGFloat count =  [self.newsModel.replyCount intValue];
-    NSString *displayCount;
-    if (count > 10000) {
-        displayCount = [NSString stringWithFormat:@"%.1f万跟帖",count/10000];
-    }else{
-        displayCount = [NSString stringWithFormat:@"%.0f跟帖",count];
-    }
+    RAC(self.viewModel, newsModel) = RACObserve(self, newsModel);
+    RAC(self, photoSet) = [RACObserve(self.viewModel, photoSet)skip:1];
     
-    [self.replayBtn setTitle:displayCount forState:UIControlStateNormal];
-    NSString *url = [NSString stringWithFormat:@"http://c.m.163.com/photo/api/set/%@/%@.json",[three firstObject],[three lastObject]];
+    [[RACObserve(self.viewModel, replyCountBtnTitle)skip:1]subscribeNext:^(NSString *x) {
+        [self.replayBtn setTitle:x forState:UIControlStateNormal];
+    }];
+    
+//    [self.replayBtn setTitle:displayCount forState:UIControlStateNormal];
+//    NSString *url = [NSString stringWithFormat:@"http://c.m.163.com/photo/api/set/%@/%@.json",[three firstObject],[three lastObject]];
     // 发请求
-    [self sendRequestWithUrl:url];
+//    [self sendRequestWithUrl:url];
+    
+    @weakify(self)
+    [[self.viewModel.fetchPhotoSetCommand execute:nil]subscribeNext:^(SXPhotoSetEntity *x) {
+        @strongify(self)
+        [self setLabelWithModel:x];
+        [self setImageViewWithModel:x];
+    }];
     
      //  http://comment.api.163.com/api/json/post/list/new/hot/tech_bbs/AI180I93000915BF/
     NSString *url2 = @"http://comment.api.163.com/api/json/post/list/new/hot/photoview_bbs/PHOT1ODB009654GK/0/10/10/2/2";
@@ -95,22 +121,22 @@
     self.tabBarController.tabBar.hidden = YES;
 }
 #pragma mark - ******************** 发请求
-- (void)sendRequestWithUrl:(NSString *)url
-{
-    [[SXHTTPManager manager]GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-//        SXPhotoSet *photoSet = [SXPhotoSet photoSetWith:responseObject];
-        SXPhotoSetEntity *photoSet = [SXPhotoSetEntity objectWithKeyValues:responseObject];
-        self.photoSet = photoSet;
-        
-        [self setLabelWithModel:photoSet];
-        
-        [self setImageViewWithModel:photoSet];
-        
-            } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"failure %@",error);
-    }];
-
-}
+//- (void)sendRequestWithUrl:(NSString *)url
+//{
+//    [[SXHTTPManager manager]GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+////        SXPhotoSet *photoSet = [SXPhotoSet photoSetWith:responseObject];
+//        SXPhotoSetEntity *photoSet = [SXPhotoSetEntity objectWithKeyValues:responseObject];
+//        self.photoSet = photoSet;
+//        
+//        [self setLabelWithModel:photoSet];
+//        
+//        [self setImageViewWithModel:photoSet];
+//        
+//            } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+//        NSLog(@"failure %@",error);
+//    }];
+//
+//}
 
 /** 提前把评论的请求也发出去 得到评论的信息 */
 - (void)sendRequestWithUrl2:(NSString *)url
