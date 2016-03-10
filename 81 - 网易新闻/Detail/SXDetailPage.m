@@ -21,18 +21,18 @@
 
 @interface SXDetailPage ()<UIWebViewDelegate,UITableViewDataSource,UITableViewDelegate>
 @property (strong, nonatomic) UIWebView *webView;
-@property(nonatomic,strong) SXNewsDetailEntity *detailModel;
+//@property(nonatomic,strong) SXNewsDetailEntity *detailModel;
 @property (weak, nonatomic) IBOutlet UIButton *replyCountBtn;
 @property (weak, nonatomic) IBOutlet UIButton *backBtn;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @property(nonatomic,strong)SXNewsDetailBottomCell *closeCell;
 
-@property(nonatomic,strong) NSMutableArray *replyModels;
+//@property(nonatomic,strong) NSMutableArray *replyModels;
 /** 相似新闻*/
-@property(nonatomic,strong)NSArray *sameNews;
+//@property(nonatomic,strong)NSArray *sameNews;
 /** 搜索关键字*/
-@property(nonatomic,strong)NSArray *keywordSearch;
+//@property(nonatomic,strong)NSArray *keywordSearch;
 
 @property(nonatomic,strong) NSArray *news;
 
@@ -44,13 +44,13 @@
 @implementation SXDetailPage
 
 #pragma mark - **************** lazy
-- (NSMutableArray *)replyModels
-{
-    if (_replyModels == nil) {
-        _replyModels = [NSMutableArray array];
-    }
-    return _replyModels;
-}
+//- (NSMutableArray *)replyModels
+//{
+//    if (_replyModels == nil) {
+//        _replyModels = [NSMutableArray array];
+//    }
+//    return _replyModels;
+//}
 
 
 - (NSArray *)news
@@ -87,10 +87,30 @@
     RAC(self.viewModel,newsModel) = RACObserve(self, newsModel);
 
     // 以后可以吧控制器里的属性干掉，下面直接赋值
-    RAC(self, detailModel) = RACObserve(self.viewModel, detailModel);
-    RAC(self, sameNews) = RACObserve(self.viewModel, sameNews);
-    RAC(self, keywordSearch) = RACObserve(self.viewModel, keywordSearch);
-    RAC(self, replyModels) = RACObserve(self.viewModel, replyModels);
+//    RAC(self, detailModel) = RACObserve(self.viewModel, detailModel);
+//    RAC(self, sameNews) = RACObserve(self.viewModel, sameNews);
+//    RAC(self, keywordSearch) = RACObserve(self.viewModel, keywordSearch);
+//    RAC(self, replyModels) = RACObserve(self.viewModel, replyModels);
+    
+//    [[[RACSignal combineLatest:@[RACObserve(self.viewModel, detailModel),RACObserve(self.viewModel, sameNews),RACObserve(self.viewModel, keywordSearch),RACObserve(self.viewModel, replyModels)]]reduceEach:^id{
+//        return @4;
+//    }]subscribeNext:^(id x) {
+//        NSLog(@"1111");
+//    } completed:^{
+//        NSLog(@"2222");
+//    }];
+    
+    
+//    [self rac_liftSelector:@selector(reloadTableViewA:B:C:D:) withSignalsFromArray:@[[RACObserve(self.viewModel, detailModel) map:^id(id value) {
+//        return @1;
+//    }],[RACObserve(self.viewModel, sameNews) map:^id(id value) {
+//        return @1;
+//    }],[RACObserve(self.viewModel, keywordSearch) map:^id(id value) {
+//        return @1;
+//    }],[RACObserve(self.viewModel, replyModels) map:^id(id value) {
+//        return @1;
+//    }]]];
+    
     
     [[RACObserve(self.viewModel, replyCountBtnTitle)skip:1]subscribeNext:^(NSString *x) {
         [self.replyCountBtn setTitle:x forState:UIControlStateNormal];
@@ -101,6 +121,12 @@
     } completed:^{
         [self showInWebView];
         [self requestForFeedbackList];
+    }];
+    
+    [[[RACSignal combineLatest:@[[_viewModel.fetchFeedbackCommand.executing skip:1],[_viewModel.fetchNewsDetailCommand.executing skip:1]]] filter:^BOOL(RACTuple *x) {
+        return ![x.first boolValue]&&![x.second boolValue];
+    }]subscribeNext:^(id x) {
+        [self.tableView reloadData];
     }];
     
     self.automaticallyAdjustsScrollViewInsets = NO;
@@ -115,7 +141,7 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     SXReplyPage *replyvc = segue.destinationViewController;
-    replyvc.replys = self.replyModels;
+    replyvc.replys = self.viewModel.replyModels;
     
     if ([self.navigationController respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
         self.navigationController.interactivePopGestureRecognizer.delegate = nil;
@@ -154,12 +180,12 @@
 - (NSString *)touchBody
 {
     NSMutableString *body = [NSMutableString string];
-    [body appendFormat:@"<div class=\"title\">%@</div>",self.detailModel.title];
-    [body appendFormat:@"<div class=\"time\">%@</div>",self.detailModel.ptime];
-    if (self.detailModel.body != nil) {
-        [body appendString:self.detailModel.body];
+    [body appendFormat:@"<div class=\"title\">%@</div>",self.viewModel.detailModel.title];
+    [body appendFormat:@"<div class=\"time\">%@</div>",self.viewModel.detailModel.ptime];
+    if (self.viewModel.detailModel.body != nil) {
+        [body appendString:self.viewModel.detailModel.body];
     }
-    for (SXDetailImgEntity *detailImgModel in self.detailModel.img) {
+    for (SXDetailImgEntity *detailImgModel in self.viewModel.detailModel.img) {
         NSMutableString *imgHtml = [NSMutableString string];
         // 设置img的div
         [imgHtml appendString:@"<div class=\"img-parent\">"];
@@ -202,6 +228,11 @@
     [self.tableView reloadData];
 }
 
+- (void)reloadTableViewA:(id)a B:(id)b C:(id)c D:(id)d
+{
+    NSLog(@"---------0-0-");
+}
+
 #pragma mark - **************** tableView
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -229,9 +260,9 @@
     if (section == 0) {
         return self.webView.height;
     }else if (section == 1){
-        return self.replyModels.count > 0 ? 40 : CGFLOAT_MIN;
+        return self.viewModel.replyModels.count > 0 ? 40 : CGFLOAT_MIN;
     }else if (section == 2){
-        return self.sameNews.count > 0 ? 40 : CGFLOAT_MIN;
+        return self.viewModel.sameNews.count > 0 ? 40 : CGFLOAT_MIN;
     }
     return CGFLOAT_MIN;
 }
@@ -259,9 +290,9 @@
     if (section == 0) {
         return 1;
     }else if (section == 1){
-        return 1 + self.replyModels.count;
+        return 1 + self.viewModel.replyModels.count;
     }else if (section == 2){
-        return self.sameNews.count;
+        return self.viewModel.sameNews.count;
     }
     return 0;
 }
@@ -269,13 +300,13 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.section == 1) {
-        if (indexPath.row == self.replyModels.count) {
+        if (indexPath.row == self.viewModel.replyModels.count) {
             [self performSegueWithIdentifier:@"toReply" sender:nil];
         }
     }else if (indexPath.section == 2){
         if (indexPath.row > 0) {
             SXNewsEntity *model = [[SXNewsEntity alloc]init];
-            model.docid = [self.sameNews[indexPath.row] id];
+            model.docid = [self.viewModel.sameNews[indexPath.row] id];
             
             UIStoryboard *sb = [UIStoryboard storyboardWithName:@"News" bundle:nil];
             SXDetailPage *devc = (SXDetailPage *)[sb instantiateViewControllerWithIdentifier:@"SXDetailPage"];
@@ -290,12 +321,12 @@
     if (indexPath.section == 0) {
         return [SXNewsDetailBottomCell theShareCell];
     }else if (indexPath.section == 1){
-        if (indexPath.row == self.replyModels.count) {
+        if (indexPath.row == self.viewModel.replyModels.count) {
             SXNewsDetailBottomCell *foot = [SXNewsDetailBottomCell theSectionBottomCell];
             return foot;
         }else{
             SXNewsDetailBottomCell *hotreply = [SXNewsDetailBottomCell theHotReplyCellWithTableView:tableView];
-            hotreply.replyModel = self.replyModels[indexPath.row];
+            hotreply.replyModel = self.viewModel.replyModels[indexPath.row];
             return hotreply;
         }
     }else if (indexPath.section == 2){
@@ -305,7 +336,7 @@
             return cell;
         }else{
             SXNewsDetailBottomCell *other = [SXNewsDetailBottomCell theContactNewsCell];
-            other.sameNewsEntity = self.sameNews[indexPath.row];
+            other.sameNewsEntity = self.viewModel.sameNews[indexPath.row];
             return other;
         }
     }
@@ -317,7 +348,7 @@
     if (indexPath.section == 0) {
         return 126;
     }else if (indexPath.section == 1){
-        if (indexPath.row == self.replyModels.count) {
+        if (indexPath.row == self.viewModel.replyModels.count) {
             return 50;
         }else{
             return 110.5;
@@ -337,7 +368,7 @@
     if (indexPath.section == 0) {
         return 126;
     }else if (indexPath.section == 1){
-        if (indexPath.row == self.replyModels.count) {
+        if (indexPath.row == self.viewModel.replyModels.count) {
             return 50;
         }else{
             return 110.5;
@@ -389,11 +420,11 @@
 {
     CGFloat maxRight = 20;
     UIView *view = [[UIView alloc]initWithFrame:CGRectMake(0, 0, SXSCREEN_W, 60)];
-    for (int i = 0;i<self.keywordSearch.count ; ++i) {
+    for (int i = 0;i<self.viewModel.keywordSearch.count ; ++i) {
         UIButton *button = [[UIButton alloc]initWithFrame:CGRectMake(maxRight, 10, 0, 0)];
         button.titleLabel.font = [UIFont systemFontOfSize:14];
         [button setTitleColor:SXRGBColor(74, 133, 198) forState:UIControlStateNormal];
-        [button setTitle:self.keywordSearch[i][@"word"] forState:UIControlStateNormal];
+        [button setTitle:self.viewModel.keywordSearch[i][@"word"] forState:UIControlStateNormal];
         [button setBackgroundImage:[UIImage imageNamed:@"choose_city_normal"] forState:UIControlStateNormal];
         [button setBackgroundImage:[UIImage imageNamed:@"choose_city_highlight"] forState:UIControlStateHighlighted];
         [button sizeToFit];
