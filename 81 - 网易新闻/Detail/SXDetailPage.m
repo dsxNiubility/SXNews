@@ -62,8 +62,10 @@
     [super viewDidLoad];
     self.webView.delegate = self;
     
+    @weakify(self)
     RAC(self.viewModel,newsModel) = RACObserve(self, newsModel);
     [[RACObserve(self.viewModel, replyCountBtnTitle)skip:1]subscribeNext:^(NSString *x) {
+        @strongify(self)
         [self.replyCountBtn setTitle:x forState:UIControlStateNormal];
     }];
     
@@ -77,6 +79,7 @@
     [[[RACSignal combineLatest:@[[_viewModel.fetchFeedbackCommand.executing skip:1],[_viewModel.fetchNewsDetailCommand.executing skip:1]]] filter:^BOOL(RACTuple *x) {
         return ![x.first boolValue]&&![x.second boolValue];
     }]subscribeNext:^(id x) {
+        @strongify(self)
         [self.tableView reloadData];
     }];
     
@@ -102,6 +105,9 @@
 }
 
 - (IBAction)backBtn:(id)sender {
+    CFRelease((__bridge CFTypeRef)self);
+    CFIndex rc = CFGetRetainCount((__bridge CFTypeRef)self);
+    NSLog(@"%ld",rc);
     [self.navigationController popViewControllerAnimated:YES];
 }
 
