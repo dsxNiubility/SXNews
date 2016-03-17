@@ -61,13 +61,12 @@
     RAC(self, photoSet) = [RACObserve(self.viewModel, photoSet)skip:1];
     RAC(self, replyModels) = RACObserve(self.viewModel, replyModels);
     
-    @weakify(self)
     [[self.viewModel.fetchPhotoSetCommand execute:nil]subscribeNext:^(SXPhotoSetEntity *x) {
-        @strongify(self)
         [self setLabelWithModel:x];
         [self setImageViewWithModel:x];
     }];
     
+    @weakify(self)
     [[RACObserve(self.viewModel, replyCountBtnTitle)skip:1]subscribeNext:^(NSString *x) {
         @strongify(self)
         [self.replayBtn setTitle:x forState:UIControlStateNormal];
@@ -89,8 +88,16 @@
 }
 
 - (IBAction)backBtnClick:(id)sender {
+    CFRelease((__bridge CFTypeRef)self);
+    CFIndex rc = CFGetRetainCount((__bridge CFTypeRef)self);
+    NSLog(@"%ld",rc);
     [self.navigationController popViewControllerAnimated:YES];
     [self.navigationController setNavigationBarHidden:NO animated:YES];
+}
+
+- (void)dealloc
+{
+    NSLog(@"%s",__func__);
 }
 
 #pragma mark - ******************** UI
