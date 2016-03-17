@@ -9,12 +9,9 @@
 #import "SXMainTabBarController.h"
 #import "SXBarButton.h"
 #import "SXTabBar.h"
-
 #import "SXMainViewController.h"
 #import "SXNavController.h"
-
 #import "SXAdManager.h"
-#import "UIView+Frame.h"
 
 
 @interface SXMainTabBarController ()<SXTabBarDelegate>

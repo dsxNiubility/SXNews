@@ -7,7 +7,6 @@
 //
 
 #import "MJExtensionConfig.h"
-#import "MJExtension.h"
 #import "SXWeatherEntity.h"
 #import "SXPhotoSetEntity.h"
 

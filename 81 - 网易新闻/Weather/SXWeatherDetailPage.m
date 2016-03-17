@@ -7,10 +7,8 @@
 //
 
 #import "SXWeatherDetailPage.h"
-#import "UIView+Frame.h"
 #import "SXWeatherItemView.h"
 #import "SXWeatherEntity.h"
-#import "UIImageView+WebCache.h"
 
 #define W [UIScreen mainScreen].bounds.size.width
 

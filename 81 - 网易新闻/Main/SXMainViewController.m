@@ -11,10 +11,7 @@
 #import "SXWeatherView.h"
 #import "SXWeatherDetailPage.h"
 #import "SXTitleLable.h"
-#import "UIView+Frame.h"
-#import "SXHTTPManager.h"
 #import "SXWeatherEntity.h"
-#import "MJExtension.h"
 
 @interface SXMainViewController ()<UIScrollViewDelegate>
 

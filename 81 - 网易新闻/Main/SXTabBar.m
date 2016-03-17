@@ -8,7 +8,6 @@
 
 #import "SXTabBar.h"
 #import "SXBarButton.h"
-#import "UIView+Frame.h"
 
 @interface SXTabBar ()
 

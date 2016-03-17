@@ -7,7 +7,6 @@
 //
 
 #import "SXNewsDetailBottomCell.h"
-#import "UIImageView+WebCache.h"
 
 @interface SXNewsDetailBottomCell ()
 

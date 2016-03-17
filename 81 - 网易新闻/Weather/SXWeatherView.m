@@ -8,7 +8,6 @@
 
 #import "SXWeatherView.h"
 #import "SXWeatherEntity.h"
-#import "UIView+Frame.h"
 #import "SXEasyMacro.h"
 
 @interface SXWeatherView ()

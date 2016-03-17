@@ -7,7 +7,6 @@
 //
 
 #import "SXBarButton.h"
-#import "UIView+Frame.h"
 
 @implementation SXBarButton
 
