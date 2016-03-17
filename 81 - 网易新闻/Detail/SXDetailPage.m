@@ -8,7 +8,6 @@
 
 #import "SXNewsDetailBottomCell.h"
 #import "SXNewsDetailViewModel.h"
-#import "SXDetailImgEntity.h"
 #import "SXDetailPage.h"
 #import "SXSearchPage.h"
 #import "SXReplyPage.h"
@@ -119,51 +118,7 @@
 #pragma mark - ******************** webView + html
 - (void)showInWebView
 {
-    NSMutableString *html = [NSMutableString string];
-    [html appendString:@"<html>"];
-    [html appendString:@"<head>"];
-    [html appendFormat:@"<link rel=\"stylesheet\" href=\"%@\">",[[NSBundle mainBundle] URLForResource:@"SXDetails.css" withExtension:nil]];
-    [html appendString:@"</head>"];
-    
-    [html appendString:@"<body style=\"background:#f6f6f6\">"];
-    [html appendString:[self touchBody]];
-    [html appendString:@"</body>"];
-    
-    [html appendString:@"</html>"];
-    
-    [self.webView loadHTMLString:html baseURL:nil];
-}
-
-- (NSString *)touchBody
-{
-    NSMutableString *body = [NSMutableString string];
-    [body appendFormat:@"<div class=\"title\">%@</div>",self.viewModel.detailModel.title];
-    [body appendFormat:@"<div class=\"time\">%@</div>",self.viewModel.detailModel.ptime];
-    if (self.viewModel.detailModel.body != nil) {
-        [body appendString:self.viewModel.detailModel.body];
-    }
-    for (SXDetailImgEntity *detailImgModel in self.viewModel.detailModel.img) {
-        NSMutableString *imgHtml = [NSMutableString string];
-        // 设置img的div
-        [imgHtml appendString:@"<div class=\"img-parent\">"];
-        NSArray *pixel = [detailImgModel.pixel componentsSeparatedByString:@"*"];
-        CGFloat width = [[pixel firstObject]floatValue];
-        CGFloat height = [[pixel lastObject]floatValue];
-        // 判断是否超过最大宽度
-        CGFloat maxWidth = [UIScreen mainScreen].bounds.size.width * 0.96;
-        if (width > maxWidth) {
-            height = maxWidth / width * height;
-            width = maxWidth;
-        }
-        
-        NSString *onload = @"this.onclick = function() {"
-        "  window.location.href = 'sx:src=' +this.src;"
-        "};";
-        [imgHtml appendFormat:@"<img onload=\"%@\" width=\"%f\" height=\"%f\" src=\"%@\">",onload,width,height,detailImgModel.src];
-        [imgHtml appendString:@"</div>"];
-        [body replaceOccurrencesOfString:detailImgModel.ref withString:imgHtml options:NSCaseInsensitiveSearch range:NSMakeRange(0, body.length)];
-    }
-    return body;
+    [self.webView loadHTMLString:[self.viewModel getHtmlString] baseURL:nil];
 }
 
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType

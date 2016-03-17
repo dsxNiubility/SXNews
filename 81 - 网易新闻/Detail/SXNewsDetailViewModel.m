@@ -7,6 +7,7 @@
 //
 
 #import "SXNewsDetailViewModel.h"
+#import "SXDetailImgEntity.h"
 
 @implementation SXNewsDetailViewModel
 
@@ -107,6 +108,56 @@
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         failure(operation,error);
     }];
+}
+
+#pragma mark - **************** 业务逻辑
+- (NSString *)getHtmlString
+{
+    NSMutableString *html = [NSMutableString string];
+    [html appendString:@"<html>"];
+    [html appendString:@"<head>"];
+    [html appendFormat:@"<link rel=\"stylesheet\" href=\"%@\">",[[NSBundle mainBundle] URLForResource:@"SXDetails.css" withExtension:nil]];
+    [html appendString:@"</head>"];
+    
+    [html appendString:@"<body style=\"background:#f6f6f6\">"];
+    [html appendString:[self getBodyString]];
+    [html appendString:@"</body>"];
+    
+    [html appendString:@"</html>"];
+    
+    return html;
+}
+
+- (NSString *)getBodyString
+{
+    NSMutableString *body = [NSMutableString string];
+    [body appendFormat:@"<div class=\"title\">%@</div>",self.detailModel.title];
+    [body appendFormat:@"<div class=\"time\">%@</div>",self.detailModel.ptime];
+    if (self.detailModel.body != nil) {
+        [body appendString:self.detailModel.body];
+    }
+    for (SXDetailImgEntity *detailImgModel in self.detailModel.img) {
+        NSMutableString *imgHtml = [NSMutableString string];
+        // 设置img的div
+        [imgHtml appendString:@"<div class=\"img-parent\">"];
+        NSArray *pixel = [detailImgModel.pixel componentsSeparatedByString:@"*"];
+        CGFloat width = [[pixel firstObject]floatValue];
+        CGFloat height = [[pixel lastObject]floatValue];
+        // 判断是否超过最大宽度
+        CGFloat maxWidth = [UIScreen mainScreen].bounds.size.width * 0.96;
+        if (width > maxWidth) {
+            height = maxWidth / width * height;
+            width = maxWidth;
+        }
+        
+        NSString *onload = @"this.onclick = function() {"
+        "  window.location.href = 'sx:src=' +this.src;"
+        "};";
+        [imgHtml appendFormat:@"<img onload=\"%@\" width=\"%f\" height=\"%f\" src=\"%@\">",onload,width,height,detailImgModel.src];
+        [imgHtml appendString:@"</div>"];
+        [body replaceOccurrencesOfString:detailImgModel.ref withString:imgHtml options:NSCaseInsensitiveSearch range:NSMakeRange(0, body.length)];
+    }
+    return body;
 }
 
 @end

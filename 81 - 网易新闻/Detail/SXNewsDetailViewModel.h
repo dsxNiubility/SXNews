@@ -40,5 +40,11 @@
  *  获取评价详情数组命令
  */
 @property(nonatomic, strong) RACCommand *fetchFeedbackCommand;
+/**
+ *  将拼接html的操作在业务逻辑层做
+ *
+ *  @return 将拼好后的html字符串返回
+ */
+- (NSString *)getHtmlString;
 
 @end
