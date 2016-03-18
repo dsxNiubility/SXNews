@@ -46,6 +46,7 @@
         self.sayLabel.text = temSay;
     }
     self.supposeLabel.text = _replyModel.suppose;
+    self.selectionStyle = UITableViewCellSelectionStyleNone;
 }
 
 
