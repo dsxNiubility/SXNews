@@ -61,18 +61,18 @@
     RAC(self, photoSet) = [RACObserve(self.viewModel, photoSet)skip:1];
     RAC(self, replyModels) = RACObserve(self.viewModel, replyModels);
     
+    @weakify(self)
     [[self.viewModel.fetchPhotoSetCommand execute:nil]subscribeNext:^(SXPhotoSetEntity *x) {
         [self setLabelWithModel:x];
         [self setImageViewWithModel:x];
+        @strongify(self)
+        [self.viewModel.fetchPhotoFeedbackCommand execute:nil];
     }];
     
-    @weakify(self)
     [[RACObserve(self.viewModel, replyCountBtnTitle)skip:1]subscribeNext:^(NSString *x) {
         @strongify(self)
         [self.replayBtn setTitle:x forState:UIControlStateNormal];
     }];
-    
-    [self.viewModel.fetchPhotoFeedbackCommand execute:nil];
 }
 
 - (void)viewWillAppear:(BOOL)animated

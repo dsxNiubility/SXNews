@@ -91,7 +91,9 @@
 
 - (void)requestForPhotoFeedbackSuccess:(void (^)(NSDictionary *result))success
                           failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure{
-    NSString *url = @"http://comment.api.163.com/api/json/post/list/new/hot/photoview_bbs/PHOT1ODB009654GK/0/10/10/2/2";
+//    NSString *url = @"http://comment.api.163.com/api/json/post/list/new/hot/photoview_bbs/PHOT1ODB009654GK/0/10/10/2/2";
+    
+    NSString *url = [NSString stringWithFormat:@"http://comment.api.163.com/api/json/post/list/new/hot/%@/%@/0/10/10/2/2",self.newsModel.boardid,self.photoSet.postid];
     [[SXHTTPManager manager]GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, NSDictionary *responseObject) {
         if (responseObject) {
             success(responseObject);
@@ -99,7 +101,6 @@
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         failure(operation,error);
     }];
-    
 }
 
 @end
