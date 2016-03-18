@@ -72,7 +72,7 @@ static NSString *ID = @"replyCell";
             SXReplyEntity *model = self.normalReplys[indexPath.row];
             cell.replyModel = model;
         }
-
+        
     }
     
     return cell;
