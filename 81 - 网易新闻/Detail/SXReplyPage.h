@@ -13,4 +13,6 @@
 
 @property(nonatomic,strong) NSMutableArray *replys;
 
+@property(nonatomic,strong) NSMutableArray *normalReplys;
+
 @end

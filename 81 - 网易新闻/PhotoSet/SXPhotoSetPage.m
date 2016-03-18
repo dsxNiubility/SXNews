@@ -20,6 +20,7 @@
 @property(nonatomic,strong) SXPhotoSetEntity *photoSet;
 @property(nonatomic,strong) SXReplyEntity *replyModel;
 @property(nonatomic,strong) NSMutableArray *replyModels;
+@property(nonatomic,strong) NSMutableArray *replyNormalModels;
 @property(nonatomic,strong) NSArray *news;
 @property(nonatomic,strong)SXPhotoSetViewModel *viewModel;
 
@@ -60,6 +61,7 @@
     RAC(self.viewModel, newsModel) = RACObserve(self, newsModel);
     RAC(self, photoSet) = [RACObserve(self.viewModel, photoSet)skip:1];
     RAC(self, replyModels) = RACObserve(self.viewModel, replyModels);
+    RAC(self, replyNormalModels) = RACObserve(self.viewModel, replyNormalModels);
     
     @weakify(self)
     [[self.viewModel.fetchPhotoSetCommand execute:nil]subscribeNext:^(SXPhotoSetEntity *x) {
@@ -67,6 +69,7 @@
         [self setImageViewWithModel:x];
         @strongify(self)
         [self.viewModel.fetchPhotoFeedbackCommand execute:nil];
+        [self.viewModel.fetchPhotoFeedback2Command execute:nil];
     }];
     
     [[RACObserve(self.viewModel, replyCountBtnTitle)skip:1]subscribeNext:^(NSString *x) {
@@ -85,6 +88,7 @@
 {
     SXReplyPage *replyvc = segue.destinationViewController;
     replyvc.replys = self.replyModels;
+    replyvc.normalReplys = self.replyNormalModels;
 }
 
 - (IBAction)backBtnClick:(id)sender {

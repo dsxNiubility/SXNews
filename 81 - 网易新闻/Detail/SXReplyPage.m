@@ -13,7 +13,6 @@
 @interface SXReplyPage ()<UITableViewDataSource,UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
-
 @end
 
 
@@ -49,7 +48,7 @@ static NSString *ID = @"replyCell";
     if (section == 0) {
         return self.replys.count;
     }else{
-        return self.replys.count;
+        return self.normalReplys.count;
     }
 }
 
@@ -66,8 +65,14 @@ static NSString *ID = @"replyCell";
         cell2.textLabel.text = @"     暂无跟帖数据";
         return cell2;
     }else{
-        SXReplyEntity *model = self.replys[indexPath.row];
-        cell.replyModel = model;
+        if(indexPath.section == 0){
+            SXReplyEntity *model = self.replys[indexPath.row];
+            cell.replyModel = model;
+        }else{
+            SXReplyEntity *model = self.normalReplys[indexPath.row];
+            cell.replyModel = model;
+        }
+
     }
     
     return cell;
@@ -90,7 +95,13 @@ static NSString *ID = @"replyCell";
     }else{
         SXReplyCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
         
-        SXReplyEntity *model = self.replys[indexPath.row];
+        SXReplyEntity *model;
+        if (indexPath.section == 0) {
+            model = self.replys[indexPath.row];
+        }else{
+            model = self.normalReplys[indexPath.row];
+        }
+        
         
         cell.replyModel = model;
         

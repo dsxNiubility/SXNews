@@ -62,6 +62,34 @@
             return nil;
         }];
     }];
+    
+    _fetchPhotoFeedback2Command = [[RACCommand alloc]initWithSignalBlock:^RACSignal *(id input) {
+        return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+            @strongify(self);
+            [self requestForPhotoFeedback2Success:^(NSDictionary *responseObject) {
+                NSArray *dictarray = responseObject[@"newPosts"];
+                
+                NSMutableArray *temArray = [NSMutableArray array];
+                for (int i = 0; i < dictarray.count; i++) {
+                    NSDictionary *dict = dictarray[i][@"1"];
+                    SXReplyEntity *replyModel = [[SXReplyEntity alloc]init];
+                    replyModel.name = dict[@"n"];
+                    if (replyModel.name == nil) {
+                        replyModel.name = @"火星网友";
+                    }
+                    replyModel.address = dict[@"f"];
+                    replyModel.say = dict[@"b"];
+                    replyModel.suppose = dict[@"v"];
+                    [temArray addObject:replyModel];
+                }
+                self.replyNormalModels = temArray;
+                [subscriber sendCompleted];
+            } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                [subscriber sendError:error];
+            }];
+            return nil;
+        }];
+    }];
 }
 
 #pragma mark - **************** 下面相当于service的代码
@@ -94,6 +122,20 @@
 //    NSString *url = @"http://comment.api.163.com/api/json/post/list/new/hot/photoview_bbs/PHOT1ODB009654GK/0/10/10/2/2";
     
     NSString *url = [NSString stringWithFormat:@"http://comment.api.163.com/api/json/post/list/new/hot/%@/%@/0/10/10/2/2",self.newsModel.boardid,self.photoSet.postid];
+    [[SXHTTPManager manager]GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, NSDictionary *responseObject) {
+        if (responseObject) {
+            success(responseObject);
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        failure(operation,error);
+    }];
+}
+
+- (void)requestForPhotoFeedback2Success:(void (^)(NSDictionary *result))success
+                               failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure{
+    //    NSString *url = @"http://comment.api.163.com/api/json/post/list/new/hot/photoview_bbs/PHOT1ODB009654GK/0/10/10/2/2";
+    
+    NSString *url = [NSString stringWithFormat:@"http://comment.api.163.com/api/json/post/list/new/normal/%@/%@/desc/0/10/10/2/2",self.newsModel.boardid,self.photoSet.postid];
     [[SXHTTPManager manager]GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, NSDictionary *responseObject) {
         if (responseObject) {
             success(responseObject);
