@@ -122,6 +122,11 @@
 {
     NSUInteger count = self.photoSet.photos.count;
     
+//    UIBlurEffect *beffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleDark];
+//    UIVisualEffectView *view = [[UIVisualEffectView alloc]initWithEffect:beffect];
+//    view.frame = CGRectMake(0, 0, self.photoScrollView.contentSize.width, self.photoScrollView.contentSize.height);
+//    [self.photoScrollView addSubview:view];
+    
     for (int i = 0; i < count; i++) {
         UIImageView *photoImgView = [[UIImageView alloc]init];
         photoImgView.height = self.photoScrollView.height;
@@ -271,7 +276,7 @@ static void RGBtoHSV( float r, float g, float b, float *h, float *s,float *v)
         //[cls addObject:clr];
     }
     CGContextRelease(context);
-    return [UIColor colorWithRed:([MaxColor[0] intValue]/255.0f) green:([MaxColor[1] intValue]/255.0f) blue:([MaxColor[2] intValue]/255.0f) alpha:([MaxColor[3] intValue]/255.0f)];
+    return [UIColor colorWithRed:([MaxColor[0] intValue]/255.0f) green:([MaxColor[1] intValue]/255.0f) blue:([MaxColor[2] intValue]/255.0f) alpha:(0.2)];
 }
 
 @end
