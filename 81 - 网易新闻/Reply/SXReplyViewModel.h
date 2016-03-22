@@ -40,5 +40,10 @@ typedef NS_ENUM(NSUInteger, SXReplyPageFrom) {
  *  评价页的来源
  */
 @property(nonatomic,assign)SXReplyPageFrom source;
+/**
+ *  如果是图集页需要传入phoSetPostID
+ */
+@property(nonatomic,copy)NSString *photoSetPostID;
+
 
 @end

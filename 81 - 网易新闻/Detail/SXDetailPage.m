@@ -94,7 +94,8 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     SXReplyPage *replyvc = segue.destinationViewController;
-    replyvc.replys = self.viewModel.replyModels;
+    replyvc.source = SXReplyPageFromNewsDetail;
+    replyvc.newsModel = self.newsModel;
     
     if ([self.navigationController respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
         self.navigationController.interactivePopGestureRecognizer.delegate = nil;

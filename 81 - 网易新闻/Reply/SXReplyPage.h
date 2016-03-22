@@ -7,12 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "SXReplyEntity.h"
+#import "SXReplyViewModel.h"
 
 @interface SXReplyPage : UIViewController
 
-@property(nonatomic,strong) NSMutableArray *replys;
-
-@property(nonatomic,strong) NSMutableArray *normalReplys;
+@property(nonatomic,strong) SXNewsEntity *newsModel;
+@property(nonatomic,assign)SXReplyPageFrom source;
+@property(nonatomic,copy)NSString *photoSetId;
 
 @end

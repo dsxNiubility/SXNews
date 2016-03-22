@@ -87,8 +87,11 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     SXReplyPage *replyvc = segue.destinationViewController;
-    replyvc.replys = self.replyModels;
-    replyvc.normalReplys = self.replyNormalModels;
+    replyvc.source = SXReplyPageFromPhotoset;
+    replyvc.newsModel = self.newsModel;
+    replyvc.photoSetId = self.photoSet.postid;
+//    replyvc.replys = self.replyModels;
+//    replyvc.normalReplys = self.replyNormalModels;
 }
 
 - (IBAction)backBtnClick:(id)sender {

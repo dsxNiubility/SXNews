@@ -9,9 +9,16 @@
 #import "SXReplyPage.h"
 #import "SXReplyHeader.h"
 #import "SXReplyCell.h"
+#import "SXReplyEntity.h"
 
 @interface SXReplyPage ()<UITableViewDataSource,UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+
+//@property(nonatomic,strong) NSMutableArray *replys;
+//
+//@property(nonatomic,strong) NSMutableArray *normalReplys;
+
+@property(nonatomic,strong)SXReplyViewModel *viewModel;
 
 @end
 
@@ -31,6 +38,39 @@ static NSString *ID = @"replyCell";
 
 - (void)viewDidLoad{
     self.automaticallyAdjustsScrollViewInsets = NO;
+    
+//    [RACObserve(self.viewModel, replyModels)subscribeNext:^(id x) {
+//        self.replys = x;
+//        [self.tableView reloadData];
+//    }];
+//    
+//    [RACObserve(self.viewModel, replyNormalModels)subscribeNext:^(id x) {
+//        self.normalReplys = x;
+//        [self.tableView reloadData];
+//    }];
+    
+    [[self.viewModel.fetchHotReplyCommand execute:nil]subscribeError:^(NSError *error) {
+        NSLog(@"error occured! --%@",error.userInfo);
+    } completed:^{
+        [self.tableView reloadData];
+    }];
+    
+    [[self.viewModel.fetchNormalReplyCommand execute:nil]subscribeError:^(NSError *error) {
+        NSLog(@"error occured! --%@",error.userInfo);
+    } completed:^{
+        [self.tableView reloadData];
+    }];
+}
+
+- (SXReplyViewModel *)viewModel
+{
+    if (!_viewModel) {
+        _viewModel = [[SXReplyViewModel alloc]init];
+        RAC(self.viewModel,source) = RACObserve(self, source);
+        RAC(self.viewModel,newsModel) = RACObserve(self, newsModel);
+        RAC(self.viewModel,photoSetPostID) = RACObserve(self, photoSetId);
+    }
+    return _viewModel;
 }
 
 #pragma mark - ******************** tbv数据源方法
@@ -41,14 +81,14 @@ static NSString *ID = @"replyCell";
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
 
-    if (self.replys.count == 0) {
+    if (self.viewModel.replyModels.count == 0) {
         return 1;
     }
     
     if (section == 0) {
-        return self.replys.count;
+        return self.viewModel.replyModels.count;
     }else{
-        return self.normalReplys.count;
+        return self.viewModel.replyNormalModels.count;
     }
 }
 
@@ -60,16 +100,16 @@ static NSString *ID = @"replyCell";
        cell = [[SXReplyCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
     }
     
-    if (self.replys.count == 0) {
+    if (self.viewModel.replyModels.count == 0) {
         UITableViewCell *cell2 = [[UITableViewCell alloc]init];
-        cell2.textLabel.text = @"     暂无跟帖数据";
+        cell2.textLabel.text = @"     评论加载中...";
         return cell2;
     }else{
         if(indexPath.section == 0){
-            SXReplyEntity *model = self.replys[indexPath.row];
+            SXReplyEntity *model = self.viewModel.replyModels[indexPath.row];
             cell.replyModel = model;
         }else{
-            SXReplyEntity *model = self.normalReplys[indexPath.row];
+            SXReplyEntity *model = self.viewModel.replyNormalModels[indexPath.row];
             cell.replyModel = model;
         }
         
@@ -90,19 +130,17 @@ static NSString *ID = @"replyCell";
 /** 通过提前计算来返回行高 */
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if(self.replys.count == 0){
+    if(self.viewModel.replyModels.count == 0){
         return 40;
     }else{
         SXReplyCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
         
         SXReplyEntity *model;
         if (indexPath.section == 0) {
-            model = self.replys[indexPath.row];
+            model = self.viewModel.replyModels[indexPath.row];
         }else{
-            model = self.normalReplys[indexPath.row];
+            model = self.viewModel.replyNormalModels[indexPath.row];
         }
-        
-        
         cell.replyModel = model;
         
         [cell layoutIfNeeded];

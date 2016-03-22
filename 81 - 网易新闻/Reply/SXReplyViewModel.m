@@ -10,11 +10,6 @@
 
 @interface SXReplyViewModel ()
 
-/**
- *  如果是图集页需要传入phoSetPostID
- */
-@property(nonatomic,copy)NSString *photoSetPostID;
-
 @end
 
 @implementation SXReplyViewModel
