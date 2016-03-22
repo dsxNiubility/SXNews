@@ -60,16 +60,11 @@
     // 这个页面是storyboard拖的所以一上来不用设置各种乱七八糟直接开始RAC
     RAC(self.viewModel, newsModel) = RACObserve(self, newsModel);
     RAC(self, photoSet) = [RACObserve(self.viewModel, photoSet)skip:1];
-    RAC(self, replyModels) = RACObserve(self.viewModel, replyModels);
-    RAC(self, replyNormalModels) = RACObserve(self.viewModel, replyNormalModels);
     
     @weakify(self)
     [[self.viewModel.fetchPhotoSetCommand execute:nil]subscribeNext:^(SXPhotoSetEntity *x) {
         [self setLabelWithModel:x];
         [self setImageViewWithModel:x];
-        @strongify(self)
-        [self.viewModel.fetchPhotoFeedbackCommand execute:nil];
-        [self.viewModel.fetchPhotoFeedback2Command execute:nil];
     }];
     
     [[RACObserve(self.viewModel, replyCountBtnTitle)skip:1]subscribeNext:^(NSString *x) {
@@ -90,8 +85,6 @@
     replyvc.source = SXReplyPageFromPhotoset;
     replyvc.newsModel = self.newsModel;
     replyvc.photoSetId = self.photoSet.postid;
-//    replyvc.replys = self.replyModels;
-//    replyvc.normalReplys = self.replyNormalModels;
 }
 
 - (IBAction)backBtnClick:(id)sender {

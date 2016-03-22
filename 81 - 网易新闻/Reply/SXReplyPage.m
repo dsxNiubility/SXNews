@@ -12,11 +12,8 @@
 #import "SXReplyEntity.h"
 
 @interface SXReplyPage ()<UITableViewDataSource,UITableViewDelegate>
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
-//@property(nonatomic,strong) NSMutableArray *replys;
-//
-//@property(nonatomic,strong) NSMutableArray *normalReplys;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @property(nonatomic,strong)SXReplyViewModel *viewModel;
 
@@ -26,7 +23,8 @@
 @implementation SXReplyPage
 static NSString *ID = @"replyCell";
 
-#pragma mark - ******************** 返回按钮
+
+#pragma mark - **************** lifeCycle
 - (IBAction)back:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
 }
@@ -38,16 +36,6 @@ static NSString *ID = @"replyCell";
 
 - (void)viewDidLoad{
     self.automaticallyAdjustsScrollViewInsets = NO;
-    
-//    [RACObserve(self.viewModel, replyModels)subscribeNext:^(id x) {
-//        self.replys = x;
-//        [self.tableView reloadData];
-//    }];
-//    
-//    [RACObserve(self.viewModel, replyNormalModels)subscribeNext:^(id x) {
-//        self.normalReplys = x;
-//        [self.tableView reloadData];
-//    }];
     
     [[self.viewModel.fetchHotReplyCommand execute:nil]subscribeError:^(NSError *error) {
         NSLog(@"error occured! --%@",error.userInfo);
@@ -73,7 +61,7 @@ static NSString *ID = @"replyCell";
     return _viewModel;
 }
 
-#pragma mark - ******************** tbv数据源方法
+#pragma mark - ******************** about tableView
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 2;
@@ -117,7 +105,7 @@ static NSString *ID = @"replyCell";
     
     return cell;
 }
-/** 返回一个view来当tbv的header */
+
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
     if (section == 0) {
@@ -127,7 +115,6 @@ static NSString *ID = @"replyCell";
     }
 }
 
-/** 通过提前计算来返回行高 */
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if(self.viewModel.replyModels.count == 0){
@@ -150,7 +137,6 @@ static NSString *ID = @"replyCell";
     }
 }
 
-/** 预估行高，这个方法可以减少上面方法的调用次数，提高性能 */
 - (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     return 130;

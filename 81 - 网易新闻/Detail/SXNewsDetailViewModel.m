@@ -88,20 +88,6 @@
 }
 
 #pragma mark - **************** 下面相当于service的代码
-- (void)requestForFeedbackSuccess:(void (^)(NSDictionary *result))success
-                         failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure{
-    // 真数据
-    NSString *url = [NSString stringWithFormat:@"http://comment.api.163.com/api/json/post/list/new/hot/%@/%@/0/10/10/2/2",self.newsModel.boardid,self.newsModel.docid];
-    [[SXHTTPManager manager]GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, NSDictionary *responseObject) {
-        if (responseObject) {
-            success(responseObject);
-        }
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        failure(operation,error);
-    }];
-
-}
-
 - (void)requestForNewsDetailSuccess:(void (^)(NSDictionary *result))success
                          failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure{
     NSString *url = [NSString stringWithFormat:@"http://c.m.163.com/nc/article/%@/full.html",self.newsModel.docid];
