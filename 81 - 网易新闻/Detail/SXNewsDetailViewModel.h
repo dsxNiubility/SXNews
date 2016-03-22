@@ -37,9 +37,9 @@
  */
 @property(nonatomic, strong) RACCommand *fetchNewsDetailCommand;
 /**
- *  获取评价详情数组命令
+ *  获取热门评价数组命令
  */
-@property(nonatomic, strong) RACCommand *fetchFeedbackCommand;
+@property(nonatomic, strong) RACCommand *fetchHotFeedbackCommand;
 /**
  *  将拼接html的操作在业务逻辑层做
  *

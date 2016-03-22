@@ -51,6 +51,7 @@
                         [temReplyModels addObject:replyModel];
                     }
                     self.replyModels = temReplyModels;
+                    [subscriber sendNext:temReplyModels];
                     [subscriber sendCompleted];
                 }
             } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -80,6 +81,7 @@
                     [temArray addObject:replyModel];
                 }
                 self.replyNormalModels = temArray;
+                [subscriber sendNext:temArray];
                 [subscriber sendCompleted];
             } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                 [subscriber sendError:error];

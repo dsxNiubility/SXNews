@@ -75,7 +75,7 @@
         [self requestForFeedbackList];
     }];
     
-    [[[RACSignal combineLatest:@[[_viewModel.fetchFeedbackCommand.executing skip:1],[_viewModel.fetchNewsDetailCommand.executing skip:1]]] filter:^BOOL(RACTuple *x) {
+    [[[RACSignal combineLatest:@[[_viewModel.fetchHotFeedbackCommand.executing skip:1],[_viewModel.fetchNewsDetailCommand.executing skip:1]]] filter:^BOOL(RACTuple *x) {
         return ![x.first boolValue]&&![x.second boolValue];
     }]subscribeNext:^(id x) {
         @strongify(self)
@@ -319,7 +319,7 @@
 // 提前把评论的请求也发出去 得到评论的信息
 - (void)requestForFeedbackList
 {
-    [self.viewModel.fetchFeedbackCommand execute:nil];
+    [self.viewModel.fetchHotFeedbackCommand execute:nil];
     // 成功和失败暂时都不做什么操作，所以subscribe就不写了
 }
 

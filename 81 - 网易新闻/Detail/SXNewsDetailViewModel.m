@@ -8,6 +8,15 @@
 
 #import "SXNewsDetailViewModel.h"
 #import "SXDetailImgEntity.h"
+#import "SXReplyViewModel.h"
+
+@interface SXNewsDetailViewModel ()
+/**
+ *  引用回复的viewModel
+ */
+@property(nonatomic,strong)SXReplyViewModel *replyViewModel;
+
+@end
 
 @implementation SXNewsDetailViewModel
 
@@ -17,6 +26,16 @@
         [self setupRACCommand];
     }
     return self;
+}
+
+- (SXReplyViewModel *)replyViewModel
+{
+    if(!_replyViewModel){
+        _replyViewModel = [[SXReplyViewModel alloc]init];
+        _replyViewModel.source = SXReplyPageFromNewsDetail;
+        RAC(self.replyViewModel, newsModel) = RACObserve(self, newsModel);
+    }
+    return _replyViewModel;
 }
 
 - (void)setupRACCommand
@@ -51,33 +70,18 @@
         }];
     }];
     
-    _fetchFeedbackCommand = [[RACCommand alloc]initWithSignalBlock:^RACSignal *(id input) {
+    _fetchHotFeedbackCommand = [[RACCommand alloc]initWithSignalBlock:^RACSignal *(id input) {
         return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
-            @strongify(self);
-            [self requestForFeedbackSuccess:^(NSDictionary *responseObject) {
-                if (responseObject[@"hotPosts"] != [NSNull null]) {
-                    NSArray *dictarray = responseObject[@"hotPosts"];
-                    NSMutableArray *temReplyModels = [NSMutableArray array];
-                    for (int i = 0; i < dictarray.count; i++) {
-                        NSDictionary *dict = dictarray[i][@"1"];
-                        SXReplyEntity *replyModel = [[SXReplyEntity alloc]init];
-                        replyModel.name = dict[@"n"];
-                        if (replyModel.name == nil) {
-                            replyModel.name = @"火星网友";
-                        }
-                        replyModel.address = dict[@"f"];
-                        replyModel.say = dict[@"b"];
-                        replyModel.suppose = dict[@"v"];
-                        replyModel.icon = dict[@"timg"];
-                        replyModel.rtime = dict[@"t"];
-                        [temReplyModels addObject:replyModel];
-                    }
-                    self.replyModels = temReplyModels;
-                    [subscriber sendCompleted];
-                }
-            } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            
+            // 嵌套replyModel使用
+            [[self.replyViewModel.fetchHotReplyCommand execute:nil]subscribeNext:^(id x) {
+                self.replyModels = x;
+            } error:^(NSError *error) {
                 [subscriber sendError:error];
+            } completed:^{
+                [subscriber sendCompleted];
             }];
+            
             return nil;
         }];
     }];
