@@ -44,7 +44,7 @@
         self.searchBar.text = self.keyword;
         [self searchBarSearchButtonClicked:self.searchBar];
     }
-    RAC(self.viewModel,searchText) = RACObserve(self.searchBar , text);
+    RAC(self.viewModel,searchText) = RACObserve(self.searchBar ,text);
     [self requestForHotWord];
 }
 
@@ -119,6 +119,7 @@
 
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
 {
+    [searchBar setText:searchText];
     if (searchText.length < 1) {
         self.tableView.hidden = YES;
         self.beginView.hidden = NO;
