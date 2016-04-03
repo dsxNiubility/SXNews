@@ -66,8 +66,16 @@
     self.webView.delegate = self;
     self.hoverView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, SXSCREEN_W, SXSCREEN_H)];
     self.hoverView.backgroundColor = [UIColor blackColor];
-    
+    UIButton *downLoad = [[UIButton alloc]initWithFrame:CGRectMake(SXSCREEN_W - 60, SXSCREEN_H - 60, 50, 50)];
+    [downLoad setImage:[UIImage imageNamed:@"203"] forState:UIControlStateNormal];
+    [self.hoverView addSubview:downLoad];
     @weakify(self)
+    [[downLoad rac_signalForControlEvents:UIControlEventTouchUpInside]subscribeNext:^(id x) {
+        @strongify(self)
+        UIImageWriteToSavedPhotosAlbum(self.bigImg.image, nil, nil, nil);
+    }];
+    
+
     RAC(self.viewModel,newsModel) = RACObserve(self, newsModel);
     [[RACObserve(self.viewModel, replyCountBtnTitle)skip:1]subscribeNext:^(NSString *x) {
         @strongify(self)
@@ -371,7 +379,7 @@
     return image;
 }
 
-// 将图片保存到相册
+// 将图片保存到相册  (旧方法已废弃)
 - (void)savePictureToAlbum:(NSString *)src
 {
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示" message:@"确定要保存到相册吗？" preferredStyle:UIAlertControllerStyleActionSheet];
@@ -412,9 +420,6 @@
     
     CGFloat top = [parameters[@"top"] floatValue] + self.tableView.y - self.tableView.contentOffset.y;
     
-//    NSLog(@"%f---%f",self.tableView.contentOffset.y,self.tableView.y);
-//    top = top + self.tableView.y - self.tableView.contentOffset.y;
-    
     CGFloat height = (SXSCREEN_W - 15) / [parameters[@"whscale"] floatValue];
     [self.temImgPara setValue:@(top) forKey:@"top"];
     [self.temImgPara setValue:@(height) forKey:@"height"];
@@ -434,11 +439,11 @@
         [self moveToCenter];
     }
     
-    [imgView addTapAction:@selector(aaaaa) target:self];
+    [imgView addTapAction:@selector(moveToOrigin) target:self];
     
 }
 
-- (void)aaaaa
+- (void)moveToOrigin
 {
     [UIView animateWithDuration:0.5 animations:^{
         self.hoverView.alpha = 0.0f;
@@ -446,6 +451,8 @@
     } completion:^(BOOL finished) {
         [self.hoverView removeFromSuperview];
         [self.bigImg removeFromSuperview];
+        self.hoverView = nil;
+        self.bigImg = nil;
     }];
 }
 
