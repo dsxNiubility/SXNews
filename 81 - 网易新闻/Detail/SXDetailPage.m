@@ -26,6 +26,8 @@
 @property(nonatomic,strong) NSArray *news;
 
 @property(nonatomic,strong)UIImageView *bigImg;
+@property(nonatomic,strong)NSDictionary *temImgPara;
+@property(nonatomic,strong)UIView *hoverView;
 
 @end
 
@@ -62,6 +64,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.webView.delegate = self;
+    self.hoverView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, SXSCREEN_W, SXSCREEN_H)];
+    self.hoverView.backgroundColor = [UIColor blackColor];
     
     @weakify(self)
     RAC(self.viewModel,newsModel) = RACObserve(self, newsModel);
@@ -388,6 +392,7 @@
 
 - (void)showPictureWithAbsoluteUrl:(NSString *)url
 {
+    self.view.userInteractionEnabled = NO;
     NSRange range = [url rangeOfString:@"github.com/dsxNiubility?"];
     NSInteger path = range.location + range.length;
     NSString *tail = [url substringFromIndex:path];
@@ -399,35 +404,63 @@
             [parameters setValue:keyVaule[1] forKey:keyVaule[0]];
         }
     }
+    self.temImgPara = parameters;
     NSURLCache *cache =[NSURLCache sharedURLCache];
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:parameters[@"src"]]];
     NSData *imgData = [cache cachedResponseForRequest:request].data;
     UIImage *image = [UIImage imageWithData:imgData];
     
-    CGFloat top = [parameters[@"top"] floatValue];
+    CGFloat top = [parameters[@"top"] floatValue] + self.tableView.y - self.tableView.contentOffset.y;
     
-    NSLog(@"%f---%f",self.tableView.contentOffset.y,self.tableView.y);
-    top = top + self.tableView.y - self.tableView.contentOffset.y;
+//    NSLog(@"%f---%f",self.tableView.contentOffset.y,self.tableView.y);
+//    top = top + self.tableView.y - self.tableView.contentOffset.y;
     
     CGFloat height = (SXSCREEN_W - 15) / [parameters[@"whscale"] floatValue];
-    
+    [self.temImgPara setValue:@(top) forKey:@"top"];
+    [self.temImgPara setValue:@(height) forKey:@"height"];
     UIImageView *imgView = [[UIImageView alloc]initWithImage:image];
     imgView.frame = CGRectMake(8, top, SXSCREEN_W-15, height);
     self.bigImg = imgView;
     
-    
+    self.hoverView.alpha = 0.0f;
+    [self.navigationController.view addSubview:self.hoverView];
     [self.navigationController.view addSubview:imgView];
 
     if (!image) {
-        [imgView sd_setImageWithURL:[NSURL URLWithString:parameters[@"src"]]];
+        [imgView sd_setImageWithURL:[NSURL URLWithString:parameters[@"src"]] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+            [self moveToCenter];
+        }];
+    }else{
+        [self moveToCenter];
     }
+    
     [imgView addTapAction:@selector(aaaaa) target:self];
     
 }
 
 - (void)aaaaa
 {
-    [self.bigImg removeFromSuperview];
+    [UIView animateWithDuration:0.5 animations:^{
+        self.hoverView.alpha = 0.0f;
+        self.bigImg.frame = CGRectMake(8, [self.temImgPara[@"top"] floatValue], SXSCREEN_W-15, [self.temImgPara[@"height"] floatValue]);
+    } completion:^(BOOL finished) {
+        [self.hoverView removeFromSuperview];
+        [self.bigImg removeFromSuperview];
+    }];
+}
+
+- (void)moveToCenter
+{
+    CGFloat w = SXSCREEN_W;
+    CGFloat h = SXSCREEN_W / [self.temImgPara[@"whscale"] floatValue];
+    CGFloat x = 0;
+    CGFloat y = (SXSCREEN_H - h)/2;
+    [UIView animateWithDuration:0.5 animations:^{
+        self.hoverView.alpha = 1.0f;
+        self.bigImg.frame = CGRectMake(x, y, w, h);
+    } completion:^(BOOL finished) {
+        self.view.userInteractionEnabled = YES;
+    }];
 }
 
 
