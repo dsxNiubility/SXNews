@@ -25,6 +25,8 @@
 @property(nonatomic,strong)SXNewsDetailViewModel *viewModel;
 @property(nonatomic,strong) NSArray *news;
 
+@property(nonatomic,strong)UIImageView *bigImg;
+
 @end
 
 @implementation SXDetailPage
@@ -125,11 +127,12 @@
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
 {
     NSString *url = request.URL.absoluteString;
-    NSRange range = [url rangeOfString:@"sx:src="];
+    NSRange range = [url rangeOfString:@"sx:"];
     if (range.location != NSNotFound) {
-        NSInteger begin = range.location + range.length;
-        NSString *src = [url substringFromIndex:begin];
-        [self savePictureToAlbum:src];
+//        NSInteger begin = range.location + range.length;
+//        NSString *src = [url substringFromIndex:begin];
+//        [self savePictureToAlbum:src];
+        [self showPictureWithAbsoluteUrl:url];
         return NO;
     }
     return YES;
@@ -382,5 +385,50 @@
     
     [self presentViewController:alert animated:YES completion:nil];
 }
+
+- (void)showPictureWithAbsoluteUrl:(NSString *)url
+{
+    NSRange range = [url rangeOfString:@"github.com/dsxNiubility?"];
+    NSInteger path = range.location + range.length;
+    NSString *tail = [url substringFromIndex:path];
+    NSArray *keyValues = [tail componentsSeparatedByString:@"&"];
+    NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
+    for (NSString *str in keyValues) {
+        NSArray *keyVaule = [str componentsSeparatedByString:@"="];
+        if (keyVaule.count == 2) {
+            [parameters setValue:keyVaule[1] forKey:keyVaule[0]];
+        }
+    }
+    NSURLCache *cache =[NSURLCache sharedURLCache];
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:parameters[@"src"]]];
+    NSData *imgData = [cache cachedResponseForRequest:request].data;
+    UIImage *image = [UIImage imageWithData:imgData];
+    
+    CGFloat top = [parameters[@"top"] floatValue];
+    
+    NSLog(@"%f---%f",self.tableView.contentOffset.y,self.tableView.y);
+    top = top + self.tableView.y - self.tableView.contentOffset.y;
+    
+    CGFloat height = (SXSCREEN_W - 15) / [parameters[@"whscale"] floatValue];
+    
+    UIImageView *imgView = [[UIImageView alloc]initWithImage:image];
+    imgView.frame = CGRectMake(8, top, SXSCREEN_W-15, height);
+    self.bigImg = imgView;
+    
+    
+    [self.navigationController.view addSubview:imgView];
+
+    if (!image) {
+        [imgView sd_setImageWithURL:[NSURL URLWithString:parameters[@"src"]]];
+    }
+    [imgView addTapAction:@selector(aaaaa) target:self];
+    
+}
+
+- (void)aaaaa
+{
+    [self.bigImg removeFromSuperview];
+}
+
 
 @end

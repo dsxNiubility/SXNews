@@ -141,7 +141,7 @@
         }
         
         NSString *onload = @"this.onclick = function() {"
-        "  window.location.href = 'sx:src=' +this.src;"
+        "  window.location.href = 'sx://github.com/dsxNiubility?src=' +this.src+'&top=' + this.getBoundingClientRect().top + '&whscale=' + this.clientWidth/this.clientHeight ;"
         "};";
         [imgHtml appendFormat:@"<img onload=\"%@\" width=\"%f\" height=\"%f\" src=\"%@\">",onload,width,height,detailImgModel.src];
         [imgHtml appendString:@"</div>"];

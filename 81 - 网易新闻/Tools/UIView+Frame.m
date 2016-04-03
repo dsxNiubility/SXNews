@@ -58,4 +58,11 @@
     return self.frame.size.height;
 }
 
+// 这个不算frame，但是不想再建一个类了
+- (void)addTapAction:(SEL)tapAction target:(id)target {
+    self.userInteractionEnabled = YES;
+    UITapGestureRecognizer *gesture = [[UITapGestureRecognizer alloc] initWithTarget:target action:tapAction];
+    [self addGestureRecognizer:gesture];
+}
+
 @end

@@ -16,5 +16,5 @@
 @property (nonatomic, assign) CGFloat  width;
 @property (nonatomic, assign) CGFloat  height;
 
-
+- (void)addTapAction:(SEL)tapAction target:(id)target;
 @end
