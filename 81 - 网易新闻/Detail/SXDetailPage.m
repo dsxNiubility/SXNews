@@ -410,6 +410,12 @@
         NSArray *keyVaule = [str componentsSeparatedByString:@"="];
         if (keyVaule.count == 2) {
             [parameters setValue:keyVaule[1] forKey:keyVaule[0]];
+        }else if (keyValues.count > 2){
+            NSRange range = [str rangeOfString:@"src="];
+            if (range.location != NSNotFound) {
+                NSString *value = [str substringFromIndex:range.length];
+                [parameters setValue:value forKey:@"src"];
+            }
         }
     }
     self.temImgPara = parameters;
@@ -451,7 +457,7 @@
     } completion:^(BOOL finished) {
         [self.hoverView removeFromSuperview];
         [self.bigImg removeFromSuperview];
-        self.hoverView = nil;
+//        self.hoverView = nil;
         self.bigImg = nil;
     }];
 }
