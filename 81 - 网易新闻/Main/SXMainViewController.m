@@ -12,6 +12,7 @@
 #import "SXWeatherDetailPage.h"
 #import "SXTitleLable.h"
 #import "SXWeatherEntity.h"
+#import "SXWeatherViewModel.h"
 
 @interface SXMainViewController ()<UIScrollViewDelegate>
 
@@ -28,12 +29,14 @@
 @property(nonatomic,assign,getter=isWeatherShow)BOOL weatherShow;
 @property(nonatomic,strong)SXWeatherView *weatherView;
 @property(nonatomic,strong)UIImageView *tran;
-@property(nonatomic,strong)SXWeatherEntity *weatherModel;
+//@property(nonatomic,strong)SXWeatherEntity *weatherModel;
 
 @property(nonatomic,strong)UIButton *rightItem;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *TopToTop;
 
 @property(nonatomic,strong)SXNewsTableViewPage *needScrollToTopPage;
+
+@property(nonatomic,strong)SXWeatherViewModel *weatherViewModel;
 
 @end
 
@@ -46,6 +49,14 @@
         _arrayLists = [NSArray arrayWithContentsOfFile:[[NSBundle mainBundle]pathForResource:@"NewsURLs.plist" ofType:nil]];
     }
     return _arrayLists;
+}
+
+- (SXWeatherViewModel *)weatherViewModel
+{
+    if (_weatherViewModel == nil) {
+        _weatherViewModel = [[SXWeatherViewModel alloc]init];
+    }
+    return _weatherViewModel;
 }
 
 #pragma mark - ******************** 页面首次加载
@@ -255,7 +266,7 @@
 
 - (void)addWeather{
     SXWeatherView *weatherView = [SXWeatherView view];
-    weatherView.weatherModel = self.weatherModel;
+    weatherView.weatherModel = self.weatherViewModel.weatherModel;
     self.weatherView = weatherView;
     weatherView.alpha = 0.9;
     UIWindow *win = [UIApplication sharedApplication].windows.firstObject;
@@ -280,15 +291,22 @@
 
 - (void)sendWeatherRequest
 {
-    NSString *url = @"http://c.3g.163.com/nc/weather/5YyX5LqsfOWMl%2BS6rA%3D%3D.html";
-    [[SXHTTPManager manager]GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, NSDictionary *responseObject) {
-        
-       SXWeatherEntity *weatherModel = [SXWeatherEntity objectWithKeyValues:responseObject];
-        self.weatherModel = weatherModel;
+    @weakify(self)
+    [[self.weatherViewModel.fetchWeatherInfoCommand execute:nil]subscribeNext:^(id x) {
+        @strongify(self)
         [self addWeather];
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"failure %@",error);
+    } error:^(NSError *error) {
+         NSLog(@"failure %@",error.userInfo);
     }];
+//    NSString *url = @"http://c.3g.163.com/nc/weather/5YyX5LqsfOWMl%2BS6rA%3D%3D.html";
+//    [[SXHTTPManager manager]GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, NSDictionary *responseObject) {
+//        
+//       SXWeatherEntity *weatherModel = [SXWeatherEntity objectWithKeyValues:responseObject];
+//        self.weatherModel = weatherModel;
+//        [self addWeather];
+//    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+//        NSLog(@"failure %@",error);
+//    }];
 }
 
 
@@ -328,7 +346,7 @@
 {
     self.weatherShow = NO;
     SXWeatherDetailPage *wdvc = [[SXWeatherDetailPage alloc]init];
-    wdvc.weatherModel = self.weatherModel;
+    wdvc.weatherModel = self.weatherViewModel.weatherModel;
     [self.navigationController pushViewController:wdvc animated:YES];
     [UIView animateWithDuration:0.1 animations:^{
         self.weatherView.alpha = 0;

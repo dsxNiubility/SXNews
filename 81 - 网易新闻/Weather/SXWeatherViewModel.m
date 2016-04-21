@@ -28,6 +28,7 @@
             [self requestForWeatherSuccess:^(NSDictionary *result) {
                 SXWeatherEntity *weatherModel = [SXWeatherEntity objectWithKeyValues:result];
                 self.weatherModel = weatherModel;
+                [subscriber sendNext:weatherModel];
             } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                 [subscriber sendError:error];
             }];
