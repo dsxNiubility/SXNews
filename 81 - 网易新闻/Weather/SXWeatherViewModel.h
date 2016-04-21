@@ -8,6 +8,15 @@
 
 #import <Foundation/Foundation.h>
 
+@class SXWeatherEntity;
 @interface SXWeatherViewModel : NSObject
 
+/**
+ *  获取天气信息
+ */
+@property(nonatomic,strong)RACCommand *fetchWeatherInfoCommand;
+/**
+ *  天气模型
+ */
+@property(nonatomic,strong)SXWeatherEntity *weatherModel;
 @end
