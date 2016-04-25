@@ -69,7 +69,6 @@
     if (![[NSUserDefaults standardUserDefaults]boolForKey:@"update"]) {
         return;
     }
-//    NSLog(@"bbbb");
     if (self.update == YES) {
         [self.tableView.mj_header beginRefreshing];
         self.update = NO;
@@ -113,32 +112,10 @@
     } error:^(NSError *error) {
         NSLog(@"%@",error.userInfo);
     }];
-    
-//    [[SXNetworkTools sharedNetworkTools]GET:allUrlstring parameters:nil success:^(NSURLSessionDataTask *task, NSDictionary* responseObject) {
-//        NSLog(@"%@",allUrlstring);
-//        NSString *key = [responseObject.keyEnumerator nextObject];
-//        
-//        NSArray *temArray = responseObject[key];
-//        
-//        NSArray *arrayM = [SXNewsEntity objectArrayWithKeyValuesArray:temArray];
-//        
-//        if (type == 1) {
-//            self.arrayList = [arrayM mutableCopy];
-//            [self.tableView.mj_header endRefreshing];
-//            [self.tableView reloadData];
-//        }else if(type == 2){
-//            [self.arrayList addObjectsFromArray:arrayM];
-//            
-//            [self.tableView.mj_footer endRefreshing];
-//            [self.tableView reloadData];
-//        }
-//        
-//    } failure:^(NSURLSessionDataTask *task, NSError *error) {
-//        NSLog(@"%@",error);
-//    }];
-}// ------想把这里改成block来着
+}
 
-#pragma mark - /************************* tbv数据源方法 ***************************/
+#pragma mark -
+#pragma mark tableView datasource delegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return self.arrayList.count;
@@ -146,32 +123,22 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     SXNewsEntity *newsModel = self.arrayList[indexPath.row];
-    
     NSString *ID = [SXNewsCell idForRow:newsModel];
-    
     if ((indexPath.row%20 == 0)&&(indexPath.row != 0)) {
         ID = @"NewsCell";
     }
-    
     SXNewsCell * cell = [tableView dequeueReusableCellWithIdentifier:ID];
-    
     cell.NewsModel = newsModel;
-    
     return cell;
-    
 }
 
-#pragma mark - /************************* tbv代理方法 ***************************/
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     SXNewsEntity *newsModel = self.arrayList[indexPath.row];
-    
     CGFloat rowHeight = [SXNewsCell heightForRow:newsModel];
-    
     if ((indexPath.row%20 == 0)&&(indexPath.row != 0)) {
         rowHeight = 80;
     }
-    
     return rowHeight;
 }
 
@@ -179,7 +146,6 @@
 {
     // 刚选中又马上取消选中，格子不变色
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    
     UIViewController *vc = [[UIViewController alloc]init];
     vc.view.backgroundColor = [UIColor yellowColor];
 }
