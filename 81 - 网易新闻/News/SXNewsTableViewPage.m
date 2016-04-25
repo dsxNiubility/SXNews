@@ -11,15 +11,25 @@
 #import "SXPhotoSetPage.h"
 #import "SXNewsCell.h"
 #import "SXNetworkTools.h"
+#import "SXNewsViewModel.h"
 
 @interface SXNewsTableViewPage ()
 
 @property(nonatomic,strong) NSMutableArray *arrayList;
 @property(nonatomic,assign)BOOL update;
+@property(nonatomic,strong)SXNewsViewModel *viewModel;
 
 @end
 
 @implementation SXNewsTableViewPage
+
+- (SXNewsViewModel *)viewModel
+{
+    if (!_viewModel) {
+        _viewModel = [[SXNewsViewModel alloc]init];
+    }
+    return _viewModel;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -80,36 +90,52 @@
 // ------上拉加载
 - (void)loadMoreData
 {
+    //    NSString *allUrlstring = [NSString stringWithFormat:@"/nc/article/%@/%ld-20.html",self.urlString,self.arrayList.count];
     NSString *allUrlstring = [NSString stringWithFormat:@"/nc/article/%@/%ld-20.html",self.urlString,(self.arrayList.count - self.arrayList.count%10)];
-//    NSString *allUrlstring = [NSString stringWithFormat:@"/nc/article/%@/%ld-20.html",self.urlString,self.arrayList.count];
     [self loadDataForType:2 withURL:allUrlstring];
 }
 
 // ------公共方法
 - (void)loadDataForType:(int)type withURL:(NSString *)allUrlstring
 {
-    [[[SXNetworkTools sharedNetworkTools]GET:allUrlstring parameters:nil success:^(NSURLSessionDataTask *task, NSDictionary* responseObject) {
-        NSLog(@"%@",allUrlstring);
-        NSString *key = [responseObject.keyEnumerator nextObject];
-        
-        NSArray *temArray = responseObject[key];
-        
-        NSArray *arrayM = [SXNewsEntity objectArrayWithKeyValuesArray:temArray];
-        
+    @weakify(self)
+    [[self.viewModel.fetchNewsEntityCommand execute:allUrlstring]subscribeNext:^(NSArray *arrayM) {
+        @strongify(self)
         if (type == 1) {
             self.arrayList = [arrayM mutableCopy];
             [self.tableView.mj_header endRefreshing];
             [self.tableView reloadData];
         }else if(type == 2){
             [self.arrayList addObjectsFromArray:arrayM];
-            
             [self.tableView.mj_footer endRefreshing];
             [self.tableView reloadData];
         }
-        
-    } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        NSLog(@"%@",error);
-    }] resume];
+    } error:^(NSError *error) {
+        NSLog(@"%@",error.userInfo);
+    }];
+    
+//    [[SXNetworkTools sharedNetworkTools]GET:allUrlstring parameters:nil success:^(NSURLSessionDataTask *task, NSDictionary* responseObject) {
+//        NSLog(@"%@",allUrlstring);
+//        NSString *key = [responseObject.keyEnumerator nextObject];
+//        
+//        NSArray *temArray = responseObject[key];
+//        
+//        NSArray *arrayM = [SXNewsEntity objectArrayWithKeyValuesArray:temArray];
+//        
+//        if (type == 1) {
+//            self.arrayList = [arrayM mutableCopy];
+//            [self.tableView.mj_header endRefreshing];
+//            [self.tableView reloadData];
+//        }else if(type == 2){
+//            [self.arrayList addObjectsFromArray:arrayM];
+//            
+//            [self.tableView.mj_footer endRefreshing];
+//            [self.tableView reloadData];
+//        }
+//        
+//    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+//        NSLog(@"%@",error);
+//    }];
 }// ------想把这里改成block来着
 
 #pragma mark - /************************* tbv数据源方法 ***************************/

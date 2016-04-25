@@ -10,4 +10,9 @@
 
 @interface SXNewsViewModel : NSObject
 
+/**
+ *  获取新闻概要模型
+ */
+@property(nonatomic,strong)RACCommand *fetchNewsEntityCommand;
+
 @end
