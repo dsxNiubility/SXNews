@@ -10,6 +10,7 @@
 #import "SXReplyHeader.h"
 #import "SXReplyCell.h"
 #import "SXReplyEntity.h"
+#import "UITableView+FDTemplateLayoutCell.h"
 
 @interface SXReplyPage ()<UITableViewDataSource,UITableViewDelegate>
 
@@ -21,7 +22,7 @@
 
 
 @implementation SXReplyPage
-static NSString *ID = @"replyCell";
+static NSString *ID = @"SXReplyCell";
 
 
 #pragma mark - **************** lifeCycle
@@ -93,13 +94,16 @@ static NSString *ID = @"replyCell";
         cell2.textLabel.text = @"     评论加载中...";
         return cell2;
     }else{
-        if(indexPath.section == 0){
-            SXReplyEntity *model = self.viewModel.replyModels[indexPath.row];
-            cell.replyModel = model;
-        }else{
-            SXReplyEntity *model = self.viewModel.replyNormalModels[indexPath.row];
-            cell.replyModel = model;
-        }
+        [self configureCell:cell atIndexPath:indexPath];
+        return cell;
+        
+//        if(indexPath.section == 0){
+//            SXReplyEntity *model = self.viewModel.replyModels[indexPath.row];
+//            cell.replyModel = model;
+//        }else{
+//            SXReplyEntity *model = self.viewModel.replyNormalModels[indexPath.row];
+//            cell.replyModel = model;
+//        }
         
     }
     
@@ -120,21 +124,36 @@ static NSString *ID = @"replyCell";
     if(self.viewModel.replyModels.count == 0){
         return 40;
     }else{
-        SXReplyCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
+//        SXReplyCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
+//        
+//        SXReplyEntity *model;
+//        if (indexPath.section == 0) {
+//            model = self.viewModel.replyModels[indexPath.row];
+//        }else{
+//            model = self.viewModel.replyNormalModels[indexPath.row];
+//        }
+//        cell.replyModel = model;
+//        
+//        [cell layoutIfNeeded];
+//        CGSize size = [cell.sayLabel systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
+//        
+//        return cell.sayLabel.frame.origin.y + size.height + 10;
         
-        SXReplyEntity *model;
-        if (indexPath.section == 0) {
-            model = self.viewModel.replyModels[indexPath.row];
-        }else{
-            model = self.viewModel.replyNormalModels[indexPath.row];
-        }
-        cell.replyModel = model;
-        
-        [cell layoutIfNeeded];
-        CGSize size = [cell.sayLabel systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
-        
-        return cell.sayLabel.frame.origin.y + size.height + 10;
+        return [tableView fd_heightForCellWithIdentifier:ID cacheByIndexPath:indexPath configuration:^(SXReplyCell *cell) {
+            [self configureCell:cell atIndexPath:indexPath];
+        }];
     }
+}
+
+- (void)configureCell:(SXReplyCell *)cell atIndexPath:(NSIndexPath *)indexPath {
+    cell.fd_enforceFrameLayout = NO; // Enable to use "-sizeThatFits:"
+    SXReplyEntity *model;
+    if (indexPath.section == 0) {
+        model = self.viewModel.replyModels[indexPath.row];
+    }else{
+        model = self.viewModel.replyNormalModels[indexPath.row];
+    }
+    cell.replyModel = model;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath {

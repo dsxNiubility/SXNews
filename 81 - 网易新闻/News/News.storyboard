@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="dLE-KE-4lH">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="dLE-KE-4lH">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
@@ -543,7 +543,7 @@
                                 <rect key="frame" x="0.0" y="55" width="375" height="612"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="replyCell" rowHeight="81" id="QRI-aF-A7F" customClass="SXReplyCell">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SXReplyCell" rowHeight="81" id="QRI-aF-A7F" customClass="SXReplyCell">
                                         <rect key="frame" x="0.0" y="22" width="375" height="81"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="QRI-aF-A7F" id="5cf-dD-usv">
@@ -557,19 +557,19 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="网易江苏手机网友" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pTU-2k-bcp">
-                                                    <rect key="frame" x="58" y="26" width="96" height="15"/>
+                                                    <rect key="frame" x="58" y="26" width="96" height="14.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="不化妆也蛮漂亮的" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="Zlk-ej-YfS">
-                                                    <rect key="frame" x="58" y="46" width="136" height="21"/>
+                                                    <rect key="frame" x="58" y="45" width="312" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="36" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3ts-XC-j2l">
-                                                    <rect key="frame" x="331" y="12" width="16" height="17"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="36" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3ts-XC-j2l">
+                                                    <rect key="frame" x="329" y="12" width="17.5" height="17"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
@@ -603,6 +603,7 @@
                                                 <constraint firstItem="MOd-AW-rsy" firstAttribute="trailing" secondItem="5cf-dD-usv" secondAttribute="trailingMargin" id="16H-Tp-9wk"/>
                                                 <constraint firstItem="SyQ-Py-M7I" firstAttribute="top" secondItem="5cf-dD-usv" secondAttribute="top" constant="8" id="3CX-gF-aLE"/>
                                                 <constraint firstAttribute="bottom" secondItem="1cY-uD-wuQ" secondAttribute="bottom" constant="1" id="95t-f1-Gz1"/>
+                                                <constraint firstItem="1cY-uD-wuQ" firstAttribute="top" secondItem="Zlk-ej-YfS" secondAttribute="bottom" constant="13.5" id="Ghs-Ba-PMB"/>
                                                 <constraint firstItem="qrV-TW-FD8" firstAttribute="leading" secondItem="SyQ-Py-M7I" secondAttribute="trailing" constant="15" id="He3-23-IiS"/>
                                                 <constraint firstItem="3ts-XC-j2l" firstAttribute="top" secondItem="5cf-dD-usv" secondAttribute="top" constant="12" id="IBi-QR-lCk"/>
                                                 <constraint firstItem="pTU-2k-bcp" firstAttribute="top" secondItem="5cf-dD-usv" secondAttribute="top" constant="26" id="LPO-TN-GrL"/>
@@ -613,6 +614,7 @@
                                                 <constraint firstItem="qrV-TW-FD8" firstAttribute="top" secondItem="5cf-dD-usv" secondAttribute="topMargin" id="QzQ-Az-vpJ"/>
                                                 <constraint firstItem="1cY-uD-wuQ" firstAttribute="leading" secondItem="5cf-dD-usv" secondAttribute="leading" id="XSb-8k-8L6"/>
                                                 <constraint firstItem="Zlk-ej-YfS" firstAttribute="top" secondItem="pTU-2k-bcp" secondAttribute="bottom" constant="5" id="kcg-HR-H1s"/>
+                                                <constraint firstAttribute="trailing" secondItem="Zlk-ej-YfS" secondAttribute="trailing" constant="5" id="n0I-jf-C0g"/>
                                                 <constraint firstItem="MOd-AW-rsy" firstAttribute="leading" secondItem="3ts-XC-j2l" secondAttribute="trailing" constant="3" id="owA-hJ-gzN"/>
                                                 <constraint firstAttribute="trailing" secondItem="1cY-uD-wuQ" secondAttribute="trailing" id="trt-SG-MT4"/>
                                             </constraints>
