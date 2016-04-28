@@ -71,38 +71,30 @@ static NSString *ID = @"SXReplyCell";
 {
     if (self.viewModel.replyModels.count == 0) {
         return 1;
-    }
-    if (section == 0) {
-        return self.viewModel.replyModels.count;
     }else{
-        return self.viewModel.replyNormalModels.count;
+        return section == 0 ? self.viewModel.replyModels.count:self.viewModel.replyNormalModels.count;
     }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-     SXReplyCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
-    if (cell == nil) {
-       cell = [[SXReplyCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
-    }
     if (self.viewModel.replyModels.count == 0) {
         UITableViewCell *cell2 = [[UITableViewCell alloc]init];
         cell2.textLabel.text = @"     评论加载中...";
         return cell2;
     }else{
+        SXReplyCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
+        if (cell == nil) {
+            cell = [[SXReplyCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
+        }
         [self configureCell:cell atIndexPath:indexPath];
         return cell;
     }
-    return cell;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    if (section == 0) {
-        return [SXReplyHeader replyViewFirst];
-    }else{
-        return [SXReplyHeader replyViewLast];
-    }
+    return section == 0?[SXReplyHeader replyViewFirst]:[SXReplyHeader replyViewLast];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -127,8 +119,4 @@ static NSString *ID = @"SXReplyCell";
     cell.replyModel = model;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    return 130;
-}
 @end
