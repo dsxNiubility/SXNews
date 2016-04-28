@@ -22,7 +22,6 @@
 
 @implementation SXReplyCell
 
-/** set方法数据分发 */
 - (void)setReplyModel:(SXReplyEntity *)replyModel
 {
     _replyModel = replyModel;

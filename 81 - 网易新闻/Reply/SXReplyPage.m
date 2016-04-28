@@ -69,11 +69,9 @@ static NSString *ID = @"SXReplyCell";
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-
     if (self.viewModel.replyModels.count == 0) {
         return 1;
     }
-    
     if (section == 0) {
         return self.viewModel.replyModels.count;
     }else{
@@ -82,13 +80,11 @@ static NSString *ID = @"SXReplyCell";
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{ 
-    
+{
      SXReplyCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
     if (cell == nil) {
        cell = [[SXReplyCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
     }
-    
     if (self.viewModel.replyModels.count == 0) {
         UITableViewCell *cell2 = [[UITableViewCell alloc]init];
         cell2.textLabel.text = @"     评论加载中...";
@@ -96,17 +92,7 @@ static NSString *ID = @"SXReplyCell";
     }else{
         [self configureCell:cell atIndexPath:indexPath];
         return cell;
-        
-//        if(indexPath.section == 0){
-//            SXReplyEntity *model = self.viewModel.replyModels[indexPath.row];
-//            cell.replyModel = model;
-//        }else{
-//            SXReplyEntity *model = self.viewModel.replyNormalModels[indexPath.row];
-//            cell.replyModel = model;
-//        }
-        
     }
-    
     return cell;
 }
 
@@ -124,21 +110,6 @@ static NSString *ID = @"SXReplyCell";
     if(self.viewModel.replyModels.count == 0){
         return 40;
     }else{
-//        SXReplyCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
-//        
-//        SXReplyEntity *model;
-//        if (indexPath.section == 0) {
-//            model = self.viewModel.replyModels[indexPath.row];
-//        }else{
-//            model = self.viewModel.replyNormalModels[indexPath.row];
-//        }
-//        cell.replyModel = model;
-//        
-//        [cell layoutIfNeeded];
-//        CGSize size = [cell.sayLabel systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
-//        
-//        return cell.sayLabel.frame.origin.y + size.height + 10;
-        
         return [tableView fd_heightForCellWithIdentifier:ID cacheByIndexPath:indexPath configuration:^(SXReplyCell *cell) {
             [self configureCell:cell atIndexPath:indexPath];
         }];
