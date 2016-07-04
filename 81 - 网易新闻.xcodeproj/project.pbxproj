@@ -73,7 +73,6 @@
 		1DE822B91C5B5C4A00E965C1 /* SXNewsDetailBottomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DE822B71C5B5C4A00E965C1 /* SXNewsDetailBottomCell.m */; };
 		1DE822BA1C5B5C4A00E965C1 /* SXNewsDetailBottomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DE822B81C5B5C4A00E965C1 /* SXNewsDetailBottomCell.xib */; };
 		1DE822C01C60577900E965C1 /* SXSimilarNewsEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DE822BF1C60577900E965C1 /* SXSimilarNewsEntity.m */; };
-		E59CD3B44516224892254B99 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 444DF4EF638B7F11925A94D0 /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -220,7 +219,6 @@
 				1DA8BAB81C522E3200D041C5 /* CoreData.framework in Frameworks */,
 				1DA8BAB61C522E2800D041C5 /* CoreTelephony.framework in Frameworks */,
 				1DA8BAB41C522E1F00D041C5 /* SystemConfiguration.framework in Frameworks */,
-				E59CD3B44516224892254B99 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
