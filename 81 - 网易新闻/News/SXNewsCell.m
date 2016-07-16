@@ -90,9 +90,9 @@
 + (CGFloat)heightForRow:(SXNewsEntity *)NewsModel
 {
     if (NewsModel.hasHead && NewsModel.photosetID){
-        return 245;
+        return 215;
     }else if(NewsModel.hasHead) {
-        return 245;
+        return 215;
     }else if(NewsModel.imgType) {
         return 170;
     }else if (NewsModel.imgextra){
