@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="dLE-KE-4lH">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="dLE-KE-4lH">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -494,13 +494,13 @@
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="AFR-b5-qK2" secondAttribute="trailing" constant="5" id="1iD-ON-t7a"/>
-                            <constraint firstItem="D9H-WT-4KQ" firstAttribute="top" secondItem="mwR-F0-ehs" secondAttribute="bottom" id="5Np-hy-Mwu"/>
                             <constraint firstItem="aSS-jM-mLl" firstAttribute="leading" secondItem="XE4-Au-0TB" secondAttribute="leading" constant="5" id="9f4-dk-cob"/>
                             <constraint firstItem="oHd-NP-TVD" firstAttribute="leading" secondItem="XE4-Au-0TB" secondAttribute="leading" constant="5" id="BB0-wa-qas"/>
                             <constraint firstAttribute="trailing" secondItem="FsF-v2-rX2" secondAttribute="trailing" constant="5" id="BS1-7O-Hed"/>
                             <constraint firstItem="O9c-Pq-dVx" firstAttribute="leading" secondItem="XE4-Au-0TB" secondAttribute="leading" constant="5" id="FXL-Wg-kz2"/>
                             <constraint firstItem="mwR-F0-ehs" firstAttribute="leading" secondItem="XE4-Au-0TB" secondAttribute="leading" id="FqQ-R4-wQi"/>
                             <constraint firstItem="mwR-F0-ehs" firstAttribute="top" secondItem="LOk-YG-gEv" secondAttribute="bottom" id="GqZ-xt-hE2"/>
+                            <constraint firstAttribute="bottom" secondItem="mwR-F0-ehs" secondAttribute="bottom" id="Hl3-hf-eoT"/>
                             <constraint firstItem="oHd-NP-TVD" firstAttribute="top" secondItem="FsF-v2-rX2" secondAttribute="bottom" id="IZr-Cm-ixy"/>
                             <constraint firstItem="AFR-b5-qK2" firstAttribute="top" secondItem="7On-M5-J9i" secondAttribute="bottom" constant="5" id="IzU-k5-C54"/>
                             <constraint firstAttribute="trailing" secondItem="mwR-F0-ehs" secondAttribute="trailing" id="JdY-k9-nPW"/>
@@ -782,8 +782,8 @@
         <image name="weather_share" width="45" height="44"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="2uJ-wj-MSP"/>
+        <segue reference="KzH-9A-Ids"/>
         <segue reference="taV-i8-kFc"/>
-        <segue reference="Kax-d4-jez"/>
+        <segue reference="2uJ-wj-MSP"/>
     </inferredMetricsTieBreakers>
 </document>
