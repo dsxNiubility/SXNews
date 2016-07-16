@@ -48,11 +48,9 @@
 {
     _NewsModel = NewsModel;
     
-//    [self.imgIcon sd_setImageWithURL:[NSURL URLWithString:self.NewsModel.imgsrc]];
-    
     [self.imgIcon sd_setImageWithURL:[NSURL URLWithString:self.NewsModel.imgsrc] placeholderImage:[UIImage imageNamed:@"302"]];
     self.lblTitle.text = self.NewsModel.title;
-    self.lblSubtitle.text = self.NewsModel.digest;
+    self.lblSubtitle.text = self.NewsModel.source;
     
     // 如果回复太多就改成几点几万
     CGFloat count =  [self.NewsModel.replyCount intValue];
@@ -66,10 +64,6 @@
     
     // 多图cell
     if (self.NewsModel.imgextra.count == 2) {
-        
-//        [self.imgOther1 sd_setImageWithURL:[NSURL URLWithString:self.NewsModel.imgextra[0][@"imgsrc"]]];
-//        [self.imgOther2 sd_setImageWithURL:[NSURL URLWithString:self.NewsModel.imgextra[1][@"imgsrc"]]];
-        
         [self.imgOther1 sd_setImageWithURL:[NSURL URLWithString:self.NewsModel.imgextra[0][@"imgsrc"]] placeholderImage:[UIImage imageNamed:@"302"]];
         [self.imgOther2 sd_setImageWithURL:[NSURL URLWithString:self.NewsModel.imgextra[1][@"imgsrc"]] placeholderImage:[UIImage imageNamed:@"302"]];
     }
