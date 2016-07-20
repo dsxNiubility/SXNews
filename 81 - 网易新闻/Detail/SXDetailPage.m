@@ -8,6 +8,7 @@
 
 #import "SXNewsDetailBottomCell.h"
 #import "SXNewsDetailViewModel.h"
+#import "UINavigationController+FDFullscreenPopGesture.h"
 #import "SXDetailPage.h"
 #import "SXSearchPage.h"
 #import "SXReplyPage.h"
@@ -456,8 +457,8 @@
     } completion:^(BOOL finished) {
         [self.hoverView removeFromSuperview];
         [self.bigImg removeFromSuperview];
-//        self.hoverView = nil;
         self.bigImg = nil;
+        self.fd_interactivePopDisabled = NO;
     }];
 }
 
@@ -472,6 +473,7 @@
         self.bigImg.frame = CGRectMake(x, y, w, h);
     } completion:^(BOOL finished) {
         self.view.userInteractionEnabled = YES;
+        self.fd_interactivePopDisabled = YES;
     }];
 }
 
