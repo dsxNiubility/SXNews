@@ -7,6 +7,9 @@
 //
 
 #import "AppDelegate.h"
+#import "SXSearchPage.h"
+#import "SXMainTabBarController.h"
+#import "SXMainViewController.h"
 
 @interface AppDelegate ()
 
@@ -21,6 +24,22 @@
     UIApplication *app = [UIApplication sharedApplication];
     app.statusBarStyle = UIStatusBarStyleLightContent;
     return YES;
+}
+
+- (void)application:(UIApplication *)application performActionForShortcutItem:(UIApplicationShortcutItem *)shortcutItem completionHandler:(void (^)(BOOL))completionHandler{
+    if ([shortcutItem.localizedTitle isEqualToString:@"分享\"SXNews\""]) {
+        NSArray *arr = @[@"share"];
+        UIActivityViewController *vc = [[UIActivityViewController alloc]initWithActivityItems:arr applicationActivities:nil];
+        [self.window.rootViewController presentViewController:vc animated:YES completion:^{
+
+        }];
+    }else if ([shortcutItem.localizedTitle isEqualToString:@"搜索"]){
+        SXMainTabBarController *rootTab = (SXMainTabBarController *)self.window.rootViewController;
+        UINavigationController *rootNav = rootTab.viewControllers[0];
+        UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        SXSearchPage *sp = [sb instantiateViewControllerWithIdentifier:@"SXSearchPage"];
+        [rootNav pushViewController:sp animated:YES];
+    }
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

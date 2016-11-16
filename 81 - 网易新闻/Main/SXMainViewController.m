@@ -90,9 +90,10 @@
    
     UIButton *rightItem = [[UIButton alloc]init];
     self.rightItem = rightItem;
-    UIWindow *win = [UIApplication sharedApplication].windows.firstObject;
-    [win addSubview:rightItem];
-    rightItem.y = 20;
+    
+    [self.navigationController.navigationBar addSubview:rightItem];
+    
+    rightItem.y = 0;
     rightItem.width = 45;
     rightItem.height = 45;
     [rightItem addTarget:self action:@selector(rightItemClick) forControlEvents:UIControlEventTouchUpInside];
@@ -108,12 +109,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     self.navigationController.navigationBar.barTintColor = [UIColor redColor];
-    if([[NSUserDefaults standardUserDefaults]boolForKey:@"top20"]){
-        self.TopToTop.constant = 20;
-        [[NSUserDefaults standardUserDefaults]setBool:NO forKey:@"top20"];
-    }else{
-        self.TopToTop.constant = 0;
-    }
+    self.TopToTop.constant = 0;
     self.rightItem.hidden = NO;
     if ([[NSUserDefaults standardUserDefaults] boolForKey:@"rightItem"]) {
         self.rightItem.hidden = YES;

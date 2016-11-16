@@ -24,7 +24,7 @@
     [super viewDidLoad];
     [SXAdManager loadLatestAdImage];
     if ([SXAdManager isShouldDisplayAd]) {
-        // ------这里主要是容错一个bug。
+        // ------状态重置
         [[NSUserDefaults standardUserDefaults]setBool:YES forKey:@"top20"];
         [[NSUserDefaults standardUserDefaults]setBool:YES forKey:@"rightItem"];
         
@@ -38,7 +38,6 @@
         adBottomImg.frame = CGRectMake(0, self.view.height - 135, self.view.width, 135);
         adImg.frame = CGRectMake(0, 0, self.view.width, self.view.height - 135);
         
-//        adImg.frame = [UIScreen mainScreen].bounds;
         adView.alpha = 0.99f;
         [self.view addSubview:adView];
         [[UIApplication sharedApplication]setStatusBarHidden:YES];
