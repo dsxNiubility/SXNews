@@ -19,6 +19,7 @@
 
 - (void)awakeFromNib {
     // Initialization code
+    [super awakeFromNib];
 }
 
 + (instancetype)cellWithTableView:(UITableView *)tableview

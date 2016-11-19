@@ -37,11 +37,10 @@
 @implementation SXWeatherView
 
 - (void)awakeFromNib{
+    [super awakeFromNib];
     UIView *bottomView = [[UIView alloc]init];
     self.bottomView = bottomView;
     [self addSubview:bottomView];
-
-    
 }
 
 - (void)layoutSubviews{

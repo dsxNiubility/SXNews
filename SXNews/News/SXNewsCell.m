@@ -42,6 +42,7 @@
 
 - (void)awakeFromNib {
     // Initialization code
+    [super awakeFromNib];
 }
 
 - (void)setNewsModel:(SXNewsEntity *)NewsModel
