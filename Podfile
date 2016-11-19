@@ -6,7 +6,7 @@ inhibit_all_warnings!
 
 platform :ios, '7.0'
 
-target '81 - 网易新闻' do
+target 'SXNews' do
 pod 'ReactiveCocoa','2.5'
 pod 'AFNetworking', '2.5.4'
 pod 'MJExtension', '2.0.4'
