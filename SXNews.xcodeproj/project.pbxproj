@@ -6,6 +6,20 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		1DF597F61DF901670090BF75 /* OCLint */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 1DF597F71DF901670090BF75 /* Build configuration list for PBXAggregateTarget "OCLint" */;
+			buildPhases = (
+				1DF597FA1DF901960090BF75 /* ShellScript */,
+			);
+			dependencies = (
+			);
+			name = OCLint;
+			productName = OCLint;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		1D007F3B1B6C823500EA119C /* SXWeatherView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D007F3A1B6C823500EA119C /* SXWeatherView.m */; };
 		1D007F3D1B6C824D00EA119C /* SXWeatherView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D007F3C1B6C824D00EA119C /* SXWeatherView.xib */; };
@@ -82,7 +96,7 @@
 			containerPortal = 1D2A58FD1A700822001F9B8E /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 1D2A59041A700822001F9B8E;
-			remoteInfo = "SXNews";
+			remoteInfo = SXNews;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -147,14 +161,14 @@
 		1D25EA6E1C8E7E33009AFE2E /* SXWeatherViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SXWeatherViewModel.m; sourceTree = "<group>"; };
 		1D25EA701C8E7E4A009AFE2E /* SXNewsViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SXNewsViewModel.h; sourceTree = "<group>"; };
 		1D25EA711C8E7E4A009AFE2E /* SXNewsViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SXNewsViewModel.m; sourceTree = "<group>"; };
-		1D2A59051A700822001F9B8E /* SXNews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SXNews.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1D2A59051A700822001F9B8E /* SXNews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SXNews.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D2A59091A700822001F9B8E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1D2A590A1A700822001F9B8E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		1D2A590C1A700822001F9B8E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		1D2A590D1A700822001F9B8E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		1D2A59151A700822001F9B8E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = ../Images.xcassets; sourceTree = "<group>"; };
 		1D2A59181A700822001F9B8E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		1D2A591E1A700822001F9B8E /* SXNewsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SXNewsTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1D2A591E1A700822001F9B8E /* SXNewsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SXNewsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D2A59231A700822001F9B8E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1D2A59241A700822001F9B8E /* _1_______Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "_1_______Tests.m"; sourceTree = "<group>"; };
 		1D577F451C57719F00B547B8 /* SXSearchPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SXSearchPage.h; sourceTree = "<group>"; };
@@ -512,7 +526,7 @@
 				1DA8BABD1C522EEE00D041C5 /* NetEasyPrefix.pch */,
 				1D2A59081A700822001F9B8E /* Supporting Files */,
 			);
-			path = "SXNews";
+			path = SXNews;
 			sourceTree = "<group>";
 		};
 		1D2A59081A700822001F9B8E /* Supporting Files */ = {
@@ -532,7 +546,7 @@
 				1D2A59241A700822001F9B8E /* _1_______Tests.m */,
 				1D2A59221A700822001F9B8E /* Supporting Files */,
 			);
-			path = "SXNewsTests";
+			path = SXNewsTests;
 			sourceTree = "<group>";
 		};
 		1D2A59221A700822001F9B8E /* Supporting Files */ = {
@@ -650,8 +664,8 @@
 			);
 			dependencies = (
 			);
-			name = "SXNews";
-			productName = "SXNews";
+			name = SXNews;
+			productName = SXNews;
 			productReference = 1D2A59051A700822001F9B8E /* SXNews.app */;
 			productType = "com.apple.product-type.application";
 		};
@@ -668,8 +682,8 @@
 			dependencies = (
 				1D2A59201A700822001F9B8E /* PBXTargetDependency */,
 			);
-			name = "SXNewsTests";
-			productName = "SXNewsTests";
+			name = SXNewsTests;
+			productName = SXNewsTests;
 			productReference = 1D2A591E1A700822001F9B8E /* SXNewsTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
@@ -685,12 +699,17 @@
 				TargetAttributes = {
 					1D2A59041A700822001F9B8E = {
 						CreatedOnToolsVersion = 6.0.1;
-						DevelopmentTeam = KLD54SC2VP;
-						ProvisioningStyle = Automatic;
+						DevelopmentTeam = 4HW3B6PMKD;
+						ProvisioningStyle = Manual;
 					};
 					1D2A591D1A700822001F9B8E = {
 						CreatedOnToolsVersion = 6.0.1;
 						TestTargetID = 1D2A59041A700822001F9B8E;
+					};
+					1DF597F61DF901670090BF75 = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = KLD54SC2VP;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -709,6 +728,7 @@
 			targets = (
 				1D2A59041A700822001F9B8E /* SXNews */,
 				1D2A591D1A700822001F9B8E /* SXNewsTests */,
+				1DF597F61DF901670090BF75 /* OCLint */,
 			);
 		};
 /* End PBXProject section */
@@ -744,6 +764,19 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		1DF597FA1DF901960090BF75 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "xcodebuild clean\nxcodebuild analyze | tee xcodebuild.log | xcpretty --report json-compilation-database\noclint-json-compilation-database -- -report-type pmd -o report.html";
+		};
 		3EBCB3058C0F9C69A599F830 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -961,7 +994,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer: Wei Feng Hou (P4XREMZX86)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = KLD54SC2VP;
+				DEVELOPMENT_TEAM = 4HW3B6PMKD;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -969,11 +1002,13 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/SXNews/NetEasyPrefix.pch";
-				INFOPLIST_FILE = "SXNews/Info.plist";
+				INFOPLIST_FILE = SXNews/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.shangxian.sxnews;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "b257564f-9d82-4034-87a3-18a0d4029e73";
+				PROVISIONING_PROFILE_SPECIFIER = ios_development_sunli;
 			};
 			name = Debug;
 		};
@@ -986,7 +1021,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer: Wei Feng Hou (P4XREMZX86)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = KLD54SC2VP;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -994,7 +1029,7 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/SXNews/NetEasyPrefix.pch";
-				INFOPLIST_FILE = "SXNews/Info.plist";
+				INFOPLIST_FILE = SXNews/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.shangxian.sxnews;
@@ -1014,7 +1049,7 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "SXNewsTests/Info.plist";
+				INFOPLIST_FILE = SXNewsTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SXNews.app/SXNews";
@@ -1029,10 +1064,26 @@
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "SXNewsTests/Info.plist";
+				INFOPLIST_FILE = SXNewsTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SXNews.app/SXNews";
+			};
+			name = Release;
+		};
+		1DF597F81DF901670090BF75 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = KLD54SC2VP;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		1DF597F91DF901670090BF75 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = KLD54SC2VP;
+				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
 		};
@@ -1065,6 +1116,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		1DF597F71DF901670090BF75 /* Build configuration list for PBXAggregateTarget "OCLint" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DF597F81DF901670090BF75 /* Debug */,
+				1DF597F91DF901670090BF75 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};

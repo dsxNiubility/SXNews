@@ -75,6 +75,7 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:YES animated:YES];
 }
 
@@ -108,14 +109,14 @@
     // 设置新闻内容
     [self setContentWithIndex:0];
     
-    NSString *countNum = [NSString stringWithFormat:@"1/%ld",photoSet.photos.count];
+    NSString *countNum = [NSString stringWithFormat:@"1/%ld",(long)photoSet.photos.count];
     self.countLabel.text = countNum;
 }
 
 /** 设置页面imgView */
 - (void)setImageViewWithModel:(SXPhotoSetEntity *)photoSet
 {
-    NSUInteger count = self.photoSet.photos.count;
+    NSInteger count = self.photoSet.photos.count;
     
 //    UIBlurEffect *beffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleDark];
 //    UIVisualEffectView *view = [[UIVisualEffectView alloc]initWithEffect:beffect];
@@ -152,7 +153,7 @@
     [self setImgWithIndex:index];
     
     // 添加文字
-    NSString *countNum = [NSString stringWithFormat:@"%d/%ld",index+1,self.photoSet.photos.count];
+    NSString *countNum = [NSString stringWithFormat:@"%d/%ld",index+1,(long)self.photoSet.photos.count];
     self.countLabel.text = countNum;
     
     // 添加内容
@@ -240,7 +241,7 @@ static void RGBtoHSV( float r, float g, float b, float *h, float *s,float *v)
     
     //取每个点的像素值
     unsigned char* data = CGBitmapContextGetData (context);
-    
+    CGContextRelease(context);
     if (data == NULL) return nil;
     NSArray *MaxColor=nil;
     // NSCountedSet *cls=[NSCountedSet setWithCapacity:thumbSize.width*thumbSize.height];
@@ -270,7 +271,6 @@ static void RGBtoHSV( float r, float g, float b, float *h, float *s,float *v)
         MaxColor=@[@(red),@(green),@(blue),@(alpha)];
         //[cls addObject:clr];
     }
-    CGContextRelease(context);
     return [UIColor colorWithRed:([MaxColor[0] intValue]/255.0f) green:([MaxColor[1] intValue]/255.0f) blue:([MaxColor[2] intValue]/255.0f) alpha:(0.2)];
 }
 

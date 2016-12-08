@@ -32,10 +32,12 @@ static NSString *ID = @"SXReplyCell";
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:YES animated:YES];
 }
 
 - (void)viewDidLoad{
+    [super viewDidLoad];
     self.automaticallyAdjustsScrollViewInsets = NO;
     
     [[self.viewModel.fetchHotReplyCommand execute:nil]subscribeError:^(NSError *error) {

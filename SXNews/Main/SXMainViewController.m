@@ -108,6 +108,7 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    [super viewWillAppear:animated];
     self.navigationController.navigationBar.barTintColor = [UIColor redColor];
     self.TopToTop.constant = 0;
     self.rightItem.hidden = NO;
@@ -124,6 +125,7 @@
 
 - (void)viewWillDisappear:(BOOL)animated
 {
+    [super viewWillDisappear:animated];
     self.rightItem.hidden = YES;
     self.rightItem.transform = CGAffineTransformIdentity;
     [self.rightItem setImage:[UIImage imageNamed:@"top_navigation_square"] forState:UIControlStateNormal];

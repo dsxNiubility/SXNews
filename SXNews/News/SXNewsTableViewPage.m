@@ -66,6 +66,7 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    [super viewWillAppear:animated];
     if (![[NSUserDefaults standardUserDefaults]boolForKey:@"update"]) {
         return;
     }
@@ -90,7 +91,7 @@
 - (void)loadMoreData
 {
     //    NSString *allUrlstring = [NSString stringWithFormat:@"/nc/article/%@/%ld-20.html",self.urlString,self.arrayList.count];
-    NSString *allUrlstring = [NSString stringWithFormat:@"/nc/article/%@/%ld-20.html",self.urlString,(self.arrayList.count - self.arrayList.count%10)];
+    NSString *allUrlstring = [NSString stringWithFormat:@"/nc/article/%@/%ld-20.html",self.urlString,(long)(self.arrayList.count - self.arrayList.count%10)];
     [self loadDataForType:2 withURL:allUrlstring];
 }
 
