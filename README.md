@@ -1,46 +1,46 @@
 # SXNews
 模仿网易新闻做的新闻软件<br />
 图片较多但是为了清晰就采用了些大图和gif，加载耽误你时间请见谅，如果你的网速较慢请耐心等待。
-###2月29日更新
-#####说编译不能通过的看这里⬇️<br />
+### 2月29日更新
+##### 说编译不能通过的看这里⬇️<br />
 1.现在已经将工程分为三个分支，old分支即之前代码的保存，master分支将会进行后续框架性的修改，lightToDown分支剔除了字体资源图等文件包体积较小用于给网速不好的人下载。 如果你网速还好建议下载master分支包含所有功能19M左右。<br />
 2.现在项目中的拖入的第三方库都改为Cocoapods支持了。包体积减小，但是拿到手后不能直接RUN需要先进行`pod install` 。如果你觉得麻烦 那就下载old分支的代码吧，下来直接能RUN。<br />
 
 ---
-###2月4日更新
+### 2月4日更新
 
 前两周接入了一个性能观测SDK做调研，虽然对比后公司项目最终还是用了自己的库（因为他们不能观察页面FPS和内存CPU指数），但是小型app接这个第三方的性能SDK还是挺直观的，接入简单并且项目的侵入性也不大。<br />
-######1.先贴个SXNews的总览
+###### 1.先贴个SXNews的总览
 总评分还好哈，统计的维度也是蛮多的，响应时间有的见红了，而且流量也挺大。
 <img src="https://github.com/dsxNiubility/SXNews/raw/master/screenshots/generate.png" alt="Drawing" width="850px" />
-######2.页面打开速度
+###### 2.页面打开速度
 本工程采用了storyboard，xib，手码，frame，autolayout等多种混合开发模式，单结果看来还没有太影响页面初始化和布局速度的地方。
 <img src="https://github.com/dsxNiubility/SXNews/raw/master/screenshots/launch.png" alt="Drawing" width="850px" />
-######3.用户量
+###### 3.用户量
 用户量其实比我想象中的要多，我开始以为全国也就能够零星的亮几个省。可结果表明还是挺受欢迎的，虽然这个项目跨度有点长，虽然有页面也都是采用投机取巧写法写的都能做“反面教材”了，但是有一些点点滴滴的地方还是有点学习价值的。 除了西北，也就贵州和黑龙江没人上github了😂（开玩笑的）？
 <img src="https://github.com/dsxNiubility/SXNews/raw/master/screenshots/active_china.png" alt="Drawing" width="850px" />
-######4.世界地图
+###### 4.世界地图
 这个地域统计里可以看中国也可以看世界，美国和西班牙的友人也有玩过这个app的。（虽然可能是vpn...）
 <img src="https://github.com/dsxNiubility/SXNews/raw/master/screenshots/active_world.png" alt="Drawing" width="850px" />
-#####5.接口
+##### 5.接口
 接口响应速度感觉不太准，还有500万秒的导致把我的平均时长都拉高了，毕竟接口全是抓的网易的不怪我了。
 <img src="https://github.com/dsxNiubility/SXNews/raw/master/screenshots/error.png" alt="Drawing" width="850px" />
 
 ---
-###2月2日更新
+### 2月2日更新
 这次主要是做了三点，上划返回——新闻搜索页——新闻详情页的丰富。
-######1.上划返回
+###### 1.上划返回
 `在一个页面翻到最下面看完了之后直接上划，划到一定高度就可以返回上一页面了`
-######2.新闻搜索
+###### 2.新闻搜索
 `网易新闻新增的新闻搜索功能。 你也许看过哪个非常精彩的新闻但是忘了收藏，仅仅记得大概名字就可以搜到了，这个功能非常实用。 因为之前右上角是天气的网易把它撤了改成搜索了，所以我只好把搜索放在左边了。`
-######3.详情页丰富
+###### 3.详情页丰富
 `还有一点就是增加了，新闻详情页下面的部分。 现在网易支持在新闻详情页就可以进行回复了，所以在详情页下面就会展示热门评价，并且还有相关新闻，和相关关键字，点击会跳到搜索页搜索，并且更多评论相关新闻，还有新闻搜索都是可以点进去的`<br /><br />
 <img src="https://github.com/dsxNiubility/SXNews/raw/master/screenshots/89.gif" alt="Drawing" width="200px" />x
 <img src="https://github.com/dsxNiubility/SXNews/raw/master/screenshots/88.gif" alt="Drawing" width="200px" />x
 <img src="https://github.com/dsxNiubility/SXNews/raw/master/screenshots/90.gif" alt="Drawing" width="200px" />
 
 ---
-###9月28日更新
+### 9月28日更新
 _适配了iOS9_<br />
 _(如果模拟器仍有问题请使用真机调试)_<br />
 _新增了广告功能_<br />
@@ -49,7 +49,7 @@ _(请求里带了时间戳每天的广告都会不同)_<br />
 <img src="https://github.com/dsxNiubility/SXNews/raw/master/screenshots/68.gif" alt="Drawing" width="200px" />
 
 ---
-###8月24日更新
+### 8月24日更新
 _加载gif动图可能较慢请耐心等待_<br />
 <img src="https://github.com/dsxNiubility/SXNews/raw/master/screenshots/66.gif" alt="Drawing" width="200px" />xxxxx
 <img src="https://github.com/dsxNiubility/SXNews/raw/master/screenshots/65.gif" alt="Drawing" width="200px" />
@@ -75,7 +75,7 @@ _加载gif动图可能较慢请耐心等待_<br />
 
 
 ---
-###旧版回顾
+### 旧版回顾
 
 精仿的网易新闻。笔者工作之余，对着网易UI，扒网易图片素材，抓取网易接口等做的。里面完成了主导航页，新闻详情页，图片浏览页，评论页。效果不错，比网上流传的各种和网易新闻UI架构有关的代码都要完整，都要好。
 
